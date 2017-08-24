@@ -30,4 +30,23 @@ public class AdminTilesController {
         return "admin_tongzhi3.page";
     }
 
+    @RequestMapping("/admin_shuju1")
+    public String shuju1(Model model) {
+        return "admin_shuju1.page";
+    }
+
+    @RequestMapping("/admin_shuju2")
+    public String shuju2(Model model) {
+        return "admin_shuju2.page";
+    }
+
+    @RequestMapping("/admin_shuju3")
+    public String shuju3(Model model) {
+        return "admin_shuju3.page";
+    }
+
+    @RequestMapping("/admin_shuju4")
+    public String shuju4(Model model) {
+        return "admin_shuju4.page";
+    }
 }
