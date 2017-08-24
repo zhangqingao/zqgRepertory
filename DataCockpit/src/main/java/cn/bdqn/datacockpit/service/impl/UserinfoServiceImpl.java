@@ -14,7 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.bdqn.datacockpit.mapper.Userinfo;
+import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.mapper.UserinfoMapper;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
