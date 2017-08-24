@@ -30,4 +30,9 @@ public class AdminTilesController {
         return "admin_tongzhi3.page";
     }
 
+    @RequestMapping("/admin_shuju1")
+    public String shuju1(Model model) {
+        return "admin_shuju1.page";
+    }
+
 }
