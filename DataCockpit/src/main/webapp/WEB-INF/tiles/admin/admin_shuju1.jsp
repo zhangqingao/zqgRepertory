@@ -47,7 +47,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -55,7 +55,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                  <tr>
                   <td>3</td>
@@ -63,7 +63,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -71,7 +71,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -79,7 +79,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 <tr>
                   <td>6</td>
@@ -87,7 +87,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -95,7 +95,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataList.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
                 </tr>
                 </tbody>
               </table>
@@ -344,21 +344,21 @@
                   <td>1</td>
                   <td>销售到访关联</td>
                   <td>1</td>
-                  <td><a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataAnalysis.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>
                 <tr>
                  <td>2</td>
                   <td>销售认筹关联</td>
                   <td>1</td>
-                 <td><a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataAnalysis.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                 <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>
                  <tr>
                   <td>3</td>
                   <td>派单到访关联</td>
                   <td>2</td>
-                  <td><a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/tables/dataAnalysis.html" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>               
                 </tbody>

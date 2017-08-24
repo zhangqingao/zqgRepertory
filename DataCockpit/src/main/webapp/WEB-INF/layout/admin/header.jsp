@@ -62,7 +62,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="./admin_index.shtml"><i class="fa fa-link"></i> <span>待审核用户列表</span></a></li>
         <li ><a href="./admin_tongzhi1.shtml"><i class="fa fa-link"></i> <span>通知管理</span></a></li>
-        <li ><a href="#"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
+        <li ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
         <li ><a href="#"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
 
         <li class="treeview">
