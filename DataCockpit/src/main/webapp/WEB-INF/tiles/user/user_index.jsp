@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>快捷菜单</h1>
@@ -298,3 +300,4 @@
 
 </section>
 <!-- /.content -->
+

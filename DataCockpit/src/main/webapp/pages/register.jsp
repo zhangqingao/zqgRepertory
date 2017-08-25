@@ -42,7 +42,7 @@
      
     </style>
 </head>
-<body class="hold-transition register-page" style="background:url(../images/beijing1.jpg)">
+<body class="hold-transition register-page" style="background:url(<%=basePath%>/resource/images/beijing2.jpg)">
 <div class="register-box">
   <div class="register-logo">
     <a href="#" style="margin-left: 50px"><b>账号信息登记</b></a>
