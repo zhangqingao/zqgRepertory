@@ -63,14 +63,14 @@ public class LoginController {
         token.setRememberMe(true);
         try {
             subject.login(token);
-            return "success";
+            return "redirect:/user_index.shtml";
         } catch (IncorrectCredentialsException e) {
             token.clear();
             request.setAttribute("error", "用户或密码不正确！");
             return "login";
         }
     }
-    
+
     public String login(String phone, String password, String onLine, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         HttpSession session = req.getSession();
@@ -98,7 +98,6 @@ public class LoginController {
         session.setAttribute("mess", "");
         return "front/error";
     }
-
 
     /**
      * 注册（申请合作）
