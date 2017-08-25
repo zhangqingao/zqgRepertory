@@ -10,6 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserTilesController {
 
+    @RequestMapping("/user_pass")
+    public String pass(Model model) {
+        return "user_pass.pages";
+    }
+
+    @RequestMapping("/user_update")
+    public String update(Model model) {
+        return "user_update.pages";
+    }
+
     @RequestMapping("/user_index")
     public String index(Model model) {
         return "user_index.pages";
