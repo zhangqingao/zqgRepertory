@@ -65,8 +65,12 @@
 		    <!-- Shiro连接约束配置,即过滤链的定义 -->  
 		    <property name="filterChainDefinitions">  
 		        <value>  
-		            login.jsp=anon
-		            /pages/**=authc
+		            /login.jsp=anon
+		            /pages/register.jsp=anon
+		            /pages/wangjimima.jsp=anon
+		            /pages/yonghuxieyi.jsp=anon
+		            *.shtml=authc
+		            *.jsp=authc
 		        </value>  
 		    </property>
 		</bean>  

@@ -9,13 +9,11 @@
 
 package cn.bdqn.datacockpit.controller;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,18 +52,21 @@ public class LoginController {
     public String login(String phone,String password,HttpServletRequest request){
        phone = request.getParameter("phone");
        password = request.getParameter("password");
+       System.out.println(phone+password);
        Subject subject = SecurityUtils.getSubject();
        UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
        token.setRememberMe(true);
        try{
            subject.login(token);
-           return "success";
+           return "redirect:/user_index.shtml";
        }catch (IncorrectCredentialsException e) {  
            token.clear();
-           request.setAttribute("error", "用户或密码不正确！");
-           return "login";}
+          /* request.setAttribute("error", "用户或密码不正确！");*/
+           return "login";
+           }
        }  
-    public String login(String phone, String password, String onLine, HttpServletResponse res, HttpServletRequest req) {
+    
+   /* public String login(String phone, String password, String onLine, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         HttpSession session = req.getSession();
         // 判断账号密码是否正确
@@ -78,20 +79,8 @@ public class LoginController {
             session.setAttribute("mess", "*账号或者密码输入有误！");
             return "redirect:/login.jsp";
         }
-    }
+    }*/
 
-    @RequestMapping("/testLogin")
-    public String testLogin(HttpServletRequest req) {
-        Cookie[] cookies = req.getCookies();
-        for (Cookie cookie : cookies) {
-            if ("login".equals(cookie.getName())) {
-                return "front/success";
-            }
-        }
-        HttpSession session = req.getSession();
-        session.setAttribute("mess", "");
-        return "front/error";
-    }
 
     /**
      * 注册（申请合作）
