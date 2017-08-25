@@ -10,6 +10,7 @@
 package cn.bdqn.datacockpit.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,6 +70,21 @@ public class UserinfoServiceImpl implements UserinfoService{
     public int updateByPrimaryKey(Userinfo record) {
         int flag=userinfoMapper.updateByPrimaryKey(record);
         return flag;
+    }
+
+    @Override
+    public Userinfo getByPhone(String phone) {
+        return userinfoMapper.getByPhone(phone);
+    }
+
+    @Override
+    public Set<String> getRoles(String phone) {
+        return userinfoMapper.getRoles(phone);
+    }
+
+    @Override
+    public Set<String> getPermissions(String phone) {
+        return userinfoMapper.getPermissions(phone);
     }
 
 }

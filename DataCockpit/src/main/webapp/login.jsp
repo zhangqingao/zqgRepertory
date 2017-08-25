@@ -65,21 +65,21 @@
 
     <form action="<%=basePath %>/login.shtml" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="请输入手机号码" pattern="1[34578]\d{9}" required="required" name="phone">
+        <input type="text" class="form-control" placeholder="请输入手机号码"  name="phone">
         <span style="display: block;margin-top: -30px;margin-left: 291px"><img src="<%=basePath %>/resource/images/iphone.png" style="width: 27px;height: 25px"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="请输入密码" pattern="[0-9a-zA-Z]{8,16}" required="required" name="password">
+        <input type="password" class="form-control" placeholder="请输入密码"  name="password">
         <span style="display: block;margin-top: -30px;margin-left: 293px"><img src="<%=basePath %>/resource/images/locked.png" style="width: 20px;height: 25px"></span>
       </div>
-
-      <div class="form-group has-feedback">
+	<font color="red">${errorMsg }</font>
+      <!-- <div class="form-group has-feedback">
           <div>
              <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
           <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 20px"></div>
         
-      </div>
+      </div> -->
 		 <div class="col-xs-8">
           <div class="checkbox icheck" style="margin-left:10px">
             <label>

@@ -1,9 +1,12 @@
 package cn.bdqn.datacockpit.entity;
 
+import java.util.List;
+import java.util.Set;
+
 public class Userinfo {
     private Integer id;
 
-    private String name;
+    private String userName;
 
     private String job;
 
@@ -14,6 +17,12 @@ public class Userinfo {
     private String email;
 
     private Integer state;
+    
+    private List<String> roles;
+    
+    private Set<String> permission;
+    
+    
 
     public Integer getId() {
         return id;
@@ -23,12 +32,12 @@ public class Userinfo {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getJob() {

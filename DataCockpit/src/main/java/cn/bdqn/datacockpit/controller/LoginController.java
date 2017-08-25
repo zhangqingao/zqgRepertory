@@ -14,8 +14,10 @@ package cn.bdqn.datacockpit.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -54,17 +56,20 @@ public class LoginController {
     }
 
     @RequestMapping("/login")
-    public String login(String phone, String password, String onLine, HttpServletResponse res) {
-        if ("18313184517".equals(phone) && "12345678".equals(password)) {
-            if (onLine != null) {
-                Cookie cookie = new Cookie("login", phone);
-                Integer time = Integer.parseInt(onLine);
-                cookie.setMaxAge(time * 20);
-                res.addCookie(cookie);
-            }
-            return "front/success";
-        }
-        return "front/error";
+    public String login(String phone,String password,HttpServletRequest request){
+       phone = request.getParameter("phone");
+       password = request.getParameter("password");
+       Subject subject = SecurityUtils.getSubject();
+       UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
+       token.setRememberMe(true);
+       try{
+           subject.login(token);
+           return "success";
+       }catch (IncorrectCredentialsException e) {  
+           token.clear();
+           request.setAttribute("error", "用户或密码不正确！");
+           return "login";
+       }  
     }
 
     @RequestMapping("/testLogin")
