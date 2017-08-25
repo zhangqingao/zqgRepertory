@@ -10,28 +10,28 @@
    <properties>
 		<project.build.sourceEncoding>utf8</project.build.sourceEncoding>
 		<maven.compiler.encoding>utf8</maven.compiler.encoding>
-		
+		<shiro.version>1.2.2</shiro.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<jackson.version>2.1.4</jackson.version>
 	</properties>
   <dependencies>
   		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
-			<dependency>
+			<!-- <dependency>
 			    <groupId>org.apache.shiro</groupId>
 			    <artifactId>shiro-core</artifactId>
 			    <version>1.2.3</version>
-			</dependency>
+			</dependency> -->
 			<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
 			<version>3.0.7</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-web -->
-				<dependency>
+				<!-- <dependency>
 				    <groupId>org.apache.shiro</groupId>
 				    <artifactId>shiro-web</artifactId>
 				    <version>1.2.3</version>
-				</dependency>
+				</dependency> -->
 				<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
 				<dependency>
 				    <groupId>org.apache.tiles</groupId>
@@ -299,6 +299,31 @@
         	<groupId>org.hibernate</groupId>
             <version>5.3.5.Final</version>
 		</dependency> -->
+		<!-- 添加shiro支持 -->
+	    <!-- <dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+	    
+	    <dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+	     <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-cas</artifactId>  
+            <version>${shiro.version}</version>  
+        </dependency>   -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		
+       
+		
   </dependencies>
   
   <build>

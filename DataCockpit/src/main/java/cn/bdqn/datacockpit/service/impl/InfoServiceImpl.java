@@ -27,6 +27,7 @@ import cn.bdqn.datacockpit.service.InfoService;
  */
 @Service
 public class InfoServiceImpl implements InfoService {
+    
     @Autowired
     InfoMapper infoMapper;
     
