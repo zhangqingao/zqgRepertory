@@ -5,9 +5,9 @@ import java.util.List;
 import cn.bdqn.datacockpit.entity.Companyinfo;
 
 public interface CompanyinfoMapper {
-	
-	List<Companyinfo> selectAllCompanies();
-	
+
+    List<Companyinfo> selectAllCompanies();
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Companyinfo record);
@@ -15,6 +15,8 @@ public interface CompanyinfoMapper {
     int insertSelective(Companyinfo record);
 
     Companyinfo selectByPrimaryKey(Integer id);
+
+    Companyinfo selectByPhone(String phone);
 
     int updateByPrimaryKeySelective(Companyinfo record);
 
