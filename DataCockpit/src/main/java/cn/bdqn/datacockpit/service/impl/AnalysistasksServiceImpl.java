@@ -9,6 +9,7 @@
 
 package cn.bdqn.datacockpit.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,8 @@ public class AnalysistasksServiceImpl implements AnalysistasksService {
 
     @Override
     public int insert(Analysistasks record) {
+        Date dt = new Date();     
+        record.setStarttime(dt);
         int flag=analysis.insert(record);
         return flag;
     }
@@ -61,12 +64,16 @@ public class AnalysistasksServiceImpl implements AnalysistasksService {
 
     @Override
     public int updateByPrimaryKeySelective(Analysistasks record) {
+        Date dt = new Date();     
+        record.setStarttime(dt);
         int flag=analysis.updateByPrimaryKeySelective(record);
         return flag;
     }
 
     @Override
     public int updateByPrimaryKey(Analysistasks record) {
+        Date dt = new Date();     
+        record.setStarttime(dt);
         int flag=analysis.updateByPrimaryKey(record);
         return flag;
     }

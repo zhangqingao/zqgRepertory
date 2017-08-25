@@ -13,7 +13,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	window.location.href="<%=basePath %>/testLogin.shtml";
+	window.location.href="<%=basePath %>/login.jsp";
 </script>
 </body>
 </html>

@@ -11,9 +11,9 @@
 	
 	<!-- springMVC注解驱动 -->
 	<mvc:annotation-driven >
-		 <mvc:argument-resolvers>
+		 <!-- <mvc:argument-resolvers>
             <bean class="cn.bdqn.datacockpit.datatable.SeacherConditionArgumentResolver"/>
-        </mvc:argument-resolvers>
+        </mvc:argument-resolvers> -->
 	</mvc:annotation-driven>
 
 	<!-- 引入tiles配置文件 -->

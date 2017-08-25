@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ××××数据平台
+       数据驾驶舱平台
         <!-- <small>advanced tables</small> -->
       </h1>
       <ol class="breadcrumb">
@@ -26,7 +26,7 @@
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">通知管理</h3>
             </div>
-            <div style="margin-left: 910px;margin-top: -35px"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px;">添加通知</button></a></div>
+            <div style="margin-left: 910px;margin-top: -35px"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加通知</button></a></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>

@@ -9,6 +9,7 @@
 
 package cn.bdqn.datacockpit.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,12 +43,16 @@ public class TableinfoServiceImpl implements TableinfoService {
 
     @Override
     public int insert(Tableinfo record) {
+        Date dt = new Date();     
+        record.setUpdatetime(dt);
         int flag=tableinfo.insert(record);
         return flag;
     }
 
     @Override
     public int insertSelective(Tableinfo record) {
+        Date dt = new Date();     
+        record.setUpdatetime(dt);
         int flag=tableinfo.insertSelective(record);
         return flag;
     }
