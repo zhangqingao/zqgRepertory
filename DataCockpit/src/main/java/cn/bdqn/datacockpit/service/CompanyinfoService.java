@@ -69,4 +69,12 @@ public interface CompanyinfoService {
      */
     Companyinfo selectByPhone(String phone);
 
+    /**
+     * 根据phone查注册号码是否存在
+     * 
+     * @param phone
+     * @return
+     */
+    int selectPhoneNum(String phone);
+
 }

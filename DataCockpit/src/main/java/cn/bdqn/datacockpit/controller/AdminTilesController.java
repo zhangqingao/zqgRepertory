@@ -69,11 +69,6 @@ public class AdminTilesController {
         return "login";
     }
 
-    /***
-     * @author YuanTian
-     * @param request：查询所有信息
-     * @return
-     */
     @RequestMapping("/selectAllUserinfo")
     @Transactional(readOnly = true)
     public String selectAllUserinfo(Model model) {

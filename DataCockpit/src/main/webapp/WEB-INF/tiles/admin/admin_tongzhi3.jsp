@@ -18,19 +18,18 @@
         <div class="col-md-12">
           <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title" style="font-weight: bold;font-size: 20px">编辑消息
-                <small><b>正文</b></small>
-              </h3>
+              <h3 class="box-title" style="font-weight: bold;font-size: 20px">
+                <small><b></b></small>
+              </h3>  
               <!-- tools box -->
-              <div style="text-align: center"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles" style="width: 700px;height: 30px"></div>
+              <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles1" style="width: 100%;height: 30px" required="required"></div>
               <br>
-              <div style="text-align: center" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles" style="width: 700px;height: 30px"></div>
+              <div style="text-align: left;" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles2" style="width: 100%;height: 30px" required="required"></div>
 
               <div class="pull-right box-tools">
                 
-                <button type="button" class="btn btn-info btn-sm"  data-toggle="tooltip"
-                        title="clear">
-                  清空</button>
+               <button type="button" class="btn btn-info btn-sm"  data-toggle="tooltip"
+                        title="clear" style="margin-top: 12px;">清空</button>
               </div>
               <!-- /. tools -->
             </div>

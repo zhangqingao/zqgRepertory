@@ -106,4 +106,13 @@ public class CompanyinfoServiceImpl implements CompanyinfoService {
         return companyinfo.selectByPhone(phone);
     }
 
+    /**
+     * 根据phone查注册号码是否存在
+     */
+    @Override
+    public int selectPhoneNum(String phone) {
+
+        return companyinfo.selectPhoneNum(phone);
+    }
+
 }

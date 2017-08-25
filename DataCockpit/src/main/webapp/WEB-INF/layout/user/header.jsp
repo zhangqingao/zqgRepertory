@@ -21,9 +21,8 @@
       <div class="navbar-custom-menu">
                  
         <ul class="nav navbar-nav">
-          <li> <span style="color:white;display:block;margin-top:15px">欢迎您:${info.name }</span></li>
-          <li><a href="#">修改密码</a></li>
-          <li><a href="#">退出登录</a></li>
+          <li><a href="./updatePassword.shtml">修改密码</a></li>
+          <li><a href="./exit.shtml">退出登录</a></li>
         </ul>
       </div>
     </nav>
@@ -40,8 +39,8 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>比尔盖茨&emsp;董事长</p>
-          <p>美国微软公司</p>
+          <p>${info.name }&emsp;${info.job }</p>
+          <p>${info.corpname }</p>
           <!-- Status -->
           <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
         </div>

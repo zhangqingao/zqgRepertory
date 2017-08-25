@@ -10,8 +10,8 @@
 <base href="<%=basePath %>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="refresh" content="5;./login.jsp">
-  <title>用户页面</title>
+  <meta http-equiv="refresh" content="3;./login.jsp">
+  <title>信息记录</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  <!-- Bootstrap 3.3.7 -->
@@ -45,28 +45,22 @@
   <script src="<%=basePath %>/resource/js/adminlte.min.js"></script>
 </head>
 <body>
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-left:0px">
    
     <section class="content-header">
-      <h1>
-        申请信息记录
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> 个人中心</a></li>
-        <li class="active">申请信息记录</li>
-      </ol>
+      <center><h1>申请信息记录</h1></center>
+      
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content container-fluid" style="background:url(resource/images/pic5.jpg);width: 100%;height:600px">
 
      
       <center>
        
-        <div class="alert alert-success alert-dismissible" style="width: 300px;height: 100px">
+        <div class="alert alert-success alert-dismissible" style="width: 300px;height: 100px;margin-top:200px">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> 提示</h4>
+                <h4>提示</h4>
                    <p>您的合作申请已成功提交</p>
                    <p>我们将尽快联系您！</p>
               </div>
