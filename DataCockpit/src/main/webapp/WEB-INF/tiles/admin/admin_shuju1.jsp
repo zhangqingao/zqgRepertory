@@ -29,8 +29,8 @@
             <div class="tab-content">
               <!-- Font Awesome Icons -->
               <div class="tab-pane active" id="data1">
-              &nbsp;&nbsp;<span style="color: red">万科集团</span>
-              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">新增数据表</button></div>    
+              &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;;margin-left: 4px;font-weight: bold;">万科集团</span>
+              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px;">新增数据表</button></div>    
                   <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -233,7 +233,7 @@
 
               <!-- data2-->
               <div class="tab-pane" id="data2">
-                  &nbsp;&nbsp;<span style="color: red">万科集团</span>
+                  &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span>
               <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">新增数据关系</button></div>   
 
                   <table id="example3" class="table table-bordered table-striped">
@@ -329,7 +329,7 @@
             </div>
             <!--data3-->
             <div class="tab-pane" id="data3">
-                  &nbsp;&nbsp;<span style="color: red">万科集团</span>
+                  &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span>
               <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4" style="width: 120px;height: 20px;font-size: 11px;line-height: 0px">新增数据分析任务</button></div>    
                   <table id="example4" class="table table-bordered table-striped">
                 <thead>
