@@ -62,7 +62,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="./admin_index.shtml"><i class="fa fa-link"></i> <span>待审核用户列表</span></a></li>
         <li ><a href="./admin_tongzhi1.shtml"><i class="fa fa-link"></i> <span>通知管理</span></a></li>
-        <li ><a href="#"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
+        <li ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
         <li ><a href="#"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
 
         <li class="treeview">
@@ -72,9 +72,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>碧桂园房地产开发有限公司</a></li>
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>万科房地产开发有限公司</a></li>
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>万达房地产开发有限公司</a></li>
+            <li><a href="./admin_shuju1.shtml">&emsp;<i class="fa fa-genderless"></i>碧桂园房地产开发有限公司</a></li>
+            <li><a href="./admin_shuju1.shtml">&emsp;<i class="fa fa-genderless"></i>万科房地产开发有限公司</a></li>
+            <li><a href="./admin_shuju1.shtml">&emsp;<i class="fa fa-genderless"></i>万达房地产开发有限公司</a></li>
           </ul>
         </li>
 

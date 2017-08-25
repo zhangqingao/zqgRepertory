@@ -5,7 +5,7 @@
  * Date:2017年8月21日下午1:58:39
  * Copyright (c) 2017, bluemobi All Rights Reserved.
  *
-*/
+ */
 
 package cn.bdqn.datacockpit.service.impl;
 
@@ -19,18 +19,19 @@ import cn.bdqn.datacockpit.mapper.UserinfoMapper;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
 /**
- * Description:	   <br/>
- * Date:     2017年8月21日 下午1:58:39 <br/>
- * @author   caoS
- * @version  
- * @see 	 
+ * Description: <br/>
+ * Date: 2017年8月21日 下午1:58:39 <br/>
+ * 
+ * @author caoS
+ * @version
+ * @see
  */
 @Service
-public class UserinfoServiceImpl implements UserinfoService{
-    
+public class UserinfoServiceImpl implements UserinfoService {
+
     @Autowired
     UserinfoMapper userinfoMapper;
-    
+
     @Override
     public List<Userinfo> selectAllUserinfo() {
         return userinfoMapper.selectAllUserinfo();
@@ -38,19 +39,19 @@ public class UserinfoServiceImpl implements UserinfoService{
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        int flag=userinfoMapper.deleteByPrimaryKey(id);
+        int flag = userinfoMapper.deleteByPrimaryKey(id);
         return flag;
     }
 
     @Override
     public int insert(Userinfo record) {
-        int flag=userinfoMapper.insert(record);
+        int flag = userinfoMapper.insert(record);
         return flag;
     }
 
     @Override
     public int insertSelective(Userinfo record) {
-        int flag=userinfoMapper.insertSelective(record);
+        int flag = userinfoMapper.insertSelective(record);
         return flag;
     }
 
@@ -61,15 +62,14 @@ public class UserinfoServiceImpl implements UserinfoService{
 
     @Override
     public int updateByPrimaryKeySelective(Userinfo record) {
-        int flag=userinfoMapper.updateByPrimaryKeySelective(record);
+        int flag = userinfoMapper.updateByPrimaryKeySelective(record);
         return flag;
     }
 
     @Override
     public int updateByPrimaryKey(Userinfo record) {
-        int flag=userinfoMapper.updateByPrimaryKey(record);
+        int flag = userinfoMapper.updateByPrimaryKey(record);
         return flag;
     }
 
 }
-
