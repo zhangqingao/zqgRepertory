@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="cn.bdqn.datacockpit.entity.Companyinfo"
+    pageEncoding="utf-8" isELIgnored="false"%>
   <!-- Main Header -->
   <header class="main-header">
 
@@ -19,7 +19,9 @@
       </a>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
+                 
         <ul class="nav navbar-nav">
+          <li> <span style="color:white;display:block;margin-top:15px">欢迎您:${info.name }</span></li>
           <li><a href="#">修改密码</a></li>
           <li><a href="#">退出登录</a></li>
         </ul>
@@ -70,8 +72,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>资料修改</a></li>
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>修改密码</a></li>
+            <li><a href="./updateInfo.shtml?phone=${info.phone }">&emsp;<i class="fa fa-genderless"></i>资料修改</a></li>
+            <li><a href="./updatePassword.shtml">&emsp;<i class="fa fa-genderless"></i>修改密码</a></li>
           </ul>
         </li>
 

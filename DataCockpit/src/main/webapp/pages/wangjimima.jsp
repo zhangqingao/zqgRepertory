@@ -77,7 +77,7 @@
           </center>
         </div>
        
-       <a href="<%=basePath%>/pages/tet.jsp">logo</a>
+      
         
       </div>
       <!-- /.box -->

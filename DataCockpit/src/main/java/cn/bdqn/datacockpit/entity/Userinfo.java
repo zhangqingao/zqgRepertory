@@ -1,9 +1,27 @@
+/**
+ * Project Name:adminlte
+ * File Name:Record.java
+ * Package Name:cn.bdqn.lesson.model
+ * Date:2017年8月21日下午3:47:38
+ * Copyright (c) 2017, bluemobi All Rights Reserved.
+ */
+
 package cn.bdqn.datacockpit.entity;
 
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Description: <br/>
+ * Date: 2017年8月21日 下午3:47:38 <br/>
+ * 
+ * @author junwen.bao@airintelli.com
+ * @version
+ * @see
+ */
+
 public class Userinfo {
+
     private Integer id;
 
     private String userName;
@@ -79,4 +97,5 @@ public class Userinfo {
     public void setState(Integer state) {
         this.state = state;
     }
+
 }

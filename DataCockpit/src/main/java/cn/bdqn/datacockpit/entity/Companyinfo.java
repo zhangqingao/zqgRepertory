@@ -1,6 +1,5 @@
 package cn.bdqn.datacockpit.entity;
 
-
 public class Companyinfo {
 
     private Integer id;
@@ -92,4 +91,17 @@ public class Companyinfo {
     public void setApproval(Integer approval) {
         this.approval = approval;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Companyinfo [id=" + id + ", corpname=" + corpname + ", phone=" + phone + ", name=" + name + ", job="
+                + job + ", password=" + password + ", email=" + email + ", state=" + state + ", approval=" + approval
+                + "]";
+    }
+
 }

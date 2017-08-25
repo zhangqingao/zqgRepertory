@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" isELIgnored="false"%>
     
 <%
 	String context = request.getContextPath();
@@ -64,6 +64,7 @@
     <p class="login-box-msg">请输入您的账号密码</p>
 
     <form action="<%=basePath %>/login.shtml" method="post">
+    <span style="color:red">${mess }</span>
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="请输入手机号码"  name="phone">
         <span style="display: block;margin-top: -30px;margin-left: 291px"><img src="<%=basePath %>/resource/images/iphone.png" style="width: 27px;height: 25px"></span>

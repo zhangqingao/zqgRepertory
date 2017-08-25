@@ -10,7 +10,7 @@
 <base href="<%=basePath %>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="refresh" content="5;./starter_qiyemoban.html">
+  <meta http-equiv="refresh" content="5;./login.jsp">
   <title>用户页面</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -49,8 +49,8 @@
    
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        申请信息记录
+        
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 个人中心</a></li>

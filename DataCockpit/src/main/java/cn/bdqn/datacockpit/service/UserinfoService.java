@@ -15,16 +15,20 @@ import java.util.Set;
 import cn.bdqn.datacockpit.entity.Userinfo;
 
 /**
- * Description:	   <br/>
- * Date:     2017年8月21日 下午1:57:45 <br/>
- * @author   caoS
- * @version  
- * @see 	 
+ * Description: <br/>
+ * Date: 2017年8月21日 下午1:57:45 <br/>
+ * 
+ * @author caoS
+ * @version
+ * @see
  */
 public interface UserinfoService {
     
 List<Userinfo> selectAllUserinfo();
     
+
+    List<Userinfo> selectAllUserinfo();
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Userinfo record);
@@ -58,4 +62,3 @@ List<Userinfo> selectAllUserinfo();
      */
     public Set<String> getPermissions(String phone);
 }
-
