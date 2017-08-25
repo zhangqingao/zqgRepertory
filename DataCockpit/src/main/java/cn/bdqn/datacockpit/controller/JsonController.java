@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.bdqn.datacockpit.datatable.DatatableResult;
 import cn.bdqn.datacockpit.datatable.IsSearchCondition;
 import cn.bdqn.datacockpit.datatable.SearchCondition;
+import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
 /**
@@ -35,6 +37,9 @@ public class JsonController {
     @Autowired
     private UserinfoService us;
 
+    @Autowired
+    private InfoService ifo;
+
     @RequestMapping(value = "dt_list")
     public DatatableResult<Userinfo> datatable(@IsSearchCondition SearchCondition searchCondition) {
         DatatableResult<Userinfo> list = new DatatableResult<>();
@@ -47,6 +52,15 @@ public class JsonController {
     public DatatableResult<Userinfo> datatable2(@RequestBody SearchCondition searchCondition) {
         DatatableResult<Userinfo> list = new DatatableResult<>();
         List<Userinfo> list2 = us.selectAllUserinfo();
+        list.setData(list2);
+        return list;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "dt_lists3")
+    public DatatableResult<Info> datatable23(@RequestBody SearchCondition searchCondition) {
+        DatatableResult<Info> list = new DatatableResult<>();
+        List<Info> list2 = ifo.selectAllInfo();
         list.setData(list2);
         return list;
     }

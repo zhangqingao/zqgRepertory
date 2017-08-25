@@ -26,7 +26,7 @@
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">通知管理</h3>
             </div>
-            <div style="margin-left: 180px;margin-top: -35px"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加通知</button></a></div>
+            <div style="margin-left: 910px;margin-top: -35px"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px;">添加通知</button></a></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -37,90 +37,7 @@
                 </tr>
                 </thead>
                 <tbody id="check_1">
-                <tr>
-                  <td>1</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                 
-                  <td>打酱油</td>
-                 <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  
-                  <td>打酱油打酱油打酱油打酱油打酱油打酱油打酱油打酱油打酱油打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  
-                  <td>打酱油</td>
-                 <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  
-                  <td>打酱油</td>
-                 <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                 
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                 
-                  <td>打酱油</td>
-                  <td><a class="editor-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">编辑</button></a>&emsp;&emsp;&emsp;&emsp;&emsp; 
-                    <a class="delete-1"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">删除</button></a></td>
-                </tr>
+                               
                 </tbody>
                 
               </table>
