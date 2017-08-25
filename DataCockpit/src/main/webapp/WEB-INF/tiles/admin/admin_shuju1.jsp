@@ -156,18 +156,19 @@
 
 <div class="modal fade bs-example-modal-sm" id="myModal2" role="dialog" aria-label="myModalLabel" aria-hidden="true">  
     <div class="modal-dialog modal-sm" style="width: 40%">  
-        <div class="modal-content">  
+        <div class="modal-content"> 
+        <form action="" method="get">   
             <div class="modal-header">  
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
                     <span aria-hidden="true">×</span>  
                 </button>  
                 <p><h5 class="modal-title">新增的数据表名：<input type="text" name="shujuname"></h5></p>
-                <p><h5 class="modal-title">数据列的默认图形展示：<input type="radio" name="shujuname">折线图
+                <p><h5 class="modal-title">数据列的默认图形展示：<input type="radio" name="shujutu" checked="checked" value="折线图">折线图
                 &nbsp;&nbsp;
-                <input type="radio" name="shujuname">柱状图</h5></p> 
+                <input type="radio" name="shujutu" value="柱状图">柱状图</h5></p> 
             </div>  
             <div class="modal-body">  
-                <form>  
+                
                     <div class="form-group">  
                         <table width="100%" border="1px" cellspacing="0px" cellpadding="0px" id="tb">
                           <tr>
@@ -213,16 +214,17 @@
                           </tr>
                         </table> 
                     </div>  
-                </form>  
+               
             </div>  
             <div class="modal-footer">  
                 <button type="button" class="btn btn-default" data-dismiss="modal">  
                     关闭 
                 </button>
-                <button type="button" class="btn btn-primary">  
+                <button type="submit" class="btn btn-primary">  
                     保存  
                 </button>
             </div> 
+             </form>  
         </div>  
     </div>  
   </div>      
@@ -231,7 +233,7 @@
 
               <!-- data2-->
               <div class="tab-pane" id="data2">
-                  &nbsp;&nbsp;碧桂园房地产开发有限公司  
+                  &nbsp;&nbsp;<span style="color: red">万科集团</span>
               <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">新增数据关系</button></div>   
 
                   <table id="example3" class="table table-bordered table-striped">
@@ -327,7 +329,7 @@
             </div>
             <!--data3-->
             <div class="tab-pane" id="data3">
-                  &nbsp;&nbsp;碧桂园房地产开发有限公司  
+                  &nbsp;&nbsp;<span style="color: red">万科集团</span>
               <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4" style="width: 120px;height: 20px;font-size: 11px;line-height: 0px">新增数据分析任务</button></div>    
                   <table id="example4" class="table table-bordered table-striped">
                 <thead>
