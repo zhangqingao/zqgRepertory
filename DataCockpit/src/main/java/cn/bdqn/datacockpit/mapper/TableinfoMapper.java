@@ -1,8 +1,12 @@
 package cn.bdqn.datacockpit.mapper;
 
+import java.util.List;
+
 import cn.bdqn.datacockpit.entity.Tableinfo;
 
 public interface TableinfoMapper {
+    List<Tableinfo> selectAllTableInfo();
+    
     int deleteByPrimaryKey(Integer id);
 
     int insert(Tableinfo record);

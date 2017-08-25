@@ -9,6 +9,8 @@
 
 package cn.bdqn.datacockpit.service;
 
+import java.util.List;
+
 import cn.bdqn.datacockpit.entity.Tableinfo;
 
 /**
@@ -19,6 +21,8 @@ import cn.bdqn.datacockpit.entity.Tableinfo;
  * @see 	 
  */
 public interface TableinfoService {
+    List<Tableinfo> selectAllTableInfo();
+    
     int deleteByPrimaryKey(Integer id);
 
     int insert(Tableinfo record);
