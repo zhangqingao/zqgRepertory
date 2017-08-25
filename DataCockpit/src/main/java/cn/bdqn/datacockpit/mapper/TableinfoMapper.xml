@@ -13,6 +13,13 @@
   <sql id="Base_Column_List" >
     id, name, updateTime, physicalTableName, cid, state, showtype
   </sql>
+  
+  <select id="selectAllTableInfo" resultType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from tableinfo
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
