@@ -77,11 +77,11 @@
             <img src="<%=basePath %>/resource/images/social-wordpress.png" style="width: 27px;height: 25px">
         </span>
       </div>
-
+		<span id="ph" style="color:red"></span>
       <div class="form-group has-feedback" style="margin-top: 30px">
 
         <sapn style="display: block;margin-bottom: -30px">手机号码： </sapn>
-            <input type="text" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请输入手机号码" name="phone">
+            <input type="text" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请输入手机号码" name="phone" pattern="1[34578]\d{9}" required="required">
         <span style="display: block;margin-top: -30px;margin-left: 320px">
             <img src="<%=basePath %>/resource/images/iphone.png" style="width: 27px;height: 25px">
         </span>
@@ -95,7 +95,7 @@
       </div>
       <div class="form-group has-feedback" style="margin-top: 30px">
         <sapn style="display: block;margin-bottom: -30px">密码： </sapn>
-            <input type="password" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请输入密码" name="password">
+            <input type="password" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请输入密码" name="password" pattern="[0-9a-zA-Z]{8,16}" required="required">
         <span style="display: block;margin-top: -30px;margin-left: 320px">
             <img src="<%=basePath %>/resource/images/locked.png" style="width: 27px;height: 25px">
         </span>
@@ -103,7 +103,7 @@
       <span id="mess" style="color:red"></span>
       <div class="form-group has-feedback" style="margin-top: 30px">
         <sapn style="display: block;margin-bottom: -30px">确认密码： </sapn>
-            <input type="password" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请确认确认密码" name="password1">
+            <input type="password" class="form-control" style="width: 270px;margin-left: 85px" placeholder="请确认确认密码" name="password1" pattern="[0-9a-zA-Z]{8,16}" required="required">
          <span style="display: block;margin-top: -30px;margin-left: 320px">
              <img src="<%=basePath %>/resource/images/checkmark.png" style="width: 27px;height: 25px">
         </span>
@@ -188,6 +188,27 @@
  	  
  		
  	})
+ </script>
+ <script type="text/javascript">
+ 	$("input[name=phone]").blur(function(){
+ 		$.ajax({
+ 			url:"<%=basePath %>/testPhone.shtml",
+ 			type:"post",
+ 			data:{
+ 				phone:$("input[name=phone]").val()
+ 			},
+ 			dataType:"json",
+ 			success:function(result){
+ 				var phnum=result.num;
+ 				var errormess=result.error;
+ 				if(phnum==1){
+ 					$("#ph").html(errormess);
+ 				}else{
+ 					$("#ph").html(errormess);
+ 				}
+ 			}
+ 		})
+ 	});
  </script>
  
 </body>

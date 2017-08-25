@@ -12,6 +12,9 @@
 
 package cn.bdqn.datacockpit.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
@@ -139,6 +143,12 @@ public class LoginController {
         return "redirect:/user_update.shtml";
     }
 
+    /**
+     * 把密码带到页面
+     * 
+     * @param req
+     * @return
+     */
     @RequestMapping("/updatePassword")
     public String updatePassword(HttpServletRequest req) {
         HttpSession session = req.getSession();
@@ -148,6 +158,12 @@ public class LoginController {
         return "redirect:/user_pass.shtml";
     }
 
+    /**
+     * 修改密码
+     * 
+     * @param company
+     * @return
+     */
     @RequestMapping("/updatePassword1")
     public String updatePassword1(Companyinfo company) {
         int flag = companyinfo.updateByPrimaryKeySelective(company);
@@ -155,5 +171,39 @@ public class LoginController {
             return "redirect:/user_index.shtml";
         }
         return "redirect:/user_pass.shtml";
+    }
+
+    /**
+     * 检验注册的手机号码是否存在
+     * 
+     * @param phone
+     * @return
+     */
+    @RequestMapping("/testPhone")
+    @ResponseBody
+    public Map<String, Object> testPhone(String phone) {
+        int flag = companyinfo.selectPhoneNum(phone);
+        Map<String, Object> hm = new HashMap<String, Object>();
+        if (flag >= 1) {
+            hm.put("num", 1);
+            hm.put("error", "*您输入的手机号码已存在！");
+        } else {
+            hm.put("num", 0);
+            hm.put("error", "");
+        }
+        return hm;
+    }
+
+    /**
+     * 退出登录
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/exit")
+    public String exit(HttpServletRequest req) {
+        req.getSession().removeAttribute("comp");
+
+        return "redirect:/login.jsp";
     }
 }

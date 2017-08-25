@@ -1,4 +1,4 @@
-package cn.bdqn.datacockpit.tiles;
+package cn.bdqn.datacockpit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

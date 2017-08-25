@@ -22,8 +22,8 @@
                  
         <ul class="nav navbar-nav">
           <li> <span style="color:white;display:block;margin-top:15px">欢迎您:${info.name }</span></li>
-          <li><a href="#">修改密码</a></li>
-          <li><a href="#">退出登录</a></li>
+          <li><a href="./updatePassword.shtml">修改密码</a></li>
+          <li><a href="./exit.shtml">退出登录</a></li>
         </ul>
       </div>
     </nav>
