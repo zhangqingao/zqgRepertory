@@ -63,7 +63,7 @@ public class LoginController {
        }catch (IncorrectCredentialsException e) {  
            token.clear();
            request.setAttribute("error", "用户或密码不正确！");
-           return "login";
+           return "login";}
        }  
     public String login(String phone, String password, String onLine, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);

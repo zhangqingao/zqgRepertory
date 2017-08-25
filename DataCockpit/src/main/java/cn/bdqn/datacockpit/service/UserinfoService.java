@@ -24,9 +24,6 @@ import cn.bdqn.datacockpit.entity.Userinfo;
  */
 public interface UserinfoService {
     
-List<Userinfo> selectAllUserinfo();
-    
-
     List<Userinfo> selectAllUserinfo();
 
     int deleteByPrimaryKey(Integer id);
