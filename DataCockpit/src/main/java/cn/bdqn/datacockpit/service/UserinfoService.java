@@ -14,16 +14,17 @@ import java.util.List;
 import cn.bdqn.datacockpit.entity.Userinfo;
 
 /**
- * Description:	   <br/>
- * Date:     2017年8月21日 下午1:57:45 <br/>
- * @author   caoS
- * @version  
- * @see 	 
+ * Description: <br/>
+ * Date: 2017年8月21日 下午1:57:45 <br/>
+ * 
+ * @author caoS
+ * @version
+ * @see
  */
 public interface UserinfoService {
-    
+
     List<Userinfo> selectAllUserinfo();
-    
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Userinfo record);
@@ -36,4 +37,3 @@ public interface UserinfoService {
 
     int updateByPrimaryKey(Userinfo record);
 }
-

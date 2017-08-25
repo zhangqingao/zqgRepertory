@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -37,30 +38,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>abc@abc.com</td>
-                  <td>张飞</td>
-                  <td>内容编辑</td>
-                  <td>17000000000</td>
-                  <td><a href="">删除</a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>bcd@abc.com</td>
-                  <td>关羽</td>
-                  <td>数据分析专员</td>
-                  <td>17000000001</td>
-                  <td><a href="">删除</a></td>
-                </tr>
-                 <tr>
-                  <td>3</td>
-                  <td>efg@abc.com</td>
-                  <td>赵云</td>
-                  <td>副总经理</td>
-                  <td>17000000002</td>
-                  <td><a href="">删除</a></td>
-                </tr>
+
                 </tbody>
               </table>
             </div>

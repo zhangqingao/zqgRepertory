@@ -1,7 +1,10 @@
-package cn.bdqn.datacockpit.tiles;
+package cn.bdqn.datacockpit.controller;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -58,9 +61,28 @@ public class AdminTilesController {
     }
 
     @RequestMapping("insertAdminReg")
-    public void insertAdminReg(Userinfo record) {
+    public String insertAdminReg(Userinfo record) {
         System.out.println(record);
         int flag = us.insertSelective(record);
         System.out.println("------------------flag为：" + flag);
+        // 转发
+        return "login";
+    }
+
+    /***
+     * @author YuanTian
+     * @param request：查询所有信息
+     * @return
+     */
+    @RequestMapping("/selectAllUserinfo")
+    @Transactional(readOnly = true)
+    public String selectAllUserinfo(Model model) {
+
+        List<Userinfo> lists = us.selectAllUserinfo();
+        System.out.println(lists);
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_shuju4.page";
     }
 }

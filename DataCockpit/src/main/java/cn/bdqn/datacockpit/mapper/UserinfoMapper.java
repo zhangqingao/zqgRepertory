@@ -5,9 +5,9 @@ import java.util.List;
 import cn.bdqn.datacockpit.entity.Userinfo;
 
 public interface UserinfoMapper {
-    
+
     List<Userinfo> selectAllUserinfo();
-    
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Userinfo record);
