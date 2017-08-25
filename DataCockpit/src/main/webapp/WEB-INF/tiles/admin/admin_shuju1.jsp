@@ -402,7 +402,7 @@
                               </select>                       
                               <br/><br/>
                         附加规则:<br/><br/>
-                              <textarea cols="92%" rows="8" required="required" placeholder="输入入算法规则" maxlength="100"></textarea>
+                              <textarea cols="auto" rows="8" required="required" placeholder="输入入算法规则" maxlength="200" style="width: 570px;height: 200px;"></textarea>                
                     </div>  
                 </form>  
             </div>

@@ -70,4 +70,11 @@ public class Userinfo {
     public void setState(Integer state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "Userinfo [id=" + id + ", name=" + name + ", job=" + job + ", password=" + password + ", phone=" + phone
+                + ", email=" + email + ", state=" + state + "]";
+    }
+
 }

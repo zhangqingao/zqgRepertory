@@ -21,7 +21,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">
-              <a href="file:///C:/Users/YuanTian/Desktop/AdminLTE-2.4.0-rc/AdminLTE-2.4.0-rc/pages/examples/register.html#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">添加新账号</button></a>
+              <a href="./adminReg.jsp" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">添加新账号</button></a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
