@@ -18,11 +18,15 @@
               	window.location.href="./#"
               })
             </script>
-           <script type="text/javascript">
-          		function pop1(){
-          			window.location.href="./admin_tongzhi3.shtml"
+            
+           <!-- <script type="text/javascript">
+          		function pop1(data, type, row){
+          			console.log(row);
+          			var title=$("title").val();
+          			var a =$("publisher").val();
+          			window.location.href="./admin_tongzhi3.shtml?title="+title+"&publisher="+publisher;
           		}
-           </script>
+           </script> -->
            
 <script type="text/javascript">
    
@@ -34,14 +38,19 @@
       show:false,
       backdrop:"static",
       keyboard:false
-    }
-    
+   	 }    
     ); 
      });
   
 </script>
 <script>
+
+
+
   $(function () {
+	  /* function myEditor(){
+		  console.log(111);
+	  } */
 	var t =	$('#example1').DataTable({
 		 "ajax"		: {
 	    	  "url"		: "<%=request.getContextPath()%>/dt_lists3.shtml",
@@ -51,13 +60,28 @@
 	    		  return JSON.stringify(d);
 	    	  }
 	      },
-	      "columns": [
-	    	  {"data": "office",
-	    	 "defaultContent": "1"},
-	    	  {"data":"title"},
-	    	  {"data": function(data, type, row) { return '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-primary btn-lg update_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1()">编辑</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-primary btn-lg delete_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop2()">删除</button>'; } },
-	      ],
-	      
+	      "columns" :[
+	    	  {"data": "office","defaultContent": "1"},
+	    	  {"data":"title"}
+	                  
+	                  ],
+	      "columnDefs": [
+					{
+	    		    "targets": 2,
+	    		    /* "data": "title", */
+	    		    "render": function ( data, type, row, meta ) {
+	    		    /* 将当前值传入controller */	    		    	
+	    		     return '&emsp;&emsp;\
+	    		     			<a href="./admin_tongzhi3.shtml?id='+row.id+'">\
+	    		     			 <button type="button" class="btn btn-primary btn-lg update_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1(data, type, row)">编辑</button>\
+	    		    			</a>\
+	    		    			&emsp;&emsp;&emsp;\
+	    		    			<a href="./tongzhi_delete.shtml?id='+row.id+'" onclick="javascript:return del();">\
+	    		    			<button type="button" class="btn btn-primary btn-lg delete_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" >删除</button>\
+	    		    			</a>';	 	    		    			
+	    		    }
+	    		  }
+	      ],	      
 	});
 		t.on('order.dt search.dt',
 		 function() {
@@ -66,19 +90,17 @@
    		              order: 'applied',
    		        }).nodes().each(function(cell, i) {
    		              cell.innerHTML = i + 1;   		  	  
-   		  	   })        	 	
+   		  	   	})        	 	
    		  	   }).draw();		
   })
-  
-
-  
+ 
 </script>
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    CKEDITOR.replace('editor1')
+    ///CKEDITOR.replace('editor1')
     //bootstrap WYSIHTML5 - text editor
-    $('.textarea').wysihtml5()
+    //$('.textarea').wysihtml5()
   })
 </script>
