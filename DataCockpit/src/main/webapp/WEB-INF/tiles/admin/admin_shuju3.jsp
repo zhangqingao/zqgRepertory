@@ -16,10 +16,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-            
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
               <h3 class="box-title" style="color: red">数据分析任务列表</h3> 
             </div>

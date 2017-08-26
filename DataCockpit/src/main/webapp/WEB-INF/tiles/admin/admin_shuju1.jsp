@@ -16,14 +16,13 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-
+          <div class="box" style="border-top-color: #DD4B39;">
           <!--<div class="box"> -->
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#data1" data-toggle="tab">数据表管理</a></li>
-              <li><a href="#data2" data-toggle="tab">数据关系管理</a></li>
-              <li><a href="#data3" data-toggle="tab">分析任务管理</a></li>
+              <li class="active" style="border-top-color: white;"><a href="#data1" data-toggle="tab">数据表管理</a></li>
+              <li  style="border-top-color: white;"><a href="#data2" data-toggle="tab">数据关系管理</a></li>
+              <li  style="border-top-color: white;"><a href="#data3" data-toggle="tab">分析任务管理</a></li>
             </ul>
 
             <div class="tab-content">
