@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -14,6 +14,7 @@
 
     <!-- Main content -->
     <section class="content">
+    <form action="./tongzhi_update.shtml?id=${info.id }" method="post">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-info">
@@ -21,36 +22,34 @@
               <h3 class="box-title" style="font-weight: bold;font-size: 20px">
                 <small><b></b></small>
               </h3>  
+              
               <!-- tools box -->
-              <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles1" style="width: 100%;height: 30px" required="required"></div>
+              <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title" value="${info.title}" style="width: 100%;height: 30px" required="required"></div>
               <br>
-              <div style="text-align: left;" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles2" style="width: 100%;height: 30px" required="required"></div>
+              <div style="text-align: left;" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="publisher" value="${info.publisher}" style="width: 100%;height: 30px" required="required"></div>
 
               <div class="pull-right box-tools">
                 
                <button type="button" class="btn btn-info btn-sm"  data-toggle="tooltip"
                         title="clear" style="margin-top: 12px;">清空</button>
-              </div>
+              </div>             
               <!-- /. tools -->
             </div>
+	
             <!-- /.box-header -->
             <div class="box-body pad">
-              <form>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80" >
-
-                    </textarea>
-              </form>
+                    <textarea id="editor1" name="details" rows="10" cols="80">${info.details}</textarea>              
               <br>
-              <button id="ok" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px">确定</button>
-              <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px;float: right">返回</button>
-            </div>
+              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2222" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px">确定</button>
+              <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px;float: right">返回</button>            
+            </div>           
           </div>
-          <!-- /.box -->
-
+          <!-- /.box -->        
         </div>
         <!-- /.col-->
       </div>
       <!-- ./row -->
+      </form>
     </section>
     <!-- /.content -->
 
