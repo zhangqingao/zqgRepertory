@@ -35,7 +35,7 @@
                   <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody id="check_1">                               
+                <tbody id="check_1" style="text-align: center;">                               
                 </tbody>                
               </table>
             </div>
