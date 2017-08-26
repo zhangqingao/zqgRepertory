@@ -24,12 +24,15 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
 /**
@@ -48,6 +51,9 @@ public class LoginController {
 
     @Autowired
     private UserinfoService userinfo;
+
+    @Autowired
+    private InfoService infoService;
 
     /**
      * 登录
@@ -80,14 +86,14 @@ public class LoginController {
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
-        System.out.println(compi);
-        System.out.println(ui);
+        // System.out.println(compi);
+        // System.out.println(ui);
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
             if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
 
-                session.setAttribute("info", compi);
+                session.setAttribute("infos", compi);
 
                 return "redirect:/user_index.shtml";
 
@@ -97,7 +103,7 @@ public class LoginController {
         if (ui != null) {
             if (phone.equals(ui.getPhone()) && password.equals(ui.getPassword())) {
 
-                session.setAttribute("info", ui);
+                session.setAttribute("infos", ui);
                 return "redirect:/selectAllCompanyinfo.shtml";
             }
         }
@@ -144,7 +150,7 @@ public class LoginController {
     @RequestMapping("/updateInfo")
     public String updateInfo(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        Companyinfo compi = (Companyinfo) session.getAttribute("info");
+        Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         session.setAttribute("comp", compi);
 
         return "redirect:/user_update.shtml";
@@ -178,7 +184,7 @@ public class LoginController {
     @RequestMapping("/updatePassword")
     public String updatePassword(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        Companyinfo compi = (Companyinfo) session.getAttribute("info");
+        Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         System.out.println(compi);
         session.setAttribute("comp", compi);
         return "redirect:/user_pass.shtml";
@@ -231,5 +237,19 @@ public class LoginController {
         req.getSession().removeAttribute("comp");
 
         return "user_exit.pages";
+    }
+
+    /**
+     * 公告详情
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/gongGao")
+    public String gongGao(Integer id, Model model) {
+        // System.out.println(id);
+        Info info = infoService.selectByPrimaryKey(id);
+        model.addAttribute("gg", info);
+        return "user_gongGao.pages";
     }
 }

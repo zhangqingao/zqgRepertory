@@ -98,7 +98,7 @@
 			<div class="table-responsive">
 				<div id=tz>
 					<ul>
-						<li class=tz1><a href="#">会议通知【2017-08-18】</a><img
+						<li class=tz1><a href="./gongGao.shtml?id=1">会议通知【2017-08-18】</a><img
 							src="resource/images/6.png" /></li>
 						<li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
 							src="resource/images/6.png" /></li>

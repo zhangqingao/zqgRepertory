@@ -1,14 +1,22 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.bdqn.datacockpit.entity.Info;
+import cn.bdqn.datacockpit.service.InfoService;
 
 /**
  * Created by ehsy_it on 2016/8/10.
  */
 @Controller
 public class UserTilesController {
+    @Autowired
+    private InfoService infoService;
 
     @RequestMapping("/user_pass")
     public String pass(Model model) {
@@ -40,4 +48,10 @@ public class UserTilesController {
         return "user_shuju3.pages";
     }
 
+    @RequestMapping("/user_tongzhi")
+    public String user_tongzhi(Model model) {
+        List<Info> lists = infoService.selectAllInfo();
+        model.addAttribute("infoList", lists);
+        return "user_tongzhi.pages";
+    }
 }

@@ -6,7 +6,7 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="publishDate" property="publishdate" jdbcType="TIMESTAMP" />
     <result column="details" property="details" jdbcType="VARCHAR" />
-    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result  column="publisher" property="publisher" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, title, publishDate, details, publisher
