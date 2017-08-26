@@ -37,6 +37,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_tongzhi1")
     public String tongzhi1(Model model) {
+        model.addAttribute("menus", "1");
         return "admin_tongzhi1.page";
     }
 
@@ -92,6 +93,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_shuju1")
     public String shuju1(Model model) {
+        model.addAttribute("menus", "3");
         return "admin_shuju1.page";
     }
 
@@ -107,6 +109,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_shuju4")
     public String shuju4(Model model) {
+        model.addAttribute("menus", "2");
         return "admin_shuju4.page";
     }
 
@@ -128,5 +131,29 @@ public class AdminTilesController {
 
         // 转发
         return "admin_index.page";
+    }
+
+    @RequestMapping("/admin_userDsh")
+    public String dshCompanyinfo(Model model) {
+
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("menus", "5");
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_userDsh.page";
+    }
+
+    @RequestMapping("/admin_userMan")
+    public String userMan(Model model) {
+
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("menus", "4");
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_userMan.page";
     }
 }
