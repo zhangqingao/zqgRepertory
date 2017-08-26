@@ -4,7 +4,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" target="_blank" class="logo">
+    <a href="./user_index.shtml" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>数据</b>舱</span>
       <!-- logo for regular state and mobile devices -->

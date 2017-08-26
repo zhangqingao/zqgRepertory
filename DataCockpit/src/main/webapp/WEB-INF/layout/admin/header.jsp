@@ -4,7 +4,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" target="_blank" class="logo">
+    <a href="./selectAllCompanyinfo.shtml" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>数据</b>舱</span>
       <!-- logo for regular state and mobile devices -->
@@ -60,12 +60,11 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"></li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="./admin_index.shtml"><i class="fa fa-link"></i> <span>待审核用户列表</span></a></li>
-        <li ><a href="./admin_tongzhi1.shtml"><i class="fa fa-link"></i> <span>通知管理</span></a></li>
-        <li ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
-        <li ><a href="#"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
-
-        <li class="treeview1">
+        <li class="shenhe"><a href="./admin_userDsh.shtml"><i class="fa fa-link"></i> <span>待审核用户列表</span></a></li>
+        <li class="tongzhi" ><a href="./admin_tongzhi1.shtml"><i class="fa fa-link"></i> <span>通知管理</span></a></li>
+        <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
+        <li class="yonghu" ><a href="./admin_userMan.shtml"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
+        <li class="qiye treeview1">
           <a href="./admin_shuju1.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
             <span class="pull-right-container">
                 <!-- <i class="fa fa-angle-left pull-right"></i> -->
@@ -80,6 +79,38 @@
         </li>
 
       </ul>
+      <script type="text/javascript">
+      	var menus = ${menus}
+      	localStorage.menu1="1";
+      	localStorage.menu2="2";
+      	localStorage.menu3="3";
+      	localStorage.menu4="4";
+      	localStorage.menu5="5";
+      	if(menus == localStorage.menu5){
+			$(".shenhe").addClass("active");
+			$("ul li").not($(".shenhe")).removeClass("active");
+		}
+		if(menus == localStorage.menu1){
+			$(".tongzhi").addClass("active");
+			$("ul li").not($(".tongzhi")).removeClass("active");
+		}
+		if(menus == localStorage.menu2){
+			$(".zhanghao").addClass("active");
+			$("ul li").not($(".zhanghao")).removeClass("active");
+		}
+		if(menus == localStorage.menu3){
+			$(".qiye").addClass("active");
+			$("ul li").not($(".qiye")).removeClass("active");
+		}
+		if(menus == localStorage.menu4){
+			$(".yonghu").addClass("active");
+			$("ul li").not($(".yonghu")).removeClass("active");
+		}
+		if(menus == localStorage.menu4){
+			$(".yonghu").addClass("active");
+			$("ul li").not($(".yonghu")).removeClass("active");
+		}
+      	</script>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
