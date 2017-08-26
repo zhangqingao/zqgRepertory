@@ -16,11 +16,11 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -28,7 +28,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+import cn.bdqn.datacockpit.service.UserinfoService;
 
 /**
  * Description: <br/>
@@ -44,6 +46,9 @@ public class LoginController {
     @Autowired
     private CompanyinfoService companyinfo;
 
+    @Autowired
+    private UserinfoService userinfo;
+
     /**
      * 登录
      * 
@@ -54,7 +59,7 @@ public class LoginController {
      * @param req
      * @return
      */
-    @RequestMapping("/login")
+    // @RequestMapping("/login")
     public String login(String phone, String password, HttpServletRequest request) {
         phone = request.getParameter("phone");
         password = request.getParameter("password");
@@ -71,19 +76,34 @@ public class LoginController {
         }
     }
 
-    public String login(String phone, String password, String onLine, HttpServletResponse res, HttpServletRequest req) {
+    @RequestMapping("/login")
+    public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
+        Userinfo ui = userinfo.getByPhone(phone);
+        System.out.println(compi);
+        System.out.println(ui);
         HttpSession session = req.getSession();
-        // 判断账号密码是否正确
-        if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
+        // 判断账号密码是否正确(用户)
+        if (compi != null) {
+            if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
 
-            session.setAttribute("info", compi);
-            return "redirect:/user_index.shtml";
+                session.setAttribute("info", compi);
 
-        } else {
-            session.setAttribute("mess", "*账号或者密码输入有误！");
-            return "redirect:/login.jsp";
+                return "redirect:/user_index.shtml";
+
+            }
         }
+        // 判断账号密码是否正确（管理员）
+        if (ui != null) {
+            if (phone.equals(ui.getPhone()) && password.equals(ui.getPassword())) {
+
+                session.setAttribute("info", ui);
+                return "redirect:/selectAllCompanyinfo.shtml";
+            }
+        }
+        session.setAttribute("mess", "*账号或者密码输入有误！");
+        return "redirect:/login.jsp";
+
     }
 
     @RequestMapping("/testLogin")

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" isELIgnored="false"%>
 <!-- Main Header -->
   <header class="main-header">
 
@@ -38,8 +38,8 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>比尔盖茨&emsp;董事长</p>
-          <p>美国微软公司</p>
+          <p>${info.name }&emsp;${info.job }</p>
+          <p></p>
     
         </div>
       </div>

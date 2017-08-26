@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!-- Content Header (Page header) -->
 <section class="content-header"><h1 style="font-weight: bolder;">快捷菜单</h1></section>
@@ -219,7 +220,7 @@
 											<th class="sorting" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1"
 												aria-label="Engine version: activate to sort column ascending"
-												style="text-align: center;">联系人电话</th>
+												style="text-align: center;">联系人邮件</th>
 											<!-- <th class="sorting" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1"
 												aria-label="Engine version: activate to sort column ascending"
@@ -232,27 +233,28 @@
 									</thead>
 									<tbody>
 
-
+									<c:forEach items="${lists }" var="comp">
 										<tr role="row" class="odd" style="text-align: center;">
-											<td class="sorting_1">1</td>
-											<td>abc@abc.com</td>
-											<td>碧桂园房地产开发有限公司</td>
-											<td>王石</td>
-											<td>总经理</td>
-											<td>17000000001</td>
+											<td class="sorting_1">${comp.id }</td>
+											<td>${comp.phone }</td>
+											<td>${comp.corpname }</td>
+											<td>${comp.name }</td>
+											<td>${comp.job }</td>
+											<td>${comp.email }</td>
 											<!-- <td><select><option>已启用</option>
 													<option>已禁用</option></select></td> -->
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
 										</tr>
-										<tr role="row" class="even" style="text-align: center;">
+									</c:forEach>
+										<!-- <tr role="row" class="even" style="text-align: center;">
 											<td class="sorting_1">2</td>
 											<td>abc@abc.com</td>
 											<td>碧桂园房地产开发有限公司</td>
 											<td>王石</td>
 											<td>总经理</td>
 											<td>17000000001</td>
-											<!-- <td><select><option>已启用</option>
-													<option>已禁用</option></td> -->
+											<td><select><option>已启用</option>
+													<option>已禁用</option></td>
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
 										</tr>
 										<tr role="row" class="odd" style="text-align: center;">
@@ -262,8 +264,8 @@
 											<td>王石</td>
 											<td>总经理</td>
 											<td>17000000001</td>
-											<!-- <td><select><option>已启用</option>
-													<option>已禁用</option></td> -->
+											<td><select><option>已启用</option>
+													<option>已禁用</option></td>
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
 										</tr>
 										<tr role="row" class="even" style="text-align: center;">
@@ -273,8 +275,8 @@
 											<td>王石</td>
 											<td>总经理</td>
 											<td>17000000001</td>
-											<!-- <td><select><option>已禁用</option>
-													<option>已启用</option></td> -->
+											<td><select><option>已禁用</option>
+													<option>已启用</option></td>
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
 										</tr>
 										<tr role="row" class="odd" style="text-align: center;">
@@ -284,8 +286,8 @@
 											<td>王石</td>
 											<td>总经理</td>
 											<td>17000000001</td>
-											<!-- <td><select><option>已启用</option>
-													<option>已禁用</option></td> -->
+											<td><select><option>已启用</option>
+													<option>已禁用</option></td>
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
 										</tr>
 										<tr role="row" class="odd" style="text-align: center;">
@@ -295,10 +297,10 @@
 											<td>王石</td>
 											<td>总经理</td>
 											<td>17000000001</td>
-											<!-- <td><select><option>已启用</option>
-													<option>已禁用</option></td> -->
+											<td><select><option>已启用</option>
+													<option>已禁用</option></td>
 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
-										</tr>
+										</tr> -->
 									</tbody>
 
 								</table>

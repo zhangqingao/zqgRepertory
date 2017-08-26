@@ -1,9 +1,10 @@
 package cn.bdqn.datacockpit.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,6 +12,8 @@ import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
+import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.service.CompanyinfoService;
 
 /**
  * Created by ehsy_it on 2016/8/10.
@@ -23,6 +26,9 @@ public class AdminTilesController {
 
     @Autowired
     private InfoService is;
+    
+    @Autowired
+    private CompanyinfoService companyinfo;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -112,5 +118,15 @@ public class AdminTilesController {
         // 转发
         return "login";
     }
+    
+    @RequestMapping("/selectAllCompanyinfo")
+    public String selectAllCompanyinfo(Model model) {
 
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_index.page";
+    }
 }
