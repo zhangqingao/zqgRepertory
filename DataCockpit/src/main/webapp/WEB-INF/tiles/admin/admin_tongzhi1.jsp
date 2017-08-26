@@ -20,11 +20,10 @@
           <!-- /.box -->
           
 
-          <div class="box">
-          
-          
+          <div class="box">                    
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">通知管理</h3>
+              
             </div>
             <div style="margin-left: 910px;margin-top: -35px"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加通知</button></a></div>
             <div class="box-body">
@@ -36,14 +35,10 @@
                   <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody id="check_1">
-                               
-                </tbody>
-                
+                <tbody id="check_1">                               
+                </tbody>                
               </table>
             </div>
-
-
             <!-- /.box-body -->
             
           </div>

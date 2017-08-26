@@ -61,11 +61,6 @@ public class Info {
         this.publisher = publisher;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return "Info [id=" + id + ", title=" + title + ", publishdate=" + publishdate + ", details=" + details
