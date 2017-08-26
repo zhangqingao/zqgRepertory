@@ -62,7 +62,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"></li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="./user_index.shtml"><i class="fa fa-link"></i> <span>通知中心</span></a></li>
+        <li class="active"><a href="./user_tongzhi.shtml"><i class="fa fa-link"></i> <span>通知中心</span></a></li>
 
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>个人中心</span>
@@ -71,7 +71,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="./updateInfo.shtml?phone=${info.phone }">&emsp;<i class="fa fa-genderless"></i>资料修改</a></li>
+            <li><a href="./updateInfo.shtml?phone=${infos.phone }">&emsp;<i class="fa fa-genderless"></i>资料修改</a></li>
             <li><a href="./updatePassword.shtml">&emsp;<i class="fa fa-genderless"></i>修改密码</a></li>
           </ul>
         </li>

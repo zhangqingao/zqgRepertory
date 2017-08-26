@@ -185,7 +185,7 @@ public class LoginController {
     public String updatePassword(HttpServletRequest req) {
         HttpSession session = req.getSession();
         Companyinfo compi = (Companyinfo) session.getAttribute("infos");
-        System.out.println(compi);
+        // System.out.println(compi);
         session.setAttribute("comp", compi);
         return "redirect:/user_pass.shtml";
     }
