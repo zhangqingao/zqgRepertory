@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
 /**
@@ -19,6 +21,9 @@ public class AdminTilesController {
 
     @Autowired
     private UserinfoService us;
+
+    @Autowired
+    private CompanyinfoService companyinfo;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -79,5 +84,16 @@ public class AdminTilesController {
 
         // 转发
         return "admin_shuju4.page";
+    }
+
+    @RequestMapping("/selectAllCompanyinfo")
+    public String selectAllCompanyinfo(Model model) {
+
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_index.page";
     }
 }
