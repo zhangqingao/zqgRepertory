@@ -4,7 +4,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" target="_blank" class="logo">
+    <a href="./user_index.shtml" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>数据</b>舱</span>
       <!-- logo for regular state and mobile devices -->
@@ -39,8 +39,8 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>${info.name }&emsp;${info.job }</p>
-          <p>${info.corpname }</p>
+          <p>${infos.name }&emsp;${infos.job }</p>
+          <p>${infos.corpname }</p>
           <!-- Status -->
           <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
         </div>

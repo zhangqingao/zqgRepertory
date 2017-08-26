@@ -87,7 +87,7 @@ public class LoginController {
         if (compi != null) {
             if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
 
-                session.setAttribute("info", compi);
+                session.setAttribute("infos", compi);
 
                 return "redirect:/user_index.shtml";
 
@@ -97,7 +97,7 @@ public class LoginController {
         if (ui != null) {
             if (phone.equals(ui.getPhone()) && password.equals(ui.getPassword())) {
 
-                session.setAttribute("info", ui);
+                session.setAttribute("infos", ui);
                 return "redirect:/selectAllCompanyinfo.shtml";
             }
         }
@@ -144,7 +144,7 @@ public class LoginController {
     @RequestMapping("/updateInfo")
     public String updateInfo(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        Companyinfo compi = (Companyinfo) session.getAttribute("info");
+        Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         session.setAttribute("comp", compi);
 
         return "redirect:/user_update.shtml";
@@ -178,7 +178,7 @@ public class LoginController {
     @RequestMapping("/updatePassword")
     public String updatePassword(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        Companyinfo compi = (Companyinfo) session.getAttribute("info");
+        Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         System.out.println(compi);
         session.setAttribute("comp", compi);
         return "redirect:/user_pass.shtml";
