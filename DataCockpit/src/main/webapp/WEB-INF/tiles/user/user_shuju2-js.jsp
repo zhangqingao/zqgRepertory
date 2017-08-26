@@ -1,25 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<script type="text/javascript">
-            $("#check_1 tr").find("td:eq(3)").css("text-align","center");
-              $("#check_1 tr").find("td:eq(3)").mouseenter(function(){
-              $(this).css("cursor","pointer");
-              });
-</script>
-<script type="text/javascript">
- 
-    $("#check_1 tr").find("td:eq(3)").find(".uploads").children().click(function(){  
-     
-    $("#check_1 tr").find("td:eq(3)").find(".uploads").children().attr("data-toggle","modal");
-    $("#check_1 tr").find("td:eq(3)").find(".uploads").children().attr("data-target","#myModal")
-    $("#check_1 tr").find("td:eq(3)").find(".uploads").children().attr("id","identifier");
-    $('#myModal').modal({
-      show:false,
-      backdrop:"static",
-      keyboard:false
 
-    }); 
-  });
+<script type="text/javascript">
+ function pop1(){
+	     
+		    $(".uploads").attr("data-toggle","modal");
+		    $(".uploads").attr("data-target","#myModal")
+		    $(".uploads").attr("id","identifier");
+		    $('#myModal').modal({
+		      show:false,
+		      backdrop:"static",
+		      keyboard:false
+
+		    }); 
+ }    
+ function pop2(){
+     
+	   
+}    
 
     
 </script>
@@ -35,17 +33,34 @@ $("button[data-dismiss=modal]").click(function(){
 </script>
 <script>
   $(function () {
-	$('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false,
-      "processing"	: true,
-      "serverSide"	: true,
-      
-    })
+	var t =	$('#example1').DataTable({
+		 "ajax"		: {
+	    	  "url"		: "<%=request.getContextPath()%>/shuju_2.shtml",
+	    	  "method"	: "POST",
+	    	  "headers" : {"Content-Type": "application/json"},
+	    	  "data"	: function(d){
+	    		  return JSON.stringify(d);
+	    	  }
+	      },
+	      "columns": [
+	    	  {"data": "office",
+	    	 "defaultContent": "1"},
+	    	  {"data":"name"},
+	    	  {"data":"updatetime"}, 
+	    	  {"data": function(data, type, row) { return '<button type="button" class="btn btn-primary btn-lg uploads" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1()">上传数据</button>&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-primary btn-lg searches" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop2()">查看数据</button>'; } },
+	      ],
+	      
+	});
+		t.on('order.dt search.dt',
+		 function() {
+   		       t.column(0, {
+   		              search: 'applied',
+   		              order: 'applied',
+   		        }).nodes().each(function(cell, i) {
+   		              cell.innerHTML = i + 1;
+   		  	  
+   		  	   })        	 	
+   		  	   }).draw();	
+	
   })
 </script>

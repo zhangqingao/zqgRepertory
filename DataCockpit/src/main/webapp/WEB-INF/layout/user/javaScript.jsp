@@ -19,6 +19,4 @@
 <!-- Morris.js charts -->
 <script src="bower_components/raphael/raphael.min.js"></script>
 <script src="bower_components/morris.js/morris.min.js"></script>
-<script src="resource/js/gVerify.js"></script>
-<script src="resource/js/jquery.min.js"></script>
 <!-- page script -->

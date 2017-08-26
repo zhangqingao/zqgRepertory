@@ -40,11 +40,11 @@
                   <th>任务开始时间</th>
                   <th>任务结束时间(s)</th>
                   <th>任务状态</th>
-                  <th style="text-align: center;">任务反馈</th>
+                  <th style="text-align: center;width:200px">任务反馈</th>
                 </tr>
                 </thead>
                 <tbody id="check_1">
-         
+         			
                 </tbody>
               </table>
             </div>
