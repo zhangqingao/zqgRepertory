@@ -16,11 +16,8 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-             
           <!-- /.box -->
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
               <h3 class="box-title"><a href="#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">导出数据</button></a></h3>
             </div>
@@ -29,16 +26,16 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>项目名称</th>
-                  <th>所在区域</th>
-                  <th>日期</th>
-                  <th>到访人数</th>
-                  <th>认筹人数</th>
-                  <th>退订人数</th>
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">项目名称</th>
+                  <th style="text-align: center;">所在区域</th>
+                  <th style="text-align: center;">日期</th>
+                  <th style="text-align: center;">到访人数</th>
+                  <th style="text-align: center;">认筹人数</th>
+                  <th style="text-align: center;">退订人数</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <a href="#"><tr>
                   <td>1</td>
                   <td>水岸星城</td>

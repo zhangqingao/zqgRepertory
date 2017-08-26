@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import cn.bdqn.datacockpit.entity.Info;
-import cn.bdqn.datacockpit.service.InfoService;
+
 import cn.bdqn.datacockpit.entity.XsTable;
 import cn.bdqn.datacockpit.service.XsTableService;
+
 /**
  * Created by ehsy_it on 2016/8/10.
  */
@@ -17,9 +17,7 @@ import cn.bdqn.datacockpit.service.XsTableService;
 public class UserTilesController {
     @Autowired
     private XsTableService xs;
-    
-    @Autowired
-    private InfoService infoService;
+
     @RequestMapping("/user_pass")
     public String pass(Model model) {
         model.addAttribute("checks", "geren2");
@@ -78,10 +76,5 @@ public class UserTilesController {
         model.addAttribute("fNums", fNums);
         return "user_shuju3.pages";
     }
-    @RequestMapping("/user_tongzhi")
-    public String user_tongzhi(Model model) {
-        List<Info> lists = infoService.selectAllInfo();
-        model.addAttribute("infoList", lists);
-        return "user_tongzhi.pages";
-    }
+
 }

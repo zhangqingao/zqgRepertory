@@ -20,7 +20,7 @@
           <!-- /.box -->
           
 
-          <div class="box">                    
+          <div class="box" style="border-top-color: #DD4B39;">                  
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">通知管理</h3>
               
@@ -35,7 +35,7 @@
                   <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody id="check_1">                               
+                <tbody id="check_1" style="text-align: center;">                               
                 </tbody>                
               </table>
             </div>

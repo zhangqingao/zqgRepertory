@@ -46,7 +46,7 @@ $("button[data-dismiss=modal]").click(function(){
 	    	  {"data": "office",
 	    	 "defaultContent": "1"},
 	    	  {"data":"name"},
-	    	  {"data":"updatetime"}, 
+	    	  {"data":"updateTime"}, 
 	    	  {"data": function(data, type, row) { return '<button type="button" class="btn btn-primary btn-lg uploads" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1()">上传数据</button>&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-primary btn-lg searches" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop2()">查看数据</button>'; } },
 	      ],
 	      

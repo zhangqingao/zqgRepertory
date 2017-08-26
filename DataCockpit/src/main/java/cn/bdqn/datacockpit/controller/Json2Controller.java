@@ -16,6 +16,7 @@ import cn.bdqn.datacockpit.datatable.IsSearchCondition;
 import cn.bdqn.datacockpit.datatable.SearchCondition;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.XsTable;
+import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.XsTableService;
 
 /**
@@ -40,6 +41,9 @@ public class Json2Controller {
     @Autowired
     private XsTableService xs;
 
+    @Autowired
+    private TableinfoService ts;
+
     @ResponseBody
     @RequestMapping(value = "shuju_1")
     public DatatableResult<Map<String, String>> datatable2(@RequestBody SearchCondition searchCondition) {
@@ -58,8 +62,9 @@ public class Json2Controller {
     @RequestMapping(value = "shuju_2")
     public DatatableResult<Tableinfo> datatable(@IsSearchCondition SearchCondition searchCondition) {
         DatatableResult<Tableinfo> list = new DatatableResult<>();
-        // List<Tableinfo> lists = ts.selectAll();
-        // list.setData(lists);
+        List<Tableinfo> lists = ts.selectAllTableInfo();
+        System.out.println(lists);
+        list.setData(lists);
         return list;
     }
 

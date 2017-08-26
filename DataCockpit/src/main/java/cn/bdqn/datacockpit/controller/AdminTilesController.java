@@ -1,19 +1,20 @@
 package cn.bdqn.datacockpit.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
-import cn.bdqn.datacockpit.entity.Companyinfo;
-import cn.bdqn.datacockpit.service.CompanyinfoService;
 
 /**
  * Created by ehsy_it on 2016/8/10.
@@ -26,7 +27,7 @@ public class AdminTilesController {
 
     @Autowired
     private InfoService is;
-    
+
     @Autowired
     private CompanyinfoService companyinfo;
 
@@ -50,9 +51,7 @@ public class AdminTilesController {
     public String tongzhi3(Model model, HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("--------------------" + id);
         Info info = is.selectByPrimaryKey(id);
-        System.out.println(info);
         model.addAttribute("info", info);
         return "admin_tongzhi3.page";
     }
@@ -60,7 +59,6 @@ public class AdminTilesController {
     @RequestMapping("/tongzhi_update")
     public String tongzhi_update(Info info) {
         // 获取实体类信息
-        System.out.println("====================" + info);
         is.updateByPrimaryKeySelective(info);
         return "admin_tongzhi1.page";
     }
@@ -68,7 +66,6 @@ public class AdminTilesController {
     @RequestMapping("/tongzhi_insert")
     public String tongzhi_insert(Info info) {
         // 获取实体类信息
-        System.out.println("====================" + info);
         is.insertSelective(info);
         return "admin_tongzhi1.page";
     }
@@ -77,7 +74,6 @@ public class AdminTilesController {
     public String tongzhi_delete(HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("====================" + id);
         is.deleteByPrimaryKey(id);
         return "admin_tongzhi1.page";
     }
@@ -86,7 +82,6 @@ public class AdminTilesController {
     public String admin_delete(HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("====================" + id);
         us.deleteByPrimaryKey(id);
         return "admin_shuju4.page";
     }
@@ -119,12 +114,11 @@ public class AdminTilesController {
         int flag = us.insertSelective(record);
         System.out.println("------------------flag为：" + flag);
         // 转发
-        return "login";
+        return "admin_shuju4.page";
     }
-    
+
     @RequestMapping("/selectAllCompanyinfo")
     public String selectAllCompanyinfo(Model model) {
-
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
         System.out.println(lists);
         model.addAttribute("lists", lists);
@@ -157,4 +151,3 @@ public class AdminTilesController {
         return "admin_userMan.page";
     }
 }
-

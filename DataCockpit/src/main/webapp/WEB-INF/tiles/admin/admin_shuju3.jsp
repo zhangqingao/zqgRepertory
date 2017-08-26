@@ -16,10 +16,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-            
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
               <h3 class="box-title" style="color: red">数据分析任务列表</h3> 
             </div>
@@ -28,14 +25,14 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>任务开始时间</th>
-                  <th>任务结束时间</th>
-                  <th>任务状态</th>
-                  <th>任务反馈</th>                
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">任务开始时间</th>
+                  <th style="text-align: center;">任务结束时间</th>
+                  <th style="text-align: center;">任务状态</th>
+                  <th style="text-align: center;">任务反馈</th>                
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <tr>
                   <td>1</td>
                   <td>2017-06-01 12:12:22</td>

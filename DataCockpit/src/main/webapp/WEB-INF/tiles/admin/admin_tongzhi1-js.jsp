@@ -71,12 +71,11 @@
 	    		    /* "data": "title", */
 	    		    "render": function ( data, type, row, meta ) {
 	    		    /* 将当前值传入controller */	    		    	
-	    		     return '&emsp;&emsp;\
-	    		     			<a href="./admin_tongzhi3.shtml?id='+row.id+'">\
+	    		     return '<a href="./admin_tongzhi3.shtml?id='+row.id+'">\
 	    		     			 <button type="button" class="btn btn-primary btn-lg update_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1(data, type, row)">编辑</button>\
 	    		    			</a>\
 	    		    			&emsp;&emsp;&emsp;\
-	    		    			<a href="./tongzhi_delete.shtml?id='+row.id+'" onclick="javascript:return del();">\
+	    		    			<a href="./tongzhi_delete.shtml?id='+row.id+'" onclick="return dd();">\
 	    		    			<button type="button" class="btn btn-primary btn-lg delete_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" >删除</button>\
 	    		    			</a>';	 	    		    			
 	    		    }
@@ -95,6 +94,9 @@
   })
  
 </script>
+<script language="jscript"> 
+	function dd() { if(confirm("请确认是否删除！" )) return true; return false;  }
+</script> 
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor

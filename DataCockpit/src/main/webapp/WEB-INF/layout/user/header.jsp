@@ -62,6 +62,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"></li>
         <!-- Optionally, you can add icons to the links -->
+
         <li class="active"><a href="./user_index.shtml"><i class="fa fa-link"></i> <span>通知中心</span></a></li>
 
         <li class="treeview gerens">
