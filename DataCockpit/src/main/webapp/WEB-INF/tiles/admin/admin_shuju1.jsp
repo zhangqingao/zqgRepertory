@@ -34,20 +34,20 @@
                   <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>数据表名</th>
-                  <th>最近数据更新时间</th>
-                  <th>操作</th>
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">数据表名</th>
+                  <th style="text-align: center;">最近数据更新时间</th>
+                  <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <tr>
                   <td>1</td>
                   <td>销售数据表</td>
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -55,7 +55,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                  <tr>
                   <td>3</td>
@@ -63,7 +63,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -71,7 +71,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -79,7 +79,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                   <td>6</td>
@@ -87,7 +87,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -95,7 +95,7 @@
                   <td>2017-06-01 15:20:33</td>
                   <td>
                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;禁用</td>
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 </tbody>
               </table>
@@ -239,34 +239,34 @@
                   <table id="example3" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>数据关系名称</th>
-                  <th>关联表名</th>
-                  <th>统一维度列</th>
-                   <th>操作</th>
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">数据关系名称</th>
+                  <th style="text-align: center;">关联表名</th>
+                  <th style="text-align: center;">统一维度列</th>
+                  <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <tr>
                   <td>1</td>
                   <td>销售到访关联</td>
                   <td>销售数据表、到访数据表</td>
                   <td>销售数据表.日期、到访数据表.日期</td>
-                  <td>禁用</td>
+                  <td><select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                 <tr>
                  <td>2</td>
                   <td>销售认筹关联</td>
                   <td>销售数据表、到访数据表</td>
                   <td>销售数据表.日期、到访数据表.日期</td>
-                  <td>禁用</td>
+                  <td><select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>
                  <tr>
                   <td>3</td>
                   <td>派单到访关联</td>
                   <td>销售数据表、到访数据表</td>
                   <td>销售数据表.日期、到访数据表.日期</td>
-                  <td>禁用</td>
+                  <td><select><option>已启用</option><option>已禁用</option></select></td>
                 </tr>               
                 </tbody>
               </table>
@@ -334,14 +334,14 @@
                   <table id="example4" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>数据关系名称</th>
-                  <th>算法设定</th>
-                  <th>操作</th>
-                   <th>附加算法规则</th>
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">数据关系名称</th>
+                  <th style="text-align: center;">算法设定</th>
+                  <th style="text-align: center;">操作</th>
+                  <th style="text-align: center;">附加算法规则</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <tr>
                   <td>1</td>
                   <td>销售到访关联</td>

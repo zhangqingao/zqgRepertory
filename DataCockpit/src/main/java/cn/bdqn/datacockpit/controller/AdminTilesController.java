@@ -1,19 +1,20 @@
 package cn.bdqn.datacockpit.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
-import cn.bdqn.datacockpit.entity.Companyinfo;
-import cn.bdqn.datacockpit.service.CompanyinfoService;
 
 /**
  * Created by ehsy_it on 2016/8/10.
@@ -26,7 +27,7 @@ public class AdminTilesController {
 
     @Autowired
     private InfoService is;
-    
+
     @Autowired
     private CompanyinfoService companyinfo;
 
@@ -119,12 +120,11 @@ public class AdminTilesController {
         int flag = us.insertSelective(record);
         System.out.println("------------------flag为：" + flag);
         // 转发
-        return "login";
+        return "admin_shuju4.page";
     }
-    
+
     @RequestMapping("/selectAllCompanyinfo")
     public String selectAllCompanyinfo(Model model) {
-
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
         System.out.println(lists);
         model.addAttribute("lists", lists);
@@ -157,4 +157,3 @@ public class AdminTilesController {
         return "admin_userMan.page";
     }
 }
-

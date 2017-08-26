@@ -26,15 +26,15 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>邮箱</th>
-                  <th>联系人姓名</th>
-                  <th>联系人职务</th>
-                  <th>联系人电话</th>
-                  <th>操作</th>
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">邮箱</th>
+                  <th style="text-align: center;">联系人姓名</th>
+                  <th style="text-align: center;">联系人职务</th>
+                  <th style="text-align: center;">联系人电话</th>
+                  <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
                 <tbody>
