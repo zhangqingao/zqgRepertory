@@ -29,7 +29,7 @@
               <div class="pull-right box-tools">
                 
                 <button type="button" class="btn btn-info btn-sm"  data-toggle="tooltip"
-                        title="clear" style="margin-top: 12px;">清空</button>
+                        title="clear" style="margin-top: 12px; font-size: 14px">清空</button>
               </div>
               <!-- /. tools -->
             </div>
@@ -39,8 +39,8 @@
                    
                     </textarea>             
               <br>
-              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaaaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px">确定</button>
-               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px;float: right">返回</button>
+              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaaaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
+               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>
             </div>              
           </div>          
           <!-- /.box -->
