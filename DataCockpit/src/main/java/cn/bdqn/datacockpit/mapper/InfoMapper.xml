@@ -11,7 +11,11 @@
   <sql id="Base_Column_List" >
     id, title, publish_date, details, publisher
   </sql>
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> branch 'master' of https://github.com/aliez11456/DataCockpit_2.git
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
