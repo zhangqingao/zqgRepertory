@@ -15,7 +15,7 @@ public class Info {
 
     private String title;
 
-    private Date publishdate;
+    private Date publishDate;
 
     private String details;
 
@@ -38,11 +38,11 @@ public class Info {
     }
 
     public Date getPublishdate() {
-        return publishdate;
+        return publishDate;
     }
 
     public void setPublishdate(Date publishdate) {
-        this.publishdate = publishdate;
+        this.publishDate = publishdate;
     }
 
     public String getDetails() {
@@ -63,7 +63,7 @@ public class Info {
 
     @Override
     public String toString() {
-        return "Info [id=" + id + ", title=" + title + ", publishdate=" + publishdate + ", details=" + details
+        return "Info [id=" + id + ", title=" + title + ", publishdate=" + publishDate + ", details=" + details
                 + ", publisher=" + publisher + "]";
     }
 

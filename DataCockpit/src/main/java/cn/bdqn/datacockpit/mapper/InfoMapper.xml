@@ -4,15 +4,15 @@
   <resultMap id="BaseResultMap" type="cn.bdqn.datacockpit.entity.Info" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="publishDate" property="publishdate" jdbcType="TIMESTAMP" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
     <result column="details" property="details" jdbcType="VARCHAR" />
     <result  column="publisher" property="publisher" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, publishDate, details, publisher
+    id, title, publish_date, details, publisher
   </sql>
   
-  <select id="selectAllInfo" resultType="map">
+  <select id="selectAllInfo" resultMap="BaseResultMap">
   	 select 
     <include refid="Base_Column_List" />
     from inform

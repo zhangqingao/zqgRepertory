@@ -258,7 +258,6 @@ public class LoginController {
      */
     @RequestMapping("/selectTongzhi")
     public String selectTongzhi(Model model) {
-        // System.out.println(id);
         List<Info> lists = infoService.selectAllInfo();
         model.addAttribute("infoList", lists);
         return "user_tongzhi.pages";
