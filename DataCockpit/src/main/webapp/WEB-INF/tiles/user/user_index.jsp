@@ -3,7 +3,7 @@
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="c"%>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>快捷菜单</h1>
+	<h1 style="font-weight: bolder;">快捷菜单</h1>
 </section>
 
 <!-- Main content -->
@@ -83,7 +83,7 @@
 	<!-- TABLE: LATEST ORDERS -->
 	<div class="box box-info" style="width: 49%; float: left;">
 		<div class="box-header with-border">
-			<h3 class="box-title">通知信息</h3>
+			<h3 class="box-title" style="font-weight: bolder;">通知信息</h3>
 
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -131,7 +131,7 @@
 	<div class="box box-default"
 		style="width: 49%; float: right; border-top-color: #F39C12">
 		<div class="box-header with-border">
-			<h3 class="box-title">系统消息</h3>
+			<h3 class="box-title" style="font-weight: bolder;">系统消息</h3>
 
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -172,7 +172,7 @@
 		<div class="col-md-12">
 			<div class="box" style="border-top-color: red">
 				<div class="box-header with-border">
-					<h3 class="box-title">数据展示</h3>
+					<h3 class="box-title" style="font-weight: bolder;">数据展示</h3>
 
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool"

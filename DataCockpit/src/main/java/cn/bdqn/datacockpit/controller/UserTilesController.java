@@ -77,4 +77,9 @@ public class UserTilesController {
         return "user_shuju3.pages";
     }
 
+    @RequestMapping("/user_guanxitu")
+    public String userGuanxitu(Model model) {
+
+        return "user_guanxitu.pages";
+    }
 }
