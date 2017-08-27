@@ -70,14 +70,11 @@
 	    		    "targets": 2,
 	    		    /* "data": "title", */
 	    		    "render": function ( data, type, row, meta ) {
-	    		    /* 将当前值传入controller */	    		    	
-	    		     return '<a href="./admin_tongzhi3.shtml?id='+row.id+'">\
-	    		     			 <button type="button" class="btn btn-primary btn-lg update_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1(data, type, row)">编辑</button>\
-	    		    			</a>\
-	    		    			&emsp;&emsp;&emsp;\
-	    		    			<a href="./tongzhi_delete.shtml?id='+row.id+'" onclick="return dd();">\
-	    		    			<button type="button" class="btn btn-primary btn-lg delete_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" >删除</button>\
-	    		    			</a>';	 	    		    			
+	    		    /* 将当前值传入controller */	  
+	    		    /*  <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
+	    		     return '<a href="./admin_tongzhi3.shtml?id='+row.id+'" class="button button-primary button-rounded button-small" style="font-size: 14px;">编辑</a>\
+	    		    		&emsp;&emsp;&emsp;\
+	    		    		<a href="./tongzhi_delete.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 14px;">删除</a>';	 	    		    			
 	    		    }
 	    		  }
 	      ],	      

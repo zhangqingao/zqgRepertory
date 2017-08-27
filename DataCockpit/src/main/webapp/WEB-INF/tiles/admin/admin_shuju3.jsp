@@ -38,14 +38,14 @@
                   <td>2017-06-01 12:12:22</td>
                   <td>2017-06-01 15:12:22</td>
                   <td>任务完成</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看结果</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看结果</button></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>2017-06-11 12:12:22</td>
                   <td>2017-06-11 18:12:22</td>
                   <td>任务失败</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看出错信息</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看出错信息</button></td>
                 </tr>
                  <tr>
                   <td>3</td>

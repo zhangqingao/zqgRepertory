@@ -2,14 +2,14 @@
     pageEncoding="utf-8"%>
     
 <%
-	String context=request.getContextPath();
-	String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+context+"/";
+	String context = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+context+"/";
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath %>">
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>登录</title>
   <!-- Tell the browser to be responsive to screen width -->
@@ -51,8 +51,6 @@
     </style>
 </head>
 <body class="hold-transition login-page" >
-
-
 <!-- <video src="./images/dahai.mp4" controls="controls"></video> -->
 <video autoplay loop poster="dahai.jpg" id="bgvid"> 
     <source src="<%=basePath %>/resource/images/dahai.mp4" type="video/mp4">
@@ -64,25 +62,24 @@
   <!-- /.login-logo -->
   <div class="login-box-body" style="background-color: rgba(54,167,129,.4);">
     <p class="login-box-msg">请输入您的账号密码</p>
+
     <form action="<%=basePath %>/login.shtml" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="请输入手机号码"  name="phone">
-       <!--  <input type="text" class="form-control" placeholder="请输入手机号码"  pattern="1[34578]\d{9}" required="required"  name="phone"> -->
+        <input type="text" class="form-control" placeholder="请输入手机号码" pattern="1[34578]\d{9}" required="required" name="phone">
         <span style="display: block;margin-top: -30px;margin-left: 291px"><img src="<%=basePath %>/resource/images/iphone.png" style="width: 27px;height: 25px"></span>
       </div>
       <div class="form-group has-feedback">
-        <!-- <input type="password" class="form-control" placeholder="请输入密码"  pattern="[0-9a-zA-Z]{8,16}" required="required"  name="password"> -->
-         <input type="password" class="form-control" placeholder="请输入密码"   name="password">
+        <input type="password" class="form-control" placeholder="请输入密码" pattern="[0-9a-zA-Z]{8,16}" required="required" name="password">
         <span style="display: block;margin-top: -30px;margin-left: 293px"><img src="<%=basePath %>/resource/images/locked.png" style="width: 20px;height: 25px"></span>
       </div>
-      
+
       <div class="form-group has-feedback">
           <div>
              <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
-          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 20px"><img src="getYzm.shtml"></div>
+          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 20px"></div>
+  
       </div>
-      <div><span style="color:red" id="erroMessage"></span></div>
 		 <div class="col-xs-8">
           <div class="checkbox icheck" style="margin-left:10px">
             <label>
@@ -131,16 +128,15 @@
 
 
 <script>
-$("#v_container").find("img").click(function(){
-var $img=	$(this);
-	$(this).attr("src","");
-	$.post("getYzm.shtml", function(data) {
-		$img.attr("src","getYzm.shtml") 
-		});
-})
+<#-- 获取验证码 -->
+    var verifyCode = new GVerify("v_container");
 
-
-
+    document.getElementById("code_input").onblur = function(){
+      var res = verifyCode.validate(document.getElementById("code_input").value);
+      if(!res){
+        alert("验证码错误");
+      }
+    }
   </script>
 </body>
 </html>
