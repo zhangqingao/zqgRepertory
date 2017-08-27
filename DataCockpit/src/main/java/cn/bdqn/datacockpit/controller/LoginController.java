@@ -98,13 +98,14 @@ public class LoginController {
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
+        List<Info> infoList = infoService.selectAllInfo();
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
             if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
 
                 session.setAttribute("infos", compi);
-
+                session.setAttribute("tongzhi", infoList);
                 return "redirect:/user_index.shtml";
 
             }

@@ -1,6 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cc" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>快捷菜单</h1>
@@ -98,9 +100,11 @@
 			<div class="table-responsive">
 				<div id=tz>
 					<ul>
-						<li class=tz1><a href="./gongGao.shtml?id=1">会议通知【2017-08-18】</a><img
+						<cc:forEach items="${tongzhi }" var="tz" begin="0" end="4">
+						<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a><img
 							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
+						</cc:forEach>
+						<!-- <li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
 							src="resource/images/6.png" /></li>
 						<li class=tz1><a href="#">系统数据关联关系功能上线【2017-08-08】</a></li>
 						<li class=tz1><a href="#">系统维护通知【2017-08-10】</a><img
@@ -110,7 +114,7 @@
 						<li class=tz1><a href="#">系统维护通知【2017-08-06】</a></li>
 						<li class=tz1><a href="#">会议通知【2017-08-06】</a></li>
 						<li class=tz1><a href="#">系统改版通知【2017-08-01】</a><img
-							src="resource/images/6.png" /></li>
+							src="resource/images/6.png" /></li> -->
 
 					</ul>
 				</div>
