@@ -104,17 +104,6 @@
 						<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a><img
 							src="resource/images/6.png" /></li>
 						</cc:forEach>
-						<!-- <li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统数据关联关系功能上线【2017-08-08】</a></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-10】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统新增上传功能【2017-08-08】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">会议通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">系统改版通知【2017-08-01】</a><img
-							src="resource/images/6.png" /></li> -->
 
 					</ul>
 				</div>

@@ -79,7 +79,7 @@ public class UserTilesController {
 
     @RequestMapping("/user_guanxitu")
     public String userGuanxitu(Model model) {
-
+        model.addAttribute("checks", "shuju4");
         return "user_guanxitu.pages";
     }
 }
