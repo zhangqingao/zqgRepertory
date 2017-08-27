@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-red">
+				<div class="small-box bg-red" style="width: 300px;margin-left:30px">
 					<div class="inner">
 						<h3>新增用户</h3>
 
@@ -28,25 +28,10 @@
 				</div>
 			</div>
 			<!-- ./col -->
+			
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-green">
-					<div class="inner">
-						<h3>新增帐号</h3>
-
-						<h5>New Account</h5>
-					</div>
-					<div class="icon">
-						<img src="resource/images/22.png" />
-					</div>
-					<a href="#" class="small-box-footer">More info <i
-						class="fa fa-arrow-circle-right"></i></a>
-				</div>
-			</div>
-			<!-- ./col -->
-			<div class="col-lg-3 col-xs-6">
-				<!-- small box -->
-				<div class="small-box bg-yellow">
+				<div class="small-box bg-aqua" style="width: 300px;margin-left:110px">
 					<div class="inner">
 						<H3>新增数据表</H3>
 
@@ -62,7 +47,7 @@
 			<!-- ./col -->
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-aqua">
+				<div class="small-box bg-green" style="width: 300px;margin-left:190px">
 					<div class="inner">
 						<h3>新增通知</h3>
 
