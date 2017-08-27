@@ -51,9 +51,7 @@ public class AdminTilesController {
     public String tongzhi3(Model model, HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("--------------------" + id);
         Info info = is.selectByPrimaryKey(id);
-        System.out.println(info);
         model.addAttribute("info", info);
         return "admin_tongzhi3.page";
     }
@@ -61,7 +59,6 @@ public class AdminTilesController {
     @RequestMapping("/tongzhi_update")
     public String tongzhi_update(Info info) {
         // 获取实体类信息
-        System.out.println("====================" + info);
         is.updateByPrimaryKeySelective(info);
         return "admin_tongzhi1.page";
     }
@@ -69,7 +66,6 @@ public class AdminTilesController {
     @RequestMapping("/tongzhi_insert")
     public String tongzhi_insert(Info info) {
         // 获取实体类信息
-        System.out.println("====================" + info);
         is.insertSelective(info);
         return "admin_tongzhi1.page";
     }
@@ -78,7 +74,6 @@ public class AdminTilesController {
     public String tongzhi_delete(HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("====================" + id);
         is.deleteByPrimaryKey(id);
         return "admin_tongzhi1.page";
     }
@@ -87,7 +82,6 @@ public class AdminTilesController {
     public String admin_delete(HttpServletRequest req) {
         // 获取id
         Integer id = Integer.parseInt(req.getParameter("id"));
-        System.out.println("====================" + id);
         us.deleteByPrimaryKey(id);
         return "admin_shuju4.page";
     }
