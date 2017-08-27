@@ -31,74 +31,12 @@
                   <th>编号</th>
                   <th>数据表名</th>
                   <th>最近数据更新时间(s)</th>
-                  <th style="text-align: center">操作</th>
+                  <th style="text-align: center;width:200px">操作</th>
                   
                 </tr>
                 </thead>
-                <tbody id="check_1">
-                <tr>
-                  <td>1</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-                  
-                    <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>2017-06-01 12:12:22 </td>
-                  <td>2017-06-01 15:12:22</td>
-                  
-                   <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-                  
-                    <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-       
-                   <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-               
-                    <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-    
-                  <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-
-                    <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px;">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-
-                    <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>2017-06-01 12:12:22</td>
-                  <td>2017-06-01 15:12:22</td>
-        
-                  <td ><a class="uploads"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">上传数据</button></a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a class="searches"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看数据</button></a></td>
-                </tr>
+                <tbody>
+             
                 </tbody>
                 
               </table>

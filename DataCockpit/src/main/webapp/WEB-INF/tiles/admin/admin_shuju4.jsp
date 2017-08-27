@@ -4,7 +4,6 @@
     <section class="content-header">
       <h1>
         后台账号列表
-        <small>账号管理</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -17,12 +16,10 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
               <h3 class="box-title">
-              <a href="./adminReg.jsp" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">添加新账号</button></a>
+              <a href="./adminReg.jsp" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加新账号</button></a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

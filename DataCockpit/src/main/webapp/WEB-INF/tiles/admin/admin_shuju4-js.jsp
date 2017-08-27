@@ -23,9 +23,7 @@
 			    "targets": 5,
 			    "render": function ( data, type, row, meta ) {
 			    /* 将当前值传入controller */	    		    	
-			     return '<a href="./admin_delete.shtml?id='+row.id+'" onclick="return dd();">\
-			    		<button type="button" class="btn btn-primary btn-lg delete_btn" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop3(data, type, row)">删除</button>\
-			    		</a>';	 			    			
+			     return '<a href="./admin_delete.shtml?id='+row.id+'" onclick="return dd();"  class="button button-primary button-rounded button-small" style="font-size: 14px;">删除</a>';	 			    			
 			    }
 			  }
 			],	      

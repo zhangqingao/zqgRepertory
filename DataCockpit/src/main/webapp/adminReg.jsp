@@ -22,30 +22,27 @@
 <script src="<%=basePath%>/resource/js/jquery.min.js"></script>
 <script type="text/javascript"
 	src="<%=basePath%>/resource/js/wickedpicker.js"></script>
-<!-- <style type="text/css">
-		#bgvid{
-		
+	
+ <!-- <style type="text/css">
+		#bgvid{		
         position: fixed;right: 0;bottom: 0;
         min-width: 100%;min-height: 100%;
         width: auto;
         height: auto;
         z-index: -100;
-        background:url(./dahai.jpg) no-repeat;
-        background-size: cover;
-        
+        background:url("./dahai.jpg") no-repeat;
+        background-size: cover;       
         }
-</style> -->
-  
-     
+</style>     --> 
 </head>
 <body>
-	<h1>管理员注册</h1>
-
+	<!-- <h2>管理员注册</h2> -->
+	
 	<%-- <video autoplay loop poster="dahai.jsp" id="bgvid">
 		<source src="<%=basePath%>/resources/images/dahai.mp4" type="video/mp4">
-	</video> --%>
-
+	</video> --%>	
 	<div class="content-w3ls">
+	<label class="email-w3ls" style="text-align: center;color: red;font-family: !important;font-size: 25px;">管理员注册</label> 
 		<form action="<%=basePath%>/insertAdminReg.shtml" method="post">
 			<div class="form-group1">
 				<label class="email-w3ls">手机号：</label> <input type="text"

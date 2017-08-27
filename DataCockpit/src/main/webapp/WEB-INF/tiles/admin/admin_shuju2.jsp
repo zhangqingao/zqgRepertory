@@ -16,13 +16,10 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-             
           <!-- /.box -->
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
-              <h3 class="box-title"><a href="#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">导出数据</button></a></h3>
+              <h3 class="box-title"><a href="#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></a></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

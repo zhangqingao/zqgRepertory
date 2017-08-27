@@ -1,6 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
-
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="c"%>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>快捷菜单</h1>

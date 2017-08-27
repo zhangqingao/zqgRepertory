@@ -6,7 +6,7 @@ public class Analysistasks {
     private Integer id;
 
     private Date starttime;
-
+    
     private Date endtime;
 
     private Integer cid;

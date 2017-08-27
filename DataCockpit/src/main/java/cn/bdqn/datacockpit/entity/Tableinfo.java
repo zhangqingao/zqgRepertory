@@ -72,4 +72,11 @@ public class Tableinfo {
     public void setShowtype(String showtype) {
         this.showtype = showtype;
     }
+
+    @Override
+    public String toString() {
+        return "Tableinfo [id=" + id + ", name=" + name + ", updatetime=" + updatetime + ", physicaltablename="
+                + physicaltablename + ", cid=" + cid + ", state=" + state + ", showtype=" + showtype + "]";
+    }
+    
 }
