@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript">
+<%-- <script type="text/javascript">
           
               $("#check_1 tr").find("td:eq(0)").css("width","100px")
               $("#check_1 tr").find("td:eq(0)").css("text-align","center")
@@ -82,3 +82,4 @@
     $('.textarea').wysihtml5()
   })
 </script>
+ --%>
