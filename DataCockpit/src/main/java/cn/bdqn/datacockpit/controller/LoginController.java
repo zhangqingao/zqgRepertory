@@ -9,7 +9,10 @@
 
 package cn.bdqn.datacockpit.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,9 +99,18 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
+        Date time = new Date();
+        System.out.println(time);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
         List<Info> infoList = infoService.selectAllInfo();
+        if (infoList != null) {
+            for (Info info : infoList) {
+                Date date = info.getPublishDate();
+                System.out.println(date);
+            }
+        }
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
