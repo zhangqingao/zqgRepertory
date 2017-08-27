@@ -11,7 +11,7 @@ import java.util.Date;
  * @version
  */
 public class Info {
-    private Integer id;//主键id
+    private Integer id;// 主键id
 
     private String title;
 
@@ -60,4 +60,11 @@ public class Info {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    @Override
+    public String toString() {
+        return "Info [id=" + id + ", title=" + title + ", publishdate=" + publishdate + ", details=" + details
+                + ", publisher=" + publisher + "]";
+    }
+
 }

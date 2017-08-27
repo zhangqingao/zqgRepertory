@@ -24,7 +24,7 @@ public class Userinfo {
 
     private Integer id;
 
-    private String userName;
+    private String name;
 
     private String job;
 
@@ -35,12 +35,10 @@ public class Userinfo {
     private String email;
 
     private Integer state;
-    
+
     private List<String> roles;
-    
+
     private Set<String> permission;
-    
-    
 
     public Integer getId() {
         return id;
@@ -50,12 +48,12 @@ public class Userinfo {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getJob() {
@@ -96,6 +94,17 @@ public class Userinfo {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Userinfo [id=" + id + ", name=" + name + ", job=" + job + ", password=" + password + ", phone=" + phone
+                + ", email=" + email + ", state=" + state + ", roles=" + roles + ", permission=" + permission + "]";
     }
 
 }

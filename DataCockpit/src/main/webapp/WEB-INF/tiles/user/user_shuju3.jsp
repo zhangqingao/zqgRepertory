@@ -39,109 +39,27 @@
                   <th>项目名称</th>
                   <th>所在区域</th>
                   <th>日期</th>
-                  <th class="people_nums">到访人数</th>
-                  <th class="people_nums">认筹人数</th>
+                  <th class="people_num">到访人数</th>
+                  <th class="people_num">认筹人数</th>
                   <th>退订人数</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>湖北武汉XXX有限公司 </td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>湖北武汉XXX有限公司</td>
-                  <td>湖北武汉XXX地区</td>
-                  <td>2017-06-01 15:12:22</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>9</td>
-                </tr>
+                
                 </tbody>
                 
               </table>
-
-                 <!-- Main content -->
- 
-      
-        <div id="line-tu" class="col-md-6"  style="margin-top: -380px;margin-left: -999px">
+  <!-- Main content -->
+    
+        <div class="col-md-6">
           <!-- AREA CHART -->
-          <div class="box box-primary">
+          <div id="areaTu" class="box box-primary" style="margin-left: -999px;margin-top:-340px">
             <div class="box-header with-border">
               <h3 class="box-title">曲线关系图</h3>
 
               <div class="box-tools pull-right">
                 
-                <button id="area-close" type="button" class="btn btn-box-tool"><i class="fa fa-times"></i></button>
+                <button id="area-close" type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
@@ -152,30 +70,32 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col (LEFT) -->
 
-      <div id="bar-tu" class="col-md-6" style="margin-top: -30px;margin-left: -999px">
-          <!-- AREA CHART -->
-          <div class="box box-primary">
+        
+
+          <!-- BAR CHART -->
+          <div id="barTu" class="box box-success" style="margin-left: -999px;margin-top:-340px">
             <div class="box-header with-border">
-              <h3 class="box-title">条形统计图</h3>
+              <h3 class="box-title">柱状关系图</h3>
 
               <div class="box-tools pull-right">
                 
-                <button id="bar-close" type="button" class="btn btn-box-tool"><i class="fa fa-times"></i></button>
+                <button id="bar-close" type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button>
               </div>
             </div>
-            <div class="box-body chart-responsive">
-              <div class="chart" id="bar-chart" style="height: 300px;"></div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="barChart" style="height:230px"></canvas>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
         </div>
-      <!-- /.col (LEFT) -->
-          
-    </div>
+        <!-- /.col (RIGHT) -->
+    <!-- /.content -->   
+    		</div>
             <!-- /.box-body -->
            
           </div>

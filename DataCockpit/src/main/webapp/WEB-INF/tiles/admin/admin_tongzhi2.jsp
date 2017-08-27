@@ -14,6 +14,7 @@
 
     <!-- Main content -->
     <section class="content">
+    <form action="./tongzhi_insert.shtml" method="post">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-info">
@@ -21,24 +22,25 @@
               <h3 class="box-title" style="font-weight: bold;font-size: 20px">
                 <small><b></b></small>
               </h3>                           
-              <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles1" style="width: 100%;height: 30px" required="required"></div>
+              <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title" style="width: 100%;height: 30px" required="required"></div>
               <br>
-              <div style="text-align: left;" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titles2" style="width: 100%;height: 30px" required="required"></div>
+              <div style="text-align: left;" ><span style="font-size: 18px;font-family:  ">公告作者：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="publisher" style="width: 100%;height: 30px" required="required"></div>
 
               <div class="pull-right box-tools">
                 
                 <button type="button" class="btn btn-info btn-sm"  data-toggle="tooltip"
-                        title="clear" style="margin-top: 12px;">清空</button>
+                        title="clear" style="margin-top: 12px; font-size: 14px">清空</button>
               </div>
               <!-- /. tools -->
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-                    <textarea id="editor1" name="editor1" rows="10" cols="80" required="required">                        
+                    <textarea id="editor1" name="details" rows="10" cols="80" required="required">                        
+                   
                     </textarea>             
               <br>
-              <button id="ok" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px">确定</button>
-               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 10px;line-height: 0px;float: right">返回</button>
+              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaaaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
+               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>
             </div>              
           </div>          
           <!-- /.box -->
@@ -46,8 +48,9 @@
         <!-- /.col-->
       </div>
       <!-- ./row -->
+      </form>
     </section>
-    </form>
+    
  
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -86,7 +89,7 @@
 
 
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+<!-- <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
    aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog" style="height:60%">
       <div class="modal-content">
@@ -116,9 +119,9 @@
                确定
             </button>
          </div>
-      </div><!-- /.modal-content -->
-   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      </div>/.modal-content
+   </div>/.modal-dialog
+</div>/.modal -->
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"

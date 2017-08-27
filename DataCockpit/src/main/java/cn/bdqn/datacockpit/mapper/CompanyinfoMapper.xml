@@ -3,7 +3,7 @@
 <mapper namespace="cn.bdqn.datacockpit.mapper.CompanyinfoMapper" >
   <resultMap id="BaseResultMap" type="cn.bdqn.datacockpit.entity.Companyinfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="corpName" property="corpname" jdbcType="VARCHAR" />
+    <result column="corpname" property="corpname" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="job" property="job" jdbcType="VARCHAR" />
@@ -14,13 +14,13 @@
   </resultMap>
   
   <sql id="Base_Column_List" >
-    id, corpName, phone, name, job, password, email, state, approval
+    id, corpname, phone, name, job, password, email, state, approval
   </sql>
   
    <select id="selectAllCompanies" resultType="Map">
     select 
     <include refid="Base_Column_List" />
-    from companyinfo limit 
+    from companyinfo 
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -46,7 +46,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.bdqn.datacockpit.entity.Companyinfo" >
-    insert into companyinfo (id, corpName, phone, 
+    insert into companyinfo (id, corpname, phone, 
       name, job, password, 
       email, state, approval
       )
@@ -62,7 +62,7 @@
         id,
       </if>
       <if test="corpname != null" >
-        corpName,
+        corpname,
       </if>
       <if test="phone != null" >
         phone,
@@ -120,7 +120,7 @@
     update companyinfo
     <set >
       <if test="corpname != null" >
-        corpName = #{corpname,jdbcType=VARCHAR},
+        corpname = #{corpname,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
@@ -148,7 +148,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.bdqn.datacockpit.entity.Companyinfo" >
     update companyinfo
-    set corpName = #{corpname,jdbcType=VARCHAR},
+    set corpname = #{corpname,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       job = #{job,jdbcType=VARCHAR},

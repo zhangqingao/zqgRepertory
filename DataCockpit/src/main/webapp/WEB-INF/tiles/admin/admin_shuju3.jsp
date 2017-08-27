@@ -16,10 +16,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-            
-
-          <div class="box">
+          <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
               <h3 class="box-title" style="color: red">数据分析任务列表</h3> 
             </div>
@@ -28,27 +25,27 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>编号</th>
-                  <th>任务开始时间</th>
-                  <th>任务结束时间</th>
-                  <th>任务状态</th>
-                  <th>任务反馈</th>                
+                  <th style="text-align: center;">编号</th>
+                  <th style="text-align: center;">任务开始时间</th>
+                  <th style="text-align: center;">任务结束时间</th>
+                  <th style="text-align: center;">任务状态</th>
+                  <th style="text-align: center;">任务反馈</th>                
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                 <tr>
                   <td>1</td>
                   <td>2017-06-01 12:12:22</td>
                   <td>2017-06-01 15:12:22</td>
                   <td>任务完成</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看结果</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看结果</button></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>2017-06-11 12:12:22</td>
                   <td>2017-06-11 18:12:22</td>
                   <td>任务失败</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看出错信息</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看出错信息</button></td>
                 </tr>
                  <tr>
                   <td>3</td>

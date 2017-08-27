@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"  isELIgnored="false"%>
     <%@taglib uri="http://shiro.apache.org/tags" prefix="c" %>
+
 <!-- Main Header -->
   <header class="main-header">
 
@@ -80,7 +81,8 @@
         </li>
 
       </ul>
-       <script type="text/javascript">
+
+      <script type="text/javascript">
       	var menus = ${menus}
       	localStorage.menu1="1";
       	localStorage.menu2="2";
@@ -116,5 +118,3 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-  
-

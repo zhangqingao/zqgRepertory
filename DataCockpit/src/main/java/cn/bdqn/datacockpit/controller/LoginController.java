@@ -34,11 +34,11 @@ import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+
 import cn.bdqn.datacockpit.utils.LoggerUtils;
 import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
-
 
 /**
  * Description: <br/>
@@ -88,7 +88,6 @@ public class LoginController {
         
     }    
   
-
     /**
      * 登录
      * 
@@ -104,8 +103,6 @@ public class LoginController {
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
-        // System.out.println(compi);
-        // System.out.println(ui);
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
@@ -129,7 +126,6 @@ public class LoginController {
         return "redirect:/login.jsp";
 
     }
-    
 
     /**
      * 注册（申请合作）
@@ -243,7 +239,6 @@ public class LoginController {
 
         return "user_exit.pages";
     }
-    
     /**
      * 公告详情
      * 
