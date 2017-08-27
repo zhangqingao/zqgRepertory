@@ -4,7 +4,6 @@
     <section class="content-header">
       <h1>
         后台账号列表
-        <small>账号管理</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

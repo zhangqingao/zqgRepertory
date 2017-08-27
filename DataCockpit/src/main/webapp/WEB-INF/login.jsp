@@ -77,8 +77,8 @@
           <div>
              <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
-          <img  src="getYzm.shtml">
-        
+          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 20px"></div>
+  
       </div>
 		 <div class="col-xs-8">
           <div class="checkbox icheck" style="margin-left:10px">
@@ -129,7 +129,14 @@
 
 <script>
 <#-- 获取验证码 -->
+    var verifyCode = new GVerify("v_container");
 
+    document.getElementById("code_input").onblur = function(){
+      var res = verifyCode.validate(document.getElementById("code_input").value);
+      if(!res){
+        alert("验证码错误");
+      }
+    }
   </script>
 </body>
 </html>
