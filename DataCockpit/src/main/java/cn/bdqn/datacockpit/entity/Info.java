@@ -2,16 +2,8 @@ package cn.bdqn.datacockpit.entity;
 
 import java.util.Date;
 
-/**
- * 
- * Description: 通知类<br/>
- * date: 2017年8月21日 上午11:05:41 <br/>
- *
- * @author caoS
- * @version
- */
 public class Info {
-    private Integer id;// 主键id
+    private Integer id;
 
     private String title;
 
@@ -37,12 +29,13 @@ public class Info {
         this.title = title;
     }
 
-    public Date getPublishdate() {
+
+    public Date getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishdate(Date publishdate) {
-        this.publishDate = publishdate;
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 
     public String getDetails() {
