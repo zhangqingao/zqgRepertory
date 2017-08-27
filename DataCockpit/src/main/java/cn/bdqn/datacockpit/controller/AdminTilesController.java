@@ -1,8 +1,10 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,12 +38,28 @@ public class AdminTilesController {
         return "admin_index.page";
     }
 
+    /**
+     * 
+     * Description: 管理员通知页面<br/>
+     *
+     * @author dengJ
+     * @param model
+     * @return
+     */
     @RequestMapping("/admin_tongzhi1")
     public String tongzhi1(Model model) {
         model.addAttribute("menus", "1");
         return "admin_tongzhi1.page";
     }
 
+    /**
+     * 
+     * Description: 添加通知页面<br/>
+     *
+     * @author dengJ
+     * @param model
+     * @return
+     */
     @RequestMapping("/admin_tongzhi2")
     public String tongzhi2(Model model) {
         return "admin_tongzhi2.page";
@@ -63,10 +81,28 @@ public class AdminTilesController {
         return "admin_tongzhi1.page";
     }
 
+    /**
+     * 
+     * Description: 添加通知<br/>
+     *
+     * @author dengJ
+     * @param info
+     * @return
+     */
     @RequestMapping("/tongzhi_insert")
     public String tongzhi_insert(Info info) {
-        // 获取实体类信息
+        // 获取实体类信息，将新增数据存入数据库
         is.insertSelective(info);
+        // 获取本地时间与数据库时间格式一致
+        java.util.Date date = new java.util.Date();
+        java.sql.Date data1 = new java.sql.Date(date.getTime());
+        info.setPublishDate(data1);
+        // 获取最新一条记录ID
+        Integer infoMax = is.selectMaxId();
+        System.out.println(infoMax);
+        info.setId(infoMax);
+        // 将时间存入最后一条记录中
+        is.updateByPrimaryKey(info);
         return "admin_tongzhi1.page";
     }
 
@@ -118,11 +154,20 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/selectAllCompanyinfo")
-    public String selectAllCompanyinfo(Model model) {
+    public String selectAllCompanyinfo(Model model, HttpServletRequest req) {
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
         System.out.println(lists);
         model.addAttribute("lists", lists);
 
+        List<Info> infoList = is.selectAllInfo();
+        if (infoList != null) {
+            for (Info info : infoList) {
+                Date date = info.getPublishDate();
+                System.out.println(date);
+            }
+        }
+        HttpSession session = req.getSession();
+        session.setAttribute("tongzhi", infoList);
         // 转发
         return "admin_index.page";
     }

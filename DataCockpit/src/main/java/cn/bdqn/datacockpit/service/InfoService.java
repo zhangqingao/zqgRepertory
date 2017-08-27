@@ -36,4 +36,6 @@ public interface InfoService {
     int updateByPrimaryKeySelective(Info record);
 
     int updateByPrimaryKey(Info record);
+
+    Integer selectMaxId();
 }

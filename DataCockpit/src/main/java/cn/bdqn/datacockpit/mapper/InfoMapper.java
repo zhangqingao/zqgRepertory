@@ -6,7 +6,7 @@ import cn.bdqn.datacockpit.entity.Info;
 
 public interface InfoMapper {
     List<Info> selectAllInfo();
-    
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Info record);
@@ -18,4 +18,6 @@ public interface InfoMapper {
     int updateByPrimaryKeySelective(Info record);
 
     int updateByPrimaryKey(Info record);
+
+    Integer selectMaxId();
 }

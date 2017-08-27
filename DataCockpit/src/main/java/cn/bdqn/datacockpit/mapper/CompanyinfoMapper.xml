@@ -19,7 +19,7 @@
   
    <select id="selectAllCompanies" resultType="Map">
     select 
-    <include refid="Base_Column_List" />
+    id, corpname, phone, name, job, email, state, approval
     from companyinfo 
   </select>
   

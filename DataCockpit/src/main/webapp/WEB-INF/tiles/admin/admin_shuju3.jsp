@@ -2,14 +2,8 @@
    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        碧桂园房地产开发有限公司
-        <small>销售到访关联</small>
+         这里是选择的用户对应公司名称
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -18,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
-              <h3 class="box-title" style="color: red">数据分析任务列表</h3> 
+              <h3 class="box-title" >这里是选择的表对应名称</h3> 
             </div>
             <!-- /.box-header -->
             <div class="box-body">
