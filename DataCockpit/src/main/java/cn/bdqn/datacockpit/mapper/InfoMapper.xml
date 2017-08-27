@@ -12,12 +12,6 @@
     id, title, publish_date, details, publisher
   </sql>
   
-  <select id="selectAllInfo" resultMap="BaseResultMap">
-  	 select 
-    <include refid="Base_Column_List" />
-    from inform
-  </select>
-  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
