@@ -11,7 +11,6 @@
   <sql id="Base_Column_List" >
     id, title, publish_date, details, publisher
   </sql>
-  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
