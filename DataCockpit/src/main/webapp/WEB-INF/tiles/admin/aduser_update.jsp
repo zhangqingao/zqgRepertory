@@ -24,10 +24,12 @@
 
     <form action="./aduser_update2.shtml" method="post">
       <div class="form-group has-feedback">
+      		<!-- 设置不显示 -->
       		<input type="hidden" name="id" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.id }">
       		<input type="hidden" name="state" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.state }">
       		<input type="hidden" name="approval" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.approval }">
       		<input type="hidden" name="corpname" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
+      		<input type="hidden" name="password" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.password }">
         <sapn style="display: block;margin-bottom: -30px">企业名称： </sapn>
               <input type="text" class="form-control" disabled="disabled" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
         <span style="display: block;margin-top: -30px;margin-left: 320px">

@@ -99,7 +99,6 @@ public class AdminTilesController {
         info.setPublishDate(data1);
         // 获取最新一条记录ID
         Integer infoMax = is.selectMaxId();
-        System.out.println(infoMax);
         info.setId(infoMax);
         // 将时间存入最后一条记录中
         is.updateByPrimaryKey(info);
@@ -172,7 +171,6 @@ public class AdminTilesController {
 
     @RequestMapping("insertAdminReg")
     public String insertAdminReg(Userinfo record) {
-        System.out.println(record);
         int flag = us.insertSelective(record);
         // 转发
         return "admin_shuju4.page";

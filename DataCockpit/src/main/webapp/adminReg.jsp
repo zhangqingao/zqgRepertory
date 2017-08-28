@@ -22,25 +22,9 @@
 <script src="<%=basePath%>/resource/js/jquery.min.js"></script>
 <script type="text/javascript"
 	src="<%=basePath%>/resource/js/wickedpicker.js"></script>
-	
- <!-- <style type="text/css">
-		#bgvid{		
-        position: fixed;right: 0;bottom: 0;
-        min-width: 100%;min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        background:url("./dahai.jpg") no-repeat;
-        background-size: cover;       
-        }
-</style>     --> 
 </head>
 <body>
-	<!-- <h2>管理员注册</h2> -->
-	
-	<%-- <video autoplay loop poster="dahai.jsp" id="bgvid">
-		<source src="<%=basePath%>/resources/images/dahai.mp4" type="video/mp4">
-	</video> --%>	
+	<!-- <h2>管理员注册</h2> -->	
 	<div class="content-w3ls">
 	<label class="email-w3ls" style="text-align: center;color: red;font-family: !important;font-size: 25px;">管理员注册</label> 
 		<form action="<%=basePath%>/insertAdminReg.shtml" method="post">
@@ -50,8 +34,7 @@
 					pattern="[1]([3]|[5]|[7]|[8])\d{9}" required="required">
 			</div>
 			<div class="form-group1">
-				<label class="email-w3ls">姓名：</label> <input type="text" name="name"
-					placeholder="Name" required="required">
+				<label class="email-w3ls">姓名：</label> <input type="text" name="name" placeholder="Name" required="required">
 			</div>
 			<div class="form-group1">
 				<label class="email-w3ls">职业：</label> <input type="text" name="job"

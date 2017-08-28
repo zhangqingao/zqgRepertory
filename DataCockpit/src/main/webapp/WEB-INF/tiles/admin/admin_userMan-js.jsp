@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script>
+	
   $(function () {
    var t = $('#example1').DataTable({
 		 "ajax"		: {
@@ -33,9 +34,9 @@
 	 	    		    "render": function ( data, type, row, meta ) {
 	 	    		    /* 将当前值传入controller */	  
 	 	    		    /* <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
-	 	    		     return '<select><a onclick="ee()"><option value="1">已启用</option></a><a onclick="dd()"><option value="0">已禁用</option></a></select>';	 	    		    				 	    		     
-	 	    		    }
-	 	    		  }
+	 	    		     return '<select name="s1"><option value="1">已启用</option><option value="0">已禁用</option></select>';	 	    		    				 	    		     
+	 	    		 }
+	 	    	   }
 	      ],	    
 	            
 	});
@@ -51,7 +52,7 @@
 
   })
 </script>
-<script language="jscript"> 
+<!-- <script language="jscript"> 
 	function ee() { if(confirm("请确认是否启用?" )) return true; return false;  }
 	function dd() { if(confirm("请确认是否禁用?" )) return true; return false;  }
-</script>
+</script> -->
