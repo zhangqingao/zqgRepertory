@@ -147,6 +147,14 @@ public class AdminTilesController {
         return "admin_userMan.page";
     }
 
+    @RequestMapping("/admin_cominfo")
+    public String cominfo(Model model) {
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        model.addAttribute("menus", "3");
+        model.addAttribute("lists", lists);
+        return "admin_cominfo.page";
+    }
+
     @RequestMapping("/admin_shuju1")
     public String shuju1(Model model) {
         model.addAttribute("menus", "3");
