@@ -28,7 +28,7 @@
                    <c:forEach items="${infoList }" var="list" varStatus="status">
                      <tr>
 		                  <th style="text-align: center;">${requestScope.offset+status.index+1}</th>
-		                  <th style="text-align: center;">${list.title }</th>
+		                  <th style="text-align: center;"><a href="./gongGao.shtml?id=${list.id }" style="color:black">${list.title }</a></th>
 		                  <th style="text-align: center;">
 		                  <fmt:formatDate value="${list.publishDate }" pattern="yyyy-MM-dd" />
 		                  </th>

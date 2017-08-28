@@ -18,7 +18,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAllInfo" resultMap="BaseResultMap">
-   select * from inform
+   select * from inform order by publish_date desc
   </select>
   <select id="selectMaxId" resultType="java.lang.Integer">
   	SELECT MAX(id) FROM inform

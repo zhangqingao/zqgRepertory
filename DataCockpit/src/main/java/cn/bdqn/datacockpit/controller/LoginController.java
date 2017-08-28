@@ -10,6 +10,7 @@
 package cn.bdqn.datacockpit.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,15 +96,33 @@ public class LoginController {
      */
     @RequestMapping("/login")
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
+        List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
         List<Info> infoList = infoService.selectAllInfo();
+        Date time = new Date();
+        Date ti1 = new Date(time.getTime() - 1 * 24 * 60 * 60 * 1000);
+        for (Info info : infoList) {
+            Date date = info.getPublishDate();
+            Map<String, Object> map = new HashMap<String, Object>();
+            if (ti1.before(date)) {
+                map.put("date", 1);
+            } else {
+                map.put("date", 0);
+            }
+
+            map.put("info", info);
+            lists.add(map);
+
+        }
+
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
             if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
                 session.setAttribute("infos", compi);
-                session.setAttribute("tongzhi", infoList);
+                // session.setAttribute("tongzhi", infoList);
+                session.setAttribute("flag", lists);
                 return "redirect:/user_index.shtml";
             }
         }
@@ -230,7 +249,7 @@ public class LoginController {
     public String exit(HttpServletRequest req) {
         req.getSession().removeAttribute("comp");
 
-        return "user_exit.pages";
+        return "front/exit";
     }
 
     /**

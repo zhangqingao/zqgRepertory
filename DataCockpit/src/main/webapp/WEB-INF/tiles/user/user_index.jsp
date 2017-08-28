@@ -100,9 +100,12 @@
 			<div class="table-responsive">
 				<div id=tz>
 					<ul>
-						<cc:forEach items="${tongzhi }" var="tz" begin="0" end="4">
-						<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a>
+						<cc:forEach items="${flag }" var="map" begin="0" end="4">
+					
+						<li class=tz1><a href="./gongGao.shtml?id=${map.info.id }">${map.info.title }【<fmt:formatDate value="${map.info.publishDate }" pattern="yyyy-MM-dd"/>】</a>
+						<cc:if test="${map.date==1 }">
 						<img src="resource/images/6.png" />
+						</cc:if>
 						</li>
 						</cc:forEach>
 
