@@ -317,19 +317,20 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h5 class="modal-title">关联关系表名：<input type="text" name="glname"></h5>
+                <form action="./insert_guanlian.shtml" method="post"> 
+                <h5 class="modal-title">关联关系表名：<input type="text" name="name"></h5>
             </div>
             <div class="modal-body">
-                <form>  
+                 
                     <div class="form-group">  
-                        数据表A: <select>
+                        数据表A: <select name="tid1">
                                 <option value="1" selected="selected">销售数据表</option>
                                 <option value="2">到访数据表</option>
                                 <option value="3">中介数据表</option>
                                 <option value="4">认筹数据表</option>
                                 <option value="5">媒体渠道数据表</option>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
-                        统一的维度列: <select>
+                        统一的维度列: <select name="col1">
                                 <option value="1" selected="selected">项目名称</option>
                                 <option value="2">所在区域</option>
                                 <option value="3">日期</option>
@@ -337,14 +338,14 @@
                                 <option value="5">认筹人数</option>
                               </select>
                               <br/><br/>
-                        数据表B: <select>
+                        数据表B: <select name="tid2">
                                 <option value="1" selected="selected">销售数据表</option>
                                 <option value="2">到访数据表</option>
                                 <option value="3">中介数据表</option>
                                 <option value="4">认筹数据表</option>
                                 <option value="5">媒体渠道数据表</option>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
-                        统一的维度列: <select>
+                        统一的维度列: <select name="col2">
                                 <option value="1" selected="selected">项目名称</option>
                                 <option value="2">所在区域</option>
                                 <option value="3">日期</option>
@@ -352,14 +353,15 @@
                                 <option value="5">认筹人数</option>
                               </select>
                     </div>  
-                </form>  
+               <input type="hidden" name="state" value="1">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" >
                     保存
                 </button>
+                 </form>  
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

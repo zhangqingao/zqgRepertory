@@ -2,6 +2,7 @@ package cn.bdqn.datacockpit.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+
+import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
@@ -37,7 +41,7 @@ import cn.bdqn.datacockpit.utils.JdbcUtil;
 public class AdminTilesController {
     @Autowired
     private TableinfoService ts;
-
+    
     @Autowired
     private UserinfoService us;
 
@@ -46,6 +50,9 @@ public class AdminTilesController {
 
     @Autowired
     private CompanyinfoService companyinfo;
+
+    @Autowired
+    private DatarelationService dataService;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -202,17 +209,6 @@ public class AdminTilesController {
     public String selectAllCompanyinfo(Model model, HttpServletRequest req) {
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
         model.addAttribute("lists", lists);
-
-        List<Info> infoList = is.selectAllInfo();
-        if (infoList != null) {
-            for (Info info : infoList) {
-                Date date = info.getPublishDate();
-                System.out.println(date);
-            }
-        }
-        HttpSession session = req.getSession();
-        session.setAttribute("tongzhi", infoList);
-        // 转发
         return "admin_index.page";
     }
 
@@ -291,6 +287,28 @@ public class AdminTilesController {
         return "admin_userMan.page";
     }
 
+    /**
+     * 公告详情
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/admin_gongGao")
+    public String gongGao1(Integer id, Model model) {
+        Info infos = is.selectByPrimaryKey(id);
+        model.addAttribute("ggg", infos);
+        return "admin_gongGao.page";
+    }
+
+    @RequestMapping("/insert_guanlian")
+    public String insertGL(Datarelation record) {
+        int flag = dataService.insert(record);
+        if (flag >= 1) {
+            return "admin_shuju1.page";
+        }
+        return "admin_shuju1.page";
+    }
+
     @RequestMapping("/admin_adds")
     public String adds(Model model) {
 
@@ -303,3 +321,4 @@ public class AdminTilesController {
         return null;
     }
 }
+

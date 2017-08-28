@@ -62,10 +62,17 @@
 	      },
 	      "columns" :[
 	    	  {"data": "office","defaultContent": "1"},
-	    	  {"data":"title"}
 	                  
 	                  ],
 	      "columnDefs": [
+	                     {
+	                      "targets": 1,
+	                      "data":"title",
+	                      "render": function ( data, type, row, meta ) {
+	      	    		    /* 将当前值传入controller */	  
+	      	    		    /*  <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
+	      	    		     return '<a href="./admin_gongGao.shtml?id='+row.id+'" style="color:black">'+data+'</a>';}
+	                     },
 					{
 	    		    "targets": 2,
 	    		    /* "data": "title", */
