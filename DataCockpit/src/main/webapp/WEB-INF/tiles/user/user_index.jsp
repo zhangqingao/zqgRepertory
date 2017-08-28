@@ -101,20 +101,11 @@
 				<div id=tz>
 					<ul>
 						<cc:forEach items="${tongzhi }" var="tz" begin="0" end="4">
-						<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a><img
-							src="resource/images/6.png" /></li>
+						<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a>
+						<img src="resource/images/6.png" />
+						</li>
 						</cc:forEach>
-						<!-- <li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统数据关联关系功能上线【2017-08-08】</a></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-10】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统新增上传功能【2017-08-08】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">会议通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">系统改版通知【2017-08-01】</a><img
-							src="resource/images/6.png" /></li> -->
+						
 
 					</ul>
 				</div>
@@ -148,8 +139,10 @@
 		<div class="box-body">
 			<div id=xt>
 				<ul>
+				
 					<li class=tz><a href="#">销售到访关联任务完成【2017-08-18】</a><img
 						src="resource/images/6.png" /></li>
+						
 					<li class=tz><a href="#">到访与媒体渠道关联任务失败【2017-08-18】</a><img
 						src="resource/images/6.png" /></li>
 					<li class=tz><a href="#">到访认筹关联任务完成【2017-08-18】</a><img
