@@ -24,7 +24,7 @@
 	    		    /* "data": "title", */
 	    		    "render": function ( data, type, row, meta ) {
 	    		    /* 将当前值传入controller */	  
-	    		     return '<a href="./admin_userDsh.shtml" class="button button-primary button-rounded button-small" style="font-size: 14px;">编辑</a>';   		    		
+	    		     return '<a href="./aduser_update.shtml?id='+row.id+'" class="button button-primary button-rounded button-small" style="font-size: 14px;">编辑</a>';   		    		
 	    		    }
 	    		  },
 					{

@@ -16,16 +16,18 @@
         -------------------------->
   <div class="register-box" >
   <div class="register-logo">
-    <a href="#" style="margin-left: 50px"><b>资料修改</b></a>
+    <a href="#" style="margin-left: 50px"><b>用户资料修改</b></a>
   </div>
 
   <div class="register-box-body" style="width: 390px">
     
 
-    <form action="./admin_userMan.shtml" method="post">
+    <form action="./aduser_update2.shtml" method="post">
       <div class="form-group has-feedback">
-		<input type="hidden" name="corpname" value="${comp.corpname }">
-		<input type="hidden" name="id" value="${comp.id }">
+      		<input type="hidden" name="id" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.id }">
+      		<input type="hidden" name="state" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.state }">
+      		<input type="hidden" name="approval" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.approval }">
+      		<input type="hidden" name="corpname" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
         <sapn style="display: block;margin-bottom: -30px">企业名称： </sapn>
               <input type="text" class="form-control" disabled="disabled" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
         <span style="display: block;margin-top: -30px;margin-left: 320px">
@@ -68,10 +70,10 @@
       
 
       <div class="form-group has-feedback">
-          <div>
+         <!--  <div>
              <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
-          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 60px"><img src="getYzm.shtml"></div>
+          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 60px"><img src="getYzm.shtml"></div> -->
         
       </div>
       <div class="row" style="margin-top: 20px">

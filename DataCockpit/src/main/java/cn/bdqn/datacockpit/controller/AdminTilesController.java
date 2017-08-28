@@ -130,6 +130,26 @@ public class AdminTilesController {
         return "admin_userDsh.page";
     }
 
+    @RequestMapping("/aduser_update")
+    public String aduser_update(Model model, HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        System.out.println(comp);
+        model.addAttribute("comp", comp);
+        return "aduser_update.page";
+    }
+
+    @RequestMapping("/aduser_update2")
+    public String aduser_insert(Companyinfo comps) {
+        System.out.println(comps);
+        // 获取实体类信息
+        int flag = companyinfo.updateByPrimaryKey(comps);
+
+        System.out.println(flag);
+        return "admin_userMan.page";
+    }
+
     @RequestMapping("/admin_shuju1")
     public String shuju1(Model model) {
         model.addAttribute("menus", "3");
