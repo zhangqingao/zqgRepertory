@@ -35,7 +35,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style type="text/css">
-      #code_input{
+      input{
         width: 200px;
         height: 34px;
       }
@@ -48,22 +48,22 @@
     <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>管&nbsp;理&nbsp;员&nbsp;注&nbsp;册</b></a>
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body" style="background-color: rgba(54,167,129,.4); height: 340px;">
+  <div class="login-box-body" style="background-color: rgba(54,167,129,.4); height: 370px;">
     <form action="<%=basePath%>/insertAdminReg.shtml" method="post">
       <div class="form-group has-feedback">
-         <input type="text" name="phone" placeholder="请输入手机号" pattern="[1]([3]|[5]|[7]|[8])\d{9}" required="required" style="width: 320px;">
+         <input type="text" name="phone" placeholder="&emsp;请输入手机号" pattern="[1]([3]|[5]|[7]|[8])\d{9}" required="required" style="width: 320px;">
         <span style="display: block;margin-top: -26px;margin-left: 291px"><img src="<%=basePath %>/resource/images/iphone.png" style="width: 27px;height: 25px"></span>
       </div>
        <div class="form-group has-feedback">
-         <input type="text" name="name" placeholder="请输入姓名" required="required" style="width: 320px;">
+         <input type="text" name="name" placeholder="&emsp;请输入姓名" required="required" style="width: 320px;">
         <span style="display: block;margin-top: -26px;margin-left: 291px"><img src="<%=basePath %>/resource/images/ios7-contact-outline.png" style="width: 27px;height: 25px"></span>
       </div>
       <div class="form-group has-feedback">
-         <input type="text" name="job" placeholder="请输入职业" required="required" style="width: 320px;">
+         <input type="text" name="job" placeholder="&emsp;请输入职业" required="required" style="width: 320px;">
         <span style="display: block;margin-top: -26px;margin-left: 291px"><img src="<%=basePath %>/resource/images/social-wordpress.png" style="width: 27px;height: 25px"></span>
       </div>
       <div class="form-group has-feedback">
-         <input type="email" name="email" placeholder="请输入email" required="required" style="width: 320px;">
+         <input type="email" name="email" placeholder="&emsp;请输入email" required="required" style="width: 320px;">
         <span style="display: block;margin-top: -26px;margin-left: 291px"><img src="<%=basePath %>/resource/images/ios7-email.png" style="width: 27px;height: 25px"></span>
       </div>
          <div class="form-group has-feedback">
