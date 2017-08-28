@@ -29,6 +29,7 @@ public class Info {
         this.title = title;
     }
 
+
     public Date getPublishDate() {
         return publishDate;
     }
@@ -52,4 +53,11 @@ public class Info {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    @Override
+    public String toString() {
+        return "Info [id=" + id + ", title=" + title + ", publishdate=" + publishDate + ", details=" + details
+                + ", publisher=" + publisher + "]";
+    }
+
 }

@@ -93,7 +93,6 @@ public class LoginController {
      * @param req
      * @return
      */
-
     @RequestMapping("/login")
     public String login(String phone, String password, HttpServletResponse res, HttpServletRequest req) {
         Companyinfo compi = companyinfo.selectByPhone(phone);
@@ -103,11 +102,9 @@ public class LoginController {
         // 判断账号密码是否正确(用户)
         if (compi != null) {
             if (phone.equals(compi.getPhone()) && password.equals(compi.getPassword())) {
-
                 session.setAttribute("infos", compi);
                 session.setAttribute("tongzhi", infoList);
                 return "redirect:/user_index.shtml";
-
             }
         }
         // 判断账号密码是否正确（管理员）
@@ -258,7 +255,6 @@ public class LoginController {
      */
     @RequestMapping("/selectTongzhi")
     public String selectTongzhi(Model model) {
-        // System.out.println(id);
         List<Info> lists = infoService.selectAllInfo();
         model.addAttribute("infoList", lists);
         return "user_tongzhi.pages";

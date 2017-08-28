@@ -7,7 +7,34 @@
        数据关联关系
       </h1>
     </section>
-
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery-1.4.2.js"></script>
+		<link rel="stylesheet" type="text/css" href="bower_components/joint-1/joint.css" />
+        <script src="bower_components/joint-1/jquery-3.1.1.js"></script>
+        <script src="bower_components/joint-1/lodash-3.10.1.js"></script>
+        <script src="bower_components/joint-1/backbone-1.3.3.js"></script>
+        <script src="bower_components/joint-1/joint.js"></script>
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+			}
+		li{
+			margin-right: 10px;
+		}
+        .choose{
+            float: left;
+            width: 120px;
+            height: 30px;
+            border-radius:10px;
+            color: white;
+        }
+		#paper{
+			/* border:3px solid #001f3f; */
+			float: left;
+			background: #ECF0F5;
+			margin-left: 140px;
+			margin-top:20px;
+		}	
+	</style>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -26,3 +53,4 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+    

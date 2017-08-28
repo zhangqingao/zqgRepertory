@@ -1,13 +1,19 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.XsTable;
+import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.XsTableService;
 
 /**
@@ -17,6 +23,9 @@ import cn.bdqn.datacockpit.service.XsTableService;
 public class UserTilesController {
     @Autowired
     private XsTableService xs;
+
+    @Autowired
+    private InfoService infoService;
 
     @RequestMapping("/user_pass")
     public String pass(Model model) {
@@ -30,9 +39,39 @@ public class UserTilesController {
         return "user_update.pages";
     }
 
+    /**
+     * 
+     * Description: 转发到用户首页<br/>
+     *
+     * @author dengJ
+     * @param model
+     * @return
+     */
     @RequestMapping("/user_index")
     public String index(Model model) {
         return "user_index.pages";
+    }
+
+    /**
+     * 
+     * Description: 取通知信息和系统信息并重定向到user_index<br/>
+     *
+     * @author dengJ
+     * @param req
+     * @return
+     */
+    @RequestMapping("/user_second")
+    public String userSecond(HttpServletRequest req) {
+        List<Info> infoList = infoService.selectAllInfo();
+        if (infoList != null) {
+            for (Info info : infoList) {
+                Date date = info.getPublishDate();
+                System.out.println(date);
+            }
+        }
+        HttpSession session = req.getSession();
+        session.setAttribute("tongzhi", infoList);
+        return "redirect:/user_index.shtml";
     }
 
     @RequestMapping("/user_shuju1")
@@ -79,7 +118,7 @@ public class UserTilesController {
 
     @RequestMapping("/user_guanxitu")
     public String userGuanxitu(Model model) {
-
+        model.addAttribute("checks", "shuju4");
         return "user_guanxitu.pages";
     }
 }

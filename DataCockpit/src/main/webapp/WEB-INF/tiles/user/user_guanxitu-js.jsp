@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <script type="text/javascript">
         var graph = new joint.dia.Graph();
 
@@ -5,7 +9,7 @@
         pointerdown: function () {
             this._click = true;
             joint.dia.ElementView.prototype.pointerdown.apply(this, arguments);
-        },
+        },  
         pointermove: function(evt, x, y) {
             this._click = false;
             joint.dia.ElementView.prototype.pointermove.apply(this, arguments);

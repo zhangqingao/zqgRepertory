@@ -2,14 +2,9 @@
  <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ××××数据平台
+        数据表管理
         <!-- <small>advanced tables</small> -->
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -29,7 +24,7 @@
           <div style="background:#ECF0F5;font-family: Microsoft Yahei;font-size: 15px">关联的数据表：销售数据表、到访数据表        统一的维度属性：销售数据表.销售日期、到访数据表.到访日期</div>
           
             <div class="box-header" style="width: 180px">
-              <h3 class="box-title">数据表管理</h3>
+              <h3 class="box-title">数据分析任务列表</h3>
             </div>
             <div style="margin-left: 180px;margin-top: -35px"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">启动新任务</button></div>
             <div class="box-body">

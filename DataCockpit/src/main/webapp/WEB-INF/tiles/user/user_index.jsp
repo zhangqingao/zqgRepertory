@@ -23,7 +23,7 @@
 				<div class="icon">
 					<img src="resource/images/1.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju2.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 				<div class="icon">
 					<img src="resource/images/2.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 				<div class="icon">
 					<img src="resource/images/3.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_guanxitu.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 				<div class="icon">
 					<img src="resource/images/33.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -105,7 +105,6 @@
 						<img src="resource/images/6.png" />
 						</li>
 						</cc:forEach>
-						
 
 					</ul>
 				</div>
@@ -297,4 +296,3 @@
 
 </section>
 <!-- /.content -->
-

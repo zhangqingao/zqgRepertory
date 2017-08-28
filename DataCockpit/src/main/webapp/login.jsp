@@ -6,7 +6,7 @@
 	String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+context+"/";
 %>
 <!DOCTYPE html>
-<html>
+<html style="height: 500px;">
 <head>
 <base href="<%=basePath %>">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -41,7 +41,7 @@
       }
     </style>
 </head>
-<body style="background:url(resource/images/login_bg.jpg);">
+<body style="background:url(resource/images/login_bg.jpg);height: 500px;">
 
 <div class="login-box">
   <div class="login-logo">

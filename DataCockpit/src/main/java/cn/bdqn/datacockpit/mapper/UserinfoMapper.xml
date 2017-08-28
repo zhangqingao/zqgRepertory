@@ -30,7 +30,7 @@
   
   <select id="selectAllUserinfo" resultType="map">
     select 
-    <include refid="Base_Column_List" />
+    id, name, job, phone, email, state
     from userinfo
   </select>
   
