@@ -122,6 +122,14 @@ public class AdminTilesController {
         return "admin_shuju4.page";
     }
 
+    @RequestMapping("/adminus_delete")
+    public String adminus_delete(HttpServletRequest req) {
+        // 获取id
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        companyinfo.deleteByPrimaryKey(id);
+        return "admin_userDsh.page";
+    }
+
     @RequestMapping("/admin_shuju1")
     public String shuju1(Model model) {
         model.addAttribute("menus", "3");

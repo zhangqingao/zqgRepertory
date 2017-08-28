@@ -71,7 +71,7 @@
           <div>
              <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
-          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 60px"></div>
+          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 60px"><img src="getYzm.shtml"></div>
         
       </div>
       <div class="row" style="margin-top: 20px">
