@@ -115,7 +115,6 @@ public class LoginController {
             lists.add(map);
 
         }
-
         HttpSession session = req.getSession();
         // 判断账号密码是否正确(用户)
         if (compi != null) {
@@ -131,6 +130,7 @@ public class LoginController {
             if (phone.equals(ui.getPhone()) && password.equals(ui.getPassword())) {
 
                 session.setAttribute("infos", ui);
+                session.setAttribute("flag", lists);
                 return "redirect:/selectAllCompanyinfo.shtml";
             }
         }

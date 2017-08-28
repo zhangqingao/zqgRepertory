@@ -1,7 +1,10 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,20 +13,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+
+import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
+import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by ehsy_it on 2016/8/10.
  */
 @Controller
 public class AdminTilesController {
-
+    @Autowired
+    private TableinfoService ts;
     @Autowired
     private UserinfoService us;
 
@@ -32,6 +44,9 @@ public class AdminTilesController {
 
     @Autowired
     private CompanyinfoService companyinfo;
+
+    @Autowired
+    private DatarelationService dataService;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -129,7 +144,31 @@ public class AdminTilesController {
         companyinfo.deleteByPrimaryKey(id);
         return "admin_userDsh.page";
     }
+    @RequestMapping("/aduser_update")
+    public String aduser_update(Model model, HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        model.addAttribute("comp", comp);
+        return "aduser_update.page";
+    }
 
+    @RequestMapping("/aduser_update2")
+    public String aduser_insert(Companyinfo comps) {
+        // 获取实体类信息
+        int flag = companyinfo.updateByPrimaryKey(comps);
+
+        System.out.println(flag);
+        return "admin_userMan.page";
+    }
+
+    @RequestMapping("/admin_cominfo")
+    public String cominfo(Model model) {
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        model.addAttribute("menus", "3");
+        model.addAttribute("lists", lists);
+        return "admin_cominfo.page";
+    }
     @RequestMapping("/admin_shuju1")
     public String shuju1(Model model) {
         model.addAttribute("menus", "3");
@@ -164,19 +203,7 @@ public class AdminTilesController {
     @RequestMapping("/selectAllCompanyinfo")
     public String selectAllCompanyinfo(Model model, HttpServletRequest req) {
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
-        System.out.println(lists);
         model.addAttribute("lists", lists);
-
-        List<Info> infoList = is.selectAllInfo();
-        if (infoList != null) {
-            for (Info info : infoList) {
-                Date date = info.getPublishDate();
-                System.out.println(date);
-            }
-        }
-        HttpSession session = req.getSession();
-        session.setAttribute("tongzhi", infoList);
-        // 转发
         return "admin_index.page";
     }
 
@@ -202,5 +229,27 @@ public class AdminTilesController {
 
         // 转发
         return "admin_userMan.page";
+    }
+
+    /**
+     * 公告详情
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/admin_gongGao")
+    public String gongGao1(Integer id, Model model) {
+        Info infos = is.selectByPrimaryKey(id);
+        model.addAttribute("ggg", infos);
+        return "admin_gongGao.page";
+    }
+
+    @RequestMapping("/insert_guanlian")
+    public String insertGL(Datarelation record) {
+        int flag = dataService.insert(record);
+        if (flag >= 1) {
+            return "admin_shuju1.page";
+        }
+        return "admin_shuju1.page";
     }
 }
