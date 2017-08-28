@@ -11,8 +11,17 @@
        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-	<context:component-scan base-package="cn.bdqn.datacockpit.service.impl" />
-
+	<context:component-scan base-package="cn.bdqn.datacockpit.service.impl,cn.bdqn.datacockpit.utils" />
+		
+	<!-- JDBC操作模板 --> 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg>
+			<ref bean="basicDataSource"/>
+		</constructor-arg>
+	</bean>		
+	
+	<!-- 用于初始化获得Spring对象的类 -->  
+    <bean id="springfactory" class="cn.bdqn.datacockpit.utils.SpringFactory"></bean> 
 
 	<!-- 配置数据源 -->
 	<bean id="basicDataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -83,5 +92,7 @@
 		<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>  
 	  		<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
 	  	  <property name="securityManager" ref="securityManager"/>  
-	    </bean>  
+	    </bean> 
+	    
+	
 </beans>

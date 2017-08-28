@@ -1,13 +1,12 @@
 package cn.bdqn.datacockpit.entity;
 
-import java.util.Date;
 
 public class Tableinfo {
     private Integer id;
 
     private String name;
 
-    private Date updatetime;
+    private String updatetime;
 
     private String physicaltablename;
 
@@ -33,11 +32,11 @@ public class Tableinfo {
         this.name = name;
     }
 
-    public Date getUpdatetime() {
+    public String getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(Date updatetime) {
+    public void setUpdatetime(String updatetime) {
         this.updatetime = updatetime;
     }
 
@@ -78,5 +77,5 @@ public class Tableinfo {
         return "Tableinfo [id=" + id + ", name=" + name + ", updatetime=" + updatetime + ", physicaltablename="
                 + physicaltablename + ", cid=" + cid + ", state=" + state + ", showtype=" + showtype + "]";
     }
-    
+
 }

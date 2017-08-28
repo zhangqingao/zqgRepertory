@@ -137,6 +137,7 @@
                     </div>  
                 </form>  
             </div>
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
@@ -156,10 +157,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
                     <span aria-hidden="true">×</span>  
                 </button>  
-                <p><h5 class="modal-title">新增的数据表名：<input type="text" name="shujuname"></h5></p>
-                <p><h5 class="modal-title">数据列的默认图形展示：<input type="radio" name="shujutu" checked="checked" value="折线图">折线图
+                <p><h5 class="modal-title">新增的数据表名：<input class="inputs"  type="text" name="shujuname"></h5></p>
+                <p><h5 class="modal-title">数据列的默认图形展示：<input class="tus"  type="radio" name="shujutu" checked="checked" value="0">折线图
                 &nbsp;&nbsp;
-                <input type="radio" name="shujutu" value="柱状图">柱状图</h5></p> 
+                <input class="tus" type="radio" name="shujutu" value="1">柱状图</h5></p> 
             </div>  
             <div class="modal-body">  
                 
@@ -172,8 +173,8 @@
                           </tr>
                           <tr>
                             <td>1</td>
-                            <td><input type="text" name="pname" value="项目名称" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="pname" value="项目名称" style="width: 100%"></td>
+                            <td><select class="inputs" name="prname">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -181,8 +182,8 @@
                           </tr>                          
                           <tr>
                             <td>2</td>
-                            <td><input type="text" name="area" value="所在区域" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="area" value="所在区域" style="width: 100%"></td>
+                            <td><select class="inputs" name="prarea">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -190,8 +191,8 @@
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td><input type="text" name="date" value="日期" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="date" value="日期" style="width: 100%"></td>
+                            <td><select class="inputs" name="prdate">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -199,8 +200,17 @@
                           </tr>
                           <tr>
                             <td>4</td>
-                            <td><input type="text" name="number" value="到访人数" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="dnumber" value="到访人数" style="width: 100%"></td>
+                            <td><select class="inputs" name="prdnumber">
+                                <option value="1" selected="selected">文本</option>
+                                <option value="2">整数</option>
+                                <option value="3">浮点数</option>
+                              </select></td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td><input class="inputs" type="text" name="rnumber" value="认筹人数" style="width: 100%"></td>
+                            <td><select class="inputs" name="prrnumber">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -214,11 +224,46 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">  
                     关闭 
                 </button>
-                <button type="submit" class="btn btn-primary">  
+                <button id="baocun" type="button" class="btn btn-primary">  
                     保存  
                 </button>
             </div> 
              </form>  
+             <script type="text/javascript">
+             $("#baocun").click(function(){
+            	 var values=[];
+            	 var tu =document.getElementsByName("shujutu");
+            	 var tuid;
+            	 for(var i = 0; i < 2; i++)
+            	 {
+            	      if(tu[i].checked)
+            	      {
+            	      tuid=i;
+            	      }
+            	  }
+            	 values.push(tuid)
+            	 $(".inputs").each(function(i){
+            		 values.push($(this).val());
+            	 })
+            	 $.ajax({
+               		url:"./admins.shtml",
+               		type:"post",
+               		traditional:true,
+               		data:{
+  						"values":values             			
+               		},
+               		dataType:"json",
+               		success:function(result){
+               		if(result.flag==1){
+               			window.location.href="./admin_shuju1.shtml"
+               		}
+               		}
+   					
+               }) 
+              /*  $("#myModal2").hide();       		
+            	$(".modal-backdrop").hide(); */
+            	})
+            </script>
         </div>  
     </div>  
   </div>      
