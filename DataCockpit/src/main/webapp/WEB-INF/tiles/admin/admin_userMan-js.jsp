@@ -32,8 +32,8 @@
 	 	    		    /* "data": "title", */
 	 	    		    "render": function ( data, type, row, meta ) {
 	 	    		    /* 将当前值传入controller */	  
-	 	    		    /*  <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
-	 	    		     return '<select><option>已启用</option><option>已禁用</option></select>';	 	    		    				 	    		     
+	 	    		    /* <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
+	 	    		     return '<select><a onclick="ee()"><option value="1">已启用</option></a><a onclick="dd()"><option value="0">已禁用</option></a></select>';	 	    		    				 	    		     
 	 	    		    }
 	 	    		  }
 	      ],	    
@@ -51,7 +51,7 @@
 
   })
 </script>
-<!-- <script language="jscript"> 
-	function ee() { if(confirm("请确认是否通过?" )) return true; return false;  }
-	function dd() { if(confirm("请确认是否不通过?" )) return true; return false;  }
-</script>  -->
+<script language="jscript"> 
+	function ee() { if(confirm("请确认是否启用?" )) return true; return false;  }
+	function dd() { if(confirm("请确认是否禁用?" )) return true; return false;  }
+</script>

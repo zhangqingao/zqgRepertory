@@ -135,14 +135,12 @@ public class AdminTilesController {
         // 获取实体类信息
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
-        System.out.println(comp);
         model.addAttribute("comp", comp);
         return "aduser_update.page";
     }
 
     @RequestMapping("/aduser_update2")
     public String aduser_insert(Companyinfo comps) {
-        System.out.println(comps);
         // 获取实体类信息
         int flag = companyinfo.updateByPrimaryKey(comps);
 
@@ -176,7 +174,6 @@ public class AdminTilesController {
     public String insertAdminReg(Userinfo record) {
         System.out.println(record);
         int flag = us.insertSelective(record);
-        System.out.println("------------------flag为：" + flag);
         // 转发
         return "admin_shuju4.page";
     }
@@ -184,7 +181,6 @@ public class AdminTilesController {
     @RequestMapping("/selectAllCompanyinfo")
     public String selectAllCompanyinfo(Model model, HttpServletRequest req) {
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
-        System.out.println(lists);
         model.addAttribute("lists", lists);
 
         List<Info> infoList = is.selectAllInfo();
@@ -204,10 +200,8 @@ public class AdminTilesController {
     public String dshCompanyinfo(Model model) {
 
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
-        System.out.println(lists);
         model.addAttribute("menus", "5");
         model.addAttribute("lists", lists);
-
         // 转发
         return "admin_userDsh.page";
     }
@@ -216,7 +210,6 @@ public class AdminTilesController {
     public String userMan(Model model) {
 
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
-        System.out.println(lists);
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);
 
