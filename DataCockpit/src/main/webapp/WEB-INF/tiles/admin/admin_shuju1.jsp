@@ -5,11 +5,6 @@
         企业数据管理
         <small></small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -28,8 +23,8 @@
             <div class="tab-content">
               <!-- Font Awesome Icons -->
               <div class="tab-pane active" id="data1">
-              &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;;margin-left: 4px;font-weight: bold;">万科集团</span>
-              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px;">新增数据表</button></div>    
+              <!-- &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;;margin-left: 4px;font-weight: bold;">万科集团</span> -->
+              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px;margin-left: -8px;margin-top: -7px;">新增数据表</button></div>    
                   <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -40,8 +35,62 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-               
-                 
+                <tr>
+                  <td>1</td>
+                  <td>销售数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>到访数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>轮班数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>派单数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>认筹数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>中介数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>媒体渠道数据表</td>
+                  <td>2017-06-01 15:20:33</td>
+                  <td>
+                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
+                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
+                </tr>
                 </tbody>
               </table>
 
@@ -223,8 +272,8 @@
 
               <!-- data2-->
               <div class="tab-pane" id="data2">
-                  &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span>
-              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">新增数据关系</button></div>   
+                  <!-- &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span> -->
+              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3" style="width: 120px;height: 30px;font-size: 14px;line-height: 0px;margin-left: -8px;margin-top: -7px;">新增数据关系</button></div>   
 
                   <table id="example3" class="table table-bordered table-striped">
                 <thead>
@@ -319,8 +368,8 @@
             </div>
             <!--data3-->
             <div class="tab-pane" id="data3">
-                  &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span>
-              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4" style="width: 120px;height: 20px;font-size: 11px;line-height: 0px">新增数据分析任务</button></div>    
+                 <!--  &nbsp;&nbsp;<span style="color: red;margin-left: 4px;font-weight: bold;">万科集团</span> -->
+              <div class="box-header"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4" style="mawidth: 140px;height: 30px;font-size: 14px;line-height: 0px;margin-left: -8px;margin-top: -7px;">新增数据分析任务</button></div>    
                   <table id="example4" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -336,21 +385,21 @@
                   <td>1</td>
                   <td>销售到访关联</td>
                   <td>1</td>
-                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>
                 <tr>
                  <td>2</td>
                   <td>销售认筹关联</td>
                   <td>1</td>
-                 <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                 <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>
                  <tr>
                   <td>3</td>
                   <td>派单到访关联</td>
                   <td>2</td>
-                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看任务情况</button></a></td>
+                  <td><a href="./admin_shuju3.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看任务情况</button></a></td>
                   <td>blablabla</td>
                 </tr>               
                 </tbody>

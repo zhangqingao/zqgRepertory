@@ -2,14 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ××××数据平台
-        <!-- <small>advanced tables</small> -->
+        数据列表
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -21,9 +15,6 @@
 
           <div class="box">
           
-            <div class="box-header" style="width: 180px">
-              <h3 class="box-title">数据列表</h3>
-            </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -41,10 +32,7 @@
                 
               </table>
             </div>
-
-
             <!-- /.box-body -->
-            
           </div>
           <!-- /.box -->
         </div>

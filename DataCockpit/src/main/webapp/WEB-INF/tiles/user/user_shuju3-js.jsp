@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <script type="text/javascript">
    
     $("#uploads").click(function(){    
@@ -16,6 +16,7 @@
   
 </script>
 <script type="text/javascript">
+debugger
 			var shows=${lists[0].shows};
 			if(shows==0){
              $(".people_num").click(function(){

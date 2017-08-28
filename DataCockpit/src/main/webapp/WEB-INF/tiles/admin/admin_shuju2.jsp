@@ -2,14 +2,9 @@
      <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        碧桂园房地产开发有限公司
-        <small>销售数据表</small>
+       这里是选择的用户对应公司名称
+        <small>这里是选择的表对应名称</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -19,7 +14,7 @@
           <!-- /.box -->
           <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
-              <h3 class="box-title"><a href="#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 20px;font-size: 11px;line-height: 0px">导出数据</button></a></h3>
+              <h3 class="box-title"><a href="#" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></a></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

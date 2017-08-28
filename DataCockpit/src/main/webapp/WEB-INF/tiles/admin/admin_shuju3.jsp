@@ -2,14 +2,8 @@
    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        碧桂园房地产开发有限公司
-        <small>销售到访关联</small>
+         这里是选择的用户对应公司名称
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -18,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box" style="border-top-color: #DD4B39;">
             <div class="box-header">
-              <h3 class="box-title" style="color: red">数据分析任务列表</h3> 
+              <h3 class="box-title" >这里是选择的表对应名称</h3> 
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -38,14 +32,14 @@
                   <td>2017-06-01 12:12:22</td>
                   <td>2017-06-01 15:12:22</td>
                   <td>任务完成</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px">查看结果</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看结果</button></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>2017-06-11 12:12:22</td>
                   <td>2017-06-11 18:12:22</td>
                   <td>任务失败</td>
-                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 100px;height: 20px;font-size: 10px;line-height: 0px">查看出错信息</button></td>
+                  <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看出错信息</button></td>
                 </tr>
                  <tr>
                   <td>3</td>

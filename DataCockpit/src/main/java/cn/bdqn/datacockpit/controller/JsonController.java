@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.bdqn.datacockpit.datatable.DatatableResult;
 import cn.bdqn.datacockpit.datatable.IsSearchCondition;
 import cn.bdqn.datacockpit.datatable.SearchCondition;
+import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 
@@ -39,6 +41,9 @@ public class JsonController {
 
     @Autowired
     private InfoService ifo;
+
+    @Autowired
+    private CompanyinfoService cfs;
 
     @RequestMapping(value = "dt_list")
     public DatatableResult<Userinfo> datatable(@IsSearchCondition SearchCondition searchCondition) {
@@ -61,6 +66,20 @@ public class JsonController {
     public DatatableResult<Info> datatable23(@RequestBody SearchCondition searchCondition) {
         DatatableResult<Info> list = new DatatableResult<>();
         List<Info> list2 = ifo.selectAllInfo();
+        list.setData(list2);
+        return list;
+    }
+
+    /***
+     * 
+     * @param searchCondition:使用datatable获取companyInfo信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "dt_lists4")
+    public DatatableResult<Companyinfo> datatable4(@RequestBody SearchCondition searchCondition) {
+        DatatableResult<Companyinfo> list = new DatatableResult<>();
+        List<Companyinfo> list2 = cfs.selectAllCompanies();
         list.setData(list2);
         return list;
     }

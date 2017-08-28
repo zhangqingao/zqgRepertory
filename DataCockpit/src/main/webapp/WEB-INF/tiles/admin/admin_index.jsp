@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- Content Header (Page header) -->
 <section class="content-header"><h1 style="font-weight: bolder;">快捷菜单</h1></section>
@@ -14,7 +15,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-red">
+				<div class="small-box bg-red" style="width: 300px;margin-left:30px">
 					<div class="inner">
 						<h3>新增用户</h3>
 
@@ -23,30 +24,15 @@
 					<div class="icon">
 						<img src="resource/images/11.png" />
 					</div>
-					<a href="#" class="small-box-footer">More info <i
+					<a href="./adminReg.jsp" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
+			
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-green">
-					<div class="inner">
-						<h3>新增帐号</h3>
-
-						<h5>New Account</h5>
-					</div>
-					<div class="icon">
-						<img src="resource/images/22.png" />
-					</div>
-					<a href="#" class="small-box-footer">More info <i
-						class="fa fa-arrow-circle-right"></i></a>
-				</div>
-			</div>
-			<!-- ./col -->
-			<div class="col-lg-3 col-xs-6">
-				<!-- small box -->
-				<div class="small-box bg-yellow">
+				<div class="small-box bg-aqua" style="width: 300px;margin-left:110px">
 					<div class="inner">
 						<H3>新增数据表</H3>
 
@@ -55,14 +41,14 @@
 					<div class="icon">
 						<img src="resource/images/33.png" />
 					</div>
-					<a href="#" class="small-box-footer">More info <i
+					<a href="./admin_shuju1.shtml" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-aqua">
+				<div class="small-box bg-green" style="width: 300px;margin-left:190px">
 					<div class="inner">
 						<h3>新增通知</h3>
 
@@ -71,7 +57,7 @@
 					<div class="icon">
 						<img src="resource/images/44.png" />
 					</div>
-					<a href="#" class="small-box-footer">More info <i
+					<a href="./admin_tongzhi2.shtml" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
@@ -99,15 +85,10 @@
 				<div class="table-responsive">
 					<div id=tz>
 						<ul>
-							<li class=tz1><a href="#">会议通知【2017-08-18】</a><img
+							<c:forEach items="${tongzhi }" var="tz" begin="0" end="4">
+							<li class=tz1><a href="./gongGao.shtml?id=${tz.id }">${tz.title }【<fmt:formatDate value="${tz.publishDate }" pattern="yyyy-MM-dd"/>】</a><img
 								src="resource/images/6.png" /></li>
-							<li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
-								src="resource/images/6.png" /></li>
-							<li class=tz1><a href="#">系统数据关联关系功能上线【2017-08-08】</a></li>
-							<li class=tz1><a href="#">系统维护通知【2017-08-10】</a><img
-								src="resource/images/6.png" /></li>
-							<li class=tz1><a href="#">系统新增上传功能【2017-08-08】</a><img
-								src="resource/images/6.png" /></li>
+							</c:forEach>
 
 						</ul>
 					</div>

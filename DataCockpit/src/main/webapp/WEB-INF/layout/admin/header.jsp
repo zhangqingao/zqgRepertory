@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" isELIgnored="false"%>
+     <%@taglib uri="http://shiro.apache.org/tags" prefix="c" %>
 <!-- Main Header -->
   <header class="main-header">
 
@@ -35,11 +36,11 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/manager.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>${infos.name }&emsp;${infos.job }</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+          <a><i class="fa fa-circle text-success"></i> 在线</a>
       
         </div>
       </div>
@@ -65,7 +66,7 @@
         <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
         <li class="yonghu" ><a href="./admin_userMan.shtml"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
         <li class="qiye treeview1">
-          <a href="./admin_shuju1.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
+          <a href="./admin_cominfo.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
             <span class="pull-right-container">
                 <!-- <i class="fa fa-angle-left pull-right"></i> -->
                  <i class="aaaabbb"></i>

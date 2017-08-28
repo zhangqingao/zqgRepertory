@@ -33,7 +33,7 @@
 							<div class="col-sm-6"></div>
 						</div>
 						<div class="col-sm-12">
-							<table id="example2"
+							<table id="example1"
 								class="table table-bordered table-hover dataTable" role="grid"
 								aria-describedby="example2_info">
 								<thead>
@@ -77,23 +77,7 @@
 											style="text-align: center;">操作</th>
 									</tr>
 								</thead>
-								<tbody>
-
-								<c:forEach items="${lists }" var="comp" varStatus="status">
-									<tr role="row" class="odd" style="text-align: center;">
-										<td class="sorting_1">${requestScope.offset+status.index+1}</td>
-										<td>${comp.phone }</td>
-										<td>${comp.corpname }</td>
-										<td>${comp.name }</td>
-										<td>${comp.job }</td>
-										<td>${comp.email }</td>
-										<td><a href="#">编辑</a></td>
-										<td><select><option>已启用</option>
-													<option>已禁用</option>
-											</select></td>
-									</tr>
-								</c:forEach>
-									
+								<tbody style="text-align: center;">
 								</tbody>
 
 							</table>
