@@ -1,26 +1,41 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
+import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
+import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
+import cn.bdqn.datacockpit.utils.ChineseToPinYin;
+import cn.bdqn.datacockpit.utils.JdbcUtil;
 
 /**
  * Created by ehsy_it on 2016/8/10.
  */
 @Controller
 public class AdminTilesController {
+    @Autowired
+    private TableinfoService ts;
 
     @Autowired
     private UserinfoService us;
@@ -149,5 +164,71 @@ public class AdminTilesController {
 
         // 转发
         return "admin_userMan.page";
+    }
+
+    // 新建数据表
+    @ResponseBody
+    @RequestMapping("/admin_create")
+    public Map<String, String> creats(@RequestParam("values") String id, HttpServletRequest req) {
+        String[] attr = id.split(",");
+        ChineseToPinYin ctp = new ChineseToPinYin();
+        Map<String, Object> map = new HashMap<String, Object>();
+        String tbName = null;
+        for (int i = 0; i < attr.length; i++) {
+            if (i == 0) {
+                map.put("showtype", "tu");
+            } else if (i == 1) {
+                tbName = ctp.getPingYin(attr[1]);
+            } else if (2 * i - 1 <= attr.length) {
+
+                map.put(ctp.getPingYin(attr[2 * i - 2]), attr[2 * i - 1]);
+
+            }
+        }
+        JdbcUtil creats = new JdbcUtil();
+        ApplicationContext context = creats.getContext();
+        context = new ClassPathXmlApplicationContext("spring-common.xml");
+        JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
+        creats.createTable(jt, tbName, map);
+
+        Date dt = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String date = sdf.format(dt);
+        Tableinfo record = new Tableinfo();
+        record.setName(attr[1]);
+        record.setUpdatetime(date);
+        record.setShowtype(attr[0]);
+        // HttpSession session = req.getSession();
+        // Companyinfo coms = (Companyinfo) session.getAttribute("infos");
+        record.setCid(1);
+        ts.insert(record);
+
+        Map<String, String> maps = new HashMap<String, String>();
+        maps.put("flag", "1");
+        return maps;
+    }
+
+    @RequestMapping("/admin_selects")
+    public String selects(Model model) {
+
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("menus", "4");
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return "admin_userMan.page";
+    }
+
+    @RequestMapping("/admin_adds")
+    public String adds(Model model) {
+
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("menus", "4");
+        model.addAttribute("lists", lists);
+
+        // 转发
+        return null;
     }
 }

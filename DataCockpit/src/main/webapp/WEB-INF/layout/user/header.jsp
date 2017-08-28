@@ -84,7 +84,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>数据关系图</a></li>
+            <li class="shuju4"><a href="#">&emsp;<i class="fa fa-genderless"></i>数据关系图</a></li>
             <li class="shuju1"><a href="./user_shuju1.shtml">&emsp;<i class="fa fa-genderless"></i>数据表管理</a></li>
             <li class="shuju2"><a href="./user_shuju2.shtml">&emsp;<i class="fa fa-genderless"></i>数据列表</a></li>
             <li class="shuju3"><a href="./user_shuju3.shtml">&emsp;<i class="fa fa-genderless"></i>数据分析任务</a></li>
@@ -133,6 +133,10 @@
     		$(".gerens").addClass("active")
     		$(".geren2").addClass("active")
     	}
-    	
+    	if(checks == localStorage.shuju4){
+    		$("ul li").removeClass("active")
+    		$(".shujus").addClass("active")
+    		$(".shuju4").addClass("active")
+    	}
     </script>
   </aside>
