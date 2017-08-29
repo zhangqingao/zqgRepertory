@@ -20,11 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -36,9 +34,6 @@ import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
-
-import cn.bdqn.datacockpit.utils.LoggerUtils;
-import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 import cn.bdqn.datacockpit.utils.LoggerUtils;
@@ -70,19 +65,19 @@ public class LoginController {
     public @ResponseBody List<String> getYzm(HttpServletResponse response, HttpServletRequest request) {
         List<String> lists = new ArrayList<String>();
         try {
-            response.setHeader("Pragma", "No-cache");  
-            response.setHeader("Cache-Control", "no-cache");  
-            response.setDateHeader("Expires", 0);  
-            response.setContentType("image/jpeg");  
-              
-            //生成随机字串  
-            String verifyCode = VerifyCodeUtils.generateVerifyCode(4);  
-            //存入会话session  
-            HttpSession session = request.getSession(true);  
-            session.setAttribute("code", verifyCode.toLowerCase());  
-            //生成图片  
-            int w = 146, h = 33;  
-            VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
+            response.setHeader("Pragma", "No-cache");
+            response.setHeader("Cache-Control", "no-cache");
+            response.setDateHeader("Expires", 0);
+            response.setContentType("image/jpeg");
+
+            // 生成随机字串
+            String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
+            // 存入会话session
+            HttpSession session = request.getSession(true);
+            session.setAttribute("code", verifyCode.toLowerCase());
+            // 生成图片
+            int w = 146, h = 33;
+            VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
             lists.add("OK");
             return lists;
         } catch (Exception e) {
@@ -104,18 +99,18 @@ public class LoginController {
      */
     @RequestMapping("/login2")
     public String login(HttpSession session, HttpServletResponse res, HttpServletRequest req) {
-        session=req.getSession();
-        String phone=(String) session.getAttribute("phone");
-        List<Map<String,Object>> lists=new ArrayList<Map<String,Object>>();
+        session = req.getSession();
+        String phone = (String) session.getAttribute("phone");
+        List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
-        //从session获取验证码方法中存入的验证码
-        String trueCode=(String) session.getAttribute("code");
-        //对比验证码
-       /* if(!trueCode.equals(code2)){
-            //验证码不正确则返回不正确
-            req.setAttribute("erroMessage", "*验证码不正确");
-        }*/
+        // 从session获取验证码方法中存入的验证码
+        String trueCode = (String) session.getAttribute("code");
+        // 对比验证码
+        /*
+         * if(!trueCode.equals(code2)){ //验证码不正确则返回不正确
+         * req.setAttribute("erroMessage", "*验证码不正确"); }
+         */
         // 根据账号判断该用户属于公司还是管理员
         List<Info> infoList = infoService.selectAllInfo();
         Date time = new Date();
@@ -134,39 +129,38 @@ public class LoginController {
 
         }
         if (compi != null) {
-                session.setAttribute("infos", compi);
-                return "redirect:/user_index.shtml";
+            session.setAttribute("infos", compi);
+            return "redirect:/user_index.shtml";
         }
         // 判断账号密码是否正确（管理员）
         if (ui != null) {
-                session.setAttribute("infos", ui);
-                session.setAttribute("flag", lists);
-                return "redirect:/selectAllCompanyinfo.shtml";
+            session.setAttribute("infos", ui);
+            session.setAttribute("flag", lists);
+            return "redirect:/selectAllCompanyinfo.shtml";
         }
         session.setAttribute("erroMessage", "*账号或者密码输入有误！");
         return "redirect:/login.jsp";
     }
-    
-    
+
     /*
      * shiro方法登录
      */
     @RequestMapping("/login")
-    public String login(Userinfo user, String code2,HttpSession session,HttpServletRequest request){
-        //首先判断验证码是否正确
-        String trueCode=(String) session.getAttribute("code");
-        if(!code2.equals(trueCode)){
+    public String login(Userinfo user, String code2, HttpSession session, HttpServletRequest request) {
+        // 首先判断验证码是否正确
+        String trueCode = (String) session.getAttribute("code");
+        if (!code2.equals(trueCode)) {
             session.setAttribute("erroMessage", "*验证码错误！");
             return "redirect:/login.jsp";
         }
-        Subject subject=SecurityUtils.getSubject();
-        UsernamePasswordToken token=new UsernamePasswordToken(user.getPhone(),user.getPassword());
-        try{
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getPhone(), user.getPassword());
+        try {
             subject.login(token);
-            Session session2=subject.getSession();
+            Session session2 = subject.getSession();
             session.setAttribute("phone", user.getPhone());
             return "redirect:/login2.shtml";
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             session.setAttribute("erroMessage", "*用户名或密码错误！");
             return "redirect:/login.jsp";
@@ -283,7 +277,7 @@ public class LoginController {
     public String exit(HttpServletRequest req) {
         req.getSession().removeAttribute("comp");
 
-        return "front/exit";
+        return "front/exit.jsp";
     }
 
     /**
