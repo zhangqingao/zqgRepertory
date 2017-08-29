@@ -16,7 +16,7 @@
     id, starttime, endtime, cid, did, taskstatus, rule, feedback, arithmeticid
   </sql>
   
-  <select id="selectAllTasks" resultType="map">
+  <select id="selectAllTasks" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from analysistasks

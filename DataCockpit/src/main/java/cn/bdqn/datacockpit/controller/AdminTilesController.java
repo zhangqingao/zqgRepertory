@@ -2,13 +2,11 @@ package cn.bdqn.datacockpit.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -26,9 +24,9 @@ import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
-
 import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
+import cn.bdqn.datacockpit.service.RelevanceTableService;
 import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 import cn.bdqn.datacockpit.utils.ChineseToPinYin;
@@ -41,7 +39,7 @@ import cn.bdqn.datacockpit.utils.JdbcUtil;
 public class AdminTilesController {
     @Autowired
     private TableinfoService ts;
-    
+
     @Autowired
     private UserinfoService us;
 
@@ -53,6 +51,9 @@ public class AdminTilesController {
 
     @Autowired
     private DatarelationService dataService;
+
+    @Autowired
+    private RelevanceTableService releTable;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -177,8 +178,10 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/admin_shuju1")
-    public String shuju1(Model model) {
+    public String shuju1(Model model) throws Exception {
         model.addAttribute("menus", "3");
+        List<Map<String, Object>> lists = releTable.selectAllTables();
+        model.addAttribute("lists", lists);
         return "admin_shuju1.page";
     }
 
@@ -304,7 +307,7 @@ public class AdminTilesController {
     public String insertGL(Datarelation record) {
         int flag = dataService.insert(record);
         if (flag >= 1) {
-            return "admin_shuju1.page";
+            return "redirect:/admin_shuju1.shtml";
         }
         return "admin_shuju1.page";
     }
@@ -320,5 +323,5 @@ public class AdminTilesController {
         // 转发
         return null;
     }
-}
 
+}

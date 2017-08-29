@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -286,14 +287,17 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-                <tr>
-                  <td>1</td>
-                  <td>销售到访关联</td>
-                  <td>销售数据表、到访数据表</td>
-                  <td>销售数据表.日期、到访数据表.日期</td>
-                  <td><select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
+                <c:forEach items="${lists }" var="li" varStatus="status">
+                   <tr>
+	                  <td>${requestScope.offset+status.index+1}</td>
+	                  <td>${li.name }</td>
+	                  <td>${li.tbName }、${li.tbName1 }</td>
+	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td>
+	                  <td><select><option>已启用</option><option>已禁用</option></select></td>
+                  </tr>
+                </c:forEach>
+               
+                <!-- <tr>
                  <td>2</td>
                   <td>销售认筹关联</td>
                   <td>销售数据表、到访数据表</td>
@@ -306,7 +310,7 @@
                   <td>销售数据表、到访数据表</td>
                   <td>销售数据表.日期、到访数据表.日期</td>
                   <td><select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>               
+                </tr>                -->
                 </tbody>
               </table>
 <!-- 模态框（Modal） -->

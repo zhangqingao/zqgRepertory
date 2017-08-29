@@ -101,7 +101,7 @@ public class LoginController {
         Userinfo ui = userinfo.getByPhone(phone);
         List<Info> infoList = infoService.selectAllInfo();
         Date time = new Date();
-        Date ti1 = new Date(time.getTime() - 1 * 24 * 60 * 60 * 1000);
+        Date ti1 = new Date(time.getTime() - 2 * 24 * 60 * 60 * 1000);
         for (Info info : infoList) {
             Date date = info.getPublishDate();
             Map<String, Object> map = new HashMap<String, Object>();

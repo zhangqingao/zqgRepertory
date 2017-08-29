@@ -12,7 +12,7 @@
     id, tid, columnName, columnType, physicalColumnName
   </sql>
   
-  <select id="selectAllTablecolumninfo" resultType="map">
+  <select id="selectAllTablecolumninfo" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from tablecolumninfo
