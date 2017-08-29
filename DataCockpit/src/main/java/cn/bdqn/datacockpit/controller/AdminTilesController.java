@@ -173,6 +173,21 @@ public class AdminTilesController {
 
     /***
      * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee0")
+    public String adminuss_updatee0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
      * @param req:通过id更新state状态:1
      * @return
      */
