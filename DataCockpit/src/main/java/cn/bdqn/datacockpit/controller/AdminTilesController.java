@@ -2,13 +2,11 @@ package cn.bdqn.datacockpit.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -26,7 +24,6 @@ import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
-
 import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.TableinfoService;
@@ -41,7 +38,7 @@ import cn.bdqn.datacockpit.utils.JdbcUtil;
 public class AdminTilesController {
     @Autowired
     private TableinfoService ts;
-    
+
     @Autowired
     private UserinfoService us;
 
@@ -157,6 +154,51 @@ public class AdminTilesController {
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         model.addAttribute("comp", comp);
         return "aduser_update.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee")
+    public String adminuss_updatee(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:1
+     * @return
+     */
+    @RequestMapping("/aduser_update1")
+    public String aduser_update1(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:0
+     * @return
+     */
+    @RequestMapping("/aduser_update0")
+    public String aduser_update0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
     }
 
     @RequestMapping("/aduser_update2")
@@ -321,4 +363,3 @@ public class AdminTilesController {
         return null;
     }
 }
-
