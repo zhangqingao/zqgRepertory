@@ -24,7 +24,7 @@
 					<div class="icon">
 						<img src="resource/images/11.png" />
 					</div>
-					<a href="./adminReg.jsp" class="small-box-footer">More info <i
+					<a href="./admRegister.jsp" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
