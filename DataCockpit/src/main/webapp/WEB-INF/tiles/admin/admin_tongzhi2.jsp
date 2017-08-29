@@ -20,7 +20,7 @@
           <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title" style="font-weight: bold;font-size: 20px">
-                <small><b></b></small>
+                <small><b></b></small>	
               </h3>                           
               <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title" style="width: 100%;height: 30px" required="required"></div>
               <br>
@@ -39,8 +39,8 @@
                    
                     </textarea>             
               <br>
-              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaaaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
-               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>
+              <button id="ok" type="submit" class="btn btn-primary btn-lg" onclick="return dd();" data-toggle="modal" data-target="#myModalaaaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
+               <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2aaaaaaaaa" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>
             </div>              
           </div>          
           <!-- /.box -->
@@ -50,7 +50,9 @@
       <!-- ./row -->
       </form>
     </section>
-    
+<script language="jscript"> 
+	function dd() { if(confirm("请确认是否完成提交?" )) return true; return false;  }
+</script>     
  
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -86,42 +88,6 @@
       </div><!-- /.modal-content -->
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-<!-- 模态框（Modal） -->
-<!-- <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-   aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog" style="height:60%">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-               aria-hidden="true">×
-            </button>
-            <h4 class="modal-title" id="myModalLabel1">
-               信息显示
-            </h4>
-         </div>
-         
-         <div class="modal-body">
-         
-           <span style="font-size: 20px;padding-left: 100px;font-family: 'Microsoft YaHei'">是否提交</span>
-            
-    
-
-
-         </div>
-
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default"
-               data-dismiss="modal">关闭
-            </button>
-            <button id="oks1" type="submit" class="btn btn-primary" data-dismiss="modal">
-               确定
-            </button>
-         </div>
-      </div>/.modal-content
-   </div>/.modal-dialog
-</div>/.modal -->
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"

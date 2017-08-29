@@ -49,7 +49,6 @@
   </div>
 
   <div class="register-box-body" style="width: 390px">
-    
 
     <form action="<%=basePath %>/register.shtml" method="post">
       <div class="form-group has-feedback">

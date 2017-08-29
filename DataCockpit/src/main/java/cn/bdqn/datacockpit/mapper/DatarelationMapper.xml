@@ -14,12 +14,10 @@
   <sql id="Base_Column_List" >
     id, name, cid, tid1, tid2, col1, col2, state
   </sql>
-  
-  <select id="selectAlldatarelation" resultType="map">
+  <select id="selectAlldatarelation" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from datarelation
-    where id = #{id,jdbcType=INTEGER}
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

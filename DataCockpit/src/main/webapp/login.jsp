@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" isELIgnored="false"%>
     
 <%
 	String context=request.getContextPath();
@@ -63,18 +63,18 @@
       
       <div class="form-group has-feedback">
           <div>
-             <input type="text" class="form-control" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
+             <input type="text" class="form-control" name="code2" id="code_input"  placeholder="请输入验证码" style="width: 140px;float: left">
           </div>
-          <div id="v_container" style="width: 150px;height: 40px;float: left;margin-left: 30px"><img src="getYzm.shtml"></div>
+          <div id="v_container" name="code2" style="width: 150px;height: 40px;float: left;margin-left: 20px"><img src="getYzm.shtml"></div>
       </div>
-      <div><span style="color:red" id="erroMessage"></span></div>
-		 <!-- <div class="col-xs-8">
+		 <div class="col-xs-8">
           <div class="checkbox icheck" style="margin-left:10px">
             <label>
               <input type="checkbox" name="onLine" value="3"> <span style="color:#272822">下次自动登录</span>
+            	<div><span style="color:yellow">${erroMessage} </span></div>
             </label>
-          </div>
-        </div> -->
+          </div>   
+        </div>
        <div class="col-xs-4" style="width: 320px;margin-top: 1px">
           <button type="submit" class="btn btn-primary btn-block btn-flat" style="font-size: 16px;">登录</button>
         </div>
@@ -123,9 +123,8 @@ var $img=	$(this);
 		$img.attr("src","getYzm.shtml") 
 		});
 })
-
-
-
   </script>
+
+
 </body>
 </html>

@@ -33,7 +33,7 @@
     //定义画布
     var paper = new joint.dia.Paper({
         el: $('#paper'),
-        width: 600,
+        width: 800,
         height: 400,
         gridSize: 1,
         model: graph,

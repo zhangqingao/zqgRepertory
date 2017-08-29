@@ -25,7 +25,7 @@
 	    		    /* "data": "title", */
 	    		    "render": function ( data, type, row, meta ) {
 	    		    /* 将当前值传入controller */	  
-	    		     return '<a href="./aduser_update.shtml?id='+row.id+'" class="button button-primary button-rounded button-small" style="font-size: 14px;">编辑</a>';   		    		
+	    		     return '<a href="./aduser_update.shtml?id='+row.id+'" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">编辑</a>';   		    		
 	    		    }
 	    		  },
 					{
@@ -34,7 +34,9 @@
 	 	    		    "render": function ( data, type, row, meta ) {
 	 	    		    /* 将当前值传入controller */	  
 	 	    		    /* <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
-	 	    		     return '<select name="s1"><option value="1">已启用</option><option value="0">已禁用</option></select>';	 	    		    				 	    		     
+	 	    		     return '<a href="./aduser_update1.shtml?id='+row.id+'" onclick="return ee();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">启用</a>\
+	    		    			&emsp;\
+	    		    			<a href="./aduser_update0.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">禁用</a>';	 	    		    			    
 	 	    		 }
 	 	    	   }
 	      ],	    
@@ -52,7 +54,7 @@
 
   })
 </script>
-<!-- <script language="jscript"> 
+<script language="jscript"> 
 	function ee() { if(confirm("请确认是否启用?" )) return true; return false;  }
 	function dd() { if(confirm("请确认是否禁用?" )) return true; return false;  }
-</script> -->
+</script>

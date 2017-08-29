@@ -23,11 +23,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
+import cn.bdqn.datacockpit.service.RelevanceTableService;
 import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 import cn.bdqn.datacockpit.utils.ChineseToPinYin;
@@ -49,6 +52,12 @@ public class AdminTilesController {
 
     @Autowired
     private CompanyinfoService companyinfo;
+
+    @Autowired
+    private DatarelationService dataService;
+
+    @Autowired
+    private RelevanceTableService releTable;
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
@@ -155,6 +164,66 @@ public class AdminTilesController {
         return "aduser_update.page";
     }
 
+    /***
+     * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee")
+    public String adminuss_updatee(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee0")
+    public String adminuss_updatee0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:1
+     * @return
+     */
+    @RequestMapping("/aduser_update1")
+    public String aduser_update1(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:0
+     * @return
+     */
+    @RequestMapping("/aduser_update0")
+    public String aduser_update0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
+    }
+
     @RequestMapping("/aduser_update2")
     public String aduser_insert(Companyinfo comps) {
         // 获取实体类信息
@@ -178,6 +247,8 @@ public class AdminTilesController {
         String id = req.getParameter("id");
         HttpSession session = req.getSession();
         session.setAttribute("No1", id);
+        List<Map<String, Object>> lists = releTable.selectAllTables();
+        model.addAttribute("lists", lists);
         return "admin_shuju1.page";
     }
 
@@ -208,7 +279,6 @@ public class AdminTilesController {
     public String selectAllCompanyinfo(Model model, HttpServletRequest req) {
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
         model.addAttribute("lists", lists);
-
         List<Info> infoList = is.selectAllInfo();
         if (infoList != null) {
             for (Info info : infoList) {
@@ -289,10 +359,34 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_selects")
     public String selects(Model model) {
-        model.addAttribute("menus", "3");
-
+        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        System.out.println(lists);
+        model.addAttribute("menus", "4");
+        model.addAttribute("lists", lists);
         // 转发
         return "admin_userMan.page";
+    }
+
+    /**
+     * 公告详情
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/admin_gongGao")
+    public String gongGao1(Integer id, Model model) {
+        Info infos = is.selectByPrimaryKey(id);
+        model.addAttribute("ggg", infos);
+        return "admin_gongGao.page";
+    }
+
+    @RequestMapping("/insert_guanlian")
+    public String insertGL(Datarelation record) {
+        int flag = dataService.insert(record);
+        if (flag >= 1) {
+            return "redirect:/admin_shuju1.shtml";
+        }
+        return "admin_shuju1.page";
     }
 
     @RequestMapping("/admin_adds")

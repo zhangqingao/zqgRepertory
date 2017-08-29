@@ -15,7 +15,7 @@
 			<div class="box" style="border-top-color: #DD4B39;">
 				<div class="box-header with-border">
 
-				<a href="./adminReg.jsp" style="color: white;float: left;">
+				<a href="./admRegister.jsp" style="color: white;float: left;">
 				<button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 130px;height: 30px;font-size: 14px;line-height: 0px;">添加新用户</button></a>
 				<div class="btn-group"></div>
 
