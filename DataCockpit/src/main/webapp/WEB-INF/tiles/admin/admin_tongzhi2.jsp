@@ -20,7 +20,7 @@
           <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title" style="font-weight: bold;font-size: 20px">
-                <small><b></b></small>
+                <small><b></b></small>	
               </h3>                           
               <div style="text-align: left;"><span style=" font-size: 18px;font-family:  ">公告标题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="title" style="width: 100%;height: 30px" required="required"></div>
               <br>
