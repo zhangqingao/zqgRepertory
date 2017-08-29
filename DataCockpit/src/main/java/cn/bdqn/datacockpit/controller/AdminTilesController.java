@@ -242,7 +242,7 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/admin_shuju1")
-    public String shuju1(Model model, HttpServletRequest req) {
+    public String shuju1(Model model, HttpServletRequest req) throws Exception {
         model.addAttribute("menus", "3");
         String id = req.getParameter("id");
         HttpSession session = req.getSession();
