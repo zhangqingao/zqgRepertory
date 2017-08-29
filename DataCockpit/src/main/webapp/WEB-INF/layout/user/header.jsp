@@ -4,7 +4,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="./user_index.shtml" class="logo">
+    <a href="./user_second.shtml" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>数据</b>舱</span>
       <!-- logo for regular state and mobile devices -->
@@ -36,7 +36,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/yonghu.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>${infos.name }&emsp;${infos.job }</p>
@@ -63,7 +63,7 @@
         <li class="header"></li>
         <!-- Optionally, you can add icons to the links -->
 
-        <li class="active"><a href="./user_index.shtml"><i class="fa fa-link"></i> <span>通知中心</span></a></li>
+        <li class="active"><a href="./selectTongzhi.shtml"><i class="fa fa-link"></i> <span>通知中心</span></a></li>
 
         <li class="treeview gerens">
           <a href="#"><i class="fa fa-link"></i> <span>个人中心</span>
@@ -84,7 +84,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">&emsp;<i class="fa fa-genderless"></i>数据关系图</a></li>
+            <li class="shuju4"><a href="#">&emsp;<i class="fa fa-genderless"></i>数据关系图</a></li>
             <li class="shuju1"><a href="./user_shuju1.shtml">&emsp;<i class="fa fa-genderless"></i>数据表管理</a></li>
             <li class="shuju2"><a href="./user_shuju2.shtml">&emsp;<i class="fa fa-genderless"></i>数据列表</a></li>
             <li class="shuju3"><a href="./user_shuju3.shtml">&emsp;<i class="fa fa-genderless"></i>数据分析任务</a></li>
@@ -133,6 +133,10 @@
     		$(".gerens").addClass("active")
     		$(".geren2").addClass("active")
     	}
-    	
+    	if(checks == localStorage.shuju4){
+    		$("ul li").removeClass("active")
+    		$(".shujus").addClass("active")
+    		$(".shuju4").addClass("active")
+    	}
     </script>
   </aside>

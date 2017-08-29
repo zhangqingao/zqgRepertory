@@ -6,7 +6,7 @@
 	String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+context+"/";
 %>
 <!DOCTYPE html>
-<html>
+<html style="height: 500px;">
 <head>
 <base href="<%=basePath %>">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -39,32 +39,16 @@
         width: 200px;
         height: 34px;
       }
-      #bgvid{
-        position: fixed;right: 0;bottom: 0;
-        min-width: 100%;min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        background:url(./dahai.jpg) no-repeat;
-        background-size: cover;
-      }
-     
     </style>
 </head>
-<body class="hold-transition login-page" >
+<body style="background:url(resource/images/login_bg.jpg);height: 500px;">
 
-
-<!-- <video src="./images/dahai.mp4" controls="controls"></video> -->
-<video autoplay loop poster="dahai.jpg" id="bgvid"> 
-    <source src="<%=basePath %>/resource/images/dahai.mp4" type="video/mp4">
-</video>
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>用户登录</b></a>
+    <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>用&nbsp;户&nbsp;登&nbsp;录</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body" style="background-color: rgba(54,167,129,.4);">
-    <p class="login-box-msg">请输入您的账号密码</p>
     <form action="<%=basePath %>/login.shtml" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="请输入手机号码"  name="phone">
@@ -89,22 +73,21 @@
               <input type="checkbox" name="onLine" value="3"> <span style="color:#272822">下次自动登录</span>
             	<div><span style="color:yellow">${erroMessage} </span></div>
             </label>
-          </div>
-              
+          </div>   
         </div>
        <div class="col-xs-4" style="width: 320px;margin-top: 1px">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" style="font-size: 16px;">登录</button>
         </div>
       <div class="row">
        
         <!-- /.col -->
-        <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:10px">
-            <a href="<%=basePath %>/pages/register.jsp" class="text-center" style="color: #272822">申请合作</a>
+        <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:250px;">
+            <a href="<%=basePath %>/pages/register.jsp" class="text-center" style="color: #FFFFFF">申请合作</a>
         </div>
 
-         <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:105px">
-           <a href="<%=basePath %>/pages/wangjimima.jsp" class="text-center" style="color: #272822">忘记密码</a>
-        </div>
+       <%--   <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:105px">
+           <a href="<%=basePath %>/pages/wangjimima.jsp" class="text-center" style="color: #FFFFFF">忘记密码</a>
+        </div> --%>
         
         <!-- /.col -->
       </div>

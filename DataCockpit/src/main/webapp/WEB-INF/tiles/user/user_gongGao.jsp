@@ -6,7 +6,7 @@
 	<span style="font-size:36px;font-weight: bolder">${gg.title }</span>
      </center>
      <span style="margin-left:20px">
-    <fmt:formatDate value="${gg.publishdate }" pattern="yyyy年MM月dd日"/></span>
+    <fmt:formatDate value="${gg.publishDate }" pattern="yyyy年MM月dd日"/></span>
      
      <span style="margin-left:700px">发布人：${gg.publisher }</span>
      <!-- <hr size="5" color="red"> -->

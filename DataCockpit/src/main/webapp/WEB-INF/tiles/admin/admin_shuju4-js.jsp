@@ -41,17 +41,6 @@
    		  	   }).draw();		
   })
   
-  function pop(){
-	 $.ajax({
-		url:"",
-		type:"",
-		data:{},
-		dataType:json,
-		success:function(result){
-			
-		}
-	 })
-  }
   
 </script>
 <script language="jscript"> 

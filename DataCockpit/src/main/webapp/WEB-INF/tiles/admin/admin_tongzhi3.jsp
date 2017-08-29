@@ -40,8 +40,8 @@
             <div class="box-body pad">
                     <textarea id="editor1" name="details" rows="10" cols="80">${info.details}</textarea>              
               <br>
-              <button id="ok" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2222" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
-              <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>            
+              <button id="ok" type="submit" onclick="return dd();" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaa2222" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px">确定</button>
+              <button onclick="javascript:history.back(-1)" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalaaa2" data-whatever="@jason" style="width: 70px;height: 30px;font-size: 14px;line-height: 0px;float: right">返回</button>            
             </div>           
           </div>
           <!-- /.box -->        
@@ -52,7 +52,9 @@
       </form>
     </section>
     <!-- /.content -->
-
+<script language="jscript"> 
+	function dd() { if(confirm("请确认是否完成本次修改?" )) return true; return false;  }
+</script> 
 
 
 <!-- 模态框（Modal） -->
@@ -90,41 +92,6 @@
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-   aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog" style="height:60%">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-               aria-hidden="true">×
-            </button>
-            <h4 class="modal-title" id="myModalLabel1">
-               信息显示
-            </h4>
-         </div>
-         
-         <div class="modal-body">
-         
-           <span style="font-size: 20px;padding-left: 100px;font-family: 'Microsoft YaHei'">是否提交</span>
-            
-    
-
-
-         </div>
-
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default"
-               data-dismiss="modal">关闭
-            </button>
-            <button id="oks1" type="button" class="btn btn-primary" data-dismiss="modal">
-               确定
-            </button>
-         </div>
-      </div><!-- /.modal-content -->
-   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog"

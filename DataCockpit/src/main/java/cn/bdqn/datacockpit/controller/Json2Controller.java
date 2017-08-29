@@ -62,8 +62,7 @@ public class Json2Controller {
     @RequestMapping(value = "shuju_2")
     public DatatableResult<Tableinfo> datatable(@IsSearchCondition SearchCondition searchCondition) {
         DatatableResult<Tableinfo> list = new DatatableResult<>();
-        List<Tableinfo> lists = ts.selectAllTableInfo();
-        System.out.println(lists);
+        List<Tableinfo> lists = ts.selectAll();
         list.setData(lists);
         return list;
     }

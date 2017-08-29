@@ -4,8 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        ××××数据平台
-        <!-- <small>advanced tables</small> -->
+        	上一页中选中的表名
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
@@ -18,13 +17,8 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          
           <!-- /.box -->
-          
-
           <div class="box">
-          
-          
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">数据分析任务列表</h3>
             </div>
@@ -70,8 +64,6 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-
-        
 
           <!-- BAR CHART -->
           <div id="barTu" class="box box-success" style="margin-left: -999px;margin-top:-340px">
@@ -126,9 +118,6 @@
             <input type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
             <input type="file" id="path" style="display:none" onchange="upfile.value=this.value">
          </center>   
-    
-
-
          </div>
 
          <div class="modal-footer">

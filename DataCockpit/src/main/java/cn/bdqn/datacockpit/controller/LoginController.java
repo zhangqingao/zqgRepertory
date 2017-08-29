@@ -10,11 +10,11 @@
 package cn.bdqn.datacockpit.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +24,7 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -35,10 +36,13 @@ import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
+
 import cn.bdqn.datacockpit.utils.LoggerUtils;
 import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
+import cn.bdqn.datacockpit.utils.LoggerUtils;
+import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 
 /**
  * Description: <br/>
@@ -52,18 +56,19 @@ import cn.bdqn.datacockpit.service.UserinfoService;
 @Scope("prototype")
 public class LoginController {
     private static final Exception IncorrectCredentialsException = null;
+
     @Autowired
     private CompanyinfoService companyinfo;
-    
+
     @Autowired
     private UserinfoService userinfo;
 
     @Autowired
     private InfoService infoService;
-    
-    @RequestMapping(value="getYzm")
-    public @ResponseBody List<String> getYzm(HttpServletResponse response,HttpServletRequest request){
-        List<String> lists=new ArrayList<String>();
+
+    @RequestMapping(value = "getYzm")
+    public @ResponseBody List<String> getYzm(HttpServletResponse response, HttpServletRequest request) {
+        List<String> lists = new ArrayList<String>();
         try {
             response.setHeader("Pragma", "No-cache");  
             response.setHeader("Cache-Control", "no-cache");  
@@ -78,16 +83,15 @@ public class LoginController {
             //生成图片  
             int w = 146, h = 33;  
             VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
-            
             lists.add("OK");
             return lists;
         } catch (Exception e) {
-            LoggerUtils.fmtError(getClass(),e, "获取验证码异常：%s",e.getMessage());
+            LoggerUtils.fmtError(getClass(), e, "获取验证码异常：%s", e.getMessage());
         }
         return lists;
-        
-    }    
-  
+
+    }
+
     /**
      * 登录
      * 
@@ -98,11 +102,11 @@ public class LoginController {
      * @param req
      * @return
      */
-
     @RequestMapping("/login2")
     public String login(HttpSession session, HttpServletResponse res, HttpServletRequest req) {
         session=req.getSession();
         String phone=(String) session.getAttribute("phone");
+        List<Map<String,Object>> lists=new ArrayList<Map<String,Object>>();
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
         //从session获取验证码方法中存入的验证码
@@ -113,6 +117,22 @@ public class LoginController {
             req.setAttribute("erroMessage", "*验证码不正确");
         }*/
         // 根据账号判断该用户属于公司还是管理员
+        List<Info> infoList = infoService.selectAllInfo();
+        Date time = new Date();
+        Date ti1 = new Date(time.getTime() - 2 * 24 * 60 * 60 * 1000);
+        for (Info info : infoList) {
+            Date date = info.getPublishDate();
+            Map<String, Object> map = new HashMap<String, Object>();
+            if (ti1.before(date)) {
+                map.put("date", 1);
+            } else {
+                map.put("date", 0);
+            }
+
+            map.put("info", info);
+            lists.add(map);
+
+        }
         if (compi != null) {
                 session.setAttribute("infos", compi);
                 return "redirect:/user_index.shtml";
@@ -120,6 +140,7 @@ public class LoginController {
         // 判断账号密码是否正确（管理员）
         if (ui != null) {
                 session.setAttribute("infos", ui);
+                session.setAttribute("flag", lists);
                 return "redirect:/selectAllCompanyinfo.shtml";
         }
         session.setAttribute("erroMessage", "*账号或者密码输入有误！");
@@ -262,8 +283,9 @@ public class LoginController {
     public String exit(HttpServletRequest req) {
         req.getSession().removeAttribute("comp");
 
-        return "user_exit.pages";
+        return "front/exit";
     }
+
     /**
      * 公告详情
      * 
@@ -276,5 +298,18 @@ public class LoginController {
         Info info = infoService.selectByPrimaryKey(id);
         model.addAttribute("gg", info);
         return "user_gongGao.pages";
+    }
+
+    /**
+     * 公告详情
+     * 
+     * @param req
+     * @return
+     */
+    @RequestMapping("/selectTongzhi")
+    public String selectTongzhi(Model model) {
+        List<Info> lists = infoService.selectAllInfo();
+        model.addAttribute("infoList", lists);
+        return "user_tongzhi.pages";
     }
 }

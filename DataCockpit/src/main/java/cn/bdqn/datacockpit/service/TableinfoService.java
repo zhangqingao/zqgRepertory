@@ -2,10 +2,10 @@
  * Project Name:DataCockpit
  * File Name:TableinfoService.java
  * Package Name:cn.bdqn.datacockpit.service
- * Date:2017年8月25日上午11:43:06
+ * Date:2017年8月25日上午10:53:12
  * Copyright (c) 2017, bluemobi All Rights Reserved.
  *
-*/
+ */
 
 package cn.bdqn.datacockpit.service;
 
@@ -14,25 +14,15 @@ import java.util.List;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 
 /**
- * Description:	   <br/>
- * Date:     2017年8月25日 上午11:43:06 <br/>
- * @author   caoS
- * @version  
- * @see 	 
+ * Description: <br/>
+ * Date: 2017年8月25日 上午10:53:12 <br/>
+ * 
+ * @author yuanX
+ * @version
+ * @see
  */
 public interface TableinfoService {
-    List<Tableinfo> selectAllTableInfo();
-    
-    int deleteByPrimaryKey(Integer id);
+    List<Tableinfo> selectAll();
 
     int insert(Tableinfo record);
-
-    int insertSelective(Tableinfo record);
-
-    Tableinfo selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Tableinfo record);
-
-    int updateByPrimaryKey(Tableinfo record);
 }
-

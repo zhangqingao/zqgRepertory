@@ -15,11 +15,11 @@
 		SELECT * FROM userinfo WHERE phone=#{phone}
 	</select>
 	
-	<select id="getRoles" parameterType="String" resultType="map">
+	<select id="getRoles" parameterType="String" resultMap="BaseResultMap">
 		SELECT r.role_name FROM userinfo u INNER JOIN user_role ur ON u.id=ur.uid INNER JOIN role r ON ur.rid=r.id WHERE u.phone=#{phone}
 	</select>
 	
-	<select id="getPermissions" parameterType="String" resultType="map">
+	<select id="getPermissions" parameterType="String" resultMap="BaseResultMap">
 		SELECT p.per_name FROM userinfo u INNER JOIN user_role ur ON u.id=ur.uid INNER JOIN role r ON ur.rid=r.id INNER JOIN role_permission rp ON rp.rid=r.id INNER JOIN permission p ON p.id=rp.pid WHERE u.phone=#{phone}
 	</select>
 	
@@ -28,9 +28,9 @@
     id, name, job, password, phone, email, state
   </sql>
   
-  <select id="selectAllUserinfo" resultType="map">
+  <select id="selectAllUserinfo" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+    id, name, job, phone, email, state
     from userinfo
   </select>
   

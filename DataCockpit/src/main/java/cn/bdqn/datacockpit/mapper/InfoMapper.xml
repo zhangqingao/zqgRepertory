@@ -4,34 +4,33 @@
   <resultMap id="BaseResultMap" type="cn.bdqn.datacockpit.entity.Info" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="publishDate" property="publishdate" jdbcType="TIMESTAMP" />
+    <result column="publish_date" property="publishDate" jdbcType="TIMESTAMP" />
     <result column="details" property="details" jdbcType="VARCHAR" />
-    <result  column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, publishDate, details, publisher
+    id, title, publish_date, details, publisher
   </sql>
-  
-  <select id="selectAllInfo" resultType="map">
-  	 select 
-    <include refid="Base_Column_List" />
-    from inform
-  </select>
-  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from inform
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAllInfo" resultMap="BaseResultMap">
+   select * from inform order by publish_date desc
+  </select>
+  <select id="selectMaxId" resultType="java.lang.Integer">
+  	SELECT MAX(id) FROM inform
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from inform
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.bdqn.datacockpit.entity.Info" >
-    insert into inform (id, title, publishDate, 
+    insert into inform (id, title, publish_date, 
       details, publisher)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{publishdate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{publishDate,jdbcType=TIMESTAMP}, 
       #{details,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.bdqn.datacockpit.entity.Info" >
@@ -43,8 +42,8 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="publishdate != null" >
-        publishDate,
+      <if test="publishDate != null" >
+        publish_date,
       </if>
       <if test="details != null" >
         details,
@@ -60,8 +59,8 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="publishdate != null" >
-        #{publishdate,jdbcType=TIMESTAMP},
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=TIMESTAMP},
       </if>
       <if test="details != null" >
         #{details,jdbcType=VARCHAR},
@@ -77,8 +76,8 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="publishdate != null" >
-        publishDate = #{publishdate,jdbcType=TIMESTAMP},
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=TIMESTAMP},
       </if>
       <if test="details != null" >
         details = #{details,jdbcType=VARCHAR},
@@ -92,7 +91,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.bdqn.datacockpit.entity.Info" >
     update inform
     set title = #{title,jdbcType=VARCHAR},
-      publishDate = #{publishdate,jdbcType=TIMESTAMP},
+      publish_date = #{publishDate,jdbcType=TIMESTAMP},
       details = #{details,jdbcType=VARCHAR},
       publisher = #{publisher,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

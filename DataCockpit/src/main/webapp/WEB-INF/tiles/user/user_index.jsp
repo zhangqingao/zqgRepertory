@@ -1,9 +1,11 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cc" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>快捷菜单</h1>
+	<h1 style="font-weight: bolder;">快捷菜单</h1>
 </section>
 
 <!-- Main content -->
@@ -21,7 +23,7 @@
 				<div class="icon">
 					<img src="resource/images/1.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju2.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -37,7 +39,7 @@
 				<div class="icon">
 					<img src="resource/images/2.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -54,7 +56,7 @@
 				<div class="icon">
 					<img src="resource/images/3.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_guanxitu.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -70,7 +72,7 @@
 				<div class="icon">
 					<img src="resource/images/33.png" />
 				</div>
-				<a href="#" class="small-box-footer">More info <i
+				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
 					class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
@@ -83,7 +85,7 @@
 	<!-- TABLE: LATEST ORDERS -->
 	<div class="box box-info" style="width: 49%; float: left;">
 		<div class="box-header with-border">
-			<h3 class="box-title">通知信息</h3>
+			<h3 class="box-title" style="font-weight: bolder;">通知信息</h3>
 
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -98,19 +100,14 @@
 			<div class="table-responsive">
 				<div id=tz>
 					<ul>
-						<li class=tz1><a href="./gongGao.shtml?id=1">会议通知【2017-08-18】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统更新通知【2017-08-13】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统数据关联关系功能上线【2017-08-08】</a></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-10】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统新增上传功能【2017-08-08】</a><img
-							src="resource/images/6.png" /></li>
-						<li class=tz1><a href="#">系统维护通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">会议通知【2017-08-06】</a></li>
-						<li class=tz1><a href="#">系统改版通知【2017-08-01】</a><img
-							src="resource/images/6.png" /></li>
+						<cc:forEach items="${flag }" var="map" begin="0" end="4">
+					
+						<li class=tz1><a href="./gongGao.shtml?id=${map.info.id }">${map.info.title }【<fmt:formatDate value="${map.info.publishDate }" pattern="yyyy-MM-dd"/>】</a>
+						<cc:if test="${map.date==1 }">
+						<img src="resource/images/6.png" />
+						</cc:if>
+						</li>
+						</cc:forEach>
 
 					</ul>
 				</div>
@@ -131,7 +128,7 @@
 	<div class="box box-default"
 		style="width: 49%; float: right; border-top-color: #F39C12">
 		<div class="box-header with-border">
-			<h3 class="box-title">系统消息</h3>
+			<h3 class="box-title" style="font-weight: bolder;">系统消息</h3>
 
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool"
@@ -144,8 +141,10 @@
 		<div class="box-body">
 			<div id=xt>
 				<ul>
+				
 					<li class=tz><a href="#">销售到访关联任务完成【2017-08-18】</a><img
 						src="resource/images/6.png" /></li>
+						
 					<li class=tz><a href="#">到访与媒体渠道关联任务失败【2017-08-18】</a><img
 						src="resource/images/6.png" /></li>
 					<li class=tz><a href="#">到访认筹关联任务完成【2017-08-18】</a><img
@@ -153,9 +152,6 @@
 					<li class=tz><a href="#">到访与媒体渠道关联任务完成【2017-08-17】</a></li>
 					<li class=tz><a href="#">到访认筹关联任务失败【2017-08-17】</a><img
 						src="resource/images/6.png" /></li>
-					<li class=tz><a href="#">销售到访关联任务完成【2017-08-17】</a></li>
-					<li class=tz><a href="#">到访认筹关联任务失败【2017-08-16】</a></li>
-					<li class=tz><a href="#">到访与媒体渠道关联任务完成【2017-08-16】</a></li>
 
 				</ul>
 			</div>
@@ -172,7 +168,7 @@
 		<div class="col-md-12">
 			<div class="box" style="border-top-color: red">
 				<div class="box-header with-border">
-					<h3 class="box-title">数据展示</h3>
+					<h3 class="box-title" style="font-weight: bolder;">数据展示</h3>
 
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool"
@@ -300,4 +296,3 @@
 
 </section>
 <!-- /.content -->
-

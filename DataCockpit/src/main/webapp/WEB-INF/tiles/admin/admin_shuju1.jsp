@@ -1,15 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         企业数据管理
         <small></small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -142,6 +138,7 @@
                     </div>  
                 </form>  
             </div>
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
@@ -161,10 +158,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
                     <span aria-hidden="true">×</span>  
                 </button>  
-                <p><h5 class="modal-title">新增的数据表名：<input type="text" name="shujuname"></h5></p>
-                <p><h5 class="modal-title">数据列的默认图形展示：<input type="radio" name="shujutu" checked="checked" value="折线图">折线图
+                <p><h5 class="modal-title">新增的数据表名：<input class="inputs"  type="text" name="shujuname"></h5></p>
+                <p><h5 class="modal-title">数据列的默认图形展示：<input class="tus"  type="radio" name="shujutu" checked="checked" value="0">折线图
                 &nbsp;&nbsp;
-                <input type="radio" name="shujutu" value="柱状图">柱状图</h5></p> 
+                <input class="tus" type="radio" name="shujutu" value="1">柱状图</h5></p> 
             </div>  
             <div class="modal-body">  
                 
@@ -177,8 +174,8 @@
                           </tr>
                           <tr>
                             <td>1</td>
-                            <td><input type="text" name="pname" value="项目名称" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="pname" value="项目名称" style="width: 100%"></td>
+                            <td><select class="inputs" name="prname">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -186,8 +183,8 @@
                           </tr>                          
                           <tr>
                             <td>2</td>
-                            <td><input type="text" name="area" value="所在区域" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="area" value="所在区域" style="width: 100%"></td>
+                            <td><select class="inputs" name="prarea">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -195,8 +192,8 @@
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td><input type="text" name="date" value="日期" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="date" value="日期" style="width: 100%"></td>
+                            <td><select class="inputs" name="prdate">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -204,8 +201,17 @@
                           </tr>
                           <tr>
                             <td>4</td>
-                            <td><input type="text" name="number" value="到访人数" style="width: 100%"></td>
-                            <td><select>
+                            <td><input class="inputs" type="text" name="dnumber" value="到访人数" style="width: 100%"></td>
+                            <td><select class="inputs" name="prdnumber">
+                                <option value="1" selected="selected">文本</option>
+                                <option value="2">整数</option>
+                                <option value="3">浮点数</option>
+                              </select></td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td><input class="inputs" type="text" name="rnumber" value="认筹人数" style="width: 100%"></td>
+                            <td><select class="inputs" name="prrnumber">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -219,11 +225,46 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">  
                     关闭 
                 </button>
-                <button type="submit" class="btn btn-primary">  
+                <button id="baocun" type="button" class="btn btn-primary">  
                     保存  
                 </button>
             </div> 
              </form>  
+             <script type="text/javascript">
+             $("#baocun").click(function(){
+            	 var values=[];
+            	 var tu =document.getElementsByName("shujutu");
+            	 var tuid;
+            	 for(var i = 0; i < 2; i++)
+            	 {
+            	      if(tu[i].checked)
+            	      {
+            	      tuid=i;
+            	      }
+            	  }
+            	 values.push(tuid)
+            	 $(".inputs").each(function(i){
+            		 values.push($(this).val());
+            	 })
+            	 $.ajax({
+               		url:"./admins.shtml",
+               		type:"post",
+               		traditional:true,
+               		data:{
+  						"values":values             			
+               		},
+               		dataType:"json",
+               		success:function(result){
+               		if(result.flag==1){
+               			window.location.href="./admin_shuju1.shtml"
+               		}
+               		}
+   					
+               }) 
+              /*  $("#myModal2").hide();       		
+            	$(".modal-backdrop").hide(); */
+            	})
+            </script>
         </div>  
     </div>  
   </div>      
@@ -246,14 +287,17 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-                <tr>
-                  <td>1</td>
-                  <td>销售到访关联</td>
-                  <td>销售数据表、到访数据表</td>
-                  <td>销售数据表.日期、到访数据表.日期</td>
-                  <td><select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
+                <c:forEach items="${lists }" var="li" varStatus="status">
+                   <tr>
+	                  <td>${requestScope.offset+status.index+1}</td>
+	                  <td>${li.name }</td>
+	                  <td>${li.tbName }、${li.tbName1 }</td>
+	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td>
+	                  <td><select><option>已启用</option><option>已禁用</option></select></td>
+                  </tr>
+                </c:forEach>
+               
+                <!-- <tr>
                  <td>2</td>
                   <td>销售认筹关联</td>
                   <td>销售数据表、到访数据表</td>
@@ -266,7 +310,7 @@
                   <td>销售数据表、到访数据表</td>
                   <td>销售数据表.日期、到访数据表.日期</td>
                   <td><select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>               
+                </tr>                -->
                 </tbody>
               </table>
 <!-- 模态框（Modal） -->
@@ -277,19 +321,20 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h5 class="modal-title">关联关系表名：<input type="text" name="glname"></h5>
+                <form action="./insert_guanlian.shtml" method="post"> 
+                <h5 class="modal-title">关联关系表名：<input type="text" name="name"></h5>
             </div>
             <div class="modal-body">
-                <form>  
+                 
                     <div class="form-group">  
-                        数据表A: <select>
+                        数据表A: <select name="tid1">
                                 <option value="1" selected="selected">销售数据表</option>
                                 <option value="2">到访数据表</option>
                                 <option value="3">中介数据表</option>
                                 <option value="4">认筹数据表</option>
                                 <option value="5">媒体渠道数据表</option>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
-                        统一的维度列: <select>
+                        统一的维度列: <select name="col1">
                                 <option value="1" selected="selected">项目名称</option>
                                 <option value="2">所在区域</option>
                                 <option value="3">日期</option>
@@ -297,14 +342,14 @@
                                 <option value="5">认筹人数</option>
                               </select>
                               <br/><br/>
-                        数据表B: <select>
+                        数据表B: <select name="tid2">
                                 <option value="1" selected="selected">销售数据表</option>
                                 <option value="2">到访数据表</option>
                                 <option value="3">中介数据表</option>
                                 <option value="4">认筹数据表</option>
                                 <option value="5">媒体渠道数据表</option>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
-                        统一的维度列: <select>
+                        统一的维度列: <select name="col2">
                                 <option value="1" selected="selected">项目名称</option>
                                 <option value="2">所在区域</option>
                                 <option value="3">日期</option>
@@ -312,14 +357,15 @@
                                 <option value="5">认筹人数</option>
                               </select>
                     </div>  
-                </form>  
+               <input type="hidden" name="state" value="1">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" >
                     保存
                 </button>
+                 </form>  
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

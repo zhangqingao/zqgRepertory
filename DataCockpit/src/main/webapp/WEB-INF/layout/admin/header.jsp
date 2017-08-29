@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"  isELIgnored="false"%>
-    <%@taglib uri="http://shiro.apache.org/tags" prefix="c" %>
-
+    pageEncoding="utf-8" isELIgnored="false"%>
+     <%@taglib uri="http://shiro.apache.org/tags" prefix="c" %>
 <!-- Main Header -->
   <header class="main-header">
 
@@ -23,7 +22,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li><a href="#">修改密码</a></li>
-          <li><a href="#">退出登录</a></li>
+          <li><a href="./exit.shtml">退出登录</a></li>
         </ul>
       </div>
     </nav>
@@ -67,7 +66,7 @@
         <c:hasRole name="supereme"> <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li></c:hasRole>
         <li class="yonghu" ><a href="./admin_userMan.shtml"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
         <li class="qiye treeview1">
-          <a href="./admin_shuju1.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
+          <a href="./admin_cominfo.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
             <span class="pull-right-container">
                 <!-- <i class="fa fa-angle-left pull-right"></i> -->
                  <i class="aaaabbb"></i>
@@ -81,7 +80,6 @@
         </li>
 
       </ul>
-
       <script type="text/javascript">
       	var menus = ${menus}
       	localStorage.menu1="1";
