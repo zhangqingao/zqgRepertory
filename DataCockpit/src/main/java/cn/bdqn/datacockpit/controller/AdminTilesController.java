@@ -160,6 +160,66 @@ public class AdminTilesController {
         return "aduser_update.page";
     }
 
+    /***
+     * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee")
+    public String adminuss_updatee(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新approval状态
+     * @return
+     */
+    @RequestMapping("/adminuss_updatee0")
+    public String adminuss_updatee0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userDsh.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:1
+     * @return
+     */
+    @RequestMapping("/aduser_update1")
+    public String aduser_update1(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(1);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
+    }
+
+    /***
+     * 
+     * @param req:通过id更新state状态:0
+     * @return
+     */
+    @RequestMapping("/aduser_update0")
+    public String aduser_update0(HttpServletRequest req) {
+        // 获取实体类信息
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setState(0);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_userMan.page";
+    }
+
     @RequestMapping("/aduser_update2")
     public String aduser_insert(Companyinfo comps) {
         // 获取实体类信息
@@ -323,5 +383,4 @@ public class AdminTilesController {
         // 转发
         return null;
     }
-
 }
