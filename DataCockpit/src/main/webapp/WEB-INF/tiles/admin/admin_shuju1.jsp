@@ -36,62 +36,6 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-                <tr>
-                  <td>1</td>
-                  <td>销售数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>到访数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                 <tr>
-                  <td>3</td>
-                  <td>轮班数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>派单数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>认筹数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>中介数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>媒体渠道数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
                 </tbody>
               </table>
 
