@@ -13,7 +13,7 @@ public interface TableinfoMapper {
 
     Tableinfo selectByPrimaryKey(Integer id);
 
-    List<Tableinfo> selectAll();
+    List<Tableinfo> selectAll(Integer id);
 
     int updateByPrimaryKeySelective(Tableinfo record);
 

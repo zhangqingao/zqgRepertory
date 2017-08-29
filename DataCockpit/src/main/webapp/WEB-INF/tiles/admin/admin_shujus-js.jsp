@@ -45,7 +45,6 @@ $("button[data-dismiss=modal]").click(function(){
       $("#text-area").val("");
 
 });
-
 </script>
 <script>
   $(function () {

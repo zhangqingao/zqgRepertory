@@ -35,62 +35,7 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-                <tr>
-                  <td>1</td>
-                  <td>销售数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>到访数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                 <tr>
-                  <td>3</td>
-                  <td>轮班数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>派单数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>认筹数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>中介数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>媒体渠道数据表</td>
-                  <td>2017-06-01 15:20:33</td>
-                  <td>
-                   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">编辑表头信息</button>&emsp;
-                  <a href="./admin_shuju2.shtml" style="color: white"><button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 110px;height: 20px;font-size: 13px;line-height: 0px">查看数据</button></a>&emsp;<select><option>已启用</option><option>已禁用</option></select></td>
-                </tr>
+                
                 </tbody>
               </table>
 
@@ -126,7 +71,7 @@
                           <tr>
                             <td>3</td>
                             <td><input type="text" name="date" value="日期" style="width: 100%"></td>
-                            <td>文本</td>
+                            <td>时间</td>
                           </tr>
                           <tr>
                             <td>4</td>
@@ -193,9 +138,8 @@
                             <td>3</td>
                             <td><input class="inputs" type="text" name="date" value="日期" style="width: 100%"></td>
                             <td><select class="inputs" name="prdate">
-                                <option value="1" selected="selected">文本</option>
-                                <option value="2">整数</option>
-                                <option value="3">浮点数</option>
+                                <option value="0" selected="selected">时间</option>
+                                
                               </select></td>
                           </tr>
                           <tr>
@@ -211,6 +155,15 @@
                             <td>5</td>
                             <td><input class="inputs" type="text" name="rnumber" value="认筹人数" style="width: 100%"></td>
                             <td><select class="inputs" name="prrnumber">
+                                <option value="1" selected="selected">文本</option>
+                                <option value="2">整数</option>
+                                <option value="3">浮点数</option>
+                              </select></td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td><input class="inputs" type="text" name="tnumber" value="退订人数" style="width: 100%"></td>
+                            <td><select class="inputs" name="trrnumber">
                                 <option value="1" selected="selected">文本</option>
                                 <option value="2">整数</option>
                                 <option value="3">浮点数</option>
@@ -246,7 +199,7 @@
             		 values.push($(this).val());
             	 })
             	 $.ajax({
-               		url:"./admins.shtml",
+               		url:"./admin_create.shtml",
                		type:"post",
                		traditional:true,
                		data:{
@@ -255,7 +208,7 @@
                		dataType:"json",
                		success:function(result){
                		if(result.flag==1){
-               			window.location.href="./admin_shuju1.shtml"
+               			window.location.href="./admin_shuju1.shtml?id=${No1}"
                		}
                		}
    					

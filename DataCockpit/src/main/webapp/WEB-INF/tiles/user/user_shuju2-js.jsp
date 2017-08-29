@@ -30,6 +30,9 @@ $("button[data-dismiss=modal]").click(function(){
       $("#upfile").val("");
 
 });
+$("#ok_10").click(function(){
+	$("#ups1").val("")
+})
 </script>
 <script>
   $(function () {
@@ -47,9 +50,13 @@ $("button[data-dismiss=modal]").click(function(){
 	    	 "defaultContent": "1"},
 	    	  {"data":"name"},
 	    	  {"data":"updatetime"}, 
-	    	  {"data": function(data, type, row) { return '<button type="button" class="btn btn-primary btn-lg uploads" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1()">上传数据</button>&emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" class="btn btn-primary btn-lg searches" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop2()">查看数据</button>'; } },
 	      ],
-	      
+	      "columnDefs": [
+	 					{
+	 	    		   "targets": 3,
+	 	    		   "render":function(data, type, row, meta) { return '<button type="button" class="btn btn-primary btn-lg uploads" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop1()">上传数据</button>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="./user_shuju3.shtml?id='+row.name+'"><button type="button" class="btn btn-primary btn-lg searches" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 70px;height: 20px;font-size: 10px;line-height: 0px" onclick="pop2()">查看数据</button></a>'; } 
+	 					}
+	 					]
 	});
 		t.on('order.dt search.dt',
 		 function() {

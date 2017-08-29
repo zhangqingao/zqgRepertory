@@ -1,10 +1,13 @@
 package cn.bdqn.datacockpit.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -170,13 +173,16 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/admin_shuju1")
-    public String shuju1(Model model) {
+    public String shuju1(Model model, HttpServletRequest req) {
         model.addAttribute("menus", "3");
+        String id = req.getParameter("id");
+        HttpSession session = req.getSession();
+        session.setAttribute("No1", id);
         return "admin_shuju1.page";
     }
 
     @RequestMapping("/admin_shuju2")
-    public String shuju2(Model model) {
+    public String shuju2(Model model, HttpServletRequest req) {
         return "admin_shuju2.page";
     }
 
@@ -247,7 +253,7 @@ public class AdminTilesController {
         String tbName = null;
         for (int i = 0; i < attr.length; i++) {
             if (i == 0) {
-                map.put("showtype", "tu");
+                map.put("shows", attr[0]);
             } else if (i == 1) {
                 tbName = ctp.getPingYin(attr[1]);
             } else if (2 * i - 1 <= attr.length) {
@@ -256,6 +262,7 @@ public class AdminTilesController {
 
             }
         }
+
         JdbcUtil creats = new JdbcUtil();
         ApplicationContext context = creats.getContext();
         context = new ClassPathXmlApplicationContext("spring-common.xml");
@@ -269,9 +276,10 @@ public class AdminTilesController {
         record.setName(attr[1]);
         record.setUpdatetime(date);
         record.setShowtype(attr[0]);
-        // HttpSession session = req.getSession();
-        // Companyinfo coms = (Companyinfo) session.getAttribute("infos");
-        record.setCid(1);
+        HttpSession session = req.getSession();
+        String ids = (String) session.getAttribute("No1");
+        Integer cid = Integer.parseInt(ids);
+        record.setCid(cid);
         ts.insert(record);
 
         Map<String, String> maps = new HashMap<String, String>();
@@ -281,11 +289,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_selects")
     public String selects(Model model) {
-
-        List<Companyinfo> lists = companyinfo.selectAllCompanies();
-        System.out.println(lists);
-        model.addAttribute("menus", "4");
-        model.addAttribute("lists", lists);
+        model.addAttribute("menus", "3");
 
         // 转发
         return "admin_userMan.page";
@@ -301,5 +305,73 @@ public class AdminTilesController {
 
         // 转发
         return null;
+    }
+
+    @RequestMapping("/admin_shujus")
+    public String shuju3(Model model, HttpServletRequest req) {
+        model.addAttribute("menus", "3");
+        String names = req.getParameter("id");
+        ChineseToPinYin ctp = new ChineseToPinYin();
+        String name = ctp.getPingYin(names);
+        model.addAttribute("name1", name);
+        JdbcUtil jdbc1 = new JdbcUtil();
+        ApplicationContext context = jdbc1.getContext();
+        context = new ClassPathXmlApplicationContext("spring-common.xml");
+        JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
+
+        List<Map<String, Object>> lists = jdbc1.selectObj(jt, name);
+        if (lists != null) {
+
+            int shows = (int) lists.get(0).get("shows");
+            model.addAttribute("shows", shows);
+            String time = "'";
+            Date date = null;
+            for (int i = 0; i < lists.size(); i++) {
+                date = (Date) lists.get(i).get("times");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                time = time + sdf.format(date) + "','";
+                if (i == lists.size() - 1) {
+                    date = (Date) lists.get(i).get("times");
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+                    time = time + sdf2.format(date);
+                }
+            }
+            time = "[" + time + "']";
+            model.addAttribute("lists", time);
+            String fNums = "";
+            for (int i = 0; i < lists.size(); i++) {
+                if (i == lists.size() - 1) {
+                    fNums = fNums + lists.get(i).get("f_nums");
+                } else {
+                    fNums = fNums + lists.get(i).get("f_nums") + ",";
+                }
+            }
+            fNums = "[" + fNums + "]";
+
+            String rNums = "";
+            for (int i = 0; i < lists.size(); i++) {
+
+                if (i == lists.size() - 1) {
+                    rNums = rNums + lists.get(i).get("r_nums");
+                } else {
+                    rNums = rNums + lists.get(i).get("r_nums") + ",";
+                }
+            }
+            rNums = "[" + rNums + "]";
+            model.addAttribute("rNums", rNums);
+            model.addAttribute("fNums", fNums);
+
+            Set<String> sets = new HashSet<String>();
+
+            for (int i = 0; i < lists.size(); i++) {
+                sets = lists.get(i).keySet();
+            }
+            List<String> lists3 = new ArrayList<String>();
+            for (String string : sets) {
+                lists3.add(string);
+            }
+            model.addAttribute("lists3", lists3);
+        }
+        return "admin_shujus.page";
     }
 }

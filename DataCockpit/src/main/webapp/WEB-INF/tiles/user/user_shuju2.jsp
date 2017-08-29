@@ -58,10 +58,10 @@
          
          <div class="modal-body">
          <center>
-            <input type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
+            <input class="ups1" type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
 
-            <input type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
-            <input type="file" id="path" style="display:none" onchange="upfile.value=this.value">
+            <input class="ups3"  type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
+            <input class="ups2" type="file" id="path" style="display:none" onchange="upfile.value=this.value">
          </center>   
          </div>
 
@@ -69,12 +69,31 @@
             <button type="button" class="btn btn-default"
                data-dismiss="modal">关闭
             </button>
-            <button type="button" class="btn btn-primary">
-               下载计算结果
+            <button id="ok_10" type="button" class="btn btn-primary">
+               确定
             </button>
          </div>
       </div><!-- /.modal-content -->
    </div><!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<
+<script>
+	$("#ok_10").click(function(){
+		var a1=$(".ups1").val();
+		$.ajax({
+			url:"./user_uploads.shtml",
+       		type:"post",
+       		traditional:true,
+       		data:{
+					"urls":a1             			
+       		},
+       		dataType:"json",
+       		success:function(result){
+       			
+       		}
+       		 
+		})
+		 $("#myModal").hide();       		
+    	$(".modal-backdrop").hide(); 
+	})
+</script>

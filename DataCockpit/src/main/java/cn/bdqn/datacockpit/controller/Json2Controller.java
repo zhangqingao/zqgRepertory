@@ -5,7 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.bdqn.datacockpit.datatable.DatatableResult;
 import cn.bdqn.datacockpit.datatable.IsSearchCondition;
 import cn.bdqn.datacockpit.datatable.SearchCondition;
+import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Tableinfo;
-import cn.bdqn.datacockpit.entity.XsTable;
 import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.XsTableService;
+import cn.bdqn.datacockpit.utils.JdbcUtil;
 
 /**
  * Project Name:DataCockpit
@@ -60,18 +67,45 @@ public class Json2Controller {
 
     @ResponseBody
     @RequestMapping(value = "shuju_2")
-    public DatatableResult<Tableinfo> datatable(@IsSearchCondition SearchCondition searchCondition) {
+    public DatatableResult<Tableinfo> datatable(@IsSearchCondition SearchCondition searchCondition,
+            HttpServletRequest req) {
         DatatableResult<Tableinfo> list = new DatatableResult<>();
-        List<Tableinfo> lists = ts.selectAll();
+        HttpSession session = req.getSession();
+        Companyinfo cy = (Companyinfo) session.getAttribute("infos");
+        Integer id = cy.getId();
+
+        List<Tableinfo> lists = ts.selectAll(id);
+        list.setData(lists);
+        return list;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "shujus_2")
+    public DatatableResult<Tableinfo> datatable6(@IsSearchCondition SearchCondition searchCondition,
+            HttpServletRequest req) {
+        DatatableResult<Tableinfo> list = new DatatableResult<>();
+        HttpSession session = req.getSession();
+        HttpSession session1 = req.getSession();
+        String ids = (String) session1.getAttribute("No1");
+
+        Integer id = Integer.parseInt(ids);
+        List<Tableinfo> lists = ts.selectAll(id);
         list.setData(lists);
         return list;
     }
 
     @ResponseBody
     @RequestMapping(value = "shuju_3")
-    public DatatableResult<XsTable> datatable3(@IsSearchCondition SearchCondition searchCondition) {
-        DatatableResult<XsTable> list = new DatatableResult<>();
-        List<XsTable> lists = xs.selectAll();
+    public DatatableResult<Map<String, Object>> datatable3(@IsSearchCondition SearchCondition searchCondition,
+            HttpServletRequest req) {
+        DatatableResult<Map<String, Object>> list = new DatatableResult<>();
+        String name = req.getParameter("id");
+        JdbcUtil jdbc1 = new JdbcUtil();
+        ApplicationContext context = jdbc1.getContext();
+        context = new ClassPathXmlApplicationContext("spring-common.xml");
+        JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
+        List<Map<String, Object>> lists = jdbc1.selectObj(jt, name);
+
         list.setData(lists);
         return list;
     }

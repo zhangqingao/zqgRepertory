@@ -24,7 +24,7 @@
             </div>
             <div id="uploads" style="margin-left: 180px;margin-top: -35px"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">上传新数据</button></div>
 
-            <div style="margin-left: 300px;margin-top: -29.7px"><button id="downs" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></div>
+            <div style="margin-left: 300px;margin-top: -29.7px"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -113,7 +113,7 @@
          
          <div class="modal-body">
          <center>
-            <input class="ups1" type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
+            <input type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
 
             <input type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
             <input type="file" id="path" style="display:none" onchange="upfile.value=this.value">
@@ -124,8 +124,8 @@
             <button type="button" class="btn btn-default"
                data-dismiss="modal">关闭
             </button>
-            <button id="ok_11" type="button" class="btn btn-primary">
-               确定
+            <button type="button" class="btn btn-primary">
+               下载计算结果
             </button>
          </div>
       </div><!-- /.modal-content -->
@@ -159,7 +159,7 @@
             <button type="button" class="btn btn-default"
                data-dismiss="modal">关闭
             </button>
-            <button  type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary">
                确定
             </button>
          </div>
@@ -167,28 +167,6 @@
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<script>
-	$("#ok_11").click(function(){
-		var a1=$(".ups1").val();
-		$.ajax({
-			url:"./user_uploadss.shtml",
-       		type:"post",
-       		traditional:true,
-       		data:{
-					"urls":a1             			
-       		},
-       		dataType:"json",
-       		success:function(result){
-       			if(result.flag==1){
-       				window.location.href="./user_shuju3.shtml?id=${name2}"
-       			}
-       		}
-       			
-       		 
-		})
-		 
-	})
-</script>
 
 
 

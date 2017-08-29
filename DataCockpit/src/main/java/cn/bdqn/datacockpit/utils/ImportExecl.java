@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -254,7 +255,8 @@ public class ImportExecl {
                     // 以下是判断数据的类型
                     switch (cell.getCellType()) {
                     case HSSFCell.CELL_TYPE_NUMERIC: // 数字
-                        cellValue = cell.getNumericCellValue() + "";
+                        DecimalFormat df = new DecimalFormat("0");
+                        cellValue = df.format(cell.getNumericCellValue());
                         break;
 
                     case HSSFCell.CELL_TYPE_STRING: // 字符串
@@ -297,7 +299,6 @@ public class ImportExecl {
 
     }
 
-   
 }
 
 class WDWUtil {

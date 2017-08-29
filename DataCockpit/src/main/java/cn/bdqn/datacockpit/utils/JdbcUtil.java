@@ -12,6 +12,8 @@ package cn.bdqn.datacockpit.utils;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,20 +31,21 @@ public class JdbcUtil {
         JdbcUtil.context = context;
     }
 
-    public static int insertObject(String tableName, Map<String, Object> map) {
+    public static int insertObject(String tableName, List<Map<String, Object>> contents) {
         int re = 0;
         try {
             JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
             // 如果有某表
             if (getAllTableName(jt, tableName)) {
                 // 保存数据
-                re = saveObj(jt, tableName, map);
-            } else {
-                // 动态创建表
-                re = createTable(jt, tableName, map);
-                // 保存数据
-                re = saveObj(jt, tableName, map);
-            }
+                re = saveObj(jt, tableName, contents);
+            } /*
+               * else { Map<String, Object> map = new HashMap<String, Object>();
+               * Set<String> sets = new HashSet<String>(); sets =
+               * contents.get(0).keySet(); for (String string : sets) {
+               * map.put(string, "1"); } re = createTable(jt, tableName, map);
+               * // 保存数据 re = saveObj(jt, tableName, contents); }
+               */
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,21 +55,42 @@ public class JdbcUtil {
     /**
      * 保存方法，注意这里传递的是实际的表的名称
      */
-    public static int saveObj(JdbcTemplate jt, String tableName, Map<String, Object> map) {
+
+    public static int saveObj(JdbcTemplate jt, String tableName, List<Map<String, Object>> contents) {
         int re = 0;
         try {
-            String sql = " insert into " + tableName + " (";
-            Set<String> set = map.keySet();
-            for (String key : set) {
-                sql += (key + ",");
+            for (int i = 0; i < contents.size(); i++) {
+                Map<String, Object> map = contents.get(i);
+                String sql = " insert into " + tableName + " (";
+                Set<String> set = map.keySet();
+                for (String key : set) {
+                    sql += (key + ",");
+                }
+                sql += " tbName ) ";
+                sql += " values ( ";
+                for (String key : set) {
+                    if (map.get(key) instanceof Integer) {
+                        sql += (map.get(key) + ",");
+                    } else {
+
+                        sql += ("'" + map.get(key) + "',");
+                    }
+                }
+                sql += ("'" + tableName + "' ) ");
+                re = jt.update(sql);
             }
-            sql += " tableName ) ";
-            sql += " values ( ";
-            for (String key : set) {
-                sql += ("'" + map.get(key) + "',");
-            }
-            sql += ("'" + tableName + "' ) ");
-            re = jt.update(sql);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return re;
+    }
+
+    public static List<Map<String, Object>> selectObj(JdbcTemplate jt, String tableName) {
+        List<Map<String, Object>> re = new ArrayList<Map<String, Object>>();
+        try {
+            String sql = " select * from " + tableName;
+            re = jt.queryForList(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,19 +108,19 @@ public class JdbcUtil {
         sb.append(" `id` int(11) NOT NULL AUTO_INCREMENT,");
         Set<String> set = map.keySet();
         for (String key : set) {
-            if (map.get(key).equals("tu")) {
-                sb.append("`" + key + "` int(2) ,");
-            }
-            if (map.get(key).equals("1")) {
+            if (key.equals("shows")) {
+                sb.append("`" + key + "` int(2) default " + map.get("shows") + ",");
+            } else if (map.get(key).equals("1")) {
                 sb.append("`" + key + "` varchar(255) ,");
-            }
-            if (map.get(key).equals("3")) {
+            } else if (map.get(key).equals("3")) {
                 sb.append("`" + key + "` float ,");
-            }
-            if (map.get(key).equals("2")) {
+            } else if (map.get(key).equals("2")) {
                 sb.append("`" + key + "` int(10) ,");
+            } else if (map.get(key).equals("0")) {
+                sb.append("`times` date ,");
             }
         }
+        sb.append(" `tbName` varchar(255) DEFAULT '',");
         sb.append(" PRIMARY KEY (`id`))");
         try {
             jt.update(sb.toString());

@@ -32,10 +32,10 @@ public class TableinfoServiceImpl implements TableinfoService {
     private TableinfoMapper tm;
 
     @Override
-    public List<Tableinfo> selectAll() {
+    public List<Tableinfo> selectAll(Integer id) {
 
         // Auto-generated method stub
-        return tm.selectAll();
+        return tm.selectAll(id);
     }
 
     @Override

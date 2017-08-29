@@ -13,8 +13,8 @@
   <sql id="Base_Column_List" >
     id, name, updateTime, physicalTableName, cid, state, showtype
   </sql>
-  <select id="selectAll" resultMap="BaseResultMap">
-  		SELECT * FROM `tableinfo`
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="Integer">
+  		SELECT * FROM `tableinfo` where cid=#{id }
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

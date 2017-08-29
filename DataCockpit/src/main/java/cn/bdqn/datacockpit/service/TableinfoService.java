@@ -22,7 +22,7 @@ import cn.bdqn.datacockpit.entity.Tableinfo;
  * @see
  */
 public interface TableinfoService {
-    List<Tableinfo> selectAll();
+    List<Tableinfo> selectAll(Integer id);
 
     int insert(Tableinfo record);
 }

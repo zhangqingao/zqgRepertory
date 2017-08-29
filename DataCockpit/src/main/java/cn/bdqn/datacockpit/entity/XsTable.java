@@ -1,5 +1,7 @@
 package cn.bdqn.datacockpit.entity;
 
+import java.util.Date;
+
 public class XsTable {
     private Long id;
 
@@ -7,7 +9,7 @@ public class XsTable {
 
     private String area;
 
-    private String times;
+    private Date times;
 
     private Integer fNums;
 
@@ -41,11 +43,11 @@ public class XsTable {
         this.area = area;
     }
 
-    public String getTimes() {
+    public Date getTimes() {
         return times;
     }
 
-    public void setTimes(String times) {
+    public void setTimes(Date times) {
         this.times = times;
     }
 
@@ -79,10 +81,5 @@ public class XsTable {
 
     public void setShows(Integer shows) {
         this.shows = shows;
-    }
-
-    @Override
-    public String toString() {
-        return "'" + times + "'";
     }
 }

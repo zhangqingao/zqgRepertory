@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="area" property="area" jdbcType="VARCHAR" />
-    <result column="times" property="times" jdbcType="TIMESTAMP" />
+    <result column="times" property="times" jdbcType="DATE" />
     <result column="f_nums" property="fNums" jdbcType="INTEGER" />
     <result column="r_nums" property="rNums" jdbcType="INTEGER" />
     <result column="t_nums" property="tNums" jdbcType="INTEGER" />
@@ -15,28 +15,28 @@
     id, name, area, times, f_nums, r_nums, t_nums, shows
   </sql>
   <select id="selectAll" resultMap="BaseResultMap">
-  SELECT * FROM `xstable`  ORDER BY times ASC
-   </select>
+  	select * from xiaoshoushujubiao
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from xstable
+    from xiaoshoushujubiao
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from xstable
+    delete from xiaoshoushujubiao
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.bdqn.datacockpit.entity.XsTable" >
-    insert into xstable (id, name, area, 
-      times, f_nums, r_nums, 
-      t_nums, shows)
+    insert into xiaoshoushujubiao (id, name, area, 
+      times, f_nums, r_nums, t_nums, 
+      shows)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
-      #{times,jdbcType=TIMESTAMP}, #{fNums,jdbcType=INTEGER}, #{rNums,jdbcType=INTEGER}, 
-      #{tNums,jdbcType=INTEGER}, #{shows,jdbcType=INTEGER})
+      #{times,jdbcType=DATE}, #{fNums,jdbcType=INTEGER}, #{rNums,jdbcType=INTEGER}, #{tNums,jdbcType=INTEGER}, 
+      #{shows,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.bdqn.datacockpit.entity.XsTable" >
-    insert into xstable
+    insert into xiaoshoushujubiao
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -74,7 +74,7 @@
         #{area,jdbcType=VARCHAR},
       </if>
       <if test="times != null" >
-        #{times,jdbcType=TIMESTAMP},
+        #{times,jdbcType=DATE},
       </if>
       <if test="fNums != null" >
         #{fNums,jdbcType=INTEGER},
@@ -91,7 +91,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.bdqn.datacockpit.entity.XsTable" >
-    update xstable
+    update xiaoshoushujubiao
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -100,7 +100,7 @@
         area = #{area,jdbcType=VARCHAR},
       </if>
       <if test="times != null" >
-        times = #{times,jdbcType=TIMESTAMP},
+        times = #{times,jdbcType=DATE},
       </if>
       <if test="fNums != null" >
         f_nums = #{fNums,jdbcType=INTEGER},
@@ -118,10 +118,10 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.bdqn.datacockpit.entity.XsTable" >
-    update xstable
+    update xiaoshoushujubiao
     set name = #{name,jdbcType=VARCHAR},
       area = #{area,jdbcType=VARCHAR},
-      times = #{times,jdbcType=TIMESTAMP},
+      times = #{times,jdbcType=DATE},
       f_nums = #{fNums,jdbcType=INTEGER},
       r_nums = #{rNums,jdbcType=INTEGER},
       t_nums = #{tNums,jdbcType=INTEGER},
