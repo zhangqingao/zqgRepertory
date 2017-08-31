@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.24 (32 bit)
 MySQL - 5.7.17-log : Database - datacockpit
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -51,11 +52,32 @@ CREATE TABLE `companyinfo` (
   `state` int(11) DEFAULT NULL COMMENT '状态    禁：0,不禁1',
   `approval` int(11) DEFAULT NULL COMMENT '审批状态  拒：0，过：1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `companyinfo` */
 
-insert  into `companyinfo`(`id`,`corpName`,`phone`,`name`,`job`,`password`,`email`,`state`,`approval`) values (1,'香港恒生','1347891102','马人才','总裁','123456','123@emailcom',1,0),(2,'恒源祥','1356789110','李冠荣','总经理','123456','123@email.com',1,1),(3,'香港金泰','1356689110','王爱玲','总经理','123456','123@email.com',1,1),(4,'伊利乳业','1356678110','牛根生','总裁','123456','123@email.com',1,1),(5,'百事通','1356678119','李小兰','总裁','123456','123@email.com',1,1),(6,'可乐','1356678112','戴维斯','总裁','123456',NULL,NULL,NULL),(7,'紫金山科技有限公司','13926475847','张蕾','董事长','123456789','zhanglei@163.com',1,1),(8,'万达',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'联想',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'华为',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `companyinfo`(`id`,`corpName`,`phone`,`name`,`job`,`password`,`email`,`state`,`approval`) values (1,'香港恒生','13478911024','袁添','总裁','12345678','123@emailcom',1,0),(2,'恒源祥','13567891107','李冠荣','总经理','123456','123@email.com',1,1),(3,'香港金泰','1356689110','王爱玲','总经理','123456','123@email.com',1,1),(4,'伊利乳业','1356678110','牛根生','总裁','123456','123@email.com',1,1),(7,'紫金山科技有限公司','13926475847','张蕾','董事长','123456','zhanglei@163.com',1,1),(8,'智动天下','13234343434','张','经理','123456','22222@qq.com',NULL,NULL),(10,'万达','13588888888','王思聪','董事长','12345678','8888@qq.com',1,NULL),(11,'千硕教育','18687098317','王芙蓉','董事长','12345678','wang@qq.com',NULL,1);
+
+/*Table structure for table `daofangshujubiao` */
+
+DROP TABLE IF EXISTS `daofangshujubiao`;
+
+CREATE TABLE `daofangshujubiao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `xiangmumingcheng` varchar(255) DEFAULT NULL,
+  `suozaiquyu` varchar(255) DEFAULT NULL,
+  `daofangrenshu` int(10) DEFAULT NULL,
+  `times` date DEFAULT NULL,
+  `tuidingrenshu` int(10) DEFAULT NULL,
+  `renchourenshu` int(10) DEFAULT NULL,
+  `shows` int(2) DEFAULT '1',
+  `tbName` varchar(255) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `daofangshujubiao` */
+
+insert  into `daofangshujubiao`(`id`,`xiangmumingcheng`,`suozaiquyu`,`daofangrenshu`,`times`,`tuidingrenshu`,`renchourenshu`,`shows`,`tbName`) values (1,'智动天下','武汉',23,'2017-08-13',3,20,1,'daofangshujubiao'),(2,'北大青鸟','武汉',50,'2017-08-05',0,50,1,'daofangshujubiao');
 
 /*Table structure for table `datarelation` */
 
@@ -76,9 +98,11 @@ CREATE TABLE `datarelation` (
   KEY `datarelation_col_1` (`col1`),
   KEY `datarelation_col_2` (`col2`),
   KEY `datarelation_com_1` (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `datarelation` */
+
+insert  into `datarelation`(`id`,`name`,`cid`,`tid1`,`tid2`,`col1`,`col2`,`state`) values (1,'销售到访关联表',NULL,1,2,4,4,1),(2,'销售中介关联表',NULL,1,3,2,2,1),(6,'销售认筹关联',NULL,1,4,5,5,1);
 
 /*Table structure for table `inform` */
 
@@ -91,11 +115,11 @@ CREATE TABLE `inform` (
   `details` varchar(1000) DEFAULT NULL,
   `publisher` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `inform` */
 
-insert  into `inform`(`id`,`title`,`publish_date`,`details`,`publisher`) values (1,'会议还睡了看到回复发了','2017-08-28 16:57:47','的回复拉卡拉货收到了风凉话','张总'),(3,'时间','2017-08-28 00:48:50','<p>第三个时间</p>\r\n','3'),(8,'鄂我若翁',NULL,'<p>我儿童任天野</p>\r\n','问问'),(9,'时间','2017-08-28 01:26:22','<p>而儿童羽绒体育</p>\r\n','dddd');
+insert  into `inform`(`id`,`title`,`publish_date`,`details`,`publisher`) values (1,'通知公告','2017-08-29 20:17:11','<p>但是否会对各环节</p>\r\n','333'),(2,'会议纪要','2017-08-25 20:24:26','<p>naskdnfaslif &nbsp; dsfdsgf</p>\r\n','444'),(3,'会议通知','2017-08-25 08:38:12','大家好',NULL),(4,'系统升级','2017-08-29 08:41:36','升级维护',NULL),(5,'活动通知','2017-08-28 08:41:51','维护',NULL),(6,'系统维护','2017-08-30 12:40:09','出新活动了',NULL),(7,'毕业通知','2017-08-30 15:16:46','<p>后天毕业典礼</p>\r\n','汪宝宝');
 
 /*Table structure for table `permission` */
 
@@ -112,7 +136,7 @@ CREATE TABLE `permission` (
 
 /*Data for the table `permission` */
 
-insert  into `permission`(`id`,`per_name`,`type`,`percode`,`url`) values (1,'watch',NULL,NULL,NULL);
+insert  into `permission`(`id`,`per_name`,`type`,`percode`,`url`) values (1,'select',NULL,NULL,NULL);
 
 /*Table structure for table `role` */
 
@@ -173,9 +197,25 @@ CREATE TABLE `tableinfo` (
   `showtype` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cid` (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tableinfo` */
+
+insert  into `tableinfo`(`id`,`name`,`updateTime`,`physicalTableName`,`cid`,`state`,`showtype`) values (3,'销售数据表','2017-08-30 10:34:31',NULL,1,NULL,'0'),(8,'到访数据表','2017-08-30 03:22:07',NULL,1,NULL,'1');
+
+/*Table structure for table `tableinfos` */
+
+DROP TABLE IF EXISTS `tableinfos`;
+
+CREATE TABLE `tableinfos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tableinfos` */
+
+insert  into `tableinfos`(`id`,`name`) values (1,'销售数据表'),(2,'到访数据表'),(3,'中介数据表'),(4,'认筹数据表'),(5,'媒体渠道数据表');
 
 /*Table structure for table `user_role` */
 
@@ -190,7 +230,7 @@ CREATE TABLE `user_role` (
 
 /*Data for the table `user_role` */
 
-insert  into `user_role`(`id`,`rid`,`uid`) values (1,1,1),(2,2,2),(5,2,3),(6,2,4);
+insert  into `user_role`(`id`,`rid`,`uid`) values (1,1,1),(2,2,2),(5,1,3),(6,2,4);
 
 /*Table structure for table `userinfo` */
 
@@ -209,7 +249,42 @@ CREATE TABLE `userinfo` (
 
 /*Data for the table `userinfo` */
 
-insert  into `userinfo`(`id`,`name`,`job`,`password`,`phone`,`email`,`state`) values (2,'Lily','Secratry','123456','234','123@qq.com',1),(3,'Bob','Aassistant','123456','345','123@qq.com',1),(4,'Jack','Customer','123456','567','123@qq.com',1);
+insert  into `userinfo`(`id`,`name`,`job`,`password`,`phone`,`email`,`state`) values (1,'马人才','Manager','12345678','13478911024',NULL,1),(4,'张总','Customer','12345678','13478911025',NULL,1);
+
+/*Table structure for table `weidulie` */
+
+DROP TABLE IF EXISTS `weidulie`;
+
+CREATE TABLE `weidulie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lie_name` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `weidulie` */
+
+insert  into `weidulie`(`id`,`lie_name`) values (1,'项目名称'),(2,'所在区域'),(3,'日期'),(4,'到访人数'),(5,'认筹人数');
+
+/*Table structure for table `xiaoshoushujubiao` */
+
+DROP TABLE IF EXISTS `xiaoshoushujubiao`;
+
+CREATE TABLE `xiaoshoushujubiao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `xiangmumingcheng` varchar(255) DEFAULT NULL,
+  `suozaiquyu` varchar(255) DEFAULT NULL,
+  `daofangrenshu` int(10) DEFAULT NULL,
+  `times` date DEFAULT NULL,
+  `tuidingrenshu` int(10) DEFAULT NULL,
+  `renchourenshu` int(10) DEFAULT NULL,
+  `shows` int(2) DEFAULT '0',
+  `tbName` varchar(255) DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+/*Data for the table `xiaoshoushujubiao` */
+
+insert  into `xiaoshoushujubiao`(`id`,`xiangmumingcheng`,`suozaiquyu`,`daofangrenshu`,`times`,`tuidingrenshu`,`renchourenshu`,`shows`,`tbName`) values (3,'智动天下','武汉',23,'2017-08-13',3,20,0,'xiaoshoushujubiao'),(4,'北大青鸟','武汉',50,'2017-08-05',0,50,0,'xiaoshoushujubiao'),(23,'智动天下','武汉',23,'2017-08-13',3,20,0,'xiaoshoushujubiao'),(24,'北大青鸟','武汉',50,'2017-08-05',0,50,0,'xiaoshoushujubiao'),(25,'智动天下','武汉',23,'2017-08-13',3,20,0,'xiaoshoushujubiao'),(26,'北大青鸟','武汉',50,'2017-08-05',0,50,0,'xiaoshoushujubiao');
 
 /*Table structure for table `xstable` */
 
