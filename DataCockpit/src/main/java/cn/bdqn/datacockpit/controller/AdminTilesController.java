@@ -381,11 +381,13 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/insert_guanlian")
-    public String insertGL(Datarelation record) {
+    public String insertGL(Datarelation record, HttpServletRequest req) {
+        String id = req.getParameter("id");
         int flag = dataService.insert(record);
         if (flag >= 1) {
-            return "redirect:/admin_shuju1.shtml";
+            return "redirect:/admin_shuju1.shtml?id=1";
         }
+
         return "admin_shuju1.page";
     }
 
@@ -407,65 +409,74 @@ public class AdminTilesController {
         String names = req.getParameter("id");
         ChineseToPinYin ctp = new ChineseToPinYin();
         String name = ctp.getPingYin(names);
+        model.addAttribute("name2", names);
         model.addAttribute("name1", name);
         JdbcUtil jdbc1 = new JdbcUtil();
         ApplicationContext context = jdbc1.getContext();
         context = new ClassPathXmlApplicationContext("spring-common.xml");
         JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
-
         List<Map<String, Object>> lists = jdbc1.selectObj(jt, name);
         if (lists != null) {
-
-            int shows = (int) lists.get(0).get("shows");
-            model.addAttribute("shows", shows);
-            String time = "'";
-            Date date = null;
-            for (int i = 0; i < lists.size(); i++) {
-                date = (Date) lists.get(i).get("times");
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                time = time + sdf.format(date) + "','";
-                if (i == lists.size() - 1) {
+            try {
+                int shows = (int) lists.get(0).get("shows");
+                model.addAttribute("shows", shows);
+                String time = "'";
+                Date date = null;
+                for (int i = 0; i < lists.size(); i++) {
                     date = (Date) lists.get(i).get("times");
-                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                    time = time + sdf2.format(date);
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    time = time + sdf.format(date) + "','";
+                    if (i == lists.size() - 1) {
+                        date = (Date) lists.get(i).get("times");
+                        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+                        time = time + sdf2.format(date);
+                    }
                 }
-            }
-            time = "[" + time + "']";
-            model.addAttribute("lists", time);
-            String fNums = "";
-            for (int i = 0; i < lists.size(); i++) {
-                if (i == lists.size() - 1) {
-                    fNums = fNums + lists.get(i).get("f_nums");
-                } else {
-                    fNums = fNums + lists.get(i).get("f_nums") + ",";
+                time = "[" + time + "']";
+                model.addAttribute("lists", time);
+                String fNums = "";
+                for (int i = 0; i < lists.size(); i++) {
+                    if (i == lists.size() - 1) {
+                        fNums = fNums + lists.get(i).get("daofangrenshu");
+                    } else {
+                        fNums = fNums + lists.get(i).get("daofangrenshu") + ",";
+                    }
                 }
-            }
-            fNums = "[" + fNums + "]";
+                fNums = "[" + fNums + "]";
 
-            String rNums = "";
-            for (int i = 0; i < lists.size(); i++) {
+                String rNums = "";
+                for (int i = 0; i < lists.size(); i++) {
 
-                if (i == lists.size() - 1) {
-                    rNums = rNums + lists.get(i).get("r_nums");
-                } else {
-                    rNums = rNums + lists.get(i).get("r_nums") + ",";
+                    if (i == lists.size() - 1) {
+                        rNums = rNums + lists.get(i).get("renchourenshu");
+                    } else {
+                        rNums = rNums + lists.get(i).get("renchourenshu") + ",";
+                    }
                 }
-            }
-            rNums = "[" + rNums + "]";
-            model.addAttribute("rNums", rNums);
-            model.addAttribute("fNums", fNums);
+                rNums = "[" + rNums + "]";
+                model.addAttribute("rNums", rNums);
+                model.addAttribute("fNums", fNums);
+                Set<String> sets = new HashSet<String>();
 
-            Set<String> sets = new HashSet<String>();
-
-            for (int i = 0; i < lists.size(); i++) {
-                sets = lists.get(i).keySet();
+                for (int i = 0; i < lists.size(); i++) {
+                    sets = lists.get(i).keySet();
+                }
+                List<String> lists3 = new ArrayList<String>();
+                for (String string : sets) {
+                    lists3.add(string);
+                }
+                model.addAttribute("lists3", lists3);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            List<String> lists3 = new ArrayList<String>();
-            for (String string : sets) {
-                lists3.add(string);
-            }
-            model.addAttribute("lists3", lists3);
         }
+
         return "admin_shujus.page";
+    }
+
+    @RequestMapping("/admin_uppassword")
+    public String admin_uppassword(Model model) {
+        model.addAttribute("checks", "geren2");
+        return "admin_pass.page";
     }
 }

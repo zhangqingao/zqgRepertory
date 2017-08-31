@@ -45,7 +45,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>用&nbsp;户&nbsp;登&nbsp;录</b></a>
+    <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>登&nbsp;录</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body" style="background-color: rgba(54,167,129,.4);">

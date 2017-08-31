@@ -19,17 +19,17 @@
 			var shows=${shows };
 			if(shows==0){
              $(".people_num").click(function(){
-                $("#areaTu").css("margin-left","230px");
+                $("#areaTu").css("left","30%");
              });
              $("#area-close").click(function(){
-                  $("#areaTu").css("margin-left","-999px");
+                  $("#areaTu").css("left","-100%");
              });
 			}else{
 				$(".people_num").click(function(){
-	                $("#barTu").css("margin-left","230px");
+	                $("#barTu").css("left","30%");
 	             });
 	             $("#bar-close").click(function(){
-	                  $("#barTu").css("margin-left","-999px");
+	                  $("#barTu").css("left","-100%");
 	             });
 	             }
  </script>

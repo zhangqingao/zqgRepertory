@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 
   
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        	上一页中选中的表名
+        	数据详情
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
@@ -47,7 +47,7 @@
     
         <div class="col-md-6">
           <!-- AREA CHART -->
-          <div id="areaTu" class="box box-primary" style="margin-left: -999px;margin-top:-340px">
+          <div id="areaTu" class="box box-primary" style="width:700px;position: fixed;top:38%;left:-100%">
             <div class="box-header with-border">
               <h3 class="box-title">曲线关系图</h3>
 
@@ -66,7 +66,7 @@
           <!-- /.box -->
 
           <!-- BAR CHART -->
-          <div id="barTu" class="box box-success" style="margin-left: -999px;margin-top:-340px">
+          <div id="barTu" class="box box-success" style="width:700px;position: fixed;top:38%;left:-100%">
             <div class="box-header with-border">
               <h3 class="box-title">柱状关系图</h3>
 

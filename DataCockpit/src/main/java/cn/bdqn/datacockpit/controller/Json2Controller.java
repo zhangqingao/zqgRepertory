@@ -81,8 +81,7 @@ public class Json2Controller {
 
     @ResponseBody
     @RequestMapping(value = "shujus_2")
-    public DatatableResult<Tableinfo> datatable6(@IsSearchCondition SearchCondition searchCondition,
-            HttpServletRequest req) {
+    public DatatableResult<Tableinfo> datatable6(@RequestBody SearchCondition searchCondition, HttpServletRequest req) {
         DatatableResult<Tableinfo> list = new DatatableResult<>();
         HttpSession session = req.getSession();
         HttpSession session1 = req.getSession();
@@ -90,6 +89,7 @@ public class Json2Controller {
 
         Integer id = Integer.parseInt(ids);
         List<Tableinfo> lists = ts.selectAll(id);
+        System.out.println(lists);
         list.setData(lists);
         return list;
     }

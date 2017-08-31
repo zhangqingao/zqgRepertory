@@ -105,6 +105,7 @@ public class LoginController {
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
         // 从session获取验证码方法中存入的验证码
+        @SuppressWarnings("unused")
         String trueCode = (String) session.getAttribute("code");
         // 对比验证码
         /*
@@ -130,6 +131,7 @@ public class LoginController {
         }
         if (compi != null) {
             session.setAttribute("infos", compi);
+            session.setAttribute("flag", lists);
             return "redirect:/user_index.shtml";
         }
         // 判断账号密码是否正确（管理员）
@@ -177,10 +179,10 @@ public class LoginController {
     public String register(Companyinfo cominfo) {
         int flag = companyinfo.insert(cominfo);
         if (flag >= 1) {
-            return "front/shenqing";
+            return "front/shenqing.jsp";
         }
 
-        return "front/error";
+        return "front/error.jsp";
     }
 
     /**

@@ -45,7 +45,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>管&nbsp;理&nbsp;员&nbsp;注&nbsp;册</b></a>
+    <a href="#" style="color: white;font-family: Microsoft YaHei;"><b>注&nbsp;册</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body" style="background-color: rgba(54,167,129,.4); height: 370px;">

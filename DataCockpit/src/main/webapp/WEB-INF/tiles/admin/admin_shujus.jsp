@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 
   
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        	上一页中选中的表名
+        数据详情
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
@@ -47,7 +47,7 @@
     
         <div class="col-md-6">
           <!-- AREA CHART -->
-          <div id="areaTu" class="box box-primary" style="margin-left: -999px;margin-top:-340px">
+          <div id="areaTu" class="box box-primary" style="width:700px;position: fixed;top:38%;left:-100%">
             <div class="box-header with-border">
               <h3 class="box-title">曲线关系图</h3>
 
@@ -66,7 +66,7 @@
           <!-- /.box -->
 
           <!-- BAR CHART -->
-          <div id="barTu" class="box box-success" style="margin-left: -999px;margin-top:-340px">
+          <div id="barTu" class="box box-success" style="width:700px;position: fixed;top:38%;left:-100%">
             <div class="box-header with-border">
               <h3 class="box-title">柱状关系图</h3>
 
@@ -103,7 +103,7 @@
    <div class="modal-dialog" style="height:60%">
       <div class="modal-content">
          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
+            <button  type="button" class="close" data-dismiss="modal"
                aria-hidden="true">×
             </button>
             <h4 class="modal-title" id="myModalLabel">
@@ -113,7 +113,7 @@
          
          <div class="modal-body">
          <center>
-            <input type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
+            <input class="ups1" type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
 
             <input type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
             <input type="file" id="path" style="display:none" onchange="upfile.value=this.value">
@@ -124,8 +124,8 @@
             <button type="button" class="btn btn-default"
                data-dismiss="modal">关闭
             </button>
-            <button type="button" class="btn btn-primary">
-               下载计算结果
+            <button id="ok_12" type="button" class="btn btn-primary">
+               确定
             </button>
          </div>
       </div><!-- /.modal-content -->
@@ -167,6 +167,27 @@
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
+<script>
+	$("#ok_12").click(function(){
+		var a1=$(".ups1").val();
+		$.ajax({
+			url:"./user_uploadss.shtml",
+       		type:"post",
+       		traditional:true,
+       		data:{
+					"urls":a1             			
+       		},
+       		dataType:"json",
+       		success:function(result){
+       			if(result.flag==1){
+       				window.location.href="./admin_shujus.shtml?id=${name2}"
+       			}
+       		}
+       			
+       		 
+		})
+		 
+	})
+</script>
 
 

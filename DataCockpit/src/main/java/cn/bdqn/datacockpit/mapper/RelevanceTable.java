@@ -37,7 +37,7 @@ public class RelevanceTable implements RelevanceTableMapper {
     public List<Map<String, Object>> selectAll() throws Exception {
         List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
         Connection conn = JdbcUtils.getConnection();
-        String str = "SELECT tt1.id,tt1.name,tt1.tbName AS tbName1,tt1.tcName AS tcName1,tt2.tbName,tt2.tcName FROM (SELECT d.id,d.`name`,t.`name` AS tbName,w.`lie_name` AS tcName FROM datarelation d, tableinfo t,weidulie w WHERE d.`tid1`=t.`id` AND d.`col1`=w.`id` ) AS tt1,(SELECT d.id,d.`name`,t.`name` AS tbName,w.`lie_name` AS tcName FROM datarelation d, tableinfo t,weidulie w WHERE d.`tid2`=t.`id` AND d.`col2`=w.`id`) AS tt2 WHERE tt1.id = tt2.id;";
+        String str = "SELECT tt1.id,tt1.name,tt1.tbName AS tbName1,tt1.tcName AS tcName1,tt2.tbName,tt2.tcName FROM (SELECT d.id,d.`name`,t.`name` AS tbName,w.`lie_name` AS tcName FROM datarelation d, tableinfos t,weidulie w WHERE d.`tid1`=t.`id` AND d.`col1`=w.`id` ) AS tt1,(SELECT d.id,d.`name`,t.`name` AS tbName,w.`lie_name` AS tcName FROM datarelation d, tableinfos t,weidulie w WHERE d.`tid2`=t.`id` AND d.`col2`=w.`id`) AS tt2 WHERE tt1.id = tt2.id;";
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(str);
         while (rs.next()) {

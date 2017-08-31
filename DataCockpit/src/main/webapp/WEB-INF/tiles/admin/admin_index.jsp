@@ -41,7 +41,7 @@
 					<div class="icon">
 						<img src="resource/images/33.png" />
 					</div>
-					<a href="./admin_shuju1.shtml" class="small-box-footer">More info <i
+					<a href="./admin_cominfo.shtml" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
