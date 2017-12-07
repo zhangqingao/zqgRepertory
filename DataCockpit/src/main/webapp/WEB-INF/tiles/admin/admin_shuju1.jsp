@@ -125,50 +125,50 @@
                                 <option value="3">浮点数</option>
                               </select></td>
                           </tr>                          
-                          <tr>
-                            <td>2</td>
-                            <td><input class="inputs" type="text" name="area" value="所在区域" style="width: 100%"></td>
-                            <td><select class="inputs" name="prarea">
-                                <option value="1" selected="selected">文本</option>
-                                <option value="2">整数</option>
-                                <option value="3">浮点数</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td><input class="inputs" type="text" name="date" value="日期" style="width: 100%"></td>
-                            <td><select class="inputs" name="prdate">
-                                <option value="0" selected="selected">时间</option>
+<!--                           <tr> -->
+<!--                             <td>2</td> -->
+<!--                             <td><input class="inputs" type="text" name="area" value="所在区域" style="width: 100%"></td> -->
+<!--                             <td><select class="inputs" name="prarea"> -->
+<!--                                 <option value="1" selected="selected">文本</option> -->
+<!--                                 <option value="2">整数</option> -->
+<!--                                 <option value="3">浮点数</option> -->
+<!--                               </select></td> -->
+<!--                           </tr> -->
+<!--                           <tr> -->
+<!--                             <td>3</td> -->
+<!--                             <td><input class="inputs" type="text" name="date" value="日期" style="width: 100%"></td> -->
+<!--                             <td><select class="inputs" name="prdate"> -->
+<!--                                 <option value="0" selected="selected">时间</option> -->
                                 
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td><input class="inputs" type="text" name="dnumber" value="到访人数" style="width: 100%"></td>
-                            <td><select class="inputs" name="prdnumber">
-                                <option value="1" selected="selected">文本</option>
-                                <option value="2">整数</option>
-                                <option value="3">浮点数</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td><input class="inputs" type="text" name="rnumber" value="认筹人数" style="width: 100%"></td>
-                            <td><select class="inputs" name="prrnumber">
-                                <option value="1" selected="selected">文本</option>
-                                <option value="2">整数</option>
-                                <option value="3">浮点数</option>
-                              </select></td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td><input class="inputs" type="text" name="tnumber" value="退订人数" style="width: 100%"></td>
-                            <td><select class="inputs" name="trrnumber">
-                                <option value="1" selected="selected">文本</option>
-                                <option value="2">整数</option>
-                                <option value="3">浮点数</option>
-                              </select></td>
-                          </tr>
+<!--                               </select></td> -->
+<!--                           </tr> -->
+<!--                           <tr> -->
+<!--                             <td>4</td> -->
+<!--                             <td><input class="inputs" type="text" name="dnumber" value="到访人数" style="width: 100%"></td> -->
+<!--                             <td><select class="inputs" name="prdnumber"> -->
+<!--                                 <option value="1" selected="selected">文本</option> -->
+<!--                                 <option value="2">整数</option> -->
+<!--                                 <option value="3">浮点数</option> -->
+<!--                               </select></td> -->
+<!--                           </tr> -->
+<!--                           <tr> -->
+<!--                             <td>5</td> -->
+<!--                             <td><input class="inputs" type="text" name="rnumber" value="认筹人数" style="width: 100%"></td> -->
+<!--                             <td><select class="inputs" name="prrnumber"> -->
+<!--                                 <option value="1" selected="selected">文本</option> -->
+<!--                                 <option value="2">整数</option> -->
+<!--                                 <option value="3">浮点数</option> -->
+<!--                               </select></td> -->
+<!--                           </tr> -->
+<!--                           <tr> -->
+<!--                             <td>6</td> -->
+<!--                             <td><input class="inputs" type="text" name="tnumber" value="退订人数" style="width: 100%"></td> -->
+<!--                             <td><select class="inputs" name="trrnumber"> -->
+<!--                                 <option value="1" selected="selected">文本</option> -->
+<!--                                 <option value="2">整数</option> -->
+<!--                                 <option value="3">浮点数</option> -->
+<!--                               </select></td> -->
+<!--                           </tr> -->
                         </table> 
                     </div>  
                
