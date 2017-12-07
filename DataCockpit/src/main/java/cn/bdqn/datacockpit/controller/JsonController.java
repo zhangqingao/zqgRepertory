@@ -79,7 +79,7 @@ public class JsonController {
     @RequestMapping(value = "dt_lists4")
     public DatatableResult<Companyinfo> datatable4(@RequestBody SearchCondition searchCondition) {
         DatatableResult<Companyinfo> list = new DatatableResult<>();
-        List<Companyinfo> list2 = cfs.selectAllCompanies();
+        List<Companyinfo> list2 = cfs.selectPassCompanies();
         list.setData(list2);
         return list;
     }

@@ -17,11 +17,12 @@
 	    	  {"data":"corpname"},
 	    	  {"data":"name"},
 	    	  {"data":"job"},
-	    	  {"data":"email"},                  
+	    	  {"data":"email"},     
+	    	  {"data":"state"},
 	                  ],
 	      "columnDefs": [	                     
 					{
-	    		    "targets": 6,
+	    		    "targets": 7,
 	    		    /* "data": "title", */
 	    		    "render": function ( data, type, row, meta ) {
 	    		    /* 将当前值传入controller */	  
@@ -29,13 +30,13 @@
 	    		    }
 	    		  },
 					{
-	 	    		    "targets": 7,
+	 	    		    "targets": 8,
 	 	    		    /* "data": "title", */
 	 	    		    "render": function ( data, type, row, meta ) {
 	 	    		    /* 将当前值传入controller */	  
 	 	    		    /* <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
 	 	    		     return '<a href="./aduser_update1.shtml?id='+row.id+'" onclick="return ee();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">启用</a>\
-	    		    			&emsp;\
+	    		    			\
 	    		    			<a href="./aduser_update0.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">禁用</a>';	 	    		    			    
 	 	    		 }
 	 	    	   }

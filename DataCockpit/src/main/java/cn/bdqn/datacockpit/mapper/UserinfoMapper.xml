@@ -31,7 +31,7 @@
   <select id="selectAllUserinfo" resultMap="BaseResultMap">
     select 
     id, name, job, phone, email, state
-    from userinfo
+    from userinfo where state=2
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

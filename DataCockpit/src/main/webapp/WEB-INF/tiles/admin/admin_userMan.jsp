@@ -15,7 +15,7 @@
 			<div class="box" style="border-top-color: #DD4B39;">
 				<div class="box-header with-border">
 
-				<a href="./admRegister.jsp" style="color: white;float: left;">
+				<a href="./userRegister.jsp" style="color: white;float: left;">
 				<button class="btn btn-primary btn-lg" data-toggle="modal" style="width: 130px;height: 30px;font-size: 14px;line-height: 0px;">添加新用户</button></a>
 				<div class="btn-group"></div>
 
@@ -63,14 +63,14 @@
 											rowspan="1" colspan="1"
 											aria-label="Engine version: activate to sort column ascending"
 											style="text-align: center;">联系人邮件</th>
-										<!-- <th class="sorting" tabindex="0" aria-controls="example2"
+										<th class="sorting" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1"
 												aria-label="Engine version: activate to sort column ascending"
-												style="text-align: center;">状态</th> -->
+												style="text-align: center;">状态</th> 
 										<th class="sorting" tabindex="0" aria-controls="example2"
 											rowspan="1" colspan="1"
 											aria-label="Engine version: activate to sort column ascending"
-											style="text-align: center;">状态</th>
+											style="text-align: center;">修改</th>
 										<th class="sorting" tabindex="0" aria-controls="example2"
 											rowspan="1" colspan="1"
 											aria-label="Engine version: activate to sort column ascending"

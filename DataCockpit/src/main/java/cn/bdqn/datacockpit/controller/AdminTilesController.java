@@ -175,6 +175,15 @@ public class AdminTilesController {
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setApproval(1);
+        Userinfo record=new Userinfo();
+//        record.setId(comp.getId());
+        record.setName(comp.getName());
+        record.setJob(comp.getJob());
+        record.setPassword(comp.getPassword());
+        record.setPhone(comp.getPhone());
+        record.setEmail(comp.getEmail());
+        record.setState(comp.getState());
+        int flag = us.insertSelective(record);
         companyinfo.updateByPrimaryKey(comp);
         return "admin_userDsh.page";
     }
@@ -270,9 +279,17 @@ public class AdminTilesController {
 
     @RequestMapping("insertAdminReg")
     public String insertAdminReg(Userinfo record) {
+    	record.setState(2);
         int flag = us.insertSelective(record);
         // 转发
         return "admin_shuju4.page";
+    }
+    @RequestMapping("insertcomReg")
+    public String insertComReg(Companyinfo record) {
+    	record.setState(1);
+        int flag = companyinfo.insertSelective(record);
+        // 转发
+        return "admin_userMan.page";
     }
 
     @RequestMapping("/selectAllCompanyinfo")
@@ -305,7 +322,7 @@ public class AdminTilesController {
     @RequestMapping("/admin_userMan")
     public String userMan(Model model) {
 
-        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        List<Companyinfo> lists = companyinfo.selectPassCompanies();
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);
 
