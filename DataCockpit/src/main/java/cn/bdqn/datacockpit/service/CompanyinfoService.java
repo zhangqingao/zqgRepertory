@@ -12,7 +12,13 @@ public interface CompanyinfoService {
      * @return
      */
     List<Companyinfo> selectAllCompanies();
-
+    
+    /**查询通过审核的公司信息
+     * @return
+     * 
+     * 
+     */
+    List<Companyinfo> selectPassCompanies();
     /**
      * 根据公司id删除公司信息
      * 
