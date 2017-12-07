@@ -74,7 +74,7 @@ public class LoginController {
             String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
             // 存入会话session
             HttpSession session = request.getSession(true);
-            session.setAttribute("code", verifyCode.toLowerCase());// 
+            session.setAttribute("code", verifyCode.toLowerCase()); 
             // 生成图片
             int w = 146, h = 33;
             VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
