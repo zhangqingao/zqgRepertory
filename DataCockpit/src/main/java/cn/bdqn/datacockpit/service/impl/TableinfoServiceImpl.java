@@ -44,4 +44,16 @@ public class TableinfoServiceImpl implements TableinfoService {
         return tm.insert(record);
     }
 
+	@Override
+	public int updateByTbname(String name) {
+		// TODO Auto-generated method stub
+		return tm.updateByTbname(name);
+	}
+
+	@Override
+	public Tableinfo selectByTbname(String name) {
+		// TODO Auto-generated method stub
+		return tm.selectByTbname(name);
+	}
+
 }

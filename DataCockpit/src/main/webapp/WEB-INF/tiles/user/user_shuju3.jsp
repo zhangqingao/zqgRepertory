@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
   
     <!-- Content Header (Page header) -->
@@ -8,8 +9,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
-        <li>2017-04-22</li>
-        <li>15:20:33</li>
+        <li >${Tbinfo.updatetime }</li>
+<!--         <li>15:20:33</li> -->
       </ol>
     </section>
 
@@ -24,7 +25,7 @@
             </div>
             <div id="uploads" style="margin-left: 180px;margin-top: -35px"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">上传新数据</button></div>
 
-            <div style="margin-left: 300px;margin-top: -29.7px"><button id="downs" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></div>
+            <div id="download" style="margin-left: 300px;margin-top: -29.7px"><button id="downs" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -114,7 +115,6 @@
          <div class="modal-body">
          <center>
             <input class="ups1" type="text" size="20" name="upfile" id="upfile" style="border:1px dotted #ccc">  
-
             <input type="button" value="浏览" onclick="path.click()" style="border:1px solid #ccc;background:#fff">  
             <input type="file" id="path" style="display:none" onchange="upfile.value=this.value">
          </center>   
@@ -180,6 +180,7 @@
        		dataType:"json",
        		success:function(result){
        			if(result.flag==1){
+       				
        				window.location.href="./user_shuju3.shtml?id=${name2}"
        			}
        		}

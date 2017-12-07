@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Info;
+import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.service.InfoService;
+import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.XsTableService;
 import cn.bdqn.datacockpit.utils.ChineseToPinYin;
 import cn.bdqn.datacockpit.utils.ImportExecl;
@@ -38,6 +40,9 @@ public class UserTilesController {
 
     @Autowired
     private InfoService infoService;
+    
+    @Autowired
+    private TableinfoService tbinfo;
 
     @RequestMapping("/user_pass")
     public String pass(Model model) {
@@ -102,6 +107,11 @@ public class UserTilesController {
     public String shuju3(Model model, HttpServletRequest req) {
         model.addAttribute("checks", "shuju3");
         String names = req.getParameter("id");
+        System.out.println("names:"+names);
+        //查看数据表后，更新时间
+        Tableinfo Tbinfo=tbinfo.selectByTbname(names);
+        model.addAttribute("Tbinfo",Tbinfo);
+        
         ChineseToPinYin ctp = new ChineseToPinYin();
         String name = ctp.getPingYin(names);
         model.addAttribute("name2", names);
@@ -174,18 +184,23 @@ public class UserTilesController {
         model.addAttribute("checks", "shuju4");
         return "user_guanxitu.pages";
     }
-
+    
+    @ResponseBody
     @RequestMapping("/user_uploads")
-    public String upload(Model model, HttpServletRequest req) throws Exception {
+    public Map<String, String> upload(Model model, HttpServletRequest req) throws Exception {
         String urls = req.getParameter("urls");
+        System.out.println("urls:"+urls);
         String tb1 = urls.substring(12);
+        System.out.println("tb1:"+tb1);
         String[] tb2 = tb1.split("\\.");
         String tbNames = tb2[0];
+        System.out.println("tbNames:"+tbNames);
         ChineseToPinYin ctp = new ChineseToPinYin();
         String tableName = ctp.getPingYin(tbNames);
         ImportExecl poi = new ImportExecl();
         List<List<String>> list = poi.read(urls);
         List<String> head = list.get(0);
+        System.out.println(head);
         List<String> heads = new ArrayList<String>();
         for (int i = 0; i < head.size(); i++) {
             if (head.get(i).equals("日期")) {
@@ -203,6 +218,7 @@ public class UserTilesController {
                 if (heads.get(k).equals("times")) {
                     String date1 = content.get(k);
                     StringBuilder sb = new StringBuilder(date1);
+                    System.out.println(sb);
                     sb.insert(4, "-");
                     sb.insert(7, "-");
                     String dates = sb.toString();
@@ -222,7 +238,12 @@ public class UserTilesController {
         context = new ClassPathXmlApplicationContext("spring-common.xml");
         JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
         jdbcs.saveObj(jt, tableName, contents);
-        return null;
+        
+        //数据列表页面，更新时间
+        tbinfo.updateByTbname(tbNames);
+        Map<String, String> maps = new HashMap<String, String>();
+        maps.put("flag", "1");
+        return maps;
     }
 
     @ResponseBody
@@ -273,6 +294,10 @@ public class UserTilesController {
         context = new ClassPathXmlApplicationContext("spring-common.xml");
         JdbcTemplate jt = (JdbcTemplate) context.getBean("jdbcTemplate");
         jdbcs.saveObj(jt, tableName, contents);
+        
+        //数据列表页面，更新时间
+        tbinfo.updateByTbname(tbNames);
+        
         Map<String, String> maps = new HashMap<String, String>();
         maps.put("flag", "1");
         return maps;

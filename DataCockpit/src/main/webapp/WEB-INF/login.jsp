@@ -93,9 +93,9 @@
       <div class="row">
        
         <!-- /.col -->
-        <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:10px">
+        <%-- <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:10px">
             <a href="<%=basePath %>/pages/register.jsp" class="text-center" style="color: #272822">申请合作</a>
-        </div>
+        </div> --%>
 
          <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:105px">
            <a href="<%=basePath %>/pages/wangjimima.jsp" class="text-center" style="color: #272822">忘记密码</a>

@@ -37,7 +37,9 @@ public class Tableinfo {
     }
 
     public void setUpdatetime(String updatetime) {
-        this.updatetime = updatetime;
+    	String[] s1 = updatetime.split("\\.");
+    	String updatetime1=s1[0];
+        this.updatetime = updatetime1;
     }
 
     public String getPhysicaltablename() {

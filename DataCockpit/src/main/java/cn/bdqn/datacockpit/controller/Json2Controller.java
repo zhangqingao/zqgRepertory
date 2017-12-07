@@ -73,7 +73,7 @@ public class Json2Controller {
         HttpSession session = req.getSession();
         Companyinfo cy = (Companyinfo) session.getAttribute("infos");
         Integer id = cy.getId();
-
+        System.out.println("id:"+id);
         List<Tableinfo> lists = ts.selectAll(id);
         list.setData(lists);
         return list;
@@ -86,7 +86,7 @@ public class Json2Controller {
         HttpSession session = req.getSession();
         HttpSession session1 = req.getSession();
         String ids = (String) session1.getAttribute("No1");
-
+        System.out.println("ids:"+ids);
         Integer id = Integer.parseInt(ids);
         List<Tableinfo> lists = ts.selectAll(id);
         System.out.println(lists);

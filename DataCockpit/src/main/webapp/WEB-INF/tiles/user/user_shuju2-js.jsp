@@ -37,7 +37,7 @@ $("#ok_10").click(function(){
 <script>
   $(function () {
 	var t =	$('#example1').DataTable({
-		 "ajax"		: {
+		 	"ajax"	: {
 	    	  "url"		: "<%=request.getContextPath()%>/shuju_2.shtml",
 	    	  "method"	: "POST",
 	    	  "headers" : {"Content-Type": "application/json"},

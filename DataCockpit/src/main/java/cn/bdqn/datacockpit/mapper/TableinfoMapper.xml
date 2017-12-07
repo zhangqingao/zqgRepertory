@@ -117,4 +117,12 @@
       showtype = #{showtype,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!-- 通过添加的表格名，修改更新时间 -->
+  <update id="updateByTbname" parameterType="String">
+  	UPDATE  tableinfo SET updateTime=NOW() WHERE NAME=#{name}
+  </update>
+  <!-- 通过添加的表明名，查询出更新时间 -->
+  <select id="selectByTbname" parameterType="String" resultType="cn.bdqn.datacockpit.entity.Tableinfo">
+  	SELECT * FROM tableinfo WHERE NAME=#{name}
+  </select>
 </mapper>

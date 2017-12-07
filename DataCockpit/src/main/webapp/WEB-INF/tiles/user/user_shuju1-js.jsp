@@ -22,7 +22,7 @@
 	      
 	});
 		t.on('order.dt search.dt',
-		 function() {
+		  function() {
    		       t.column(0, {
    		              search: 'applied',
    		              order: 'applied',

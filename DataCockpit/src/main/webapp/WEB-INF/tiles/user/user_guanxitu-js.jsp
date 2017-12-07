@@ -115,13 +115,32 @@
 
     //创建元素
     var start = state(100,100,"ellipse","#00FFFF", "销售数据表");
-    var state1 = state(195,200,"rect","#f7a07b", "认筹数据表");
+    var state1 = state(300,200,"rect","#f7a07b", "认筹数据表");
     var state2 = state(300,100,"rect","#f7a07b", "到访数据表");
-  
+    var state3 = state(300,300,"rect","#f7a07b", "中介数据表");
 
     //创建连线
  
     link(start, state1, "");
     link(start, state2, "");
+    link(start, state3, "");
+    
+    //给所有元素添加点击事件
+  /*   paper.on('cell:click', function (e) {
+        $("#detailModal .modal-body").html("");
+        var arr = $("#"+e.id+" tspan");
+        if(arr.length===1){
+            $("#detailModal .modal-body").append($(arr).html());
+            $("#detailModal").modal();
+        } else{
+            var tmp="";
+            $.each(arr, function(k,v){
+                tmp+=$(v).html();
+            });
+            $("#detailModal .modal-body").append(tmp);
+            $("#detailModal").modal();
+        }
+        
+    }); */
     
     </script>

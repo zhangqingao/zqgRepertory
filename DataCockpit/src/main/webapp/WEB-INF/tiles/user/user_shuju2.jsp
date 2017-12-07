@@ -89,11 +89,14 @@
        		},
        		dataType:"json",
        		success:function(result){
-       			
+         			
+          			if(result.flag==1){
+        				window.location.href="./user_shuju2.shtml";
+       			}
        		}
        		 
 		})
-		 $("#myModal").hide();       		
-    	$(".modal-backdrop").hide(); 
+// 	 	$("#myModal").hide();       		
+//      	$(".modal-backdrop").hide(); 
 	})
 </script>

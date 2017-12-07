@@ -25,4 +25,10 @@ public interface TableinfoService {
     List<Tableinfo> selectAll(Integer id);
 
     int insert(Tableinfo record);
-}
+    
+  //通过添加的表格名，修改更新时间
+    int updateByTbname(String name);
+   
+  //通过添加的表明名，查询出更新时间
+    Tableinfo selectByTbname(String name);
+    }
