@@ -40,7 +40,7 @@
         elementView: ElementView,
         linkView:LinkView
     });
-    //paper.$el.css('pointer-events', 'none')//去除默认样式，使所有事件不可用
+    paper.$el.css('pointer-events', 'none')//去除默认样式，使所有事件不可用
     
 
     //定义形状
