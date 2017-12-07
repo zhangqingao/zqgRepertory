@@ -65,6 +65,7 @@ public class LoginController {
     public @ResponseBody List<String> getYzm(HttpServletResponse response, HttpServletRequest request) {
         List<String> lists = new ArrayList<String>();
         try {
+        	System.out.println(22222);
             response.setHeader("Pragma", "No-cache");
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expires", 0);
@@ -97,6 +98,7 @@ public class LoginController {
      * @param req
      * @return
      */
+
     @RequestMapping("/login2")
     public String login(HttpSession session, HttpServletResponse res, HttpServletRequest req) {
         session = req.getSession();
