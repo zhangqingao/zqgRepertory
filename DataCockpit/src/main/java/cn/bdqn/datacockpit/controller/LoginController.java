@@ -74,7 +74,7 @@ public class LoginController {
             String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
             // 存入会话session
             HttpSession session = request.getSession(true);
-            session.setAttribute("code", verifyCode.toLowerCase());
+            session.setAttribute("code", verifyCode.toLowerCase());// 
             // 生成图片
             int w = 146, h = 33;
             VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
@@ -115,7 +115,7 @@ public class LoginController {
         // 根据账号判断该用户属于公司还是管理员
         List<Info> infoList = infoService.selectAllInfo();
         Date time = new Date();
-        Date ti1 = new Date(time.getTime() - 2 * 24 * 60 * 60 * 1000);
+        Date ti1 = new Date(time.getTime() - 7 * 24 * 60 * 60 * 1000);
         for (Info info : infoList) {
             Date date = info.getPublishDate();
             Map<String, Object> map = new HashMap<String, Object>();
