@@ -19,10 +19,19 @@
 	    	  {"data":"job"},
 	    	  {"data":"email"},     
 	    	  {"data":"state"},
+	    	  
 	                  ],
 	                 
 	          
-	      "columnDefs": [	                     
+	      "columnDefs": [	 
+// 						{
+// 						    "targets": 6,
+// 						     "data": "state", 
+// 						    "render": function ( data, type, row, meta ) {
+						      
+// 						     return '<span>'+date+'</span>'   ;		    		
+// 						    }
+// 						  },
 					{
 	    		    "targets": 7,
 	    		    /* "data": "title", */
@@ -43,8 +52,21 @@
 	 	    		 }
 	 	    	   }
 	      ],	    
-	            
+	          
+	      
 	});
+//    var zt = $("#zt").html();
+//    alert(zt);
+//    if (zt==1) {
+//        $("#zt").val("启用");
+//    }else{
+//  	  $("#zt").val("禁用");
+//    }
+			//alert("11");
+			var i=dataTable.Rows[2][6].ToString(); 
+			alert(i);
+   
+
 		t.on('order.dt search.dt',
 		 function() {
   		       t.column(0, {
@@ -56,8 +78,24 @@
   		  	   }).draw();	
 
   })
+   
+
 </script>
 <script language="jscript"> 
 	function ee() { if(confirm("请确认是否启用?" )) return true; return false;  }
 	function dd() { if(confirm("请确认是否禁用?" )) return true; return false;  }
+</script>
+<script type="text/javascript">
+function getTableContent(){  
+	       var nTrs = table.fnGetNodes();//fnGetNodes获取表格所有行，nTrs[i]表示第i行tr对象  
+	       for(var i = 0; i < nTrs.length; i++){  
+	           console.log('[获取数据]' + table.fnGetData(nTrs[i]));//fnGetData获取一行的数据  
+	           alert('[获取数据]' + table.fnGetData(nTrs[i]));
+	       }  
+	   }  
+
+</script>
+<!--
+
+//-->
 </script>
