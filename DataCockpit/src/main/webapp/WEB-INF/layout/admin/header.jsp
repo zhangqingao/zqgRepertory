@@ -63,9 +63,8 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="shenhe"><a href="./admin_userDsh.shtml"><i class="fa fa-link"></i> <span>待审核用户列表</span></a></li>
         <li class="tongzhi" ><a href="./admin_tongzhi1.shtml"><i class="fa fa-link"></i> <span>通知管理</span></a></li>
-        <c:hasRole name="supereme"> <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li></c:hasRole>
-        <!-- <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li> -->
-        <li class="yonghu" ><a href="./admin_userMan.shtml"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
+        <li class="zhanghao" ><a href="./admin_shuju4.shtml"><i class="fa fa-link"></i> <span>后台账号管理</span></a></li>
+         <li class="yonghu" ><a href="./admin_userMan.shtml"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
         <li class="qiye treeview1">
           <a href="./admin_cominfo.shtml"><i class="fa fa-link"></i> <span>企业数据管理</span>
             <span class="pull-right-container">

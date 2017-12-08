@@ -115,4 +115,10 @@ public class CompanyinfoServiceImpl implements CompanyinfoService {
         return companyinfo.selectPhoneNum(phone);
     }
 
+	@Override
+	public List<Companyinfo> selectPassCompanies() {
+		// TODO Auto-generated method stub
+		return companyinfo.selectPassCompanies();
+	}
+
 }

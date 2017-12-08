@@ -85,9 +85,9 @@
             <a href="<%=basePath %>/pages/register.jsp" class="text-center" style="color: #FFFFFF">申请合作</a>
         </div>
 
-         <div class="col-xs-4" style="font-size: 14px;margin-top: -17px;margin-left:5px">
+       <%--   <div class="col-xs-4" style="font-size: 14px;margin-top: 7px;margin-left:105px">
            <a href="<%=basePath %>/pages/wangjimima.jsp" class="text-center" style="color: #FFFFFF">忘记密码</a>
-        </div> 
+        </div> --%>
         
         <!-- /.col -->
       </div>
