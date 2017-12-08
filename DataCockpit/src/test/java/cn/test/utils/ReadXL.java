@@ -43,6 +43,7 @@ public class ReadXL {
                    maps.put(i, cellValue);
                }
                System.out.println(maps);
+               System.out.println("测试上传");
            }
             //HSSFRow row = sheet.getRow(0);
             HSSFCell cell = row.getCell((short)0);
