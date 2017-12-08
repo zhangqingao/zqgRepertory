@@ -5,7 +5,7 @@ import java.util.List;
 import cn.bdqn.datacockpit.entity.Companyinfo;
 
 public interface CompanyinfoMapper {
-
+	List<Companyinfo> selectPassCompanies();
     List<Companyinfo> selectAllCompanies();
 
     int deleteByPrimaryKey(Integer id);

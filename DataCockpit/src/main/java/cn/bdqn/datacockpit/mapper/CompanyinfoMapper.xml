@@ -22,6 +22,11 @@
     id, corpname, phone, name, job, email, state, approval
     from companyinfo 
   </select>
+  <select id="selectPassCompanies" resultMap="BaseResultMap">
+    select 
+    id, corpname, phone, name, job, email, state, approval
+    from companyinfo where state=1
+  </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
