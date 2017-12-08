@@ -48,9 +48,7 @@
 
 
   $(function () {
-	  /* function myEditor(){
-		  console.log(111);
-	  } */
+	
 	var t =	$('#example1').DataTable({
 		 "ajax"		: {
 	    	  "url"		: "<%=request.getContextPath()%>/dt_lists3.shtml",
@@ -61,8 +59,8 @@
 	    	  }
 	      },
 	      "columns" :[
-	    	  {"data": "office","defaultContent": "1"},
-	                  
+	    	  {"data": "office","defaultContent": "1" },
+ 	    	  {"data":"details"},
 	                  ],
 	      "columnDefs": [
 	                     {
@@ -105,8 +103,8 @@
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    ///CKEDITOR.replace('editor1')
+    CKEDITOR.replace('editor1')
     //bootstrap WYSIHTML5 - text editor
-    //$('.textarea').wysihtml5()
+    $('.textarea').wysihtml5()
   })
 </script>
