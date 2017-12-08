@@ -61,8 +61,12 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
+    	 List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
+         model.addAttribute("menus", "5");
+         model.addAttribute("lists", lists);
         return "admin_index.page";
     }
+   
 
     /**
      * 
@@ -312,7 +316,7 @@ public class AdminTilesController {
     @RequestMapping("/admin_userDsh")
     public String dshCompanyinfo(Model model) {
 
-        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
         model.addAttribute("menus", "5");
         model.addAttribute("lists", lists);
         // 转发
@@ -321,7 +325,6 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_userMan")
     public String userMan(Model model) {
-
         List<Companyinfo> lists = companyinfo.selectPassCompanies();
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);

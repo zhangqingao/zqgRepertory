@@ -3,7 +3,7 @@
   $(function () {
    var t = $('#example1').DataTable({
 		 "ajax"		: {
-	    	  "url"		: "<%=request.getContextPath()%>/dt_lists4.shtml",
+	    	  "url"		: "<%=request.getContextPath()%>/dt_lists5.shtml",
 	    	  "method"	: "POST",
 	    	  "headers" : {"Content-Type": "application/json"},
 	    	  "data"	: function(d){

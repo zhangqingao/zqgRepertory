@@ -20,6 +20,8 @@
 	    	  {"data":"email"},     
 	    	  {"data":"state"},
 	                  ],
+	                 
+	          
 	      "columnDefs": [	                     
 					{
 	    		    "targets": 7,

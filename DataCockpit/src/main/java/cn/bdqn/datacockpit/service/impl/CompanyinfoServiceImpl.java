@@ -121,4 +121,10 @@ public class CompanyinfoServiceImpl implements CompanyinfoService {
 		return companyinfo.selectPassCompanies();
 	}
 
+	@Override
+	public List<Companyinfo> selectnoPassCompanies() {
+		// TODO Auto-generated method stub
+		return companyinfo.selectnoPassCompanies();
+	}
+
 }

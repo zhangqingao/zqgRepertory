@@ -216,22 +216,22 @@
 												style="text-align: center;">操作</th>
 										</tr>
 									</thead>
-									<tbody>
+<!-- 									<tbody> -->
 
-									<c:forEach items="${lists }" var="comp" varStatus="status">
-										<tr role="row" class="odd" style="text-align: center;">
-											<td class="sorting_1">${requestScope.offset+status.index+1}</td>
-											<td>${comp.phone }</td>
-											<td>${comp.corpname }</td>
-											<td>${comp.name }</td>
-											<td>${comp.job }</td>
-											<td>${comp.email }</td>
-											<!-- <td><select><option>已启用</option>
-													<option>已禁用</option></select></td> -->
-											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td>
-										</tr>
-									</c:forEach>
-									</tbody>
+<%-- 									<c:forEach items="${lists }" var="comp" varStatus="status"> --%>
+<!-- 										<tr role="row" class="odd" style="text-align: center;"> -->
+<%-- 											<td class="sorting_1">${requestScope.offset+status.index+1}</td> --%>
+<%-- 											<td>${comp.phone }</td> --%>
+<%-- 											<td>${comp.corpname }</td> --%>
+<%-- 											<td>${comp.name }</td> --%>
+<%-- 											<td>${comp.job }</td> --%>
+<%-- 											<td>${comp.email }</td> --%>
+<!-- 											<td><select><option>已启用</option>
+<!-- 													<option>已禁用</option></select></td> --> -->
+<!-- 											<td><a href="#">通过</a>&emsp;<a href="#">不通过</a></td> -->
+<!-- 										</tr> -->
+<%-- 									</c:forEach> --%>
+<!-- 									</tbody> -->
 
 								</table>
 							</div>
