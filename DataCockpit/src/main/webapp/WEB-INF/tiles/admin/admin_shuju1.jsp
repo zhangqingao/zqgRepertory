@@ -110,7 +110,7 @@
             <div class="modal-body">  
                 
                     <div class="form-group">  
-                        <table width="100%" border="1px" cellspacing="0px" cellpadding="0px" id="tb">
+                        <table width="100%" border="1px" cellspacing="0px" cellpadding="0px" id="tb1">
                           <tr>
                             <td>编号</td>
                             <td>显示名称</td>
@@ -171,6 +171,8 @@
 <!--                           </tr> -->
                         </table> 
                     </div>  
+                    <div id="addtrdiv" style="margin-top:-15px;width: 15%; float: right;">  
+							    <button type="button" class="btn btn-xs btn-link" id="add">添加</button></div> 
                
             </div>  
             <div class="modal-footer">  
@@ -216,6 +218,29 @@
               /*  $("#myModal2").hide();       		
             	$(".modal-backdrop").hide(); */
             	})
+            	var ii=1;
+            	$("#add").click(function(){
+            	
+            	    	ii+=1;
+            		    var table = $("#tb1"); 
+            		    var tr1="<tr><td>"+ii+ 
+                        "</td><td><input class='inputs' type='text' name='pname' value='项目名称' style='width: 100%'></td>"+
+                        "<td><select class='inputs' name='prname'> "+                             	
+                            "<option value='1' selected='selected'>文本</option>"+
+                            "<option value='0'>时间</option>"+
+                            "<option value='2'>整数</option>"+
+                            "<option value='3'>浮点数</option></select></td> </tr>";
+                        
+//             		    var tr= $("<tr>" +  
+//             		        "<td >"+"1"+"</td>" +  
+//             		        "<td  '>"+"<input class='inputs' type='text' name='' value='' style='width: 100%'>"+"</td>" +  
+//             		        "<td >"+"<select class='inputs' name=''>"+"<option value='1' selected='selected'>"+"文本"+"</option>"+
+//             		        "<option value='2'>"+"整数"+"</option>"+
+//             		        "<option value='3'>"+"浮点数"+"</option>"+
+//             		        "</select></td></tr>");  
+            		    table.append(tr1);  
+            		
+            	});
             </script>
         </div>  
     </div>  
@@ -242,7 +267,7 @@
                 <c:forEach items="${lists }" var="li" varStatus="status">
                    <tr>
 	                  <td>${requestScope.offset+status.index+1}</td>
-	                  <td>${li.name }</td>
+                      <td>${li.name }</td>
 	                  <td>${li.tbName }、${li.tbName1 }</td>
 	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td>
 	                  <td><select><option>已启用</option><option>已禁用</option></select></td>
@@ -277,6 +302,7 @@
                 <h5 class="modal-title">关联关系表名：<input type="text" name="name"></h5>
             </div>
             <div class="modal-body">
+            <input type="hidden" name="cid" value="${No1}">
                  
                     <div class="form-group">  
                         数据表A: <select name="tid1">
