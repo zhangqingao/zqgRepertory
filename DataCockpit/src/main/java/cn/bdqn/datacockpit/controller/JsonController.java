@@ -72,7 +72,7 @@ public class JsonController {
 
     /***
      * 
-     * @param searchCondition:使用datatable获取companyInfo信息
+     * @param searchCondition:使用datatable获取审核通过的companyInfo信息
      * @return
      */
     @ResponseBody
@@ -80,6 +80,20 @@ public class JsonController {
     public DatatableResult<Companyinfo> datatable4(@RequestBody SearchCondition searchCondition) {
         DatatableResult<Companyinfo> list = new DatatableResult<>();
         List<Companyinfo> list2 = cfs.selectPassCompanies();
+        list.setData(list2);
+        return list;
+    }
+    
+    /***
+     * 
+     * @param searchCondition:使用datatable获取未通过审核companyInfo信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "dt_lists5")
+    public DatatableResult<Companyinfo> datatable5(@RequestBody SearchCondition searchCondition) {
+        DatatableResult<Companyinfo> list = new DatatableResult<>();
+        List<Companyinfo> list2 = cfs.selectnoPassCompanies();
         list.setData(list2);
         return list;
     }
