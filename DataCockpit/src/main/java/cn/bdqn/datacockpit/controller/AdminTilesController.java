@@ -159,6 +159,13 @@ public class AdminTilesController {
         companyinfo.deleteByPrimaryKey(id);
         return "admin_userDsh.page";
     }
+    @RequestMapping("/adminus_delete1")
+    public String adminus_delete1(HttpServletRequest req) {
+        // 鑾峰彇id
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        companyinfo.deleteByPrimaryKey(id);
+        return "admin_index.page";
+    }
 
     @RequestMapping("/aduser_update")
     public String aduser_update(Model model, HttpServletRequest req) {
@@ -193,6 +200,24 @@ public class AdminTilesController {
         return "admin_userDsh.page";
     }
 
+    @RequestMapping("/adminuss_updatee1")
+    public String adminuss_updatee1(HttpServletRequest req) {
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(1);
+        Userinfo record=new Userinfo();
+//        record.setId(comp.getId());
+        record.setName(comp.getName());
+        record.setJob(comp.getJob());
+        record.setPassword(comp.getPassword());
+        record.setPhone(comp.getPhone());
+        record.setEmail(comp.getEmail());
+        record.setState(comp.getState());
+        int flag = us.insertSelective(record);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_index.page";
+    }
     /***
      * 
      * @param req:閫氳繃id鏇存柊approval鐘舵�
@@ -314,6 +339,15 @@ public class AdminTilesController {
         // 杞彂
         return "admin_index.page";
     }
+//    @RequestMapping("/admin_index")
+//    public String dshCompanyinfo1(Model model) {
+//
+//        List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
+//        model.addAttribute("menus", "5");
+//        model.addAttribute("lists", lists);
+//        
+//        return "admin_index.page";
+//    }
 
     @RequestMapping("/admin_userDsh")
     public String dshCompanyinfo(Model model) {
