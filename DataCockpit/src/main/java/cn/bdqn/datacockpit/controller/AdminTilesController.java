@@ -1,5 +1,6 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,12 +62,16 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_index")
     public String index(Model model) {
+    	 List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
+         model.addAttribute("menus", "5");
+         model.addAttribute("lists", lists);
         return "admin_index.page";
     }
+   
 
     /**
      * 
-     * Description: 管理员通知页面<br/>
+     * Description: 绠＄悊鍛橀�鐭ラ〉闈�br/>
      *
      * @author dengJ
      * @param model
@@ -80,7 +85,7 @@ public class AdminTilesController {
 
     /**
      * 
-     * Description: 添加通知页面<br/>
+     * Description: 娣诲姞閫氱煡椤甸潰<br/>
      *
      * @author dengJ
      * @param model
@@ -93,7 +98,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_tongzhi3")
     public String tongzhi3(Model model, HttpServletRequest req) {
-        // 获取id
+        // 鑾峰彇id
         Integer id = Integer.parseInt(req.getParameter("id"));
         Info info = is.selectByPrimaryKey(id);
         model.addAttribute("info", info);
@@ -102,14 +107,14 @@ public class AdminTilesController {
 
     @RequestMapping("/tongzhi_update")
     public String tongzhi_update(Info info) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         is.updateByPrimaryKeySelective(info);
         return "admin_tongzhi1.page";
     }
 
     /**
      * 
-     * Description: 添加通知<br/>
+     * Description: 娣诲姞閫氱煡<br/>
      *
      * @author dengJ
      * @param info
@@ -117,23 +122,23 @@ public class AdminTilesController {
      */
     @RequestMapping("/tongzhi_insert")
     public String tongzhi_insert(Info info) {
-        // 获取实体类信息，将新增数据存入数据库
+        // 鑾峰彇瀹炰綋绫讳俊鎭紝灏嗘柊澧炴暟鎹瓨鍏ユ暟鎹簱
         is.insertSelective(info);
-        // 获取本地时间与数据库时间格式一致
+        // 鑾峰彇鏈湴鏃堕棿涓庢暟鎹簱鏃堕棿鏍煎紡涓�嚧
         java.util.Date date = new java.util.Date();
         java.sql.Date data1 = new java.sql.Date(date.getTime());
         info.setPublishDate(data1);
-        // 获取最新一条记录ID
+        // 鑾峰彇鏈�柊涓�潯璁板綍ID
         Integer infoMax = is.selectMaxId();
         info.setId(infoMax);
-        // 将时间存入最后一条记录中
+        // 灏嗘椂闂村瓨鍏ユ渶鍚庝竴鏉¤褰曚腑
         is.updateByPrimaryKey(info);
         return "admin_tongzhi1.page";
     }
 
     @RequestMapping("/tongzhi_delete")
     public String tongzhi_delete(HttpServletRequest req) {
-        // 获取id
+        // 鑾峰彇id
         Integer id = Integer.parseInt(req.getParameter("id"));
         is.deleteByPrimaryKey(id);
         return "admin_tongzhi1.page";
@@ -141,7 +146,7 @@ public class AdminTilesController {
 
     @RequestMapping("/admin_delete")
     public String admin_delete(HttpServletRequest req) {
-        // 获取id
+        // 鑾峰彇id
         Integer id = Integer.parseInt(req.getParameter("id"));
         us.deleteByPrimaryKey(id);
         return "admin_shuju4.page";
@@ -149,15 +154,22 @@ public class AdminTilesController {
 
     @RequestMapping("/adminus_delete")
     public String adminus_delete(HttpServletRequest req) {
-        // 获取id
+        // 鑾峰彇id
         Integer id = Integer.parseInt(req.getParameter("id"));
         companyinfo.deleteByPrimaryKey(id);
         return "admin_userDsh.page";
     }
+    @RequestMapping("/adminus_delete1")
+    public String adminus_delete1(HttpServletRequest req) {
+        // 鑾峰彇id
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        companyinfo.deleteByPrimaryKey(id);
+        return "admin_index.page";
+    }
 
     @RequestMapping("/aduser_update")
     public String aduser_update(Model model, HttpServletRequest req) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         model.addAttribute("comp", comp);
@@ -166,12 +178,12 @@ public class AdminTilesController {
 
     /***
      * 
-     * @param req:通过id更新approval状态
+     * @param req:閫氳繃id鏇存柊approval鐘舵�
      * @return
      */
     @RequestMapping("/adminuss_updatee")
     public String adminuss_updatee(HttpServletRequest req) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setApproval(1);
@@ -188,14 +200,32 @@ public class AdminTilesController {
         return "admin_userDsh.page";
     }
 
+    @RequestMapping("/adminuss_updatee1")
+    public String adminuss_updatee1(HttpServletRequest req) {
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        Companyinfo comp = companyinfo.selectByPrimaryKey(id);
+        comp.setApproval(1);
+        Userinfo record=new Userinfo();
+//        record.setId(comp.getId());
+        record.setName(comp.getName());
+        record.setJob(comp.getJob());
+        record.setPassword(comp.getPassword());
+        record.setPhone(comp.getPhone());
+        record.setEmail(comp.getEmail());
+        record.setState(comp.getState());
+        int flag = us.insertSelective(record);
+        companyinfo.updateByPrimaryKey(comp);
+        return "admin_index.page";
+    }
     /***
      * 
-     * @param req:通过id更新approval状态
+     * @param req:閫氳繃id鏇存柊approval鐘舵�
      * @return
      */
     @RequestMapping("/adminuss_updatee0")
     public String adminuss_updatee0(HttpServletRequest req) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setApproval(0);
@@ -205,12 +235,12 @@ public class AdminTilesController {
 
     /***
      * 
-     * @param req:通过id更新state状态:1
+     * @param req:閫氳繃id鏇存柊state鐘舵�:1
      * @return
      */
     @RequestMapping("/aduser_update1")
     public String aduser_update1(HttpServletRequest req) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setState(1);
@@ -220,12 +250,12 @@ public class AdminTilesController {
 
     /***
      * 
-     * @param req:通过id更新state状态:0
+     * @param req:閫氳繃id鏇存柊state鐘舵�:0
      * @return
      */
     @RequestMapping("/aduser_update0")
     public String aduser_update0(HttpServletRequest req) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         Integer id = Integer.parseInt(req.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setState(0);
@@ -235,7 +265,7 @@ public class AdminTilesController {
 
     @RequestMapping("/aduser_update2")
     public String aduser_insert(Companyinfo comps) {
-        // 获取实体类信息
+        // 鑾峰彇瀹炰綋绫讳俊鎭�
         int flag = companyinfo.updateByPrimaryKey(comps);
 
         System.out.println(flag);
@@ -254,6 +284,7 @@ public class AdminTilesController {
     public String shuju1(Model model, HttpServletRequest req) throws Exception {
         model.addAttribute("menus", "3");
         String id = req.getParameter("id");
+        System.out.println("ddid"+id);
         HttpSession session = req.getSession();
         session.setAttribute("No1", id);
         List<Map<String, Object>> lists = releTable.selectAllTables();
@@ -281,14 +312,14 @@ public class AdminTilesController {
     public String insertAdminReg(Userinfo record) {
     	record.setState(2);
         int flag = us.insertSelective(record);
-        // 转发
+        // 杞彂
         return "admin_shuju4.page";
     }
     @RequestMapping("insertcomReg")
     public String insertComReg(Companyinfo record) {
     	record.setState(1);
         int flag = companyinfo.insertSelective(record);
-        // 转发
+        // 杞彂
         return "admin_userMan.page";
     }
 
@@ -305,32 +336,40 @@ public class AdminTilesController {
         }
         HttpSession session = req.getSession();
         session.setAttribute("tongzhi", infoList);
-        // 转发
+        // 杞彂
         return "admin_index.page";
     }
+//    @RequestMapping("/admin_index")
+//    public String dshCompanyinfo1(Model model) {
+//
+//        List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
+//        model.addAttribute("menus", "5");
+//        model.addAttribute("lists", lists);
+//        
+//        return "admin_index.page";
+//    }
 
     @RequestMapping("/admin_userDsh")
     public String dshCompanyinfo(Model model) {
 
-        List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        List<Companyinfo> lists = companyinfo.selectnoPassCompanies();
         model.addAttribute("menus", "5");
         model.addAttribute("lists", lists);
-        // 转发
+        // 杞彂
         return "admin_userDsh.page";
     }
 
     @RequestMapping("/admin_userMan")
     public String userMan(Model model) {
-
         List<Companyinfo> lists = companyinfo.selectPassCompanies();
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);
 
-        // 转发
+        // 杞彂
         return "admin_userMan.page";
     }
 
-    // 新建数据表
+    // 鏂板缓鏁版嵁琛�
     @ResponseBody
     @RequestMapping("/admin_create")
     public Map<String, String> creats(@RequestParam("values") String id, HttpServletRequest req) {
@@ -380,12 +419,12 @@ public class AdminTilesController {
         System.out.println(lists);
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);
-        // 转发
+        // 杞彂
         return "admin_userMan.page";
     }
 
     /**
-     * 公告详情
+     * 鍏憡璇︽儏
      * 
      * @param req
      * @return
@@ -399,10 +438,13 @@ public class AdminTilesController {
 
     @RequestMapping("/insert_guanlian")
     public String insertGL(Datarelation record, HttpServletRequest req) {
-        String id = req.getParameter("id");
-        int flag = dataService.insert(record);
+//        String id = req.getParameter("id");
+    	int cid=record.getCid();
+        
+        int flag = dataService.insert(record);        
         if (flag >= 1) {
-            return "redirect:/admin_shuju1.shtml?id=1";
+        	
+            return "redirect:/admin_shuju1.shtml?id="+cid;
         }
 
         return "admin_shuju1.page";
@@ -416,7 +458,7 @@ public class AdminTilesController {
         model.addAttribute("menus", "4");
         model.addAttribute("lists", lists);
 
-        // 转发
+        // 杞彂
         return null;
     }
 
@@ -454,9 +496,9 @@ public class AdminTilesController {
                 String fNums = "";
                 for (int i = 0; i < lists.size(); i++) {
                     if (i == lists.size() - 1) {
-                        fNums = fNums + lists.get(i).get("daofangrenshu");
+                        fNums = fNums + lists.get(i).get(name);
                     } else {
-                        fNums = fNums + lists.get(i).get("daofangrenshu") + ",";
+                        fNums = fNums + lists.get(i).get(name) + ",";
                     }
                 }
                 fNums = "[" + fNums + "]";
@@ -465,9 +507,9 @@ public class AdminTilesController {
                 for (int i = 0; i < lists.size(); i++) {
 
                     if (i == lists.size() - 1) {
-                        rNums = rNums + lists.get(i).get("renchourenshu");
+                        rNums = rNums + lists.get(i).get(name);
                     } else {
-                        rNums = rNums + lists.get(i).get("renchourenshu") + ",";
+                        rNums = rNums + lists.get(i).get(name) + ",";
                     }
                 }
                 rNums = "[" + rNums + "]";

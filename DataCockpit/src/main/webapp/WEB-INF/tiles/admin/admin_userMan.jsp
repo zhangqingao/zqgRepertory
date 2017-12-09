@@ -64,7 +64,7 @@
 											aria-label="Engine version: activate to sort column ascending"
 											style="text-align: center;">联系人邮件</th>
 										<th class="sorting" tabindex="0" aria-controls="example2"
-												rowspan="1" colspan="1"
+												rowspan="1" colspan="1" 
 												aria-label="Engine version: activate to sort column ascending"
 												style="text-align: center;">状态</th> 
 										<th class="sorting" tabindex="0" aria-controls="example2"
@@ -77,7 +77,7 @@
 											style="text-align: center;">操作</th>
 									</tr>
 								</thead>
-								<tbody style="text-align: center;">
+								<tbody style="text-align: center;" id="zt">
 								</tbody>
 
 							</table>

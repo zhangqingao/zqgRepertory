@@ -25,7 +25,12 @@
   <select id="selectPassCompanies" resultMap="BaseResultMap">
     select 
     id, corpname, phone, name, job, email, state, approval
-    from companyinfo where state=1
+    from companyinfo where approval=1
+  </select>
+  <select id="selectnoPassCompanies" resultMap="BaseResultMap">
+    select 
+    id, corpname, phone, name, job, email, state, approval
+    from companyinfo where approval=0
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
