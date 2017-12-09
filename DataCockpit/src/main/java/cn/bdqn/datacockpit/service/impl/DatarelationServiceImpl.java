@@ -71,5 +71,16 @@ public class DatarelationServiceImpl implements DatarelationService {
         return flag;
     }
 
+	@Override
+	public List<Datarelation> selectDatarelationBycid(Integer cid) {
+		// TODO Auto-generated method stub
+		return datarelation.selectDatarelationBycid(cid);
+	}
+
+	
+	
+
+	
+
 }
 
