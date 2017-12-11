@@ -51,10 +51,24 @@
 	    		    			<a href="./aduser_update0.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">禁用</a>';	 	    		    			    
 	 	    		 }
 	 	    	   }
+
 	      ],	    
 	          
+
+	      //在页面中修改datetables表格数据
+	      "fnRowCallback" : function(nRow, aData, iDisplayIndex) {  
+              /* 用来改写用户权限的 */  
+              if (aData.state == '1')  
+                  $('td:eq(6)', nRow).html('启用');  
+              if (aData.state == '0')  
+                  $('td:eq(6)', nRow).html('禁用');  
+              
+              return nRow;  
+          },   
+
 	      
 	});
+
 //    var zt = $("#zt").html();
 //    alert(zt);
 //    if (zt==1) {
@@ -66,6 +80,13 @@
 			var i=dataTable.Rows[2][6].ToString(); 
 			alert(i);
    
+
+
+
+//    var oTable = $('#example1').dataTable();
+//    oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e','f','j'], 2 ); // Row
+
+
 
 		t.on('order.dt search.dt',
 		 function() {

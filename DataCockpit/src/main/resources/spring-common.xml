@@ -81,8 +81,12 @@
 		            /getYzm.shtml=anon
 		            /login.shtml=anon
 		            /login2.shtml=anon
+		            /user_index.shtml=authc
+		            /selectAllCompanyinfo.shtml=authc
 		            /*.shtml=authc
 		            /*.jsp=authc 
+		            <!-- 退出账号shiro清除session -->
+		           	/exit.shtml=logout
 		          <!--   /**=authc -->
 		          <!-- （/**：表示所有请求，anon表示不拦截，authc表示当用户没有登录的时候拦截所有的请求）  所有请求继续向下执行 -->	
 				<!-- /**=authc 	需要用户登录才可以继续向下执行 -->

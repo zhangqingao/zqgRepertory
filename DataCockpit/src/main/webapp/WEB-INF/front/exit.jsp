@@ -33,14 +33,27 @@
 	<!-- iCheck -->
 	<script src="<%=basePath %>/resource/js/icheck.min.js"></script>
 	<script src="<%=basePath %>/resource/js/gVerify.js"></script>
+	<script src="<%=basePath %>/resource/js/jquery-1.8.3.js"></script>
+	<script type="text/javascript">
+			var i=3;
+			function abc(){	
+			 	var sp=document.getElementById("myid");
+				sp.innerHTML=i;
+				i--;				
+				setTimeout("abc();",1000); 
+			/* 	document.getElementById("myid").innerHTML=i;
+				i--;
+				window.setTimeout('abc()', 1000); */
+			}
+	</script>
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition register-page" onload="abc();">
     <center>
         <div class="alert alert-success alert-dismissible" style="width: 300px;height: 100px;margin-top:200px">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <h4>提示</h4>
                    <p>您已经成功退出登录</p>
-                   <p>3秒钟之后将为您跳转到登录页面</p>
+                   <p><span id="myid">3</span>秒钟之后将为您跳转到登录页面</p>
                     
         </div>
      </center>

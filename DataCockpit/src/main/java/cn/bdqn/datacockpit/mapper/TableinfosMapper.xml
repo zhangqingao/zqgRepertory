@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bdqn.datacockpit.mapper.TableinfosMapper" >
+	<select id="selectByguanlianId" resultType="cn.bdqn.datacockpit.entity.Tableinfos" parameterType="Integer">
+		SELECT * FROM tableinfos
+		WHERE id =(SELECT tid1 FROM datarelation WHERE id=#{id})
+		OR  id=(SELECT tid2 FROM datarelation WHERE id=#{id})
+	</select>
+
+</mapper>

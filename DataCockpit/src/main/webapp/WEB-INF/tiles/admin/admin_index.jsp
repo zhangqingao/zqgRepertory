@@ -14,7 +14,7 @@
 	
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
-			<div class="col-lg-3 col-xs-6">
+			<a href="./admRegister.jsp" ><div class="col-lg-3 col-xs-6">
 				<!-- small box -->
 				<div class="small-box bg-red" style="width: 300px;margin-left:30px">
 					<div class="inner">
@@ -22,45 +22,55 @@
 
 						<h5>New Users</h5>
 					</div>
-					<div class="icon">
+					<div style="margin-left:190px;margin-top:-60px">
 						<img src="resource/images/11.png" />
 					</div>
-					<a href="./admRegister.jsp" class="small-box-footer">More info <i
+<<<<<<< HEAD
+<<<<<<< HEAD
+					<a href="./userRegister.jsp" class="small-box-footer">More info <i
 						class="fa fa-arrow-circle-right"></i></a>
+=======
+					<span class="small-box-footer">More info 
+						<i class="fa fa-arrow-circle-right"></i></span>
+>>>>>>> refs/remotes/origin/master
+=======
+					<span class="small-box-footer">More info 
+						<i class="fa fa-arrow-circle-right"></i></span>
+>>>>>>> refs/remotes/origin/master
 				</div>
-			</div>
+			</div></a>
 			<!-- ./col -->
 			
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-aqua" style="width: 300px;margin-left:110px">
+				<a href="./admin_cominfo.shtml"><div class="small-box bg-aqua" style="width: 300px;margin-left:110px">
 					<div class="inner">
 						<H3>新增数据表</H3>
 
 						<h5>New Data-table</h5>
 					</div>
-					<div class="icon">
+					<div style="margin-left:120px;margin-top:-50px">
 						<img src="resource/images/33.png" />
 					</div>
-					<a href="./admin_cominfo.shtml" class="small-box-footer">More info <i
-						class="fa fa-arrow-circle-right"></i></a>
-				</div>
+					<span class="small-box-footer">More info 
+					<i class="fa fa-arrow-circle-right"></i></span>
+				</div></a>
 			</div>
 			<!-- ./col -->
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
-				<div class="small-box bg-green" style="width: 300px;margin-left:190px">
+				<a href="./admin_tongzhi2.shtml"><div class="small-box bg-green" style="width: 300px;margin-left:190px">
 					<div class="inner">
 						<h3>新增通知</h3>
 
 						<h5>New Notification</h5>
 					</div>
-					<div class="icon">
+					<div style="margin-left:220px;margin-top:-60px">
 						<img src="resource/images/44.png" />
 					</div>
-					<a href="./admin_tongzhi2.shtml" class="small-box-footer">More info <i
-						class="fa fa-arrow-circle-right"></i></a>
-				</div>
+					<span class="small-box-footer">More info 
+					<i class="fa fa-arrow-circle-right"></i></span>
+				</div></a>
 			</div>
 			<!-- ./col -->
 		</div>
@@ -101,7 +111,7 @@
 			</div>
 			<!-- /.box-body -->
 			<div class="box-footer clearfix">
-				<a href="javascript:void(0)"
+				<a href="admin_tongzhi1.shtml"
 					class="btn btn-sm btn-default btn-flat pull-right">more >></a>
 			</div>
 			<!-- /.box-footer -->
@@ -181,7 +191,7 @@
 									aria-describedby="example2_info">
 									<thead>
 										<tr role="row">
-											<th class="sorting_asc" tabindex="0" aria-controls="example2"
+											<th class="sorting_desc" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1" aria-sort="ascending"
 												aria-label="Rendering engine: activate to sort column descending"
 												style="text-align: center;">序号</th>

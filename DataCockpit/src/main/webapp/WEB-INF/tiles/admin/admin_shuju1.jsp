@@ -267,6 +267,7 @@
                 <c:forEach items="${listtable2}" var="li" varStatus="status">
                    <tr>
 	                  <td>${requestScope.offset+status.index+1}</td>
+<<<<<<< HEAD
 	                  <td>${li.name }<input type="hidden" value="${li.id}" name="stid"></td>
 	                  <td>${li.tid1 }、${li.tid2}</td>
 	                  <td>${li.tid1 }.${li.cname1 }、${li.tid2 }.${li.cname2 }</td>
@@ -275,6 +276,12 @@
 	                  	<option <c:if test="${li.state == 2 }"> selected="selected"</c:if> value="2" >已禁用</option>
 	                  </select>
 	                  </td>
+=======
+                      <td>${li.name }</td>
+	                  <td>${li.tbName }、${li.tbName1 }</td>
+	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td>
+	                  <td><select><option>已启用</option><option>已禁用</option></select></td>
+>>>>>>> refs/remotes/origin/master
                   </tr>
                 </c:forEach>
                 
@@ -317,7 +324,9 @@
                 
             </div>
             <div class="modal-body">
+
                  <input type="hidden" name="cid" value="${No1}">
+
                     <div class="form-group">  
                         数据表A: <select name="tid1">
                         <c:forEach items="${listf }" var="lf">
