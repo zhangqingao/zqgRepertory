@@ -264,15 +264,32 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
-                <c:forEach items="${lists }" var="li" varStatus="status">
+                <c:forEach items="${listtable2}" var="li" varStatus="status">
                    <tr>
 	                  <td>${requestScope.offset+status.index+1}</td>
-                      <td>${li.name }</td>
-	                  <td>${li.tbName }、${li.tbName1 }</td>
-	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td>
-	                  <td><select><option>已启用</option><option>已禁用</option></select></td>
+	                  <td>${li.name }<input type="hidden" value="${li.id}" name="stid"></td>
+	                  <td>${li.tid1 }、${li.tid2}</td>
+	                  <td>${li.tid1 }.${li.cname1 }、${li.tid2 }.${li.cname2 }</td>
+	                  <td><select name="restate">
+	                  	<option <c:if test="${li.state == 1 }"> selected="selected"</c:if> value="1" >已启用</option>
+	                  	<option <c:if test="${li.state == 2 }"> selected="selected"</c:if> value="2" >已禁用</option>
+	                  </select>
+	                  </td>
+
+                     
+
                   </tr>
                 </c:forEach>
+                
+<%--                 <c:forEach items="${lists }" var="li" varStatus="status"> --%>
+<!--                    <tr> -->
+<%-- 	                  <td>${requestScope.offset+status.index+1}</td> --%>
+<%--                       <td>${li.name }</td> --%>
+<%-- 	                  <td>${li.tbName }、${li.tbName1 }</td> --%>
+<%-- 	                  <td>${li.tbName }.${li.tcName }、${li.tbName1 }.${li.tcName1 }</td> --%>
+<!-- 	                  <td><select><option>已启用</option><option>已禁用</option></select></td> -->
+<!--                   </tr> -->
+<%--                 </c:forEach> --%>
                
                 <!-- <tr>
                  <td>2</td>
@@ -299,55 +316,240 @@
                     &times;
                 </button>
                 <form action="./insert_guanlian.shtml" method="post"> 
-                <h5 class="modal-title">关联关系表名：<input type="text" name="name"></h5>
+                <h5 class="modal-title">关联关系表名：<input type="text"name="name"> <span id="sp1" style="font-size:18px;color:red;"></span></h5>
+                
             </div>
             <div class="modal-body">
-            <input type="hidden" name="cid" value="${No1}">
-                 
+
+                 <input type="hidden" name="cid" value="${No1}">
+
                     <div class="form-group">  
                         数据表A: <select name="tid1">
-                                <option value="1" selected="selected">销售数据表</option>
-                                <option value="2">到访数据表</option>
-                                <option value="3">中介数据表</option>
-                                <option value="4">认筹数据表</option>
-                                <option value="5">媒体渠道数据表</option>
+                        <c:forEach items="${listf }" var="lf">
+                                <option value="${lf.id}">${lf.name}</option>
+                                </c:forEach>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
                         统一的维度列: <select name="col1">
-                                <option value="1" selected="selected">项目名称</option>
-                                <option value="2">所在区域</option>
-                                <option value="3">日期</option>
-                                <option value="4">到访人数</option>
-                                <option value="5">认筹人数</option>
-                              </select>
+                               	  <c:forEach items="${maprtb}" var="rlf">
+                               	  <c:if test="${rlf.key !=0}">
+                                <option value="${rlf.key}">${rlf.value}</option>
+                                </c:if>
+                                </c:forEach>
+                              </select>                           
                               <br/><br/>
                         数据表B: <select name="tid2">
-                                <option value="1" selected="selected">销售数据表</option>
-                                <option value="2">到访数据表</option>
-                                <option value="3">中介数据表</option>
-                                <option value="4">认筹数据表</option>
-                                <option value="5">媒体渠道数据表</option>
+                               <c:forEach items="${listf }" var="lf">                              
+                                <option value="${lf.id}" >${lf.name}</option>                              
+                                </c:forEach>
                               </select>&emsp;&emsp;&emsp;&emsp;&emsp;
                         统一的维度列: <select name="col2">
-                                <option value="1" selected="selected">项目名称</option>
-                                <option value="2">所在区域</option>
-                                <option value="3">日期</option>
-                                <option value="4">到访人数</option>
-                                <option value="5">认筹人数</option>
+                             	 <c:forEach items="${maprtb }" var="rlf">
+                             	  	<c:if test="${rlf.key !=0}">
+                                <option value="${rlf.key}">${rlf.value}</option>
+                                </c:if>
+                                </c:forEach>
                               </select>
+                              <br/>
+                              <span id="sp2" style="font-size:18px;color:red;"></span>
+                              <br/>
+                               <span id="sp3" style="font-size:18px;color:red;"></span>
                     </div>  
                <input type="hidden" name="state" value="1">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
-                <button type="submit" class="btn btn-primary" >
+                <button type="button" class="btn btn-primary" onclick="return $.abc();" >
                     保存
+                 
                 </button>
                  </form>  
+                
+<!--                 <form action="./insert_guanlian.shtml" method="post">  -->
+<!--                 <h5 class="modal-title">关联关系表名：<input type="text" name="name"></h5> -->
+<!--             </div> -->
+<!--             <div class="modal-body"> -->
+<%--             <input type="hidden" name="cid" value="${No1}"> --%>
+                 
+<!--                     <div class="form-group">   -->
+<!--                         数据表A: <select name="tid1"> -->
+<!--                                 <option value="1" selected="selected">销售数据表</option> -->
+<!--                                 <option value="2">到访数据表</option> -->
+<!--                                 <option value="3">中介数据表</option> -->
+<!--                                 <option value="4">认筹数据表</option> -->
+<!--                                 <option value="5">媒体渠道数据表</option> -->
+<!--                               </select>&emsp;&emsp;&emsp;&emsp;&emsp; -->
+<!--                         统一的维度列: <select name="col1"> -->
+<!--                                 <option value="1" selected="selected">项目名称</option> -->
+<!--                                 <option value="2">所在区域</option> -->
+<!--                                 <option value="3">日期</option> -->
+<!--                                 <option value="4">到访人数</option> -->
+<!--                                 <option value="5">认筹人数</option> -->
+<!--                               </select> -->
+<!--                               <br/><br/> -->
+<!--                         数据表B: <select name="tid2"> -->
+<!--                                 <option value="1" selected="selected">销售数据表</option> -->
+<!--                                 <option value="2">到访数据表</option> -->
+<!--                                 <option value="3">中介数据表</option> -->
+<!--                                 <option value="4">认筹数据表</option> -->
+<!--                                 <option value="5">媒体渠道数据表</option> -->
+<!--                               </select>&emsp;&emsp;&emsp;&emsp;&emsp; -->
+<!--                         统一的维度列: <select name="col2"> -->
+<!--                                 <option value="1" selected="selected">项目名称</option> -->
+<!--                                 <option value="2">所在区域</option> -->
+<!--                                 <option value="3">日期</option> -->
+<!--                                 <option value="4">到访人数</option> -->
+<!--                                 <option value="5">认筹人数</option> -->
+<!--                               </select> -->
+<!--                     </div>   -->
+<!--                <input type="hidden" name="state" value="1"> -->
+<!--             </div> -->
+<!--             <div class="modal-footer"> -->
+<!--                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭 -->
+<!--                 </button> -->
+<!--                 <button type="submit" class="btn btn-primary" > -->
+<!--                     保存 -->
+<!--                 </button> -->
+<!--                  </form>   -->
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
-</div>  
+</div>
+<script type="text/javascript">  
+            $.abc=function(){		
+            	var name=$("input[name='name']").val();
+        		var nname=name.trim();
+        		var tab1=$("select[name='tid1']").val();
+        		var tab2=$("select[name='tid2']").val();
+        		var col1=$("select[name='col1']").val();
+        		var col2=$("select[name='col2']").val();
+        		var id=$("input[name='stid']").val();
+        		var flag=false;//判断是否已经存在
+        		
+        		alert("tab1:"+tab1+"tab2:"+tab2);
+        			if(nname.length==0){      	
+        			$("#sp1").text("* 关联关系名称不可以为空");			
+        				return false;
+        			}else{
+        				$("#sp1").text("");	
+        				//异步处理是否存在同个账户相同的表名
+            			$.ajax({
+            				url:"./admin_ajaxname.shtml",
+            				data:{"name":nname},
+            				type:"post",
+            				success:function(data){
+            					if(data==2){
+            						//名字已经存在了
+            						$("#sp1").text("* 名称已存在");
+            						return false;
+            					}
+            				},error:function(){
+            					
+            				}
+            			});
+        			}
+        			if(tab1==tab2){       				
+        			$("#sp2").text("* 关联的两张表不可以相同");	
+        				return false;
+        			}else{
+        				$("#sp2").text("");	
+        			}
+					//alert("111111");
+        		    $.ajax({
+        		        	url:"./aaaa222.shtml",
+        		        	data:{"tab1":tab1,"tab2":tab2,"col1":col1,"col2":col2,"name":nname},
+        		        	type:"POST",
+        		        	success:function(message){
+        		        		alert(message);
+        		        		if(message==1){ 
+        		        			$("#sp3").text("此关系已经存在");
+        		        		}else{
+        		        			window.location.href="./admin_shuju1.shtml?id=${No1}"
+        		        		}
+        		        	  },
+        		        	  error:function(){
+        		        		 alert("异步失败");
+        		        		 return false;
+        		        		 }
+        		        	 }); 
+        		    return true;
+    		}           
+            	$("select[name='tid1']").change(function(){
+            		//alert($(this).val());
+            		var rtname1=$(this).val();
+            		$("select[name='col1']").children().remove();
+            		var str="";
+            		//var rtname= parseInt(rtname1);
+            		$.ajax({
+            			url:"./admin_ajax.shtml",
+            			data:{"rtname1":rtname1},
+            			type:"post",
+            			dataType:"JSON",
+            			success:function(data){            			
+            				var da=data[0];
+            			
+            				for(var i=1;i<da;i++){
+            					
+            					str+="<option value='"+i+"'>"+data[i]+"</option>"          					
+            				}
+            				$("select[name='col1']").append(str);
+            				
+            			},error:function(){
+            				alert("异步失败");
+            			}
+            			
+            		});
+            	});
+            	$("select[name='tid2']").change(function(){
+            		//alert($(this).val());
+            		var rtname1=$(this).val();
+            		$("select[name='col2']").children().remove();
+            		var str="";
+            		//var rtname= parseInt(rtname1);
+            		$.ajax({
+            			url:"./admin_ajax2.shtml",
+            			data:{"rtname1":rtname1},
+            			type:"post",
+            			dataType:"JSON",
+            			success:function(data){            			
+            				var da=data[0];
+            			//alert(da);
+            			
+            				for(var i=1;i<da;i++){
+            					
+            					str+="<option value='"+i+"'>"+data[i]+"</option>"            					
+            				}
+            				//alert(str);
+            				$("select[name='col2']").append(str);
+            				//alert("111");
+            			},error:function(){
+            				alert("异步失败");
+            			}
+            			
+            		});
+            	});
+            	$("select[name='restate']").change(function(){
+            		var state=$(this).val();
+            		var id=$("input[name='stid']").val();
+            		var sid=$(this).parent().parent().children().children("input[name='stid']").val();
+            		alert(sid);
+            	//	alert($("this").parent().parent().parent().children(2).val());
+            		$.ajax({
+            			url:"./admin_ajax3.shtml",
+            			data:{"state":state,"id":sid},
+            			type:"post",
+            			dataType:"text",
+            			success:function(data){ 
+            				if(data==2){
+            					alert("已存在相同的关系处于启用状态")
+            				}
+            			},error:function(){
+            				alert("异步失败");
+            			}          			
+            		});
+            	});
+            </script>
+  
 
             </div>
             <!--data3-->

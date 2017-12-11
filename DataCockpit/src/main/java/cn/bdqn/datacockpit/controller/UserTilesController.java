@@ -137,7 +137,9 @@ public class UserTilesController {
     	JSONArray jarray= JSONArray.fromObject(map);
     	System.out.println("maplist:"+map.size());
     	response.getWriter().write(jarray.toString());
+
     }
+    
     
     
     @RequestMapping("/user_shuju2")
@@ -242,6 +244,7 @@ public class UserTilesController {
     	response.setCharacterEncoding("gbk");
 		response.setContentType("text/html");
     	List<Tableinfos> tableinfoslist=tableinfos.selectByguanlianId(Integer.parseInt(id));
+    	List<Weidulie> Weidulielist=weidulie.selectByguanlianId(Integer.parseInt(id));
     	JSONArray jarray= JSONArray.fromObject(tableinfoslist);
     	response.getWriter().write(jarray.toString());
     	

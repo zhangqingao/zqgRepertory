@@ -44,11 +44,22 @@
 	    		    "render": function ( data, type, row, meta ) {
 	    		    /* 将当前值传入controller */	  
 	    		    /*  <button class="button button-3d button-action button-circle button-jumbo"  ><i class="fa fa-thumbs-up">编辑</i></button> */
+<<<<<<< HEAD
 	    		     return '<a href="./adminuss_updatee1.shtml?id='+row.id+'" onclick="return ee();" class="button button-primary button-rounded button-small" style="font-size: 14px;">通过</a>\
+=======
+
+	    		     return '<a href="./adminuss_updatee.shtml?id='+row.id+'" onclick="return ee();" class="button button-primary button-rounded button-small" style="font-size: 14px;">通过</a>\
+>>>>>>> refs/remotes/origin/master
 	    		    		&emsp;\
+<<<<<<< HEAD
 	    		    		<a href="./adminus_delete1.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 14px;">不通过</a>';	 	    		    			
 	    		    }
 	    		  }
+=======
+	    		    		<a href="./adminus_delete.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 14px;">不通过</a>'	 ;	}}    		    			
+
+	    		  
+>>>>>>> refs/remotes/origin/master
 	      ],	      
 	});
 		

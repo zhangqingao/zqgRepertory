@@ -15,13 +15,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.session.Session;
+import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -37,6 +40,7 @@ import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 import cn.bdqn.datacockpit.utils.LoggerUtils;
+import cn.bdqn.datacockpit.utils.SessionListener;
 import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 
 /**
@@ -60,6 +64,8 @@ public class LoginController {
 
     @Autowired
     private InfoService infoService;
+
+	private Subject currentUser;
 
     @RequestMapping(value = "getYzm")
     public @ResponseBody List<String> getYzm(HttpServletResponse response, HttpServletRequest request) {
@@ -120,7 +126,7 @@ public class LoginController {
         for (Info info : infoList) {
             Date date = info.getPublishDate();
             Map<String, Object> map = new HashMap<String, Object>();
-            if (ti1.before(date)) {
+            if (ti1.before(date)) {//判定是否拥有登陆权限
                 map.put("date", 1);
             } else {
                 map.put("date", 0);
@@ -130,6 +136,7 @@ public class LoginController {
             lists.add(map);
 
         }
+        //验证输入不为空
         if (compi != null) {
             session.setAttribute("infos", compi);
             session.setAttribute("flag", lists);
@@ -141,7 +148,7 @@ public class LoginController {
             session.setAttribute("flag", lists);
             return "redirect:/selectAllCompanyinfo.shtml";
         }
-        session.setAttribute("erroMessage", "*账号或者密码输入有误！");
+        session.setAttribute("erroMessage", "*请勿重复登陆同一账号！");
         return "redirect:/login.jsp";
     }
 
@@ -152,24 +159,58 @@ public class LoginController {
     public String login(Userinfo user, String code2, HttpSession session, HttpServletRequest request) {
         // 首先判断验证码是否正确
         String trueCode = (String) session.getAttribute("code");
+        Map<String, String> loginUserMap =new HashMap<String, String>();
         if (!code2.equals(trueCode)) {
             session.setAttribute("erroMessage", "*验证码错误！");
             return "redirect:/login.jsp";
         }
+        //从SecurityUtils里创建一个subject
         Subject subject = SecurityUtils.getSubject();
+        //在认证提交前准备 toke（令牌）
         UsernamePasswordToken token = new UsernamePasswordToken(user.getPhone(), user.getPassword());
         try {
+        	//执行认证（通过）subject载入令牌
             subject.login(token);
+            //获取subject里的session
             Session session2 = subject.getSession();
+            //判断是否认证通过
+            boolean isAuthenticated= subject.isAuthenticated();
+            if(isAuthenticated){
+            	System.out.println("认证通过。");
+            }
+            //把验证的手机号存起来
             session.setAttribute("phone", user.getPhone());
+            //把登陆的用户存进session监听
+            if(SessionListener.sessionMap.get(user.getPhone().trim())!=null&&
+            	SessionListener.sessionMap.get(user.getPhone().trim()).toString().length()>0){
+            	// 当前用户已经在线 删除用户
+                HttpSession sessionold = (HttpSession) SessionListener.sessionMap.get(user.getPhone().trim());
+                // 注销已在线用户session
+                //sessionold.invalidate();
+                sessionold.removeAttribute("phone");
+                //session = request.getSession(true);
+                SessionListener.sessionMap.remove(user.getPhone().trim());
+                // 清除已在线用户，更新map key 当前用户 value session对象
+                SessionListener.sessionMap.put(user.getPhone().trim(), session);
+                SessionListener.sessionMap.remove(session.getId());
+		        } else {
+		                // 根据当前sessionid 取session对象。 更新map key=用户名 value=session对象 删除map
+		                // key= sessionid
+		        	SessionListener.sessionMap.get(session.getId());
+		        	SessionListener.sessionMap.put(user.getPhone().trim(),SessionListener.sessionMap.get(session.getId()));
+		        	SessionListener.sessionMap.remove(session.getId());
+		        }
+            
+            //shiro验证通过返回给login2，判断权限
             return "redirect:/login2.shtml";
-        } catch (Exception e) {
+
+        }catch (Exception e) {
+        	//出现异常，重新登陆
             e.printStackTrace();
             session.setAttribute("erroMessage", "*用户名或密码错误！");
             return "redirect:/login.jsp";
         }
     }
-
     /**
      * 注册（申请合作）
      * 
@@ -279,7 +320,14 @@ public class LoginController {
     @RequestMapping("/exit")
     public String exit(HttpServletRequest req) {
         req.getSession().removeAttribute("comp");
-
+        Subject subject = SecurityUtils.getSubject();
+		//退出操作
+        subject.logout();
+        //判断是否认证通过
+        boolean isAuthenticated= subject.isAuthenticated();
+        if(!isAuthenticated){
+        	System.out.println("退出通过。");
+        }
         return "front/exit.jsp";
     }
 
