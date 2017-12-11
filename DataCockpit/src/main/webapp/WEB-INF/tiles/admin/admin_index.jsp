@@ -14,7 +14,7 @@
 	
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
-			<a href="./admRegister.jsp" ><div class="col-lg-3 col-xs-6">
+			<a href="./userRegister.jsp" ><div class="col-lg-3 col-xs-6">
 				<!-- small box -->
 				<div class="small-box bg-red" style="width: 300px;margin-left:30px">
 					<div class="inner">
@@ -24,14 +24,17 @@
 					</div>
 					<div style="margin-left:190px;margin-top:-60px">
 						<img src="resource/images/11.png" />
+<<<<<<< HEAD
 					</div>
 
 
 					
 
+=======
+					</div>
+>>>>>>> refs/remotes/origin/master
 					<span class="small-box-footer">More info 
-						<i class="fa fa-arrow-circle-right"></i></span>
-
+					<i class="fa fa-arrow-circle-right"></i></span>
 				</div>
 			</div></a>
 			<!-- ./col -->
@@ -91,7 +94,7 @@
 				<div class="table-responsive">
 					<div id=tz>
 						<ul>
-							<c:forEach items="${flag }" var="tz" begin="0" end="6">
+							<c:forEach items="${flag }" var="tz" begin="0" end="4" step="1">
 							<li class=tz1><a href="./admin_gongGao.shtml?id=${tz.info.id }">${tz.info.title }【<fmt:formatDate value="${tz.info.publishDate }" pattern="yyyy-MM-dd"/>】</a>
 							<c:if test="${tz.date==1 }">
 							<img src="resource/images/6.png" />

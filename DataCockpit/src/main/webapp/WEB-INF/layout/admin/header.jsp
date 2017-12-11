@@ -5,7 +5,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="./selectAllCompanyinfo.shtml" class="logo">
+    <a href="./login2.shtml" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>数据</b>舱</span>
       <!-- logo for regular state and mobile devices -->
