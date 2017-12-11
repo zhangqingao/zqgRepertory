@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script>
   $(function () {
 	var t =	$('#example1').DataTable({
@@ -31,6 +31,22 @@
    		  	  
    		  	   })        	 	
    		  	   }).draw();	
+		$("#xuanzhe").change(function(){
+			var id=$(this).val();
+			alert(id);
+			 $.ajax({
+  			   type: "POST",
+  			   url: "user_shuju1_2.shtml?id="+id,
+  				success:function(message){
+  					
+  				},
+  				error:function(){
+  					 alert(XMLHttpRequest.status);
+  				   alert(XMLHttpRequest.readyState);
+  				   alert(textStatus);
+  				}
+			 })	   
+		})
 	
   })
 </script>

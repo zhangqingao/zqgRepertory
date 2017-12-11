@@ -78,6 +78,17 @@ public class AnalysistasksServiceImpl implements AnalysistasksService {
         return flag;
     }
 
+	@Override
+	public List<Analysistasks> selectdataBycid(Integer cid) {
+		// TODO Auto-generated method stub
+		return analysis.selectdataBycid(cid);
+	}
+
+	@Override
+	public int insertanalysistasksbyid(Analysistasks as) {
+		// TODO Auto-generated method stub
+		return analysis.insertanalysistasksbyid(as);
+	}
     
 
 }
