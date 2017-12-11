@@ -124,12 +124,19 @@ public class UserTilesController {
     
     //异步更新表管理数据
     @RequestMapping("/user_shuju1_1")
-    public void shuju1_1(Model model,HttpServletRequest req,HttpServletResponse response){
+    public void shuju1_1(Model model,HttpServletRequest req,HttpServletResponse response)throws Exception{
     	String id=req.getParameter("id");
     	System.out.println("id:"+id);
     	response.setCharacterEncoding("gbk");
 		response.setContentType("text/html");
-		
+		List<Tableinfos> tableinfoslist=tableinfos.selectByguanlianId(Integer.parseInt(id));
+    	List<Weidulie> Weidulielist=weidulie.selectByguanlianId(Integer.parseInt(id));
+    	Map<Object, Object> map=new HashMap<>();
+    	map.put("tableinfoslist", tableinfoslist);
+    	map.put("Weidulielist", Weidulielist);
+    	JSONArray jarray= JSONArray.fromObject(map);
+    	System.out.println("maplist:"+map.size());
+    	response.getWriter().write(jarray.toString());
     }
     
     
@@ -235,7 +242,6 @@ public class UserTilesController {
     	response.setCharacterEncoding("gbk");
 		response.setContentType("text/html");
     	List<Tableinfos> tableinfoslist=tableinfos.selectByguanlianId(Integer.parseInt(id));
-    	List<Weidulie> Weidulielist=weidulie.selectByguanlianId(Integer.parseInt(id));
     	JSONArray jarray= JSONArray.fromObject(tableinfoslist);
     	response.getWriter().write(jarray.toString());
     	

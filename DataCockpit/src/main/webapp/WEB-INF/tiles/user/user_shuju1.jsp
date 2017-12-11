@@ -25,7 +25,7 @@
           </select>
 
           <div class="box">
-          <div style="background:#ECF0F5;font-family: Microsoft Yahei;font-size: 15px">关联的数据表：销售数据表、到访数据表        统一的维度属性：销售数据表.销售日期、到访数据表.到访日期</div>
+          <div style="background:#ECF0F5;font-family: Microsoft Yahei;font-size: 15px"><span id="guanxibiao">关联的数据表：</span><p id="guanxizhiduan"> 统一的维度属性：</p></div>
           
             <div class="box-header" style="width: 180px">
               <h3 class="box-title">数据分析任务列表</h3>
