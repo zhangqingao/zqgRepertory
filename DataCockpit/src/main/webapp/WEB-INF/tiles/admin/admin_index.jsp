@@ -25,18 +25,12 @@
 					<div style="margin-left:190px;margin-top:-60px">
 						<img src="resource/images/11.png" />
 					</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-					<a href="./userRegister.jsp" class="small-box-footer">More info <i
-						class="fa fa-arrow-circle-right"></i></a>
-=======
+
+					
+
 					<span class="small-box-footer">More info 
 						<i class="fa fa-arrow-circle-right"></i></span>
->>>>>>> refs/remotes/origin/master
-=======
-					<span class="small-box-footer">More info 
-						<i class="fa fa-arrow-circle-right"></i></span>
->>>>>>> refs/remotes/origin/master
+
 				</div>
 			</div></a>
 			<!-- ./col -->
