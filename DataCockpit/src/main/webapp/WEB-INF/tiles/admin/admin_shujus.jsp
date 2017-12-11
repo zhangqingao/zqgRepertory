@@ -8,8 +8,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
-        <li>2017-04-22</li>
-        <li>15:20:33</li>
+        <li>${Tbinfo.updatetime }</li>
+<!--         <li>15:20:33</li> -->
       </ol>
     </section>
 

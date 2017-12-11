@@ -62,14 +62,12 @@
               
               return nRow;  
           },   
+
 	      
 	});
 
-//    var oTable = $('#example1').dataTable();
-//    oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e','f','j'], 2 ); // Row
 
 
-			
 		t.on('order.dt search.dt',
 		 function() {
   		       t.column(0, {
