@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -13,11 +14,14 @@
         <div class="col-xs-12">
           
           <!-- /.box -->
-          <select>
-            <option value="1">销售到访关联</option>
-            <option value="2">销售认筹关联</option>
+          <select id="xuanzhe">
+          	<option value="0">请选择关联关系</option>
+           	<c:forEach items="${datarelationlist }" var="dlist"> 
+             <option value="${dlist.id }">${dlist.name }</option>
+             </c:forEach>
+            <!-- <option value="2">销售认筹关联</option>
             <option value="3">到访认筹关联</option>
-            <option value="4">到访与媒体渠道关联</option>
+            <option value="4">到访与媒体渠道关联</option> -->
           </select>
 
           <div class="box">

@@ -14,67 +14,67 @@
 	<div class="row">
 		<div class="col-lg-3 col-xs-6">
 			<!-- small box -->
-			<div class="small-box bg-red">
+			<a href="./user_shuju2.shtml"><div class="small-box bg-red">
 				<div class="inner">
 					<h3>上传数据</h3>
 
 					<h5>New Users</h5>
 				</div>
-				<div class="icon">
+				<div style="margin-left:160px;margin-top:-70px">
 					<img src="resource/images/1.png" />
 				</div>
-				<a href="./user_shuju2.shtml" class="small-box-footer">More info <i
-					class="fa fa-arrow-circle-right"></i></a>
-			</div>
+				<span class="small-box-footer">More info
+					<i class="fa fa-arrow-circle-right"></i></span>
+			</div></a>
 		</div>
 		<!-- ./col -->
 		<div class="col-lg-3 col-xs-6">
 			<!-- small box -->
-			<div class="small-box bg-green">
+			<a href="./user_shuju1.shtml"><div class="small-box bg-green">
 				<div class="inner">
 					<h3>启动新任务</h3>
 
 					<h5>New Account</h5>
 				</div>
-				<div class="icon">
+				<div style="margin-left:160px;margin-top:-70px">
 					<img src="resource/images/2.png" />
 				</div>
-				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
-					class="fa fa-arrow-circle-right"></i></a>
-			</div>
+				<span class="small-box-footer">More info 
+					<i class="fa fa-arrow-circle-right"></i></span>
+			</div></a>
 		</div>
 		<!-- ./col -->
 
 		<div class="col-lg-3 col-xs-6">
 			<!-- small box -->
-			<div class="small-box bg-yellow">
+			<a href="./user_guanxitu.shtml"><div class="small-box bg-yellow">
 				<div class="inner">
 					<h3>数据关联关系</h3>
 
 					<h5>New Notification</h5>
 				</div>
-				<div class="icon">
+				<div style="margin-left:160px;margin-top:-70px">
 					<img src="resource/images/3.png" />
 				</div>
-				<a href="./user_guanxitu.shtml" class="small-box-footer">More info <i
-					class="fa fa-arrow-circle-right"></i></a>
-			</div>
+				<span class="small-box-footer">More info 
+					<i class="fa fa-arrow-circle-right"></i></span>
+			</div></a>
 		</div>
 		<!-- ./col -->
 		<div class="col-lg-3 col-xs-6">
 			<!-- small box -->
-			<div class="small-box bg-aqua">
+			<a href="./user_shuju1.shtml"><div class="small-box bg-aqua">
 				<div class="inner">
 					<H3>任务状态</H3>
 
 					<h5>New Data-table</h5>
 				</div>
-				<div class="icon">
+				<div style="margin-left:160px;margin-top:-60px">
 					<img src="resource/images/33.png" />
 				</div>
-				<a href="./user_shuju1.shtml" class="small-box-footer">More info <i
-					class="fa fa-arrow-circle-right"></i></a>
-			</div>
+				<span class="small-box-footer">More info <i
+					class="fa fa-arrow-circle-right"></i></span>
+			</div></a>
 		</div>
 		<!-- ./col -->
 	</div>
@@ -100,7 +100,7 @@
 			<div class="table-responsive">
 				<div id=tz>
 					<ul>
-						<cc:forEach items="${flag }" var="map" begin="0" end="4">
+						<cc:forEach items="${flag }" var="map" begin="0" end="6">
 					
 						<li class=tz1><a href="./gongGao.shtml?id=${map.info.id }">${map.info.title }【<fmt:formatDate value="${map.info.publishDate }" pattern="yyyy-MM-dd"/>】</a>
 						<cc:if test="${map.date==1 }">
@@ -116,7 +116,7 @@
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer clearfix">
-			<a href="javascript:void(0)"
+			<a href="selectTongzhi.shtml"
 				class="btn btn-sm btn-default btn-flat pull-right">more >></a>
 		</div>
 		<!-- /.box-footer -->

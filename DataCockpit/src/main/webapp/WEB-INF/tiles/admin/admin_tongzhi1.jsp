@@ -12,24 +12,30 @@
       <div class="row">
         <div class="col-xs-12">
           
-          <!-- /.box -->
-          
+          <!-- /.box -->        
 
           <div class="box" style="border-top-color: #DD4B39;">                  
             <div class="box-header" style="width: 180px">
               <!-- <h3 class="box-title">通知管理</h3> -->              
             </div>
-            <div style="margin-left: 5px;margin-top: -5px;"><a href="./admin_tongzhi2.shtml"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加通知</button></a></div>
+            <div style="margin-left: 5px;margin-top: -5px;"><a href="./admin_tongzhi2.shtml">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">添加通知</button></a></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th style="text-align: center;">编号</th>
+<!--                 class="sorting_desc" tabindex="0" aria-controls="example2" -->
+<!-- 												rowspan="1" colspan="1" aria-sort="ascending" -->
+<!-- 												aria-label="Rendering engine: activate to sort column descending" -->
+                  <th style="text-align: center;"class="sorting_desc" tabindex="0" aria-controls="example2" 
+ 												rowspan="1" colspan="1" aria-sort="ascending"
+												aria-label="Rendering engine: activate to sort column descending" >编号</th>
                   <th style="text-align: center;">标题</th>
                   <th style="text-align: center;">操作</th>
                 </tr>
                 </thead>
-                <tbody id="check_1" style="text-align: center;">                               
+                <tbody id="check_1" style="text-align: center;">          
+                                     
                 </tbody>                
               </table>
             </div>

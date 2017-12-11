@@ -107,6 +107,7 @@ public class Json2Controller {
         List<Map<String, Object>> lists = jdbc1.selectObj(jt, name);
 
         list.setData(lists);
+       
         return list;
     }
 }

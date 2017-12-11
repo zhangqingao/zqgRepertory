@@ -19,6 +19,13 @@ public interface CompanyinfoService {
      * 
      */
     List<Companyinfo> selectPassCompanies();
+    
+    /**查询未通过审核的公司信息
+     * @return
+     * 
+     * 
+     */
+    List<Companyinfo> selectnoPassCompanies();
     /**
      * 根据公司id删除公司信息
      * 

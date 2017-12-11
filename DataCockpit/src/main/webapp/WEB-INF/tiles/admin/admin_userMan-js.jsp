@@ -19,8 +19,19 @@
 	    	  {"data":"job"},
 	    	  {"data":"email"},     
 	    	  {"data":"state"},
+	    	  
 	                  ],
-	      "columnDefs": [	                     
+	                 
+	          
+	      "columnDefs": [	 
+// 						{
+// 						    "targets": 6,
+// 						     "data": "state", 
+// 						    "render": function ( data, type, row, meta ) {
+						      
+// 						     return '<span>'+date+'</span>'   ;		    		
+// 						    }
+// 						  },
 					{
 	    		    "targets": 7,
 	    		    /* "data": "title", */
@@ -40,9 +51,25 @@
 	    		    			<a href="./aduser_update0.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">禁用</a>';	 	    		    			    
 	 	    		 }
 	 	    	   }
-	      ],	    
-	            
+	      ],
+	      //在页面中修改datetables表格数据
+	      "fnRowCallback" : function(nRow, aData, iDisplayIndex) {  
+              /* 用来改写用户权限的 */  
+              if (aData.state == '1')  
+                  $('td:eq(6)', nRow).html('启用');  
+              if (aData.state == '0')  
+                  $('td:eq(6)', nRow).html('禁用');  
+              
+              return nRow;  
+          },   
+	      
 	});
+
+//    var oTable = $('#example1').dataTable();
+//    oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e','f','j'], 2 ); // Row
+
+
+			
 		t.on('order.dt search.dt',
 		 function() {
   		       t.column(0, {
@@ -54,8 +81,24 @@
   		  	   }).draw();	
 
   })
+   
+
 </script>
 <script language="jscript"> 
 	function ee() { if(confirm("请确认是否启用?" )) return true; return false;  }
 	function dd() { if(confirm("请确认是否禁用?" )) return true; return false;  }
+</script>
+<script type="text/javascript">
+function getTableContent(){  
+	       var nTrs = table.fnGetNodes();//fnGetNodes获取表格所有行，nTrs[i]表示第i行tr对象  
+	       for(var i = 0; i < nTrs.length; i++){  
+	           console.log('[获取数据]' + table.fnGetData(nTrs[i]));//fnGetData获取一行的数据  
+	           alert('[获取数据]' + table.fnGetData(nTrs[i]));
+	       }  
+	   }  
+
+</script>
+<!--
+
+//-->
 </script>

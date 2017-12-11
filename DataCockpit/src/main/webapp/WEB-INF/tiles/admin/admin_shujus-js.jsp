@@ -70,7 +70,7 @@ $("button[data-dismiss=modal]").click(function(){
 	    	  {"targets": 2,
 	    	   "data":"${lists3[2]}"}, 
 	    	  {"targets": 3,
-	    	   "data":"times"},
+	    	   "data":"${lists3[4]}"},
 	    	  {"targets": 4,
 	    	   "data":"${lists3[3]}"},
 	    	  {"targets": 5,

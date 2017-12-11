@@ -10,7 +10,10 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -21,10 +24,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
+import cn.bdqn.datacockpit.entity.Tableinfos;
+import cn.bdqn.datacockpit.entity.Weidulie;
+import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.TableinfoService;
+import cn.bdqn.datacockpit.service.TableinfosService;
+import cn.bdqn.datacockpit.service.WeidulieService;
 import cn.bdqn.datacockpit.service.XsTableService;
 import cn.bdqn.datacockpit.utils.ChineseToPinYin;
 import cn.bdqn.datacockpit.utils.ImportExecl;
@@ -42,7 +52,16 @@ public class UserTilesController {
     private InfoService infoService;
     
     @Autowired
-    private TableinfoService tbinfo;
+    private TableinfoService tableinfo;
+    
+    @Autowired
+    private TableinfosService tableinfos;
+    
+    @Autowired
+    private DatarelationService datarelation;
+    
+    @Autowired
+    private WeidulieService weidulie;
 
     @RequestMapping("/user_pass")
     public String pass(Model model) {
@@ -92,11 +111,28 @@ public class UserTilesController {
     }
 
     @RequestMapping("/user_shuju1")
-    public String shuju1(Model model) {
+    public String shuju1(Model model,HttpServletRequest req) {
+    	//企业关联关系
+    	HttpSession session=req.getSession(false);
+    	Companyinfo companyinfo=(Companyinfo)session.getAttribute("infos");
+    	int cid=companyinfo.getId();
+    	List<Datarelation> datarelationlist =datarelation.selectDatarelationBycid(cid);
+    	model.addAttribute("datarelationlist",datarelationlist);
         model.addAttribute("checks", "shuju1");
         return "user_shuju1.pages";
     }
-
+    
+    //异步更新表管理数据
+    @RequestMapping("/user_shuju1_1")
+    public void shuju1_1(Model model,HttpServletRequest req,HttpServletResponse response){
+    	String id=req.getParameter("id");
+    	System.out.println("id:"+id);
+    	response.setCharacterEncoding("gbk");
+		response.setContentType("text/html");
+		
+    }
+    
+    
     @RequestMapping("/user_shuju2")
     public String shuju2(Model model) {
         model.addAttribute("checks", "shuju2");
@@ -109,7 +145,7 @@ public class UserTilesController {
         String names = req.getParameter("id");
         System.out.println("names:"+names);
         //查看数据表后，更新时间
-        Tableinfo Tbinfo=tbinfo.selectByTbname(names);
+        Tableinfo Tbinfo=tableinfo.selectByTbname(names);
         model.addAttribute("Tbinfo",Tbinfo);
         
         ChineseToPinYin ctp = new ChineseToPinYin();
@@ -180,10 +216,31 @@ public class UserTilesController {
     }
 
     @RequestMapping("/user_guanxitu")
-    public String userGuanxitu(Model model) {
+    public String userGuanxitu(Model model, HttpServletRequest req) {
+    	//企业关联关系
+    	HttpSession session=req.getSession(false);
+    	Companyinfo companyinfo=(Companyinfo)session.getAttribute("infos");
+    	int cid=companyinfo.getId();
+     List<Datarelation> datarelationlist =datarelation.selectDatarelationBycid(cid);
+    	model.addAttribute("datarelationlist",datarelationlist);
         model.addAttribute("checks", "shuju4");
         return "user_guanxitu.pages";
     }
+    
+    //异步更新关系图的数据
+    @RequestMapping("/user_guanxitu1")
+    public void userGuanxitu1(Model model,HttpServletRequest req,HttpServletResponse response)throws Exception{
+    	String id=req.getParameter("id");
+    	System.out.println("id:"+id);
+    	response.setCharacterEncoding("gbk");
+		response.setContentType("text/html");
+    	List<Tableinfos> tableinfoslist=tableinfos.selectByguanlianId(Integer.parseInt(id));
+    	List<Weidulie> Weidulielist=weidulie.selectByguanlianId(Integer.parseInt(id));
+    	JSONArray jarray= JSONArray.fromObject(tableinfoslist);
+    	response.getWriter().write(jarray.toString());
+    	
+    }
+    
     
     @ResponseBody
     @RequestMapping("/user_uploads")
@@ -240,7 +297,7 @@ public class UserTilesController {
         jdbcs.saveObj(jt, tableName, contents);
         
         //数据列表页面，更新时间
-        tbinfo.updateByTbname(tbNames);
+        tableinfo.updateByTbname(tbNames);
         Map<String, String> maps = new HashMap<String, String>();
         maps.put("flag", "1");
         return maps;
@@ -296,11 +353,14 @@ public class UserTilesController {
         jdbcs.saveObj(jt, tableName, contents);
         
         //数据列表页面，更新时间
-        tbinfo.updateByTbname(tbNames);
+        tableinfo.updateByTbname(tbNames);
         
         Map<String, String> maps = new HashMap<String, String>();
         maps.put("flag", "1");
         return maps;
     }
+    
+   
+   
 
 }
