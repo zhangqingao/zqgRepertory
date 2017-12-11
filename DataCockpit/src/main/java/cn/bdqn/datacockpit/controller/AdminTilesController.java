@@ -64,6 +64,9 @@ public class AdminTilesController {
     private RelevanceTableService releTable;
     
     @Autowired
+    private TableinfoService tableinfo;
+    
+    @Autowired
     private AnalysistasksService as;
 
     @RequestMapping("/admin_index")
@@ -546,6 +549,8 @@ public class AdminTilesController {
     public String shuju3(Model model, HttpServletRequest req) {
         model.addAttribute("menus", "3");
         String names = req.getParameter("id");
+        Tableinfo Tbinfo=tableinfo.selectByTbname(names);
+        model.addAttribute("Tbinfo",Tbinfo);
         ChineseToPinYin ctp = new ChineseToPinYin();
         String name = ctp.getPingYin(names);
         model.addAttribute("name2", names);
