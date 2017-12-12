@@ -24,19 +24,13 @@
 					</div>
 					<div style="margin-left:190px;margin-top:-60px">
 						<img src="resource/images/11.png" />
-<<<<<<< HEAD
+
 					</div>
-
-
-					
-
-=======
-					</div>
->>>>>>> refs/remotes/origin/master
-					<span class="small-box-footer">More info 
+								
+				<span class="small-box-footer">More info 
 					<i class="fa fa-arrow-circle-right"></i></span>
-				</div>
-			</div></a>
+				</div></div>
+			</a>
 			<!-- ./col -->
 			
 			<div class="col-lg-3 col-xs-6">
