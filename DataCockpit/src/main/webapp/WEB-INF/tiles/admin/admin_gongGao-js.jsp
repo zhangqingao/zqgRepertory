@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script>
-  $(function () {
+   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
@@ -10,6 +10,6 @@
       'info'        : true,
       'autoWidth'   : false
     })
-  })
+  }) 
 
 </script>

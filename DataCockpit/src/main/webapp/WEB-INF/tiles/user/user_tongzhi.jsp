@@ -16,24 +16,25 @@
           <div class="box">
           
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="text-align: center;">编号</th>
                   <th style="text-align: center;">标题</th>
+                  <th style="text-align: center;">内容</th>
                   <th style="text-align: center;">发布时间</th>
                 </tr>
                 </thead>
                 <tbody id="check_1">
-                   <c:forEach items="${infoList }" var="list" varStatus="status">
-                     <tr>
-		                  <th style="text-align: center;">${requestScope.offset+status.index+1}</th>
-		                  <th style="text-align: center;"><a href="./gongGao.shtml?id=${list.id }" style="color:black">${list.title }</a></th>
-		                  <th style="text-align: center;">
-		                  <fmt:formatDate value="${list.publishDate }" pattern="yyyy-MM-dd" />
-		                  </th>
-		             </tr>
-                   </c:forEach>            
+                 <%--  <c:forEach items="${infoList }" var="list" varStatus="status">
+	                     <tr>
+			                  <th style="text-align: center;">${requestScope.offset+status.index+1}</th>
+			                  <th style="text-align: center;"><a href="./gongGao.shtml?id=${list.id }" style="color:black">${list.title }</a></th>
+			                  <th style="text-align: center;">
+			                        <fmt:formatDate value="${list.publishDate }" pattern="yyyy-MM-dd" />
+			                  </th>
+			             </tr>
+                   </c:forEach>    --%>    
                 </tbody>
                 
               </table>

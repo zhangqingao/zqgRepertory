@@ -309,7 +309,7 @@
 			<artifactId>ehcache-core</artifactId>
 			<version>2.5.3</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>1.6.4</version>
@@ -324,7 +324,7 @@
 		    <artifactId>slf4j-log4j12</artifactId>
 		    <version>1.7.25</version>
 		    <scope>test</scope>
-		</dependency>
+		</dependency> -->
 
 		<!-- excel分析 -->
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
@@ -357,6 +357,9 @@
 			<classifier>jdk15</classifier>
 			<version>2.4</version>
 		</dependency>
+
+
+		
 	</dependencies>
 
 	<build>

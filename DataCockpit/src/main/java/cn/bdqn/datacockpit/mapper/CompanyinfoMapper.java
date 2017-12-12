@@ -20,7 +20,7 @@ public interface CompanyinfoMapper {
     Companyinfo selectByPrimaryKey(Integer id);
 
     Companyinfo selectByPhone(String phone);
-
+//
     int updateByPrimaryKeySelective(Companyinfo record);
 
     int updateByPrimaryKey(Companyinfo record);
