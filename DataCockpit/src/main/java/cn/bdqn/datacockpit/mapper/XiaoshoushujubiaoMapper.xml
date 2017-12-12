@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bdqn.datacockpit.mapper.XiaoshoushujubiaoMapper" >
+<!-- //通过表名，查询出相应数据信息 -->
+	<select id="selectByBname" parameterType="String" resultType="cn.bdqn.datacockpit.entity.Xiaoshoushujubiao">
+		SELECT xiangmumingcheng,suozaiquyu ,daofangrenshu,times,tuidingrenshu,renchourenshu 
+		FROM xiaoshoushujubiao WHERE tbName=#{name}
+	</select>
+</mapper>

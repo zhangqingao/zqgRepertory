@@ -32,7 +32,7 @@
    		  	   })        	 	
    		  	   }).draw();	
 		$("#xuanzhe").change(function(){
-<<<<<<< HEAD
+
 			
 			var id=$(this).val();
 			//alert(id);
@@ -68,15 +68,7 @@
   						}
   						
   					 } 
-=======
-			var id=$(this).val();
-			alert(id);
-			 $.ajax({
-  			   type: "POST",
-  			   url: "user_shuju1_2.shtml?id="+id,
-  				success:function(message){
-  					
->>>>>>> refs/remotes/origin/master
+
   				},
   				error:function(){
   					 alert(XMLHttpRequest.status);

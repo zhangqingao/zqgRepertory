@@ -9,10 +9,20 @@
 
 package cn.bdqn.datacockpit.utils;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -109,10 +119,11 @@ public class ExcelUtils {
         
     }
     //编写Excel
-    public static HSSFWorkbook getHSSFWorkbook(String sheetName,String []title,String [][]values, HSSFWorkbook wb){
+    public  void getHSSFWorkbook(String sheetName,String[] title,String [][] values, HSSFWorkbook wb){
         // 第一步，创建一个webbook，对应一个Excel文件  
        if(wb == null){
            wb = new HSSFWorkbook();
+           
        }
        // 第二步，在webbook中添加一个sheet,对应Excel文件中的sheet  
        HSSFSheet sheet = wb.createSheet(sheetName);  
@@ -136,8 +147,17 @@ public class ExcelUtils {
                 row.createCell(j).setCellValue(values[i][j]);
            }
        }
-       
-      return wb;
+       try {
+    	   FileOutputStream out1 = new FileOutputStream("E://"+sheetName+".xls");
+               wb.write(out1);
+               out1.close();
+          
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+//      return wb;
    }
+    
+ 
 }
 

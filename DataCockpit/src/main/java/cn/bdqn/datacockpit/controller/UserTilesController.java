@@ -1,5 +1,8 @@
 package cn.bdqn.datacockpit.controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -25,18 +29,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Daofangshujubiao;
 import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
 import cn.bdqn.datacockpit.entity.Tableinfos;
 import cn.bdqn.datacockpit.entity.Weidulie;
+import cn.bdqn.datacockpit.entity.Xiaoshoushujubiao;
+import cn.bdqn.datacockpit.service.DaofangshujubiaoService;
 import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.TableinfoService;
 import cn.bdqn.datacockpit.service.TableinfosService;
 import cn.bdqn.datacockpit.service.WeidulieService;
+import cn.bdqn.datacockpit.service.XiaoshoushujubiaoService;
 import cn.bdqn.datacockpit.service.XsTableService;
 import cn.bdqn.datacockpit.utils.ChineseToPinYin;
+import cn.bdqn.datacockpit.utils.ExcelUtils;
 import cn.bdqn.datacockpit.utils.ImportExecl;
 import cn.bdqn.datacockpit.utils.JdbcUtil;
 
@@ -62,6 +71,12 @@ public class UserTilesController {
     
     @Autowired
     private WeidulieService weidulie;
+    
+    @Autowired
+    private XiaoshoushujubiaoService xiaoshoushuju;
+    
+    @Autowired
+    private DaofangshujubiaoService daofangshuju;
 
     @RequestMapping("/user_pass")
     public String pass(Model model) {
@@ -370,6 +385,55 @@ public class UserTilesController {
     }
     
    
-   
+   //导出数据
+    @ResponseBody
+    @RequestMapping("/user_download")
+    public void download(HttpServletRequest request,HttpServletResponse response)throws Exception{
+    	String name=request.getParameter("name");
+    	System.out.println("name:"+name);
+    	ChineseToPinYin ctp = new ChineseToPinYin();
+    	String name1=ctp.getPingYin(name);
+    	System.out.println("name1:"+name1);
+    	String [] title={"项目名称","所在区域","到访人数","日期","退订人数","认筹人数"};
+    	if(name1.equals("xiaoshoushujubiao")){
+    		List<Xiaoshoushujubiao> xiaoshoushujulist= xiaoshoushuju.selectByBname(name1);
+    		String[][] values = new String[xiaoshoushujulist.size()][6];
+    		for(int i = 0; i < xiaoshoushujulist.size();i++){
+    			Xiaoshoushujubiao xsbiao =xiaoshoushujulist.get(i);
+    			
+    				values[i][0]=xsbiao.getXiangmumingcheng();
+    				values[i][1]=xsbiao.getSuozaiquyu();
+    				values[i][2]=xsbiao.getDaofangrenshu().toString();
+    				values[i][3]=xsbiao.getTimes();
+    				values[i][4]=xsbiao.getTuidingrenshu().toString();
+    				values[i][5]=xsbiao.getRenchourenshu().toString();
+    			
+    		}
+    		HSSFWorkbook wb=null;
+            System.out.println("正在导出xlsx....");
+            ExcelUtils ex=new ExcelUtils();
+            ex.getHSSFWorkbook(name, title, values, wb);
+           
+    		
+    	}
+    	if(name1.equals("daofangshujubiao")){
+    		List<Daofangshujubiao> daofangshujulist= daofangshuju.selectByBname(name1);
+    		String[][] values = new String[daofangshujulist.size()][6];
+    		for(int i = 0; i < daofangshujulist.size();i++){
+    			Daofangshujubiao dfbiao =daofangshujulist.get(i);
+    				values[i][0]=dfbiao.getXiangmumingcheng();
+    				values[i][1]=dfbiao.getSuozaiquyu();
+    				values[i][2]=dfbiao.getDaofangrenshu().toString();
+    				values[i][3]=dfbiao.getTimes();
+    				values[i][4]=dfbiao.getTuidingrenshu().toString();
+    				values[i][5]=dfbiao.getRenchourenshu().toString();
+    			
+    		}
+    		HSSFWorkbook wb=null;
+            System.out.println("正在导出xlsx....");
+            ExcelUtils ex=new ExcelUtils();
+            ex.getHSSFWorkbook(name, title, values, wb);
+    	}
+    }
 
 }

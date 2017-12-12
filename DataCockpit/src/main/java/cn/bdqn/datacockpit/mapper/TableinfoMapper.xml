@@ -159,4 +159,6 @@
 	<select id="selectname" parameterType="hashmap" resultType="cn.bdqn.datacockpit.entity.Datarelation">
 		SELECT * FROM datarelation WHERE NAME=#{name} AND cid=#{cid}
 	</select>
+	
+	
 </mapper>
