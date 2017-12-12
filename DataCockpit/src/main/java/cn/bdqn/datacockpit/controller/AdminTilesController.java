@@ -343,7 +343,14 @@ public class AdminTilesController {
         int cid=Integer.parseInt(id);
         System.out.println("什么是cid"+cid);
         List<Tablerelation2> listtable2= ts.selecttablerelation(cid);
-        
+      //遍历关联关系所需要的数据表
+        List< Tableinfo> listf=ts.selectallbyid(cid);
+  
+     String ttb= listf.get(0).getName();
+        //获取维度列
+     HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
+     model.addAttribute("listf", listf);
+     model.addAttribute("maprtb", maprtb);
        int i = 0;
        int j = 0;
        String tb1;
@@ -361,12 +368,7 @@ public class AdminTilesController {
    			table.setCname2(listss.get(1));
    			
    		}
-    	 //遍历关联关系所需要的数据表
-           List< Tableinfo> listf=ts.selectallbyid(cid);
-     
-        String ttb= listf.get(0).getName();
-           //获取维度列
-        HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
+    	 
            //获取现存的分析任务
         List<Analysistasks> listas=as.selectdataBycid(cid);
            model.addAttribute("listf", listf);
