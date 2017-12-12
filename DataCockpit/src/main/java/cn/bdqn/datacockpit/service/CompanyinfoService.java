@@ -1,8 +1,10 @@
 package cn.bdqn.datacockpit.service;
 
 import java.util.List;
+import java.util.Set;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Userinfo;
 
 public interface CompanyinfoService {
 
@@ -90,4 +92,25 @@ public interface CompanyinfoService {
      */
     int selectPhoneNum(String phone);
 
+    
+    /**
+     * shiro通过电话号查询用户
+     * @param userName
+     * @return
+     */
+    public Companyinfo getByCPhone(String phone);
+    
+    /**
+     * shiro通过电话号查询角色信息
+     * @param userName
+     * @return
+     */
+    public Set<String> getCRoles(String phone);
+    
+    /**
+     * shiro通过电话号查询权限信息
+     * @param userName
+     * @return
+     */
+    public Set<String> getCPermissions(String phone);
 }

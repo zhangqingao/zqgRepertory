@@ -1,11 +1,13 @@
 package cn.bdqn.datacockpit.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.bdqn.datacockpit.entity.Companyinfo;
+import cn.bdqn.datacockpit.entity.Userinfo;
 import cn.bdqn.datacockpit.mapper.CompanyinfoMapper;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
 
@@ -13,7 +15,7 @@ import cn.bdqn.datacockpit.service.CompanyinfoService;
 public class CompanyinfoServiceImpl implements CompanyinfoService {
 
     @Autowired
-    private CompanyinfoMapper companyinfo;
+    CompanyinfoMapper companyinfo;
 
     /**
      * 
@@ -125,6 +127,24 @@ public class CompanyinfoServiceImpl implements CompanyinfoService {
 	public List<Companyinfo> selectnoPassCompanies() {
 		// TODO Auto-generated method stub
 		return companyinfo.selectnoPassCompanies();
+	}
+
+	@Override
+	public Companyinfo getByCPhone(String phone) {
+		// TODO Auto-generated method stub
+		return companyinfo.getByCPhone(phone);
+	}
+
+	@Override
+	public Set<String> getCRoles(String phone) {
+		// TODO Auto-generated method stub
+		return companyinfo.getCRoles(phone);
+	}
+
+	@Override
+	public Set<String> getCPermissions(String phone) {
+		// TODO Auto-generated method stub
+		return companyinfo.getCPermissions(phone);
 	}
 
 }

@@ -12,7 +12,6 @@
 
 package cn.bdqn.datacockpit.mapper;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +25,5 @@ import java.util.Map;
  */
 
 public interface RelevanceTableMapper {
-	public List<String> selectAll(String name1,int i,String name2,int j) throws Exception;
-	
-	public HashMap<Integer, Object> selectallname(String name)throws Exception ;//获取所有列名
-
+    List<Map<String, Object>> selectAll() throws Exception;
 }
