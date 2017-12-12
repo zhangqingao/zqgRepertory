@@ -705,31 +705,7 @@ public class AdminTilesController {
     
     	return flag;
     }
-    
-    
-/*    @RequestMapping("/admin_ajaxre")
-    public @ResponseBody String regajax(@RequestParam("tab1") String tab1,@RequestParam("tab2") String tab2,HttpServletRequest req)throws Exception{
-    	 int state=1;
-    	System.out.println("关联tab1:"+tab1+":"+tab2+"状态"+state);    
-    	HttpSession session=req.getSession();
-    	String id=(String)session.getAttribute("No1");
-    	int cid=Integer.parseInt(id);
-    	HashMap map=new HashMap();
-    	map.put("state", state);
-    	map.put("cid", cid);
-    	map.put("tab1",tab1);
-    	map.put("tab2",tab2);
-    	List<Datarelation> listll=ts.listreonlyone(map);
-    	String flag;
-    	if(listll.size()>0){
-    		flag="1";
-    	}else{
-    		flag="2";
-    	}
-    	
-    	return flag;
-    }
-    */
+
     @RequestMapping("/aaaa222")
     public @ResponseBody String regajax22(@RequestParam("tab1") int tab1,@RequestParam("tab2") int tab2,@RequestParam("col1") int col1,@RequestParam("col2") String col2,@RequestParam("name") String name,HttpServletRequest req)throws Exception{   	
     	 int state=1;
