@@ -289,6 +289,14 @@ public class LoginController {
         }
         return "redirect:/user_pass.shtml";
     }
+    @RequestMapping("/updatePassword2")
+    public String updatePassword2(Userinfo user ) {
+        int flag = userinfo.updateByPrimaryKeySelective(user);
+        if (flag >= 1) {
+            return "redirect:/admin_index.shtml";
+        }
+        return "redirect:/admin_pass.shtml";
+    }
 
     /**
      * 检验注册的手机号码是否存在

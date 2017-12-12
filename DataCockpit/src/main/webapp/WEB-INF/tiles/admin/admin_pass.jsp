@@ -8,14 +8,14 @@
         -------------------------->
         <div class="register-box">
   <div class="register-logo">
-    <a href="./admin_uppassword.shtml" style="margin-left: 50px"><b>修改密码</b></a>
+<!--     <a href="./admin_uppassword.shtml" style="margin-left: 50px"><b>修改密码</b></a> -->
   </div>
 
   <div class="register-box-body" style="width: 390px">
     
 
-    <form action="./updatePassword1.shtml" method="post">
-    	<input type="hidden" value="${comp.id }" name="id">
+    <form action="./updatePassword2.shtml" method="post">
+    	<input type="hidden" value="${infos.id }" name="id">
       <div class="form-group has-feedback" id="ddd1">
 
         <sapn style="display: block;margin-bottom: -30px">原密码： </sapn>

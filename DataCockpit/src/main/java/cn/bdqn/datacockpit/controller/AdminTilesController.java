@@ -309,9 +309,17 @@ public class AdminTilesController {
 
     	// 获取实体类信息
 
-        int flag = companyinfo.updateByPrimaryKey(comps);
-
+        int flag = companyinfo.updateByPrimaryKeySelective(comps);
         System.out.println(flag);
+        Userinfo record=new Userinfo();
+//      record.setId(comp.getId());
+      record.setName(comps.getName());
+      record.setJob(comps.getJob());
+      record.setPassword(comps.getPassword());
+      record.setPhone(comps.getPhone());
+      record.setEmail(comps.getEmail());
+      record.setState(comps.getState());
+       int flag1=us.updateByPrimaryKey(record);
         return "admin_userMan.page";
     }
 
@@ -621,6 +629,7 @@ public class AdminTilesController {
     @RequestMapping("/admin_uppassword")
     public String admin_uppassword(Model model) {
         model.addAttribute("checks", "geren2");
+        
         return "admin_pass.page";
     }
     
