@@ -326,9 +326,10 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/selectAllCompanyinfo")
-    public String selectAllCompanyinfo(Model model,HttpSession session, HttpServletRequest req) {
+    public String selectAllCompanyinfo(Model model,Userinfo user,HttpSession session, HttpServletRequest req) {
     	session=req.getSession(true);
         List<Companyinfo> lists = companyinfo.selectAllCompanies();
+        user.getState();
         model.addAttribute("lists", lists);
         List<Info> infoList = is.selectAllInfo();
         if (infoList != null) {

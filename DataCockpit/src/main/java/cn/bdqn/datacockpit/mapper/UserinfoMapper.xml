@@ -16,11 +16,18 @@
 	</select>
 	
 	<select id="getRoles" parameterType="String" resultMap="BaseResultMap">
-		SELECT r.role_name FROM userinfo u INNER JOIN user_role ur ON u.id=ur.uid INNER JOIN role r ON ur.rid=r.id WHERE u.phone=#{phone}
+		SELECT r.role_name FROM userinfo u 
+		INNER JOIN role r ON u.state=r.id 
+		WHERE u.phone=#{phone}
 	</select>
 	
 	<select id="getPermissions" parameterType="String" resultMap="BaseResultMap">
-		SELECT p.per_name FROM userinfo u INNER JOIN user_role ur ON u.id=ur.uid INNER JOIN role r ON ur.rid=r.id INNER JOIN role_permission rp ON rp.rid=r.id INNER JOIN permission p ON p.id=rp.pid WHERE u.phone=#{phone}
+		SELECT p.per_name FROM userinfo u 
+		INNER JOIN user_role ur ON u.id=ur.uid 
+		INNER JOIN role r ON ur.rid=r.id 
+		INNER JOIN role_permission rp ON rp.rid=r.id 
+		INNER JOIN permission p ON p.id=rp.pid 
+		WHERE u.phone=#{phone}
 	</select>
 	
   <!-- 正常增删改查 -->
