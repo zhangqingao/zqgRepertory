@@ -41,7 +41,7 @@
       }
     </style>
 </head>
-<body style="background:url(resource/images/login_bg.jpg);height: 500px;">
+<body style="background:url(resource/images/login_bg01.jpg);height: 500px;">
 
 <div class="login-box">
   <div class="login-logo">

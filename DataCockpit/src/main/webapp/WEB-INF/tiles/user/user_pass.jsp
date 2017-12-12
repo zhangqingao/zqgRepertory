@@ -24,13 +24,13 @@
       <div class="form-group has-feedback" style="margin-top: 30px">
 
         <sapn style="display: block;margin-bottom: -30px">新密码： </sapn>
-             <input type="password" class="form-control" style="width: 270px;margin-left: 85px"  name="password" pattern="[0-9a-zA-Z]{8,16}" required="required">
+             <input type="password" class="form-control" style="width: 270px;margin-left: 85px"  name="password" pattern="[0-9a-zA-Z]{6,16}" placeholder="请输入6-16位数字或字母" required="required">
       </div>
 	<span style="color:red" id="error"></span>
       <div class="form-group has-feedback" style="margin-top: 30px">
 
         <sapn style="display: block;margin-bottom: -30px">确认密码： </sapn>
-            <input type="password" class="form-control" style="width: 270px;margin-left: 85px"  name="password1" pattern="[0-9a-zA-Z]{8,16}" required="required">
+            <input type="password" class="form-control" style="width: 270px;margin-left: 85px"  name="password1" pattern="[0-9a-zA-Z]{6,16}" placeholder="请输入6-16位数字或字母" required="required">
       </div>
 
       <div class="row" style="margin-top: 20px">

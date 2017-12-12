@@ -101,6 +101,7 @@
       </if>
     </trim>
   </insert>
+  
   <update id="updateByPrimaryKeySelective" parameterType="cn.bdqn.datacockpit.entity.Userinfo" >
     update userinfo
     <set >
@@ -125,6 +126,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
   <update id="updateByPrimaryKey" parameterType="cn.bdqn.datacockpit.entity.Userinfo" >
     update userinfo
     set name = #{name,jdbcType=VARCHAR},

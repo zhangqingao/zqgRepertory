@@ -40,7 +40,6 @@ import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.InfoService;
 import cn.bdqn.datacockpit.service.UserinfoService;
 import cn.bdqn.datacockpit.utils.LoggerUtils;
-import cn.bdqn.datacockpit.utils.SessionListener;
 import cn.bdqn.datacockpit.utils.VerifyCodeUtils;
 
 /**
@@ -148,7 +147,7 @@ public class LoginController {
             session.setAttribute("flag", lists);
             return "redirect:/selectAllCompanyinfo.shtml";
         }
-        session.setAttribute("erroMessage", "*请勿重复登陆同一账号！");
+        session.setAttribute("erroMessage", "*账号或者密码输入有误！");
         return "redirect:/login.jsp";
     }
 
@@ -157,55 +156,20 @@ public class LoginController {
      */
     @RequestMapping("/login")
     public String login(Userinfo user, String code2, HttpSession session, HttpServletRequest request) {
-        // 首先判断验证码是否正确
+    	// 首先判断验证码是否正确
         String trueCode = (String) session.getAttribute("code");
-        Map<String, String> loginUserMap =new HashMap<String, String>();
         if (!code2.equals(trueCode)) {
             session.setAttribute("erroMessage", "*验证码错误！");
             return "redirect:/login.jsp";
         }
-        //从SecurityUtils里创建一个subject
         Subject subject = SecurityUtils.getSubject();
-        //在认证提交前准备 toke（令牌）
         UsernamePasswordToken token = new UsernamePasswordToken(user.getPhone(), user.getPassword());
         try {
-        	//执行认证（通过）subject载入令牌
             subject.login(token);
-            //获取subject里的session
             Session session2 = subject.getSession();
-            //判断是否认证通过
-            boolean isAuthenticated= subject.isAuthenticated();
-            if(isAuthenticated){
-            	System.out.println("认证通过。");
-            }
-            //把验证的手机号存起来
             session.setAttribute("phone", user.getPhone());
-            //把登陆的用户存进session监听
-            if(SessionListener.sessionMap.get(user.getPhone().trim())!=null&&
-            	SessionListener.sessionMap.get(user.getPhone().trim()).toString().length()>0){
-            	// 当前用户已经在线 删除用户
-                HttpSession sessionold = (HttpSession) SessionListener.sessionMap.get(user.getPhone().trim());
-                // 注销已在线用户session
-                //sessionold.invalidate();
-                sessionold.removeAttribute("phone");
-                //session = request.getSession(true);
-                SessionListener.sessionMap.remove(user.getPhone().trim());
-                // 清除已在线用户，更新map key 当前用户 value session对象
-                SessionListener.sessionMap.put(user.getPhone().trim(), session);
-                SessionListener.sessionMap.remove(session.getId());
-		        } else {
-		                // 根据当前sessionid 取session对象。 更新map key=用户名 value=session对象 删除map
-		                // key= sessionid
-		        	SessionListener.sessionMap.get(session.getId());
-		        	SessionListener.sessionMap.put(user.getPhone().trim(),SessionListener.sessionMap.get(session.getId()));
-		        	SessionListener.sessionMap.remove(session.getId());
-		        }
-            
-            //shiro验证通过返回给login2，判断权限
             return "redirect:/login2.shtml";
-
-        }catch (Exception e) {
-        	//出现异常，重新登陆
+        } catch (Exception e) {
             e.printStackTrace();
             session.setAttribute("erroMessage", "*用户名或密码错误！");
             return "redirect:/login.jsp";
@@ -238,7 +202,6 @@ public class LoginController {
         HttpSession session = req.getSession();
         Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         session.setAttribute("comp", compi);
-
         return "redirect:/user_update.shtml";
     }
 
@@ -250,11 +213,12 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/updateInfo1")
-    public String updateInfo1(Companyinfo company, HttpServletRequest req) {
+    public String updateInfo1(Companyinfo company,Userinfo user, HttpServletRequest req) {
         // System.out.println(company);
         HttpSession session = req.getSession();
         int flag = companyinfo.updateByPrimaryKeySelective(company);
-        if (flag >= 1) {
+        int flag1=userinfo.updateByPrimaryKeySelective(user);
+        if (flag >= 1&&flag1>0) {
             return "redirect:/user_index.shtml";
         }
         session.setAttribute("message", "*修改失败！");
@@ -282,9 +246,10 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/updatePassword1")
-    public String updatePassword1(Companyinfo company) {
+    public String updatePassword1(Companyinfo company,Userinfo user) {
         int flag = companyinfo.updateByPrimaryKeySelective(company);
-        if (flag >= 1) {
+        int flag01=userinfo.updateByPrimaryKeySelective(user);
+        if (flag >= 1&&flag01>0) {
             return "redirect:/user_index.shtml";
         }
         return "redirect:/user_pass.shtml";

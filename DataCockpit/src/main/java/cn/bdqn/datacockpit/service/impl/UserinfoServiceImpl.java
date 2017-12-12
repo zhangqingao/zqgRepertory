@@ -63,8 +63,7 @@ public class UserinfoServiceImpl implements UserinfoService {
 
     @Override
     public int updateByPrimaryKeySelective(Userinfo record) {
-        int flag = userinfoMapper.updateByPrimaryKeySelective(record);
-        return flag;
+        return  userinfoMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
