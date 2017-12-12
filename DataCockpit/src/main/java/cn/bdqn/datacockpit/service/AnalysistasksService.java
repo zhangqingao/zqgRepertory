@@ -34,9 +34,5 @@ public interface AnalysistasksService {
     int updateByPrimaryKeySelective(Analysistasks record);
 
     int updateByPrimaryKey(Analysistasks record);
-    
-List<Analysistasks> selectdataBycid(Integer cid);
-    
-    int insertanalysistasksbyid(Analysistasks as);
 }
 

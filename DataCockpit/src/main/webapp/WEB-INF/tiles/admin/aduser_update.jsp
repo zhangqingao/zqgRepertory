@@ -29,7 +29,7 @@
       		<input type="hidden" name="state" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.state }">
       		<input type="hidden" name="approval" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.approval }">
       		<input type="hidden" name="corpname" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
-      		<input type="hidden" name="password" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.password }">
+<%--       		<input type="hidden" name="password" class="form-control" style="width: 270px;margin-left: 85px;" value="${comp.password }"> --%>
         <sapn style="display: block;margin-bottom: -30px">企业名称： </sapn>
               <input type="text" class="form-control" disabled="disabled" style="width: 270px;margin-left: 85px;" value="${comp.corpname }">
         <span style="display: block;margin-top: -30px;margin-left: 320px">
@@ -65,6 +65,13 @@
       <div class="form-group has-feedback" style="margin-top: 30px">
         <sapn style="display: block;margin-bottom: -30px">邮箱地址： </sapn>
             <input type="email" class="form-control" style="width: 270px;margin-left: 85px"  name="email" value="${comp.email }">
+        <span style="display: block;margin-top: -30px;margin-left: 320px">
+            <img src="resource/images/ios7-email.png" style="width: 27px;height: 25px">
+        </span>
+      </div>
+      <div class="form-group has-feedback" style="margin-top: 30px">
+        <sapn style="display: block;margin-bottom: -30px">密码： </sapn>
+            <input type="password" class="form-control" style="width: 270px;margin-left: 85px"  name="password" value="${comp.password }">
         <span style="display: block;margin-top: -30px;margin-left: 320px">
             <img src="resource/images/ios7-email.png" style="width: 27px;height: 25px">
         </span>

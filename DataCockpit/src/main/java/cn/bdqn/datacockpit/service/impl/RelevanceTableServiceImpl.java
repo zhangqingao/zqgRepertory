@@ -12,7 +12,6 @@
 
 package cn.bdqn.datacockpit.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,19 +31,12 @@ import cn.bdqn.datacockpit.service.RelevanceTableService;
  */
 @Service
 public class RelevanceTableServiceImpl implements RelevanceTableService {
-	 private RelevanceTableMapper rtm = new RelevanceTable();
+    private RelevanceTableMapper rtm = new RelevanceTable();
 
-		@Override
-		public List<String> selectAll(String name1, int i, String name2, int j)
-				throws Exception {
-			// TODO Auto-generated method stub
-			return rtm.selectAll(name1, i, name2, j);
-		}
+    @Override
+    public List<Map<String, Object>> selectAllTables() throws Exception {
 
-		@Override
-		public HashMap<Integer, Object> selectallname(String name)throws Exception  {
-			// TODO Auto-generated method stub
-			return rtm.selectallname(name);
-		}
+        return rtm.selectAll();
+    }
 
 }

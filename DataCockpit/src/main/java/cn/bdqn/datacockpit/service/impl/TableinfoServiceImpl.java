@@ -9,15 +9,12 @@
 
 package cn.bdqn.datacockpit.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Tableinfo;
-import cn.bdqn.datacockpit.entity.Tablerelation2;
 import cn.bdqn.datacockpit.mapper.TableinfoMapper;
 import cn.bdqn.datacockpit.service.TableinfoService;
 
@@ -57,56 +54,6 @@ public class TableinfoServiceImpl implements TableinfoService {
 	public Tableinfo selectByTbname(String name) {
 		// TODO Auto-generated method stub
 		return tm.selectByTbname(name);
-	}
-	
-
-
-	@Override
-	public List<Tablerelation2> selecttablerelation(Integer cid) {
-		// TODO Auto-generated method stub
-		return tm.selecttablerelation(cid);
-	}
-
-	@Override
-	public List<Tableinfo> selectallbyid(Integer cid) {
-		// TODO Auto-generated method stub
-		return tm.selectallbyid(cid);
-	}
-
-	@Override
-	public String selectnamebyid(Integer id) {
-		// TODO Auto-generated method stub
-		return tm.selectnamebyid(id);
-	}
-
-	@Override
-	public int updaterestate(HashMap map) {
-		// TODO Auto-generated method stub
-		return tm.updaterestate(map);
-	}
-
-	@Override
-	public List<Datarelation> listreonlyone(HashMap map) {
-		// TODO Auto-generated method stub
-		return tm.listreonlyone(map);
-	}
-
-	@Override
-	public int myinsert(HashMap map) {
-		// TODO Auto-generated method stub
-		return tm.myinsert(map);
-	}
-
-	@Override
-	public List<Datarelation> selectstate(HashMap map) {
-		// TODO Auto-generated method stub
-		return tm.selectstate(map);
-	}
-
-	@Override
-	public List<Datarelation> selectname(HashMap map) {
-		// TODO Auto-generated method stub
-		return tm.selectname(map);
 	}
 
 }

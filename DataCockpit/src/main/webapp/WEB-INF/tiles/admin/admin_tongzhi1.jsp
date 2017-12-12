@@ -24,9 +24,6 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-<!--                 class="sorting_desc" tabindex="0" aria-controls="example2" -->
-<!-- 												rowspan="1" colspan="1" aria-sort="ascending" -->
-<!-- 												aria-label="Rendering engine: activate to sort column descending" -->
                   <th style="text-align: center;"class="sorting_desc" tabindex="0" aria-controls="example2" 
  												rowspan="1" colspan="1" aria-sort="ascending"
 												aria-label="Rendering engine: activate to sort column descending" >编号</th>
