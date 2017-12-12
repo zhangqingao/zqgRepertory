@@ -80,7 +80,7 @@ public class LoginController {
             String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
             // 存入会话session
             HttpSession session = request.getSession(true);
-            session.setAttribute("code", verifyCode.toLowerCase()); 
+            session.setAttribute("code", verifyCode.toLowerCase());
             // 生成图片
             int w = 146, h = 33;
             VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);
@@ -103,11 +103,11 @@ public class LoginController {
      * @param req
      * @return
      */
-
     @RequestMapping("/login2")
     public String login(HttpSession session, HttpServletResponse res, HttpServletRequest req) {
-        session = req.getSession();
-        String phone = (String) session.getAttribute("phone");
+        session = req.getSession(true);
+        String phone=(String)req.getSession().getAttribute("phone");
+        System.out.println("传进来的："+session.getId());
         List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
         Companyinfo compi = companyinfo.selectByPhone(phone);
         Userinfo ui = userinfo.getByPhone(phone);
@@ -140,34 +140,35 @@ public class LoginController {
         if (compi != null) {
             session.setAttribute("infos", compi);
             session.setAttribute("flag", lists);
-            return "redirect:/user_index.shtml";
+            return "forward:/user_index.shtml";
         }
         // 判断账号密码是否正确（管理员）
         if (ui != null) {
             session.setAttribute("infos", ui);
             session.setAttribute("flag", lists);
-            return "redirect:/selectAllCompanyinfo.shtml";
+            return "forward:/selectAllCompanyinfo.shtml";
         }
         session.setAttribute("erroMessage", "*请勿重复登陆同一账号！");
-        return "redirect:/login.jsp";
+        return "forward:/login.jsp";
     }
 
     /*
      * shiro方法登录
      */
     @RequestMapping("/login")
-    public String login(Userinfo user, String code2, HttpSession session, HttpServletRequest request) {
+    public String login(String code2, HttpSession session, HttpServletRequest request) {
         // 首先判断验证码是否正确
         String trueCode = (String) session.getAttribute("code");
-        Map<String, String> loginUserMap =new HashMap<String, String>();
+        String phone=request.getParameter("phone");
+        String password=request.getParameter("password");
         if (!code2.equals(trueCode)) {
             session.setAttribute("erroMessage", "*验证码错误！");
-            return "redirect:/login.jsp";
+            return "forward:/login.jsp";
         }
         //从SecurityUtils里创建一个subject
         Subject subject = SecurityUtils.getSubject();
         //在认证提交前准备 toke（令牌）
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getPhone(), user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(phone, password);
         try {
         	//执行认证（通过）subject载入令牌
             subject.login(token);
@@ -177,38 +178,39 @@ public class LoginController {
             boolean isAuthenticated= subject.isAuthenticated();
             if(isAuthenticated){
             	System.out.println("认证通过。");
-            }
-            //把验证的手机号存起来
-            session.setAttribute("phone", user.getPhone());
+            } 
             //把登陆的用户存进session监听
-            if(SessionListener.sessionMap.get(user.getPhone().trim())!=null&&
-            	SessionListener.sessionMap.get(user.getPhone().trim()).toString().length()>0){
+            if(SessionListener.sessionMap.get(phone.trim())!=null&&
+            	SessionListener.sessionMap.get(phone.trim()).toString().length()>0){
             	// 当前用户已经在线 删除用户
-                HttpSession sessionold = (HttpSession) SessionListener.sessionMap.get(user.getPhone().trim());
+                HttpSession sessionold = (HttpSession) SessionListener.sessionMap.get(phone.trim());
                 // 注销已在线用户session
-                //sessionold.invalidate();
                 sessionold.removeAttribute("phone");
-                //session = request.getSession(true);
-                SessionListener.sessionMap.remove(user.getPhone().trim());
+                System.out.println("login移除的："+session.getId());
+                SessionListener.sessionMap.remove(phone.trim());
                 // 清除已在线用户，更新map key 当前用户 value session对象
-                SessionListener.sessionMap.put(user.getPhone().trim(), session);
+                SessionListener.sessionMap.put(phone.trim(), session);
                 SessionListener.sessionMap.remove(session.getId());
 		        } else {
 		                // 根据当前sessionid 取session对象。 更新map key=用户名 value=session对象 删除map
 		                // key= sessionid
 		        	SessionListener.sessionMap.get(session.getId());
-		        	SessionListener.sessionMap.put(user.getPhone().trim(),SessionListener.sessionMap.get(session.getId()));
+		        	SessionListener.sessionMap.put(phone.trim(),SessionListener.sessionMap.get(session.getId()));
 		        	SessionListener.sessionMap.remove(session.getId());
+		        	SessionListener.sessionMap.put(session.getId(), session);   
 		        }
-            
+            //把验证的手机号存起来
+            session=request.getSession(true);
+            request.getSession().setAttribute("phone", phone);
+            System.out.println("login创建的："+session.getId());
             //shiro验证通过返回给login2，判断权限
-            return "redirect:/login2.shtml";
+            return "forward:/login2.shtml";
 
         }catch (Exception e) {
         	//出现异常，重新登陆
             e.printStackTrace();
             session.setAttribute("erroMessage", "*用户名或密码错误！");
-            return "redirect:/login.jsp";
+            return "forward:/login.jsp";
         }
     }
     /**
@@ -235,11 +237,11 @@ public class LoginController {
      */
     @RequestMapping("/updateInfo")
     public String updateInfo(HttpServletRequest req) {
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(true);
         Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         session.setAttribute("comp", compi);
 
-        return "redirect:/user_update.shtml";
+        return "forward:/user_update.shtml";
     }
 
     /**
@@ -252,13 +254,13 @@ public class LoginController {
     @RequestMapping("/updateInfo1")
     public String updateInfo1(Companyinfo company, HttpServletRequest req) {
         // System.out.println(company);
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(true);
         int flag = companyinfo.updateByPrimaryKeySelective(company);
         if (flag >= 1) {
-            return "redirect:/user_index.shtml";
+            return "forward:/user_index.shtml";
         }
         session.setAttribute("message", "*修改失败！");
-        return "redirect:/user_update.shtml";
+        return "forward:/user_update.shtml";
     }
 
     /**
@@ -269,10 +271,10 @@ public class LoginController {
      */
     @RequestMapping("/updatePassword")
     public String updatePassword(HttpServletRequest req) {
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(true);
         Companyinfo compi = (Companyinfo) session.getAttribute("infos");
         session.setAttribute("comp", compi);
-        return "redirect:/user_pass.shtml";
+        return "forward:/user_pass.shtml";
     }
 
     /**
@@ -285,17 +287,9 @@ public class LoginController {
     public String updatePassword1(Companyinfo company) {
         int flag = companyinfo.updateByPrimaryKeySelective(company);
         if (flag >= 1) {
-            return "redirect:/user_index.shtml";
+            return "forward:/user_index.shtml";
         }
-        return "redirect:/user_pass.shtml";
-    }
-    @RequestMapping("/updatePassword2")
-    public String updatePassword2(Userinfo user ) {
-        int flag = userinfo.updateByPrimaryKeySelective(user);
-        if (flag >= 1) {
-            return "redirect:/admin_index.shtml";
-        }
-        return "redirect:/admin_pass.shtml";
+        return "forward:/user_pass.shtml";
     }
 
     /**
@@ -327,10 +321,8 @@ public class LoginController {
      */
     @RequestMapping("/exit")
     public String exit(HttpServletRequest req) {
-        req.getSession().removeAttribute("comp");
+        req.getSession(true).removeAttribute("phone");
         Subject subject = SecurityUtils.getSubject();
-		//退出操作
-        subject.logout();
         //判断是否认证通过
         boolean isAuthenticated= subject.isAuthenticated();
         if(!isAuthenticated){

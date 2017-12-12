@@ -1,5 +1,8 @@
 package cn.bdqn.datacockpit.entity;
 
+import java.util.List;
+import java.util.Set;
+
 public class Companyinfo {
 
     private Integer id;
@@ -19,7 +22,10 @@ public class Companyinfo {
     private Integer state;
 
     private Integer approval;
+    
+    private List<String> companyrole;
 
+    private Set<String> permission;
     public Integer getId() {
         return id;
     }
@@ -92,7 +98,7 @@ public class Companyinfo {
         this.approval = approval;
     }
 
-    /*
+	/*
      * (non-Javadoc)
      * 
      * @see java.lang.Object#toString()
@@ -101,7 +107,7 @@ public class Companyinfo {
     public String toString() {
         return "Companyinfo [id=" + id + ", corpname=" + corpname + ", phone=" + phone + ", name=" + name + ", job="
                 + job + ", password=" + password + ", email=" + email + ", state=" + state + ", approval=" + approval
-                + "]";
+                + ", companyrole=" + companyrole + ", permission=" + permission + "]";
     }
 
 }

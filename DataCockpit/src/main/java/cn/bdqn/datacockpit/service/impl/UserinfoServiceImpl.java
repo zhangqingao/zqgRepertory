@@ -88,10 +88,4 @@ public class UserinfoServiceImpl implements UserinfoService {
         return userinfoMapper.getPermissions(phone);
     }
 
-	@Override
-	public int updatepassword(Userinfo record) {
-		// TODO Auto-generated method stub
-		return userinfoMapper.updatepassword(record);
-	}
-
 }

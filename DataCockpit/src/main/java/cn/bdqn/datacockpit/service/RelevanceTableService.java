@@ -12,7 +12,6 @@
 
 package cn.bdqn.datacockpit.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +25,5 @@ import java.util.Map;
  */
 
 public interface RelevanceTableService {
-public List<String> selectAll(String name1,int i,String name2,int j) throws Exception;
-    
-	public HashMap<Integer, Object> selectallname(String name)throws Exception;
+    List<Map<String, Object>> selectAllTables() throws Exception;
 }

@@ -20,7 +20,6 @@ public interface UserinfoMapper {
     int updateByPrimaryKeySelective(Userinfo record);
 
     int updateByPrimaryKey(Userinfo record);
-    int updatepassword(Userinfo record);
     
     /**
      * shiro通过电话号查询用户
