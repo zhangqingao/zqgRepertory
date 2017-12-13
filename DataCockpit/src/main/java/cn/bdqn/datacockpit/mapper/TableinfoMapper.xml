@@ -125,6 +125,7 @@
   <select id="selectByTbname" parameterType="String" resultType="cn.bdqn.datacockpit.entity.Tableinfo">
   	SELECT * FROM tableinfo WHERE NAME=#{name}
   </select>
+
    <!-- 查询表是否存在 -->
   <select id="selecttableByName" parameterType="hashmap" resultType="cn.bdqn.datacockpit.entity.Tableinfo">
   	SELECT * FROM tableinfo WHERE NAME=#{name} AND cid=#{cid}

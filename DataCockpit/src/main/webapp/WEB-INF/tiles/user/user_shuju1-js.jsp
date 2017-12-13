@@ -32,13 +32,43 @@
    		  	   })        	 	
    		  	   }).draw();	
 		$("#xuanzhe").change(function(){
+
+			
 			var id=$(this).val();
-			alert(id);
+			//alert(id);
 			 $.ajax({
   			   type: "POST",
-  			   url: "user_shuju1_2.shtml?id="+id,
+  			   url: "user_shuju1_1.shtml?id="+id,
   				success:function(message){
-  					
+  					var $tianjia;
+  					$("#guanxibiao span:first").remove();
+  					$("#guanxibiao span:first").remove();
+  					$("#guanxizhiduan span:first").remove();
+  					$("#guanxizhiduan span:first").remove();
+  					 var mess=eval("("+message+")");
+  					 //alert(mess);
+  					//var me=mess[0].tableinfoslist[0].name;
+  					//alert(mess.length);
+  					//var me=mess[0];
+  					// alert(me);
+  					 for(var i=0;i<mess.length;i++){
+  						var me=mess[i].tableinfoslist;
+  						var me1=mess[i].Weidulielist;
+  						//alert(me);
+  						//alert(me1);
+  						for(var j=0;j<me.length;j++){
+  							
+  							var m=me[j].name;
+  							var m1=me1[j].lie_name;
+  							//alert(m);
+  							//alert(m1);
+  							$tianjia=$("<span id='jj'>"+me[j].name+"、</span>");
+  							$("#guanxibiao").append($tianjia);
+  							$("#guanxizhiduan").append("<span>"+me[j].name+"."+me1[j].lie_name+"、</span>")
+  						}
+  						
+  					 } 
+
   				},
   				error:function(){
   					 alert(XMLHttpRequest.status);

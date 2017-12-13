@@ -194,15 +194,15 @@ public class AdminTilesController {
         Integer id = Integer.parseInt(request.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setApproval(1);
-        Userinfo record=new Userinfo();
-//        record.setId(comp.getId());
-        record.setName(comp.getName());
-        record.setJob(comp.getJob());
-        record.setPassword(comp.getPassword());
-        record.setPhone(comp.getPhone());
-        record.setEmail(comp.getEmail());
-        record.setState(comp.getState());
-        int flag = us.insertSelective(record);
+//        Userinfo record=new Userinfo();
+////        record.setId(comp.getId());
+//        record.setName(comp.getName());
+//        record.setJob(comp.getJob());
+//        record.setPassword(comp.getPassword());
+//        record.setPhone(comp.getPhone());
+//        record.setEmail(comp.getEmail());
+//        record.setState(comp.getState());
+//        int flag = us.insertSelective(record);
         companyinfo.updateByPrimaryKey(comp);
         return "admin_userDsh.page";
     }
@@ -213,15 +213,15 @@ public class AdminTilesController {
         Integer id = Integer.parseInt(request.getParameter("id"));
         Companyinfo comp = companyinfo.selectByPrimaryKey(id);
         comp.setApproval(1);
-        Userinfo record=new Userinfo();
-//        record.setId(comp.getId());
-        record.setName(comp.getName());
-        record.setJob(comp.getJob());
-        record.setPassword(comp.getPassword());
-        record.setPhone(comp.getPhone());
-        record.setEmail(comp.getEmail());
-        record.setState(comp.getState());
-        int flag = us.insertSelective(record);
+//        Userinfo record=new Userinfo();
+////        record.setId(comp.getId());
+//        record.setName(comp.getName());
+//        record.setJob(comp.getJob());
+//        record.setPassword(comp.getPassword());
+//        record.setPhone(comp.getPhone());
+//        record.setEmail(comp.getEmail());
+//        record.setState(comp.getState());
+//        int flag = us.insertSelective(record);
         companyinfo.updateByPrimaryKey(comp);
         return "admin_index.page";
     }
@@ -298,6 +298,15 @@ public class AdminTilesController {
         int cid=Integer.parseInt(id);
         System.out.println("什么是cid"+cid);
         List<Tablerelation2> listtable2= ts.selecttablerelation(cid);
+        //遍历关联关系所需要的数据表
+        List< Tableinfo> listf=ts.selectallbyid(cid);
+  
+     String ttb= listf.get(0).getName();
+        //获取维度列
+     HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
+     //获取现存的分析任务
+     model.addAttribute("listf", listf);
+     model.addAttribute("maprtb", maprtb);
         
        int i = 0;
        int j = 0;
@@ -316,13 +325,13 @@ public class AdminTilesController {
    			table.setCname2(listss.get(1));
    			
    		}
-    	 //遍历关联关系所需要的数据表
-           List< Tableinfo> listf=ts.selectallbyid(cid);
-     
-        String ttb= listf.get(0).getName();
-           //获取维度列
-        HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
-           //获取现存的分析任务
+//    	 //遍历关联关系所需要的数据表
+//           List< Tableinfo> listf=ts.selectallbyid(cid);
+//     
+//        String ttb= listf.get(0).getName();
+//           //获取维度列
+//        HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
+//           //获取现存的分析任务
         List<Analysistasks> listas=as.selectdataBycid(cid);
            model.addAttribute("listf", listf);
            model.addAttribute("listtable2", listtable2);

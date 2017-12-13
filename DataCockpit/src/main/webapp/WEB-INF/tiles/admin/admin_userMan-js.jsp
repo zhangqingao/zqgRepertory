@@ -51,6 +51,7 @@
 	    		    			<a href="./aduser_update0.shtml?id='+row.id+'" onclick="return dd();" class="button button-primary button-rounded button-small" style="font-size: 10.5px;font-weight: bolder; ">禁用</a>';	 	    		    			    
 	 	    		 }
 	 	    	   }
+
 	      ],
 	      //在页面中修改datetables表格数据
 	      "fnRowCallback" : function(nRow, aData, iDisplayIndex) {  
@@ -67,6 +68,9 @@
 	});
 
 
+
+
+			
 
 		t.on('order.dt search.dt',
 		 function() {

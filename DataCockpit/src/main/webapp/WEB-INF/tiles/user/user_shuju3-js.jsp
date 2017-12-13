@@ -13,6 +13,23 @@
     
     ); 
      });
+    
+    //导出数据
+    $("#download").click(function(){
+    	var name=$("#tbname").val();
+    	//alert(name);
+    	
+    	  $.ajax({
+			   type: "POST",
+			   url: "user_download.shtml?name="+name,
+			   success:function(message){
+				   alert("导出数据成功!")
+			   },
+    	 	   error:function(){
+    	 		   alert("导出数据失败！")
+    	 	   }
+    	 }) 
+    });
   
 </script>
 <script type="text/javascript">

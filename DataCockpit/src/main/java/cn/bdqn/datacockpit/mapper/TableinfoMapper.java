@@ -27,6 +27,7 @@ public interface TableinfoMapper {
     int updateByTbname(String name);
     
     //通过添加的表明名，查询出更新时间
+
     Tableinfo selectByTbname(String name);
     
     //新建表时查询是否已经存在该表
@@ -49,4 +50,6 @@ public interface TableinfoMapper {
     
     //查询关联关系的name是否重复
     List<Datarelation> selectname(HashMap map);
+
+
 }

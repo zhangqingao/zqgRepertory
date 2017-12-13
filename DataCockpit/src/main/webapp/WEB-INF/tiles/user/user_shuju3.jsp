@@ -9,7 +9,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i>最近一次的更新时间</li>
-        <li >${Tbinfo.updatetime }</li>
+        <li >${Tbinfo.updatetime}</li>
 <!--         <li>15:20:33</li> -->
       </ol>
     </section>
@@ -25,7 +25,7 @@
             </div>
             <div id="uploads" style="margin-left: 180px;margin-top: -35px"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">上传新数据</button></div>
 
-            <div id="download" style="margin-left: 300px;margin-top: -29.7px"><button id="downs" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button></div>
+            <div id="download" style="margin-left: 300px;margin-top: -29.7px"><button id="downs" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" data-whatever="@jason" style="width: 100px;height: 30px;font-size: 14px;line-height: 0px">导出数据</button><input type="hidden" id="tbname" value="${Tbinfo.name }"/></div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -181,8 +181,12 @@
        		success:function(result){
        			if(result.flag==1){
        				
-       				window.location.href="./user_shuju3.shtml?id=${name2}"
+       				window.location.href="./user_shuju3.shtml?id=${name2}";
+       				alert("上传数据成功！");
        			}
+       		},
+       		error:function(){
+       			alert("上传数据失败！")
        		}
        			
        		 
