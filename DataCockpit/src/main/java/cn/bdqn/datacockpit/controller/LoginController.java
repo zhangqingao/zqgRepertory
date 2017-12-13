@@ -262,6 +262,17 @@ public class LoginController {
         }
         return "forward:/user_pass.shtml";
     }
+    @RequestMapping("/updatePassword2")
+    public String updatePassword2(Userinfo user) {
+       
+
+        int flag01=userinfo.updateByPrimaryKeySelective(user);
+        if (flag01>0) {
+            return "redirect:/admin_index.shtml";
+
+        }
+        return "forward:/admin_pass.shtml";
+    }
 
     /**
      * 检验注册的手机号码是否存在

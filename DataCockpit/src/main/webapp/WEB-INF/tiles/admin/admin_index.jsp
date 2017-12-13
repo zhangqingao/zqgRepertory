@@ -89,7 +89,7 @@
 				<div class="table-responsive">
 					<div id=tz>
 						<ul>
-							<c:forEach items="${flag }" var="tz" begin="0" end="6">
+							<c:forEach items="${flag }" var="tz" begin="0" end="4">
 							<li class=tz1><a href="./admin_gongGao.shtml?id=${tz.info.id }">${tz.info.title }【<fmt:formatDate value="${tz.info.publishDate }" pattern="yyyy-MM-dd"/>】</a>
 							<c:if test="${tz.date==1 }">
 							<img src="resource/images/6.png" />

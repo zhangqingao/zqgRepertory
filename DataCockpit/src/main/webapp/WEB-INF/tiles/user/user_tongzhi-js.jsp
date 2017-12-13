@@ -1,5 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
+Date.prototype.Format = function(fmt) { //author: meizz 
+    var o = { 
+        "M+": this.getMonth() + 1, 
+        //月份 
+        "d+": this.getDate(), 
+        //日 
+        "h+": this.getHours(), 
+        //小时 
+        "m+": this.getMinutes(), 
+        //分 
+        "s+": this.getSeconds(), 
+        //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), 
+        //季度 
+        "S": this.getMilliseconds() //毫秒 
+    }; 
+    if (/(y+)/.test(fmt)) { 
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length)); 
+    } 
+    for (var k in o) { 
+        if (new RegExp("(" + k + ")").test(fmt)) { 
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length))); 
+        } 
+    } 
+    return fmt; 
+} 
+</script>
+<script type="text/javascript">
           
               $("#check_1 tr").find("td:eq(0)").css("width","100px")
               $("#check_1 tr").find("td:eq(0)").css("text-align","center")
@@ -62,31 +90,26 @@
 	    	  {"data": "office","defaultContent": "1" },
 	    	  {"data":"title"},
 	    	  {"data":"details"}, 
-	   		  {"data":"publishDate"},
-	    	  /*  "render" : function(data, type, full, meta) {  
-                  //时间格式化  
-                  return  moment(publishDate).format("YYYY-MM-DD");   
-              }   */
-	    	/*   {
-                  "targets": 3,
-                  "mData": "publishDate", 
-				   "render" : function(data, type, full, meta) {  
-				         //时间格式化  
-				         return  moment(mData).format("YYYY-MM-DD");  
-       				}
-                 }    
-	                  ], */
-	            
-	                 /*   "aoColumns": [	 
-					 	{
-					    "targets": 3,
-					     "mData": "publishDate", 
-					     "render" : function(data, type, full, meta) {  
-					         //时间格式化  
-					         return  moment(mData).format("YYYY-MM-DD");  
-					     } 
-					 	},*/
-						]  
+	   		 //{"data":"publishDate"},
+	   		 
+	                  ], 
+
+		  "columnDefs": [	 
+			 	{
+				"targets": 3,
+			    "mData": "publishDate", 
+				"render" : function(data, type, row, meta) {  
+				//时间格式化  
+				//var time =new  data.Format("yyyy-MM-dd hh:mm:ss"); 
+			   return (new Date(data)).Format("yyyy-MM-dd hh:mm:ss"); ;
+				
+						     		 
+					   } 
+				},
+			]
+	      
+	     
+						 
 	});
 		t.on('order.dt search.dt',
 		 function() {
