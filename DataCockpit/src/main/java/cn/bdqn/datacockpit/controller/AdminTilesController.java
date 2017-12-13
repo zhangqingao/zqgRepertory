@@ -23,11 +23,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.bdqn.datacockpit.entity.Analysistasks;
 import cn.bdqn.datacockpit.entity.Companyinfo;
 import cn.bdqn.datacockpit.entity.Datarelation;
 import cn.bdqn.datacockpit.entity.Info;
 import cn.bdqn.datacockpit.entity.Tableinfo;
+import cn.bdqn.datacockpit.entity.Tablerelation2;
 import cn.bdqn.datacockpit.entity.Userinfo;
+import cn.bdqn.datacockpit.service.AnalysistasksService;
 import cn.bdqn.datacockpit.service.CompanyinfoService;
 import cn.bdqn.datacockpit.service.DatarelationService;
 import cn.bdqn.datacockpit.service.InfoService;
@@ -50,6 +53,9 @@ public class AdminTilesController {
 
     @Autowired
     private InfoService is;
+    
+    @Autowired
+    private AnalysistasksService as;
 
     @Autowired
     private CompanyinfoService companyinfo;
@@ -282,18 +288,50 @@ public class AdminTilesController {
     }
 
     @RequestMapping("/admin_shuju1")
-    public String shuju1(Model model, HttpSession session, HttpServletRequest request) throws Exception {
-   	 	session=request.getSession(true);
-    	model.addAttribute("menus", "3");
-        String id = request.getParameter("id");
-        System.out.println("ddid"+id);
-        session = request.getSession();
-        session.setAttribute("No1", id);
-        List<Map<String, Object>> lists = releTable.selectAllTables();
-        model.addAttribute("lists", lists);
+    public String shuju1(Model model, HttpServletRequest req) throws Exception {
+        model.addAttribute("menus", "3");
+        String id = req.getParameter("id");
+        HttpSession session = req.getSession();
+        session.setAttribute("No1", id);//No1企业的id
+       // List<Map<String, Object>> lists = releTable.selectAllTables();//所有的数据表
+        //得到该企业的表关联关系
+        int cid=Integer.parseInt(id);
+        System.out.println("什么是cid"+cid);
+        List<Tablerelation2> listtable2= ts.selecttablerelation(cid);
+        
+       int i = 0;
+       int j = 0;
+       String tb1;
+       String tb2;
+       if(listtable2.size()>0){
+    	   for (Tablerelation2 table : listtable2) {
+   			i=table.getCol1();
+   			j=table.getCol2();
+   			tb1=table.getTid1();
+   			tb2=table.getTid2();
+   			System.out.println("关联表"+tb1+":"+tb2);
+   			List<String> listss=releTable.selectAll(tb1, i, tb2, j);
+   			
+   			table.setCname1(listss.get(0));//得到列名 ===根据表名去查询该字段的的值
+   			table.setCname2(listss.get(1));
+   			
+   		}
+    	 //遍历关联关系所需要的数据表
+           List< Tableinfo> listf=ts.selectallbyid(cid);
+     
+        String ttb= listf.get(0).getName();
+           //获取维度列
+        HashMap<Integer, Object> maprtb=releTable.selectallname(ttb);
+           //获取现存的分析任务
+        List<Analysistasks> listas=as.selectdataBycid(cid);
+           model.addAttribute("listf", listf);
+           model.addAttribute("listtable2", listtable2);
+           model.addAttribute("maprtb", maprtb);
+           
+           model.addAttribute("listas", listas);
+       }      
         return "admin_shuju1.page";
-    }
-
+        }
     @RequestMapping("/admin_shuju2")
     public String shuju2(Model model, HttpSession session, HttpServletRequest request) {
         return "admin_shuju2.page";
@@ -388,7 +426,8 @@ public class AdminTilesController {
                 tbName = ctp.getPingYin(attr[1]);
             } else if (2 * i - 1 <= attr.length) {
 
-                map.put(ctp.getPingYin(attr[2 * i - 2]), attr[2 * i - 1]);
+//                map.put(ctp.getPingYin(attr[2 * i - 2]), attr[2 * i - 1]);
+            	 map.put(attr[2 * i - 2], attr[2 * i - 1]);
 
             }
         }

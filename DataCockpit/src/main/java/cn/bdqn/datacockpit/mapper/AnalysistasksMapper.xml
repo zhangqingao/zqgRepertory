@@ -145,4 +145,10 @@
       arithmeticid = #{arithmeticid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectdataBycid" parameterType="Integer" resultType="cn.bdqn.datacockpit.entity.Analysistasks">
+  	SELECT a.*,(SELECT NAME FROM datarelation b WHERE b.id=a.`did`) NAME FROM analysistasks a WHERE cid=#{cid};
+   </select>
+   <insert id="insertanalysistasksbyid" parameterType="cn.bdqn.datacockpit.entity.Analysistasks">
+   		INSERT INTO analysistasks(cid,did,taskstatus,rule,arithmeticid) VALUE(#{cid},#{did},#{taskstatus},#{rule},#{arithmeticid})
+   </insert>
 </mapper>
